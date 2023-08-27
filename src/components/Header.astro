@@ -1,0 +1,53 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import Logo from './Logo.astro';
+---
+
+<header>
+	<nav>
+		<Logo href="/" title="robosnjunior.dev"/>
+
+		<div class="internal-links">
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: var(--dark);
+	}
+	
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--median);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+
+
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>
