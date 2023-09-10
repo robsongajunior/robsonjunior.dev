@@ -1,5 +1,5 @@
 {
-    "name": "robsonjunior",
+    "name": "robsonjunior.dev",
     "type": "module",
     "version": "0.0.1",
     "scripts": {
@@ -13,7 +13,8 @@
         "@astrojs/mdx": "^0.19.7",
         "@astrojs/rss": "^2.4.4",
         "@astrojs/sitemap": "^2.0.2",
-        "astro": "^2.10.9"
+        "@astrojs/vue": "^3.0.0",
+        "astro": "^3.0.12"
     },
     "engines": {
         "node": "20.5.1"
