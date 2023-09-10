@@ -45,35 +45,80 @@ import Default from '../layouts/Default.astro';
 
 	<section class="projects">
 		<div class="center-content">
-			<h3>Últimos projetos</h3>
+			<h2>Últimas entregas</h2>
 			<ul class="card-list">
 				<li>
-					<h4>Azion Docs</h4>
+					<h3>Azion Docs</h3>
 					<p>
 						Migração de Jekyll para Astro com objetivo de se tornar agnóstico a component library, suportanto mdx e dispobibilizando novos componntes para serem facilmente consumidos pelos writes.
 					</p>
 					<a href="https://docs.azion.com/" title="Azion Documentation" target="_blank">ver projeto</a>
 				</li>
 				<li>
-					<h4>Ask Azion</h4>
+					<h3>Ask Azion</h3>
 					<p>
 						Ask Azion é um Beta com finalidades experimentais e de aprendizado para melhorarmos pontos importantes de documentação, atendimento, getting started e vários outros interesses.
 					</p>
 					<a href="https://www.azion.com/en/ask-azion" title="Ask Azion" target="_blank">ver projeto</a>
 				</li>
 				<li>
-					<h4>Resource Hub</h4>
+					<h3>Resource Hub</h3>
 					<p>
 						Com uma arquitetura JAM Stack primeiro projeto da Azion utilizando Astro, agnóstico component library consumindo Azion Edge Functions API.
 					</p>
 					<a href="https://www.azion.com/pt-br/resource-hub/" title="Azion Resource Hub" target="_blank">ver projeto</a>
 				</li>
 				<li>
-					<h4>Live map</h4>
+					<h3>Live map</h3>
 					<p>
 						Projeto iniciado na Black Friday 2022 com objetivo de um formato fácil temos uma interpretação de imporantes dados ocorrendo sobre infra-estrutura da Azion.
 					</p>
 					<a href="https://www.azion.com/pt-br/live-map/" title="Azion Live Map" target="_blank">ver projeto</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+    <section class="talks">
+		<div class="center-content">
+			<h2>Últimas palestras</h2>
+			<ul class="card-list">
+				<li>
+					<h3>Construindo o futuro da web com JAM Stack</h3>
+					<!-- <p>
+                        <strong>Data:</strong> 17/08/2023
+                        <br>
+                        <strong>Evento:</strong> Azion Discord Server
+                    </p> -->
+                    <p>
+						Apresentação abordando como JAM Stack é usado e tem ajudado e melhorar o desacoplamento entre regras de negócio, interface, camada de dados fechando com live code utilizando a Azion Technologies.
+					</p>
+					<a href="https://speakerdeck.com/robsongajunior/construindo-o-futuro-da-web-com-jam-stack" title="Construindo o futuro da web com JAM Stack" target="_blank">ver apresentação</a>
+				</li>
+				<li>
+					<h3>Como JAM Stack ajudou crescer o time de Marketing na Azion</h3>
+                    <!-- <p>
+                        <strong>Data:</strong> 18/11/2021
+                        <br>
+                        <strong>Evento:</strong> Tche Linux
+                    </p> -->
+					<p>
+						Essa apresentação tem o objetivo falar sobre arquitetura JAM Stack usada na Azion. Será explicado <strong>"o que é JAM Stack"</strong>, mostrado um casos de uso, também falaremos sobre problemas/soluções e como montamos essa arquitetura estática para o time de Marketing ter um processo mais ágil na criação de páginas de presença web.
+					</p>
+					<a href="https://speakerdeck.com/robsongajunior/como-jam-stack-ajudou-crescer-o-time-de-marketing-na-azion" title="Como JAM Stack ajudou crescer o time de Marketing na Azion" target="_blank">ver apresentação</a>
+                    <p>
+                        <strong>Assistir no Youtube:</strong> <a href="https://www.youtube.com/watch?v=PjvxEvfTbY4" target="_blank">https://www.youtube.com/watch?v=PjvxEvfTbY4</a>
+                    </p>
+				</li>
+				<li>
+					<h3>O pensamento por trás de um desenvolvimento escalável.</h3>
+					<p>
+						Com uma arquitetura JAM Stack primeiro projeto da Azion utilizando Astro, agnóstico component library consumindo Azion Edge Functions API.
+					</p>
+					<a href="https://speakerdeck.com/robsongajunior/o-pensamento-por-tras-de-um-desenvolvimento-escalavel" title="O pensamento por trás de um desenvolvimento escalável." target="_blank">ver apresentação</a>
+                    <p>
+                        <strong>Assistir no Youtube:</strong> <a href="https://www.youtube.com/watch?v=4pWXBLuCcsc" target="_blank">https://www.youtube.com/watch?v=4pWXBLuCcsc</a>
+                    </p>
 				</li>
 			</ul>
 		</div>
@@ -102,17 +147,17 @@ import Default from '../layouts/Default.astro';
 		/* background-color: #24272B; */
 	}
 
-	.projects .card-list {
+	.card-list {
 		display: flex;
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
 
-	.projects li {
+	.card-list li {
 		margin: 0 .2rem;
 		padding: 2rem;
 		background-color: var(--dark);
 		border-radius: 4px;
-	} 
+	}
 </style>
