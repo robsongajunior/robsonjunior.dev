@@ -5,7 +5,7 @@ import {
     KBarAnimator,
     KBarSearch
 } from "kbar";
-import RenderResults from './KBarResults.tsx';
+import RenderResults from './KbarResults.tsx';
 
 const actions = [
     {
