@@ -6,21 +6,29 @@ import {
     KBarSearch
 } from "kbar";
 import RenderResults from './KbarResults.tsx';
+import './kbar.scss';
 
 const actions = [
     {
         id: "blog",
         name: "Blog",
         shortcut: ["b"],
-        keywords: "writing words",
-        perform: () => (window.location.pathname = "blog")
+        keywords: "blog",
+        perform: () => (window.location.href = "https://robsongajunior.medium.com/")
     },
     {
-        id: "contact",
-        name: "Contact",
-        shortcut: ["c"],
-        keywords: "email",
-        perform: () => (window.location.pathname = "contact")
+        id: "github",
+        name: "Github",
+        shortcut: ['g'],
+        keywords: "github",
+        perform: () => (window.location.href = "https://github.com/robsongajunior")
+    },
+    {
+        id: "sobre",
+        name: "Sobre",
+        shortcut: ["s"],
+        keywords: "sobre",
+        perform: () => (window.location.pathname = "sobre/")
     }
 ];
 
@@ -30,8 +38,12 @@ export default function Kbar() {
             <KBarPortal>
                 <KBarPositioner>
                     <KBarAnimator>
-                        <KBarSearch />
-                        <RenderResults />
+                        <div className="kbar-search-content">
+                            <KBarSearch />
+                        </div>
+                        <div className="kbar-results-content">
+                            <RenderResults />
+                        </div>
                     </KBarAnimator>
                 </KBarPositioner>
             </KBarPortal>

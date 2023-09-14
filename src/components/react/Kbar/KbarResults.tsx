@@ -8,12 +8,12 @@ export default function RenderResults() {
             items={results}
             onRender={ ({ item, active }) =>
                 typeof item === "string" ? (
-                    <div>{item}</div>
+                    <div className="kbar-item">
+                        {item}
+                    </div>
                 ) : (
-                    <div
-                        style={{
-                            background: active ? "#eee" : "transparent",
-                        }}
+                    <div className="kbar-item"
+                        style={{background: active ? "#07070A" : "transparent"}}
                     >
                         {item.name}
                     </div>

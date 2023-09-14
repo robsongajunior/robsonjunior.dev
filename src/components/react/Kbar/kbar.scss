@@ -1,0 +1,38 @@
+.kbar-search-content {
+    width: 50vh;
+
+    input {
+        width: 100%;
+        padding: 0 1rem;
+        line-height: 40px;
+        border: solid 1px var(--dark);
+        color: var(--mediam);
+        background-color: transparent;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        font-size: .725rem;
+        outline: none;
+
+        &:focus {
+            border-top: solid 1px var(--mediam-strong);
+            border-left: solid 1px var(--mediam-strong);
+            border-right: solid 1px var(--mediam-strong);
+        }
+    }
+}
+
+.kbar-results-content {
+    background-color: var(--dark);
+    border: solid 1px var(--dark);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    .kbar-item {
+        padding: 0 1rem;
+        border-bottom: solid 1px var(--dark-strong);
+        line-height: 60px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+}
+
