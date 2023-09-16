@@ -4,31 +4,38 @@ import {
     KBarPositioner,
     KBarAnimator,
     KBarSearch
-} from "kbar";
-import RenderResults from './KbarResults.tsx';
+} from 'kbar';
+import KbarRenderResults from './KbarRenderResults.tsx';
 import './kbar.scss';
+
+import IconAbout from '../../../../public/static/icons/svg/about.svg';
+import IconBlog from '../../../../public/static/icons/svg/blog.svg';
+import IconGithub from '../../../../public/static/icons/svg/github.svg';
 
 const actions = [
     {
-        id: "blog",
-        name: "Blog",
-        shortcut: ["b"],
-        keywords: "blog",
-        perform: () => (window.location.href = "https://robsongajunior.medium.com/")
+        id: 'blog',
+        name: 'Blog',
+        shortcut: ['b'],
+        keywords: 'blog',
+        icon: '/static/icons/svg/blog.svg',
+        perform: () => (window.open('https://robsongajunior.medium.com/', '_blank'))
     },
     {
-        id: "github",
-        name: "Github",
-        shortcut: ['g'],
-        keywords: "github",
-        perform: () => (window.location.href = "https://github.com/robsongajunior")
+        id: 'github',
+        name: 'GitHub',
+        shortcut: ['g', 'h'],
+        keywords: 'GitHub profile',
+        icon: '/static/icons/svg/github.svg',
+        perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
     },
     {
-        id: "sobre",
-        name: "Sobre",
-        shortcut: ["s"],
-        keywords: "sobre",
-        perform: () => (window.location.pathname = "sobre/")
+        id: 'sobre',
+        name: 'Sobre',
+        shortcut: ['s'],
+        keywords: 'sobre',
+        icon: '/static/icons/svg/about.svg',
+        perform: () => (window.location.pathname = 'sobre/')
     }
 ];
 
@@ -42,7 +49,7 @@ export default function Kbar() {
                             <KBarSearch />
                         </div>
                         <div className="kbar-results-content">
-                            <RenderResults />
+                            <KbarRenderResults />
                         </div>
                     </KBarAnimator>
                 </KBarPositioner>

@@ -7,7 +7,7 @@
         line-height: 40px;
         border: solid 1px var(--dark);
         color: var(--mediam);
-        background-color: transparent;
+        background-color: var(--dark-strong);
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         font-size: .725rem;
@@ -32,7 +32,15 @@
         border-bottom: solid 1px var(--dark-strong);
         line-height: 60px;
         font-size: 14px;
+        display: flex;
+        justify-content: space-between;
         cursor: pointer;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: .725rem;
+        }
     }
 }
 
