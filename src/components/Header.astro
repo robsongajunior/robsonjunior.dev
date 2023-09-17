@@ -15,7 +15,7 @@ import Logo from './Logo.astro';
 	</nav>
 </header>
 
-<style>
+<style lang="scss">
 	header {
 		margin: 0;
 		padding: 0 1em;
@@ -26,19 +26,18 @@ import Logo from './Logo.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
 
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--median);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
+        a {
+            padding: 1em 0.5em;
+            color: var(--median);
+            border-bottom: 4px solid transparent;
+            text-decoration: none;
 
-
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
+            &.active {
+                text-decoration: none;
+                border-bottom-color: var(--accent);
+            }
+        }
 	}
 
 	.social-links,
