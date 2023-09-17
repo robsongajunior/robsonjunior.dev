@@ -1,0 +1,41 @@
+---
+import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
+---
+<section class="hero">
+    <h1>
+        <BornToBuildAndDeliver />
+        <small>Pressione <kbd>⌘</kbd><kbd>K</kbd> para começar <strong>→</strong></small>
+    </h1>
+</section>
+
+<style lang="scss">
+    .hero {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        text-align: center;
+        align-items: center;
+
+        kbd {
+            border-radius: 4px;
+            padding: 6px 10px;
+            margin: 0 2px;
+            background-color: var(--dark);
+            font-size: 20px;
+        }
+    }
+
+    .hero {
+        h1 {
+            margin: auto;
+
+            small {
+                display: block;
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 200;
+                margin: .5rem 0 0;
+            }
+        }
+    }
+</style>

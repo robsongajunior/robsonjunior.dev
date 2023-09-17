@@ -8,9 +8,6 @@ import {
 import KbarRenderResults from './KbarRenderResults.tsx';
 import './kbar.scss';
 
-import IconAbout from '../../../../public/static/icons/svg/about.svg';
-import IconBlog from '../../../../public/static/icons/svg/blog.svg';
-import IconGithub from '../../../../public/static/icons/svg/github.svg';
 
 const actions = [
     {
