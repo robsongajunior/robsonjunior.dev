@@ -23,13 +23,16 @@ primeiro time Full DevOps."
                 src="/static/images/robsonjunior.png"
                 alt="Robson Junior desenvolvendo uma feature web."
             />
+            <a href="https://www.linkedin.com/in/robsongajunior/" target="_blank" title="LinkedIn | Robson Gomes de Araújo Júnior">LinkedIn</a>
+            <a href="https://speakerdeck.com/robsongajunior/" target="_blank" title="Speakerdeck | Robson Gomes de Araújo Júnior">SpeakerDeck</a>
+            <a href="https://www.instagram.com/robson.ga.junior/" target="_blank" title="Instagram | Robson Gomes de Araújo Júnior">Instragram</a>
         </figure>
         <div class="description">
             <h1>
                 Build, Deliver <small>and</small> Repeat
             </h1>
             <p>
-                Olá, me chamo Robson Júnior.
+                Olá, me chamo <strong>Robson Júnior</strong>.
                 <br />
                 Iniciei como web engineer em 2014, trabalhando com animações CSS3.
             </p>
@@ -216,19 +219,52 @@ primeiro time Full DevOps."
 </Default>
 
 <style lang="scss" scoped>
+    @import '../styles/breakpoints';
+
     .hero {
-        display: flex;
+        align-items: center;
+
+        @include media-breakpoint-up(sd) {
+            display: flex;
+        }
     }
 
     figure {
-        margin: 0 2rem 0 0;
         padding: 0;
-        max-width: 33%;
         position: relative;
         overflow: hidden;
+        text-align: center;
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: 2rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            max-width: 75%;
+        }
+
+        @include media-breakpoint-down(sd) {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 50%;
+        }
+
+        @include media-breakpoint-up(sd) {
+            margin-right: 2rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: 25%;
+        }
 
         img {
             border-radius: 100%;
+        }
+
+        a {
+            display: inline-block;
+            margin-inline-end: .5rem;
+            line-height: 40px;
         }
     }
 
