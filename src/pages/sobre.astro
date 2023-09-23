@@ -1,6 +1,19 @@
 ---
 import Default from "../layouts/Default.astro";
 import CopyButton from "../components/vue/CopyButton.vue";
+
+const bioText = "Robson Junior atua como Senior Software Engineer na empres \
+Azion Technologies no time Experience Engineering. Passou também \
+pelos times: Marketing Engineering criando estrutura para time \
+de marketing executar suas missões, Core Services focado em \
+construir e evoluir o desenvolvimento de engenharia, \
+anteriormente focado em aplicaçao RUM (Real User \
+Monitoring/Measuring) pelo time de Routing Services. Possui \
+também histórico na empresa Terra Networks no time de Tecnologia \
+em Porto Alegre. Lá passou por experiências nos times de: SVA, \
+Tecnologia Portal, Entertenimento e Tecnologia de E-mail. Como \
+último passo, teve a oportunidade fazer parte da criação do \
+primeiro time Full DevOps."
 ---
 
 <Default>
@@ -41,25 +54,9 @@ import CopyButton from "../components/vue/CopyButton.vue";
         <div class="center-content">
             <h2>Bio</h2>
             <div class="bio-content">
-                <blockquote>
-                    Robson Junior atua como Senior Software Engineer na empresa
-                    Azion Technologies no time Experience Engineering. Passou também
-                    pelos times: Marketing Engineering criando estrutura para time
-                    de marketing executar suas missões, Core Services focado em
-                    construir e evoluir o desenvolvimento de engenharia,
-                    anteriormente focado em aplicaçao RUM (Real User
-                    Monitoring/Measuring) pelo time de Routing Services. Possui
-                    também histórico na empresa Terra Networks no time de Tecnologia
-                    em Porto Alegre. Lá passou por experiências nos times de: SVA,
-                    Tecnologia Portal, Entertenimento e Tecnologia de E-mail. Como
-                    último passo, teve a oportunidade fazer parte da criação do
-                    primeiro time Full DevOps.
-                </blockquote>
-
-                <CopyButton />
+                <blockquote> { bioText } </blockquote>
+                <CopyButton client:load content={ bioText } />
             </div>
-
-
         </div>
     </section>
 
@@ -243,7 +240,12 @@ import CopyButton from "../components/vue/CopyButton.vue";
         .bio-content {
             display: flex;
             align-items: end;
+
+            blockquote {
+                border-left: 4px solid var(--dark);
+            }
         }
+
     }
 
     .card-list {
