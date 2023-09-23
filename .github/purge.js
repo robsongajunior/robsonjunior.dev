@@ -63,14 +63,7 @@ async function performPurge(TOKEN_API_URL, PURGE_WILDCARD_URL) {
 
 		console.log(
 			await purge(PURGE_WILDCARD_URL, token, {
-				urls: ["https://www.azion.com/en/documentation/*"],
-				method: "delete",
-			})
-		);
-
-		console.log(
-			await purge(PURGE_WILDCARD_URL, token, {
-				urls: ["https://www.azion.com/pt-br/documentacao/*"],
+				urls: ["https://www.robsonjunior.dev/*"],
 				method: "delete",
 			})
 		);
