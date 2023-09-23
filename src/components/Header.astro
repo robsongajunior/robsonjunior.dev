@@ -2,8 +2,7 @@
 import HeaderLink from './HeaderLink.astro';
 import Logo from './Logo.astro';
 ---
-
-<header>
+<header id="header">
 	<nav>
 		<Logo href="/" title="https://www.robsonjunior.dev/" />
 
@@ -15,11 +14,51 @@ import Logo from './Logo.astro';
 	</nav>
 </header>
 
+<script is:inline>
+    (function() {
+        let lastScrollTop = 0;
+        let showHeader = true;
+        let f = {};
+        let header = document.querySelector('#header');
+
+        f.up = function() {
+            if(showHeader === true) return;
+
+            console.log(`up`);
+
+            showHeader = true;
+        };
+
+        f.down = function() {
+            if(showHeader === false) return;
+
+            console.log(`down`);
+
+            showHeader = false;
+        };
+
+        window.addEventListener('scroll', function (e) {
+            if (e.scrollY === lastScrollTop) return;
+
+            let direction = this.scrollY < lastScrollTop ? "up" :  "down";
+            lastScrollTop = this.scrollY;
+
+            if(typeof f[direction] !== 'function') return;
+
+            f[direction]()
+        }, true)
+    })();
+</script>
+
 <style lang="scss">
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: var(--dark);
+		background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        top: 0;
+        z-index: 999;
+        position: sticky;
 	}
 
 	nav {

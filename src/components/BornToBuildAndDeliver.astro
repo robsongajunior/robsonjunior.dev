@@ -2,19 +2,29 @@
 ---
 
 <span class="borntobuildanddeliver">
-    <strong>BORN<br></strong>TO<strong>BUILD</strong><br>AND<strong>DELIVER</strong>
+    <strong>BORN</strong>TO<strong>BUILD</strong><br>AND<strong>DELIVER</strong>
 </span>
 
 <style lang="scss" scoped>
+    @import '../styles/breakpoints';
+
     .borntobuildanddeliver {
         font-weight: 200;
         color: var(--light);
+        padding: 1rem;
     }
+
     strong {
         font-weight: 900;
     }
 
     br {
-        display: none;
+        @include media-breakpoint-down(sd) {
+            display: inline;
+        }
+
+        @include media-breakpoint-up(sd) {
+            display: none;
+        }
     }
 </style>

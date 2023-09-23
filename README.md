@@ -42,5 +42,6 @@ All commands are run from the root of the project, from a terminal:
 
 ## IMPORTANT LINKS
 
+- [Icons](https://www.svgrepo.com/)
 - [Contrast Checker](https://coolors.co/contrast-checker/)
 - [Screen Resolution Stats](https://gs.statcounter.com/screen-resolution-stats)
