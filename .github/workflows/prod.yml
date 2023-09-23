@@ -1,17 +1,12 @@
 name: robsonjunior.dev production
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     name: production
-    runs-on: self-hosted
-    container:
-      image: ubuntu:latest
-
+    runs-on: ubuntu:latest
     steps:
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
@@ -22,32 +17,24 @@ jobs:
           clean: true
           fetch-depth: '0'
           lfs: 'false'
-
       - name: configuring nodejs
         uses: actions/setup-node@v3
         with:
           node-version: 20.6.1
-
       - name: installing dependencies
         run: npm install
-
       - name: syntax checking
         run: npm run check
-
       - name: build
         run: npm run build
-
       - name: clean and prepare  to publish 01
         run: rm -rf .nvmrc .npmrc pnpm-lock.yaml .astro .github node_modules src .editorconfig .gitignore astro.config.ts LICENSE package-lock.json package.json README.md tsconfig.json public
-
       - name: clean and prepare  to publish 02
         run: mv dist/* ./ && rm -rf dist; ls -la;
-
       - name: publishing
         uses: patrickwyler/gcs-bucket-sync-action@1.3
         with:
           secrets: ${{ secrets.GCP_AUTH }}
           bucket: ${{ secrets.GCP_PROD_BUCKET_NAME }}
-
     #   - name: PURGE Documentation
-    #     run: npm install axios && node purge.js basic_token=${{ secrets.MKT_BASIC_TOKEN }}
+    #     run: npm install axios && node .github/purge.js basic_token=${{ secrets.MKT_BASIC_TOKEN }}
