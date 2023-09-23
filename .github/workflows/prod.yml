@@ -11,7 +11,7 @@ jobs:
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
         with:
-          repository: robsonjunior.dev
+          repository: robsongajunior/robsonjunior.dev
           ref: main
           path: '.'
           clean: true
