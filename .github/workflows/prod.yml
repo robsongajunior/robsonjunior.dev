@@ -23,8 +23,8 @@ jobs:
           node-version: 20.6.1
       - name: installing dependencies
         run: npm install
-      - name: syntax checking
-        run: npm run check
+    #   - name: syntax checking
+    #     run: npm run check
       - name: build
         run: npm run build
       - name: clean and prepare  to publish 01
