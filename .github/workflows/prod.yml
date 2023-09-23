@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     name: production
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
@@ -38,3 +38,5 @@ jobs:
           bucket: ${{ secrets.GCP_PROD_BUCKET_NAME }}
     #   - name: PURGE Documentation
     #     run: npm install axios && node .github/purge.js basic_token=${{ secrets.MKT_BASIC_TOKEN }}
+
+
