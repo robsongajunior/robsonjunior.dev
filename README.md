@@ -1,5 +1,8 @@
-# robsonjunior.dev
-BORN TO BUILD AND DELIVER.
+# robsonjunior.dev | rjr.dev | robsongajunior.dev
+
+<p align="center">
+    <img src="doc/img/cover.png" width="600px" />
+</p>
 
 ## Commands
 
