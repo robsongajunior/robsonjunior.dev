@@ -4,9 +4,23 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
 <section class="hero">
     <h1>
         <BornToBuildAndDeliver />
-        <small>Pressione <kbd>⌘</kbd><kbd>K</kbd> para começar <strong>→</strong></small>
+        <small>
+            Pressione <kbd id="keyCommand">⌘</kbd><kbd>K</kbd> para começar <strong>→</strong>
+        </small>
     </h1>
 </section>
+
+<script is:inline>
+    (function keyCommandByPlatform() {
+        'use strict';
+
+        const isMacIntel = window.navigator.platform === 'MacIntel';
+        const keyCommand = document.querySelector('#keyCommand');
+        if(isMacIntel || !keyCommand) return;
+
+        keyCommand.innerHTML = '^';
+    })();
+</script>
 
 <style lang="scss">
     @import '../../styles/breakpoints';
