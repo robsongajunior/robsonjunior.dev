@@ -1,93 +1,98 @@
 ---
-import HeaderLink from './HeaderLink.astro';
-import Logo from './Logo.astro';
+import HeaderLink from "./HeaderLink.astro";
+import Logo from "./Logo.astro";
 ---
-<header id="header">
-	<nav>
-		<Logo href="/" title="https://www.robsonjunior.dev/" />
 
-		<div class="internal-links">
-			<HeaderLink href="/sobre/">sobre</HeaderLink>
-			<HeaderLink href="https://medium.com/@robsongajunior/">medium</HeaderLink>
-            <HeaderLink href="https://robsongajunior.github.io/">github.io</HeaderLink>
-		</div>
-	</nav>
+<header id="header">
+    <nav>
+        <Logo href="/" title="https://www.robsonjunior.dev/" />
+
+        <div class="internal-links">
+            <HeaderLink href="/sobre/">sobre</HeaderLink>
+            <HeaderLink href="https://medium.com/@robsongajunior/">
+                medium
+            </HeaderLink>
+            <HeaderLink href="https://robsongajunior.github.io/">
+                github.io
+            </HeaderLink>
+        </div>
+    </nav>
 </header>
 
 <script is:inline>
-    (function() {
-        let lastScrollTop = 0;
-        let showHeader = true;
-        let f = {};
-        let header = document.querySelector('#header');
+(function () {
+    let lastScrollTop = 0;
+    let showHeader = true;
+    let f = {};
+    let header = document.querySelector("#header");
 
-        f.up = function() {
-            if(showHeader === true) return;
+    f.up = function () {
+        if (showHeader === true) return;
+        console.log(`up`);
+        showHeader = true;
+    };
 
-            console.log(`up`);
+    f.down = function () {
+        if (showHeader === false) return;
+        console.log(`down`);
+        showHeader = false;
+    };
 
-            showHeader = true;
-        };
-
-        f.down = function() {
-            if(showHeader === false) return;
-
-            console.log(`down`);
-
-            showHeader = false;
-        };
-
-        window.addEventListener('scroll', function (e) {
+    window.addEventListener(
+        "scroll",
+        function (e) {
             if (e.scrollY === lastScrollTop) return;
 
-            let direction = this.scrollY < lastScrollTop ? "up" :  "down";
+            let direction = this.scrollY < lastScrollTop ? "up" : "down";
             lastScrollTop = this.scrollY;
 
-            if(typeof f[direction] !== 'function') return;
+            if (typeof f[direction] !== "function") return;
 
-            f[direction]()
-        }, true)
-    })();
+            f[direction]();
+        },
+        true,
+    );
+})();
 </script>
 
 <style lang="scss">
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: rgba(0, 0, 0, 0.5);
+    header {
+        margin: 0;
+        padding: 0 1em;
+        background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(10px);
         top: 0;
         z-index: 999;
         position: sticky;
-	}
+    }
 
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         a {
             padding: 1em 0.5em;
             color: var(--median);
             border-bottom: 4px solid transparent;
             text-decoration: none;
-            font-size: .825rem;
+            font-size: 0.825rem;
 
             &.active {
                 text-decoration: none;
                 border-bottom-color: var(--accent);
             }
         }
-	}
+    }
 
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
+    .social-links,
+    .social-links a {
+        display: flex;
+    }
 
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+    @media (max-width: 720px) {
+        .social-links {
+            display: none;
+        }
+    }
 </style>

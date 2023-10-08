@@ -1,5 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
+import BaseHead from '../components/html/Head.astro';
 import Kbar from '../components/react/Kbar/Kbar.tsx'
 const { title='', description=''} = Astro.props;
 ---
@@ -21,7 +21,7 @@ const { title='', description=''} = Astro.props;
         </noscript>
         <!-- End Google Tag Manager (noscript) -->
 
-        <Kbar client:load/>
+        <Kbar client:load />
 		<slot />
 	</body>
 </html>
