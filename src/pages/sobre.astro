@@ -18,15 +18,17 @@ primeiro time Full DevOps."
 
 <Default>
     <section class="hero center-content">
-        <figure>
-            <img
-                src="/static/images/robsonjunior.png"
-                alt="Robson Junior desenvolvendo uma feature web."
-            />
+        <div class="figure-content">
+            <figure>
+                <img
+                    src="/static/images/robsonjunior.jpeg"
+                    alt="Robson Junior desenvolvendo uma feature web."
+                />
+            </figure>
             <a href="https://www.linkedin.com/in/robsongajunior/" target="_blank" title="LinkedIn | Robson Gomes de Araújo Júnior">LinkedIn</a>
             <a href="https://speakerdeck.com/robsongajunior/" target="_blank" title="Speakerdeck | Robson Gomes de Araújo Júnior">SpeakerDeck</a>
             <a href="https://www.instagram.com/robson.ga.junior/" target="_blank" title="Instagram | Robson Gomes de Araújo Júnior">Instragram</a>
-        </figure>
+        </div>
         <div class="description">
             <h1>
                 Build, Deliver <small>and</small> Repeat
@@ -229,7 +231,7 @@ primeiro time Full DevOps."
         }
     }
 
-    figure {
+    .figure-content {
         padding: 0;
         position: relative;
         overflow: hidden;
@@ -240,13 +242,13 @@ primeiro time Full DevOps."
         }
 
         @include media-breakpoint-up(md) {
-            max-width: 75%;
+            max-width: 15%;
         }
 
         @include media-breakpoint-down(sd) {
             margin-left: auto;
             margin-right: auto;
-            max-width: 50%;
+            max-width: 30%;
         }
 
         @include media-breakpoint-up(sd) {
@@ -257,8 +259,10 @@ primeiro time Full DevOps."
             max-width: 25%;
         }
 
-        img {
-            border-radius: 100%;
+        figure {
+            img {
+                // border-radius: 100%;
+            }
         }
 
         a {
