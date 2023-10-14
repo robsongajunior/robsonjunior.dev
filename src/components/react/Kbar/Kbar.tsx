@@ -32,7 +32,7 @@ const actions = [
         shortcut: ['s'],
         keywords: 'sobre',
         icon: '/static/icons/svg/about.svg',
-        perform: () => (window.location.pathname = 'sobre/')
+        perform: () => (window.location.pathname = '/sobre/')
     }
 ];
 
