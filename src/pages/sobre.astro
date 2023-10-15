@@ -57,10 +57,14 @@ primeiro time Full DevOps."
 
     <section class="bio">
         <div class="center-content">
-            <h2>Bio</h2>
+            <h2>
+                Bio
+            </h2>
             <div class="bio-content">
-                <blockquote> { bioText } </blockquote>
-                <CopyButton client:load content={ bioText } />
+                <blockquote>
+                    { bioText }
+                </blockquote>
+                <CopyButton content={ bioText } client:load />
             </div>
         </div>
     </section>
@@ -69,7 +73,7 @@ primeiro time Full DevOps."
         <div class="center-content">
             <h2>Últimas entregas</h2>
             <ul class="card-list">
-                <li>
+                <li class="card">
                     <h3>Azion Docs</h3>
                     <p>
                         Migração de Jekyll para Astro com objetivo de se tornar
@@ -85,10 +89,10 @@ primeiro time Full DevOps."
                         ver projeto
                     </a>
                 </li>
-                <li>
+                <li class="card">
                     <h3>Ask Azion</h3>
                     <p>
-                        Ask Azion é um Beta com finalidades experimentais e de
+                        Ask Azion é uma Inteligencia Artifical ainda no modo Beta com finalidades experimentais e de
                         aprendizado para melhorarmos pontos importantes de
                         documentação, atendimento, getting started e vários
                         outros interesses.
@@ -101,12 +105,12 @@ primeiro time Full DevOps."
                         ver projeto
                     </a>
                 </li>
-                <li>
+                <li class="card">
                     <h3>Resource Hub</h3>
                     <p>
                         Com uma arquitetura JAM Stack primeiro projeto da Azion
                         utilizando Astro, agnóstico component library consumindo
-                        Azion Edge Functions API.
+                        Azion Edge Functions API. Um Portal de recursos de gerados pela Azion.
                     </p>
                     <a
                         href="https://www.azion.com/pt-br/resource-hub/"
@@ -116,7 +120,7 @@ primeiro time Full DevOps."
                         ver projeto
                     </a>
                 </li>
-                <li>
+                <li class="card">
                     <h3>Live map</h3>
                     <p>
                         Projeto iniciado na Black Friday 2022 com objetivo de um
@@ -139,7 +143,7 @@ primeiro time Full DevOps."
         <div class="center-content">
             <h2>Últimas palestras</h2>
             <ul class="card-list">
-                <li>
+                <li class="card">
                     <h3>Construindo o futuro da web com JAM Stack</h3>
                     <!-- <p>
                         <strong>Data:</strong> 17/08/2023
@@ -160,7 +164,7 @@ primeiro time Full DevOps."
                         ver apresentação
                     </a>
                 </li>
-                <li>
+                <li class="card">
                     <h3>
                         Como JAM Stack ajudou crescer o time de Marketing na
                         Azion
@@ -192,7 +196,7 @@ primeiro time Full DevOps."
                         </a>
                     </p>
                 </li>
-                <li>
+                <li class="card">
                     <h3>
                         O pensamento por trás de um desenvolvimento escalável.
                     </h3>
@@ -296,12 +300,13 @@ primeiro time Full DevOps."
         padding: 0;
         align-content: stretch;
 
-        li {
+        .card {
             flex: 1;
             margin: 0.2rem;
             padding: 1.6rem;
-            background-color: var(--dark);
-            border-radius: 4px;
+            background: linear-gradient(71deg, var(--dark-strong), rgba(255, 255, 255 ,0.075), var(--dark-strong));
+            border: solid 8px var(--dark);
+            border-radius: 8px;
             min-width: 320px;
         }
     }
