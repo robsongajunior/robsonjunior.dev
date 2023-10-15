@@ -1,9 +1,7 @@
 import { useKBar } from 'kbar';
 
 export default function KbarButtonHook() {
-    const { query, disabled } = useKBar(state => ({
-        disabled: state.disabled
-    }));
+    const { query } = useKBar();
 
-    return <button onClick={() => query.disable(!disabled)}>{disabled ? "Disabled" : "Disable"}</button>
+    return <button onClick={query.toogle}>toogle</button>
 }

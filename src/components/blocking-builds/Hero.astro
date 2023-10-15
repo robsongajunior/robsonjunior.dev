@@ -1,13 +1,13 @@
 ---
 import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
-// import KbarButtonHook from '../react/Kbar/KbarButtonHook.jsx';
+import KbarButtonHook from '../react/Kbar/KbarButtonHook.jsx';
 ---
 <section class="hero">
     <h1>
         <BornToBuildAndDeliver />
         <small>
             Pressione <kbd id="keyCommand">⌘</kbd><kbd id="keyShortuCut1">K</kbd> para começar <strong>→</strong>
-            <!-- <KbarButtonHook client:only="react" /> -->
+            <KbarButtonHook client:only="react" />
         </small>
     </h1>
 </section>
