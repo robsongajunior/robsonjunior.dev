@@ -404,11 +404,26 @@ primeiro time Full DevOps."
         }
 
         .bio-content {
-            display: flex;
-            align-items: end;
+            text-align: right;
+
+            @include media-breakpoint-up(sd) {
+                display: flex;
+                align-items: end;
+                text-align: left;
+            }
 
             blockquote {
                 border-left: 4px solid var(--dark);
+                text-align: left;
+                padding: 1rem 0 0 1rem;
+
+                @include media-breakpoint-down(md) {
+                    margin-bottom: 1rem;
+                }
+
+                @include media-breakpoint-up(sd) {
+                    padding: 1rem 2rem;
+                }
             }
         }
 

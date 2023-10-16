@@ -25,15 +25,15 @@ html {
 }
 
 body {
-	margin: 0;
-	padding: 0;
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 }
 
+body,
 main {
-	margin: auto;
+	margin: 0;
+	padding: 0;
 }
 
 .center-content {
@@ -125,15 +125,6 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-
-@media (max-width: 720px) {
-	html {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
 }
 
 .sr-only {
