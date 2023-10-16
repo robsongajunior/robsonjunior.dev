@@ -91,8 +91,5 @@ export default function Kbar() {
 export function KbarButtonHook() {
     let { query } = useKBar();
 
-    return <button onClick={() => {
-        // query value here is undefined
-        console.log('this click should open the kbar');
-    }}>toogle</button>
+    return <button onClick={query.toggle}>toogle</button>
 }
