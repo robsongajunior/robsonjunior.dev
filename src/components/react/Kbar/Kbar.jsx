@@ -5,7 +5,8 @@ import {
     KBarAnimator,
     KBarSearch,
     KBarResults,
-    useMatches
+    useMatches,
+    useKBar
 } from 'kbar';
 import './kbar.scss';
 
@@ -53,7 +54,11 @@ function KbarRenderResults() {
                         style={{background: active ? "#07070A" : "transparent"}}>
 
                         <span>
-                            <img src={ item.icon } alt={ item.name } width="24" height="24"/>
+                            <img
+                                src={ item.icon }
+                                alt={ item.name }
+                                width="24"
+                                height="24"/>
                             { item.name }
                         </span>
                         <i style={{ display: active ? "block" : "none" }}>→</i>
@@ -62,7 +67,7 @@ function KbarRenderResults() {
             }
         />
     );
-}
+};
 
 export default function Kbar() {
     return (
@@ -81,4 +86,13 @@ export default function Kbar() {
             </KBarPortal>
         </KBarProvider>
     )
+}
+
+export function KbarButtonHook() {
+    let { query } = useKBar();
+
+    return <button onClick={() => {
+        // query value here is undefined
+        console.log('this click should open the kbar');
+    }}>toogle</button>
 }
