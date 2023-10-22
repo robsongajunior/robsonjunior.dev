@@ -5,8 +5,8 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
 <section class="hero">
     <h1>
         <BornToBuildAndDeliver />
-        <small>
-            Pressione <kbd id="keyCommand">⌘</kbd><kbd id="keyShortuCut1">K</kbd> para começar <strong>→</strong>
+        <small id="shortcut">
+            Pressione <kbd id="keyCommand">⌘</kbd><kbd>K</kbd> para começar <strong>→</strong>
             <!-- <KbarButton client:only="react" /> -->
         </small>
     </h1>
@@ -18,37 +18,30 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
 
         (function keyCommandByPlatform() {
             const isMac = /(Mac)/i.test(navigator.userAgent);
-            // const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+
             const keyCommand = document.querySelector('#keyCommand');
             if(isMac || !keyCommand) return;
 
             keyCommand.innerHTML = '^';
         })();
 
-        // (function mobResizing() {
-        //     const size = 960;
-        //     let smallThenSize = false;
+        (function () {
+            const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
 
-        //     const keyCommand = document.querySelector('#keyCommand');
-        //     window.addEventListener('resize', function() {
-        //         if (window.innerWidth < size && !smallThenSize) {
-        //             keyCommand.innerHTML = 'aqui';
-        //             smallThenSize = true;
-        //         } else if(window.innerWidth >= size && smallThenSize) {
-        //             keyCommand.innerHTML = '⌘';
-        //             smallThenSize = false;
-        //         }
-        //     });
-        // })();
+            if(!isMobile) return;
+            document.querySelector('#shortcut')?.remove();
+        })();
     })();
 </script>
 
 <style lang="scss">
     @import '../../styles/breakpoints';
 
+    $headerHeight: 80px;
+
     .hero {
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - $headerHeight);
         display: flex;
         text-align: center;
         align-items: center;
