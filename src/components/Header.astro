@@ -1,14 +1,18 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import Logo from "./Logo.astro";
+import LogoShort from "./LogoShort.astro";
 ---
 
 <header id="header">
     <nav>
-        <Logo href="/" title="https://www.robsonjunior.dev/" />
+        <LogoShort href="/" title="https://www.robsonjunior.dev/" />
 
         <div class="internal-links">
             <HeaderLink href="/sobre/">sobre</HeaderLink>
+            <!-- <HeaderLink href="/blog/">
+                blog
+            </HeaderLink> -->
             <HeaderLink href="https://medium.com/@robsongajunior/">
                 medium
             </HeaderLink>
@@ -57,6 +61,8 @@ import Logo from "./Logo.astro";
 
 <style lang="scss">
     header {
+        width: 100%;
+        height: 80px;
         margin: 0;
         padding: 0 1em;
         background: rgba(0, 0, 0, 0.5);
@@ -72,15 +78,16 @@ import Logo from "./Logo.astro";
         justify-content: space-between;
 
         a {
-            padding: 1em 0.5em;
+            padding: .5rem 0.5rem;
             color: var(--median);
-            border-bottom: 4px solid transparent;
+            border-bottom: 1px solid transparent;
             text-decoration: none;
-            font-size: 0.825rem;
+            font-size: 0.8rem;
 
             &.active {
                 text-decoration: none;
-                border-bottom-color: var(--accent);
+                color: var(--dark);
+                // border-bottom-color: var(--accent);
             }
         }
     }

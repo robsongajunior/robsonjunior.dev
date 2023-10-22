@@ -4,9 +4,9 @@
     <img src="doc/img/cover.png" width="600px" />
 </p>
 
-- https://www.rjr.dev
-- https://www.robsonjunior.dev
-- https://www.robsongajunior.dev
+- https://www.rjr.dev/
+- https://www.robsonjunior.dev/
+- https://www.robsongajunior.dev/
 
 
 ## Commands

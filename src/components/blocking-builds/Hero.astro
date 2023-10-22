@@ -1,13 +1,13 @@
 ---
 import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
-// import KbarButtonHook from '../react/Kbar/KbarButtonHook.jsx';
+// import KbarButton from '../react/Kbar/KbarButton.jsx';
 ---
 <section class="hero">
     <h1>
         <BornToBuildAndDeliver />
         <small>
             Pressione <kbd id="keyCommand">⌘</kbd><kbd id="keyShortuCut1">K</kbd> para começar <strong>→</strong>
-            <!-- <KbarButtonHook client:only="react" /> -->
+            <!-- <KbarButton client:only="react" /> -->
         </small>
     </h1>
 </section>
@@ -25,21 +25,21 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
             keyCommand.innerHTML = '^';
         })();
 
-        (function mobResizing() {
-            const size = 960;
-            let smallThenSize = false;
+        // (function mobResizing() {
+        //     const size = 960;
+        //     let smallThenSize = false;
 
-            const keyCommand = document.querySelector('#keyCommand');
-            window.addEventListener('resize', function() {
-                if (window.innerWidth < size && !smallThenSize) {
-                    keyCommand.innerHTML = 'aqui';
-                    smallThenSize = true;
-                } else if(window.innerWidth >= size && smallThenSize) {
-                    keyCommand.innerHTML = '⌘';
-                    smallThenSize = false;
-                }
-            });
-        })();
+        //     const keyCommand = document.querySelector('#keyCommand');
+        //     window.addEventListener('resize', function() {
+        //         if (window.innerWidth < size && !smallThenSize) {
+        //             keyCommand.innerHTML = 'aqui';
+        //             smallThenSize = true;
+        //         } else if(window.innerWidth >= size && smallThenSize) {
+        //             keyCommand.innerHTML = '⌘';
+        //             smallThenSize = false;
+        //         }
+        //     });
+        // })();
     })();
 </script>
 
