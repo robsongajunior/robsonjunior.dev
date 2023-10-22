@@ -1,6 +1,6 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import Logo from "./Logo.astro";
+// import Logo from "./Logo.astro";
 import LogoShort from "./LogoShort.astro";
 ---
 
@@ -32,13 +32,13 @@ import LogoShort from "./LogoShort.astro";
 
     f.up = function () {
         if (showHeader === true) return;
-        console.log(`up`);
+        header.style.top = '0';
         showHeader = true;
     };
 
     f.down = function () {
         if (showHeader === false) return;
-        console.log(`down`);
+        header.style.top = '-80px';
         showHeader = false;
     };
 
@@ -54,7 +54,7 @@ import LogoShort from "./LogoShort.astro";
 
             f[direction]();
         },
-        true,
+        true
     );
 })();
 </script>
@@ -70,6 +70,7 @@ import LogoShort from "./LogoShort.astro";
         top: 0;
         z-index: 999;
         position: sticky;
+        transition: all ease-in-out 500ms;
     }
 
     nav {
