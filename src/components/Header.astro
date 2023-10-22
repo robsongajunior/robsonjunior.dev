@@ -24,39 +24,39 @@ import LogoShort from "./LogoShort.astro";
 </header>
 
 <script is:inline>
-(function () {
-    let lastScrollTop = 0;
-    let showHeader = true;
-    let f = {};
-    let header = document.querySelector("#header");
+    (function () {
+        let lastScrollTop = 0;
+        let showHeader = true;
+        let f = {};
+        let header = document.querySelector("#header");
 
-    f.up = function () {
-        if (showHeader === true) return;
-        header.style.top = '0';
-        showHeader = true;
-    };
+        f.up = function () {
+            if (showHeader === true) return;
+            header.style.top = '0';
+            showHeader = true;
+        };
 
-    f.down = function () {
-        if (showHeader === false) return;
-        header.style.top = '-80px';
-        showHeader = false;
-    };
+        f.down = function () {
+            if (showHeader === false) return;
+            header.style.top = '-80px';
+            showHeader = false;
+        };
 
-    window.addEventListener(
-        "scroll",
-        function (e) {
-            if (e.scrollY === lastScrollTop) return;
+        window.addEventListener(
+            "scroll",
+            function (e) {
+                if (e.scrollY === lastScrollTop) return;
 
-            let direction = this.scrollY < lastScrollTop ? "up" : "down";
-            lastScrollTop = this.scrollY;
+                let direction = this.scrollY < lastScrollTop ? "up" : "down";
+                lastScrollTop = this.scrollY;
 
-            if (typeof f[direction] !== "function") return;
+                if (typeof f[direction] !== "function") return;
 
-            f[direction]();
-        },
-        true
-    );
-})();
+                f[direction]();
+            },
+            true
+        );
+    })();
 </script>
 
 <style lang="scss">
