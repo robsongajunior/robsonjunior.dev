@@ -16,10 +16,12 @@
         "@astrojs/rss": "^2.4.4",
         "@astrojs/sitemap": "^2.0.2",
         "@astrojs/vue": "^3.0.0",
+        "@nanostores/vue": "^0.10.0",
         "@types/react": "^18.2.21",
         "@types/react-dom": "^18.2.7",
         "astro": "^3.0.12",
         "kbar": "^0.1.0-beta.43",
+        "nanostores": "^0.9.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "typescript": "^5.2.2"

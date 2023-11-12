@@ -1,7 +1,8 @@
 ---
-import Head from '../components/html/Head.astro';
-import Header from '../components/Header.astro';
-import Kbar from '../components/react/Kbar/Kbar.jsx'
+import Head from '../components/Head.astro';
+import Header from '../components/blocking-builds/Header.astro';
+import Kbar from '../components/react/Kbar/Kbar.jsx';
+import NavigationRight from '../components/vue/NavigationRight.vue';
 const { title='', description='' } = Astro.props;
 ---
 
@@ -24,6 +25,7 @@ const { title='', description='' } = Astro.props;
 
         <Kbar client:load />
         <Header />
+        <NavigationRight client:load />
 
         <main>
             <slot />

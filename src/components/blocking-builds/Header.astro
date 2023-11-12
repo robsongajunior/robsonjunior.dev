@@ -1,0 +1,94 @@
+---
+import HeaderLink from "../HeaderLink.astro";
+import LogoShort from "../LogoShort.astro";
+import ButtonBurguer from "../vue/ButtonBurguer.vue";
+---
+
+<header id="header">
+    <LogoShort href="/" title="https://www.robsonjunior.dev/" />
+    <nav>
+        <HeaderLink href="/blog/">
+            blog
+        </HeaderLink>
+        <HeaderLink href="https://github.com/robsongajunior/">
+            github
+        </HeaderLink>
+        <HeaderLink href="/sobre/">
+            sobre
+        </HeaderLink>
+    </nav>
+    <ButtonBurguer client:only="vue" />
+</header>
+
+<script is:inline>
+    (function () {
+        let lastScrollTop = 0;
+        let showHeader = true;
+        let f = {};
+        let header = document.querySelector("#header");
+
+        f.up = function () {
+            if (showHeader === true) return;
+            header.style.top = '0';
+            showHeader = true;
+        };
+
+        f.down = function () {
+            if (showHeader === false) return;
+            header.style.top = '-80px';
+            showHeader = false;
+        };
+
+        window.addEventListener("scroll", function (e) {
+            if (e.scrollY === lastScrollTop) return;
+
+            let direction = this.scrollY < lastScrollTop ? "up" : "down";
+            lastScrollTop = this.scrollY;
+
+            if (typeof f[direction] !== "function") return;
+
+            f[direction]();
+        }, true);
+    })();
+</script>
+
+<style lang="scss">
+    @import '../../styles/breakpoints';
+
+    header {
+        width: 100%;
+        height: 80px;
+        margin: 0;
+        padding: 0 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        top: 0;
+        z-index: 999;
+        position: sticky;
+        transition: var(--transition-all-ease-in-out);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav {
+        display: none;
+        align-items: center;
+
+        @include media-breakpoint-up('sd') {
+            display: flex;
+        }
+
+        a {
+            padding: .5rem 0.5rem;
+            color: var(--median);
+            border-bottom: 1px solid transparent;
+            text-decoration: none;
+            font-size: 0.8rem;
+
+            &.active {
+                text-decoration: none;
+                color: var(--dark);
+            }
+        }
+    }
+</style>
