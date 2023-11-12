@@ -2,17 +2,28 @@
     <aside id="navigationRight" :class="{ active: isActive }">
         <ul>
             <li>
-                <a href="/blog/">
+                <a
+                    href="https://medium.com/@robsongajunior"
+                    title="medium profile"
+                    target="_blank">
+
                     blog
                 </a>
             </li>
             <li>
-                <a href="https://github.com/robsongajunior/">
+                <a
+                    href="https://github.com/robsongajunior/"
+                    title="github profile"
+                    target="_blank">
+
                     github
                 </a>
             </li>
             <li>
-                <a href="/sobre/">
+                <a
+                    href="/sobre/"
+                    title="sobre | robsonjunior.dev">
+
                     sobre
                 </a>
             </li>

@@ -5,9 +5,10 @@ import ButtonBurguer from "../vue/ButtonBurguer.vue";
 ---
 
 <header id="header">
-    <LogoShort href="/" title="https://www.robsonjunior.dev/" />
+    <LogoShort href="/" title="home | robsonjunior.dev" />
     <nav>
-        <HeaderLink href="/blog/">
+        <!--
+        <HeaderLink href="https://robsongajunior.medium.com/">
             blog
         </HeaderLink>
         <HeaderLink href="https://github.com/robsongajunior/">
@@ -16,11 +17,24 @@ import ButtonBurguer from "../vue/ButtonBurguer.vue";
         <HeaderLink href="/sobre/">
             sobre
         </HeaderLink>
+        -->
+        <p>
+            <kbd id="keyCommandHead">⌘</kbd> + <kbd>k</kbd>
+        </p>
     </nav>
     <ButtonBurguer client:only="vue" />
 </header>
 
 <script is:inline>
+    (function keyCommandByPlatform() {
+        const isMac = /(Mac)/i.test(navigator.userAgent);
+
+        const keyCommand = document.querySelector('#keyCommandHead');
+        if(isMac || !keyCommand) return;
+
+        keyCommand.innerHTML = '^';
+    })();
+
     (function () {
         let lastScrollTop = 0;
         let showHeader = true;

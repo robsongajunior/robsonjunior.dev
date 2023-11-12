@@ -15,15 +15,16 @@ const actions = [
         id: 'blog',
         name: 'Blog',
         shortcut: ['b'],
-        keywords: 'blog',
+        keywords: ['blog', 'medium', 'posts'],
         icon: '/static/icons/svg/blog.svg',
-        perform: () => (window.location.pathname = '/blog/')
+        perform: () => (window.open('https://medium.com/@robsongajunior', '_blank'))
+        // perform: () => (window.location.pathname = '/blog/')
     },
     {
         id: 'github',
         name: 'GitHub',
         shortcut: ['g', 'h'],
-        keywords: 'GitHub profile',
+        keywords: ['github', 'code', 'developing'],
         icon: '/static/icons/svg/github.svg',
         perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
     },
@@ -31,7 +32,7 @@ const actions = [
         id: 'sobre',
         name: 'Sobre',
         shortcut: ['s'],
-        keywords: 'sobre',
+        keywords: ['sobre', 'robson junior', 'about'],
         icon: '/static/icons/svg/about.svg',
         perform: () => (window.location.pathname = '/sobre/')
     }
