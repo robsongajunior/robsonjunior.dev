@@ -1,6 +1,6 @@
 ---
-import Default from "../layouts/Default.astro";
-import CopyButton from "../components/vue/CopyButton.vue";
+import Default from "../../layouts/Default.astro";
+import CopyButton from "../../components/vue/CopyButton.vue";
 
 const bioText = "Robson Júnior atua como Senior Software Engineer na empresa \
 Azion Technologies no time UX Engineering. Passou também \
@@ -19,8 +19,8 @@ primeiro time Full Dev-Ops."
         <div class="figure-content">
             <figure>
                 <img
-                    src="/static/images/robsonjunior.jpeg"
-                    alt="Robson Junior desenvolvendo uma feature web."
+                    src="/static/images/pages/sobre/robsonjunior-profile.jpeg"
+                    alt="Robson Júnior em seu habitati natural, uma sala escura e um Mac a sua frente!"
                 />
             </figure>
             <a
@@ -323,7 +323,7 @@ primeiro time Full Dev-Ops."
 </Default>
 
 <style lang="scss" scoped>
-    @import '../styles/breakpoints';
+    @import '../../styles/breakpoints';
 
     .hero {
         align-items: center;
@@ -375,7 +375,7 @@ primeiro time Full Dev-Ops."
                 right: -1px;
                 content: "";
                 z-index: -1;
-                background: linear-gradient(-71deg, var(--dark-strong), #FFFFFF, var(--dark-strong));
+                background: linear-gradient(-71deg, var(--dark-strong), rgba(255, 255, 255, .5), var(--dark-strong));
             }
 
             img {

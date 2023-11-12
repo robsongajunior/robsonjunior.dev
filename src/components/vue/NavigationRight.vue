@@ -79,8 +79,12 @@
             width: 360px;
             padding: 1rem;
 
-            ul li a {
-                opacity: 1;
+            ul {
+                li {
+                    a {
+                        opacity: 1;
+                    }
+                }
             }
         }
 
@@ -90,7 +94,10 @@
             margin: 0;
 
             li {
+                border-bottom: solid 1px rgba( 255, 255, 255, 0.075);
+
                 a {
+                    display: block;
                     opacity: 0;
                     transition: var(--transition-all-ease-in-out);
                     padding: .5rem 0.5rem;
