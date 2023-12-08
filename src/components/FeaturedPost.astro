@@ -1,0 +1,81 @@
+---
+const { ...props } = Astro.props;
+---
+
+<section class="featured-post">
+    <a href="">
+        <figure class="featured-img-content">
+            <img src="/blog-placeholder-1.jpg" alt="" class="featured-img">
+        </figure>
+        <div class="post-content">
+            <h1>
+                Azion Functions | Como usamos serverless JavaScript functions no dia a dia para facilitar e adiantar as próprias entregas
+            </h1>
+            <ul class="tag-list">
+                <li class="tag-item">
+                    <span class="tag">jamstack</span>
+                </li>
+                <li class="tag-item">
+                    <span class="tag">performance</span>
+                </li>
+            </ul>
+            <p>
+                Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.
+            </p>
+        </div>
+    </a>
+</section>
+
+<style lang="scss" scoped>
+    @import '../styles/breakpoints';
+
+    .featured-post a {
+        @include media-breakpoint-up(sd) {
+            display: flex;
+            align-items: center;
+        };
+    }
+
+    .featured-img-content,
+    .post-content {
+        display: block;
+
+        @include media-breakpoint-up(sd) {
+            max-width: 50%;
+        }
+    }
+
+    .featured-img-content {
+        display: block;
+        margin: 0 2rem 2rem 0;
+        padding: 0;
+        width: 100%;
+
+        @include media-breakpoint-up(sd) {
+            max-width: 50%;
+            margin: 0 2rem 0 0;
+        };
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    // tag component
+    .tag-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+    .tag {
+        display: inline-block;
+        border: solid 1px var(--light);
+        border-radius: 4px;
+        padding: .25rem .5rem;
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+</style>
