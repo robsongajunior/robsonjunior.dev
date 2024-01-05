@@ -1,6 +1,22 @@
 ---
-import Default from "../../layouts/Default.astro";
-import CopyButton from "../../components/vue/CopyButton.vue";
+import i18nConf from '../../../i18n/config';
+import Default from "../../../layouts/Default.astro";
+import CopyButton from "../../../components/vue/CopyButton.vue";
+
+export async function getStaticPaths() {
+    return i18nConf.langs.map(lang => {
+        return {
+            params: {
+                lang: lang
+            },
+            props: {
+                lang: lang
+            }
+        }
+    });
+};
+
+// const { lang } = Astro.props;
 
 const bioText = "Robson Júnior atua como Senior Software Engineer na empresa \
 Azion Technologies no time UX Engineering. Passou também \
@@ -324,7 +340,7 @@ primeiro time Full Dev-Ops."
 </Default>
 
 <style lang="scss" scoped>
-    @import '../../styles/breakpoints';
+    @import '../../../styles/breakpoints';
 
     .hero {
         align-items: center;
