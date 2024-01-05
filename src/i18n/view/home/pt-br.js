@@ -12,6 +12,7 @@ export default {
     page: {
         hero: {
             title: "<strong>BORN</strong>TO<strong>BUILD</strong><br>AND<strong>DELIVER</strong>",
+            description: "Pressione <kbd id=\"keyCommand\">⌘</kbd><kbd>k</kbd> para começar <strong>→</strong>"
         }
     }
 };

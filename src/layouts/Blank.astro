@@ -5,13 +5,14 @@ import Kbar from "../components/react/Kbar/Kbar.jsx";
 import NavigationRight from "../components/vue/NavigationRight.vue";
 
 const {
-    title = "",
-    description = "",
-    robots="index, follow"
+    lang,
+    title,
+    description,
+    robots
 } = Astro.props;
 ---
 
-<html lang="pt-BR">
+<html lang={lang}>
     <head>
         <Head
             title={title}
@@ -40,4 +41,3 @@ const {
         </main>
     </body>
 </html>
-e

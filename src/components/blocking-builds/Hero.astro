@@ -1,14 +1,12 @@
 ---
 import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
 // import KbarButton from '../react/Kbar/KbarButton.jsx';
+const { title, description } = Astro.props;
 ---
 <section class="hero">
     <h1>
-        <BornToBuildAndDeliver />
-        <small id="shortcut">
-            Pressione <kbd id="keyCommand">⌘</kbd><kbd>k</kbd> para começar <strong>→</strong>
-            <!-- <KbarButton client:only="react" /> -->
-        </small>
+        <BornToBuildAndDeliver title={title} />
+        <small id="shortcut" set:html={description} />
     </h1>
 </section>
 
@@ -34,7 +32,7 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
     })();
 </script>
 
-<style lang="scss">
+<style lang="scss" is:global>
     @import '../../styles/breakpoints';
 
     $headerHeight: 80px;
@@ -44,7 +42,7 @@ import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
         height: calc(100vh - $headerHeight);
         display: flex;
         text-align: center;
-        align-items: center;
+        align-items: c enter;
 
         kbd {
             border-radius: 4px;

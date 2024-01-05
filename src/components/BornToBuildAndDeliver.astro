@@ -1,29 +1,28 @@
 ---
+const { title } = Astro.props;
 ---
 
-<span class="borntobuildanddeliver">
-    <strong>BORN</strong>TO<strong>BUILD</strong><br>AND<strong>DELIVER</strong>
-</span>
+<span class="borntobuildanddeliver" set:html={title} />
 
-<style lang="scss" scoped>
+<style lang="scss" is:global>
     @import '../styles/breakpoints';
 
     .borntobuildanddeliver {
         font-weight: 200;
         color: var(--light);
-    }
 
-    strong {
-        font-weight: 900;
-    }
-
-    br {
-        @include media-breakpoint-down(sd) {
-            display: inline;
+        strong {
+            font-weight: 900;
         }
 
-        @include media-breakpoint-up(sd) {
-            display: none;
+        br {
+            @include media-breakpoint-down(sd) {
+                display: inline;
+            }
+
+            @include media-breakpoint-up(sd) {
+                display: none;
+            }
         }
     }
 </style>
