@@ -4,19 +4,22 @@ import Default from "../../../layouts/Default.astro";
 import CopyButton from "../../../components/vue/CopyButton.vue";
 
 export async function getStaticPaths() {
+    let i18nData = await Astro.glob('../../../i18n/view/about/index.js');
+
     return i18nConf.langs.map(lang => {
         return {
             params: {
                 lang: lang
             },
             props: {
-                lang: lang
+                lang: lang,
+                data: i18nData[0].default[lang]
             }
         }
     });
 };
 
-// const { lang } = Astro.props;
+const { lang } = Astro.props;
 
 const bioText = "Robson Júnior atua como Senior Software Engineer na empresa \
 Azion Technologies no time UX Engineering. Passou também \
@@ -30,7 +33,7 @@ Tecnologia Portal, Entertenimento e Tecnologia de E-mail. Como \
 primeiro time Full Dev-Ops."
 ---
 
-<Default>
+<Default lang={lang}>
     <section class="hero center-content">
         <div class="figure-content">
             <figure>
