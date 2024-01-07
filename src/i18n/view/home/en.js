@@ -4,9 +4,6 @@ export default {
             title: "Born to Build and Deliver",
             description: "Robson Júnior a Senior Software Engineer Borned to Build and Deliver.",
             robots: "index, follow"
-        },
-        og: {
-            image: ""
         }
     },
     page: {

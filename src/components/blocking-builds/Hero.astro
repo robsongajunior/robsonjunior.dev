@@ -1,6 +1,12 @@
 ---
 import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
 // import KbarButton from '../react/Kbar/KbarButton.jsx';
+
+interface Props {
+    title: String,
+    description: String
+};
+
 const { title, description } = Astro.props;
 ---
 <section class="hero">
