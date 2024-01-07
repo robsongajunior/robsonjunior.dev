@@ -1,0 +1,82 @@
+---
+interface Props {
+    title: string,
+    description: string,
+    items: {
+        title: string,
+        description: string,
+        link: string,
+        linkHrefTitle: string,
+        linkHref: string
+    }[]
+};
+const { title, description, items } = Astro.props;
+---
+
+<section class="">
+    <div class="center-content">
+        <h2>{title}</h2>
+        <p set:html={description} />
+
+        <ul class="card-list">
+            {
+                items.map((item) => {
+                    <li class="card">
+                        <div class="card-content">
+                            <h3>{item.title}</h3>
+                            <p set:html={item.description} />
+                            <a
+                                href={item.linkHref}
+                                title={item.linkHrefTitle}
+                                target="_blank">
+
+                                {item.link}
+                            </a>
+                        </div>
+                    </li>
+                })
+            }
+        </ul>
+    </div>
+</section>
+
+<style lang="scss">
+    @import '../../styles/breakpoints';
+
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 0;
+        align-content: stretch;
+        gap: 1rem;
+
+        .card {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .card-content {
+            padding: 2rem;
+            background: linear-gradient(71deg, var(--dark-strong), #191919, var(--dark-strong));
+            border-radius: 80px;
+            background-clip: padding-box;
+            position: relative;
+            border: 2px solid transparent;
+
+            &::after {
+                // z-index: 1;
+                border-radius: 80px;
+                position: absolute;
+                top: -1px;
+                bottom: -1px;
+                left: -1px;
+                right: -1px;
+                content: "";
+                z-index: -1;
+                background: linear-gradient(71deg, var(--dark-strong), #454545, var(--dark-strong));
+            }
+        }
+    }
+</style>
