@@ -2,7 +2,7 @@
 interface Props {
     title: string,
     description: string,
-    items: {
+    cards: {
         title: string,
         description: string,
         link: string,
@@ -10,31 +10,34 @@ interface Props {
         linkHref: string
     }[]
 };
-const { title, description, items } = Astro.props;
+
+const { title, description, cards } = Astro.props;
 ---
 
-<section class="">
+<section>
     <div class="center-content">
         <h2>{title}</h2>
         <p set:html={description} />
 
         <ul class="card-list">
             {
-                items.map((item) => {
+                cards.map(card => (
                     <li class="card">
                         <div class="card-content">
-                            <h3>{item.title}</h3>
-                            <p set:html={item.description} />
-                            <a
-                                href={item.linkHref}
-                                title={item.linkHrefTitle}
-                                target="_blank">
+                            <h3>{card.title}</h3>
+                            <p set:html={card.description} />
+                            { card.linkHref ?
+                                <a
+                                    href={card.linkHref}
+                                    title={card.linkHrefTitle}
+                                    target="_blank">
 
-                                {item.link}
-                            </a>
+                                    {card.link}
+                                </a>: ''
+                            }
                         </div>
                     </li>
-                })
+                ))
             }
         </ul>
     </div>
