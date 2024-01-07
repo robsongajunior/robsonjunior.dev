@@ -70,35 +70,35 @@ export default {
                     description: "Live Test do <a href=\"https://www.azion.com/pt-br/produtos/edge-pulse/\" target=\"_blank\">Azion Pulse</a>. Dados da última milha mostrado de forma visual, dados de client, resolver e  timings por Edge Location executando um teste de Avaiability e Response Time.",
                     link: "ver projeto",
                     linkHrefTitle: "Azion Pulse Live Test",
-                    linkHref: "https://www.azion.com/pt-br/produtos/edge-pulse/teste/",
+                    linkHref: "https://www.azion.com/pt-br/produtos/edge-pulse/teste/"
                 },
                 {
                     title: "Azion Docs",
                     description: "Migração de Jekyll para Astro com objetivo de se tornar agnóstico a component library, suportanto mdx e dispobibilizando novos componntes para serem facilmente consumidos pelos writes.",
                     link: "ver projeto",
                     linkHrefTitle: "Azion Docs",
-                    linkHref: "https://docs.azion.com/",
+                    linkHref: "https://docs.azion.com/"
                 },
                 {
                     title: "Ask Azion",
                     description: "Ask Azion é uma Inteligencia Artifical ainda no modo Beta com finalidades experimentais e de aprendizado para melhorarmos pontos importantes de documentação, atendimento, getting started e vários outros interesses.",
                     link: "ver projeto",
                     linkHrefTitle: "Ask Azion",
-                    linkHref: "https://www.azion.com/en/ask-azion",
+                    linkHref: "https://www.azion.com/en/ask-azion"
                 },
                 {
                     title: "Resource Hub",
                     description: "Com uma arquitetura JAM Stack primeiro projeto da Azion utilizando Astro, agnóstico component library consumindo Azion Edge Functions API. Um Portal de recursos de gerados pela Azion.",
                     link: "ver projeto",
                     linkHrefTitle: "Azion Resource Hub",
-                    linkHref: "https://www.azion.com/pt-br/resource-hub/",
+                    linkHref: "https://www.azion.com/pt-br/resource-hub/"
                 },
                 {
                     title: "Live map",
                     description: "Projeto iniciado na Black Friday 2022 com objetivo de um formato fácil temos uma interpretação de imporantes dados ocorrendo sobre infra-estrutura da Azion.",
                     link: "ver projeto",
                     linkHrefTitle: "Azion Live Map",
-                    linkHref: "https://www.azion.com/pt-br/live-map/",
+                    linkHref: "https://www.azion.com/pt-br/live-map/"
                 }
             ]
         },
