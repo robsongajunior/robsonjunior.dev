@@ -10,10 +10,6 @@ import LineDivisor from '../../../components/LineDivisor.astro'
 
 
 export async function getStaticPaths() {
-    // const posts = (await getCollection('blog')).sort(
-    //     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
-    // );
-
     const posts = await getCollection('blog')
 
     const groupPagesByLang = (pages) =>
@@ -35,7 +31,11 @@ export async function getStaticPaths() {
     }
 
     return i18nConfig.langs.map((lang) => {
-        const postsByLang = getPageByLangCollection(posts, lang);
+        let postsByLang = getPageByLangCollection(posts, lang);
+
+        postsByLang.map(post => {
+            post.slug = `${lang}/blog/${post.slug.split('/')[1]}`
+        });
 
         return {
             params: {
@@ -53,6 +53,7 @@ export async function getStaticPaths() {
 
 let { posts } = Astro.props
 ---
+
 <Default title="blog">
     <div class="center-content">
         <FeaturedPost post={ posts[0] } />
@@ -69,13 +70,4 @@ let { posts } = Astro.props
     <div class="center-content">
         <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
     </div>
-
-    <!--
-    <div class="center-content">
-        <button class="">
-            carregar mais
-        </button>
-    </div>
-     -->
-</Default>
-
+</Defaul

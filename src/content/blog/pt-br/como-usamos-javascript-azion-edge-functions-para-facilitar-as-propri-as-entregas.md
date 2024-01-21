@@ -13,8 +13,6 @@ heroImage: 'https://miro.medium.com/v2/resize:fit:4800/format:webp/1*niJ_iS-Mb_Y
 heroAltImage: 'Azion Edge Functions, JavaScript Code'
 ---
 
-# Como usamos JavaScript Azion Edge Function  para facilitar as próprias entregas
-
 Em uma empresa de crescimento exponencial, cada vez mais precisamos garantir entregas de relevância cada vez maior em um espaço de tempo cada vez menor...
 
 > (Ler artigo completo)[https://robsongajunior.medium.com/azion-functions-como-usamos-serverless-javascript-functions-no-dia-a-dia-para-facilitar-e-4d30f96f8c74].

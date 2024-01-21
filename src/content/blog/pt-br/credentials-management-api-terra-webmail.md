@@ -13,8 +13,6 @@ heroImage: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*s3sq4GmkEo-z
 heroAltImage: 'Credentials Management API'
 ---
 
-# Credentials Management API — Terra Webmail
-
 Este artigo tem como objetivo mostrar por que e como foi implementada a Credential Management, bem como os benefícios dessa API, usando como exemplo o login do novo Terra Webmail...
 
 > (Ler artigo completo)[https://robsongajunior.medium.com/credentials-management-api-terra-webmail-755dce211877].

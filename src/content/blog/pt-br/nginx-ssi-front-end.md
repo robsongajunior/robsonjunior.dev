@@ -13,8 +13,6 @@ heroImage: 'https://miro.medium.com/v2/resize:fit:640/format:webp/1*HxshvkxpXBON
 heroAltImage: 'Capa - Foguete Lançado levando um homem'
 ---
 
-# Nginx + SSI & Front-End
-
 Nginx (lê-se “engine x”) é um servidor HTTP, proxy reverso, proxy de e-mail IMAP/POP3.
 
 Lida com requisições Web do tipo “event-based web server”; É possível diminuir o consumo de memória do servidor, passando as requisições Web primeiro no Nginx, assim, o servidor não precisa servir arquivos estáticos...

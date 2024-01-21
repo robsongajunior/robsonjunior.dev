@@ -13,8 +13,6 @@ heroImage: 'https://miro.medium.com/v2/resize:fit:720/format:webp/1*SduL0ettqiMz
 heroAltImage: 'JAM stack — JavaScript, API, Markdown'
 ---
 
-# Azion Functions | Como usamos serverless JavaScript functions no dia a dia para facilitar e adiantar as próprias entregas
-
 Em uma empresa de crescimento exponencial, cada vez mais precisamos garantir entregas de relevância cada vez maior em um espaço de tempo cada vez menor...
 
 > (Ler artigo completo)[https://robsongajunior.medium.com/introdu%C3%A7%C3%A3o-azion-jam-stack-bac9892c739a].

@@ -13,8 +13,6 @@ heroImage: 'https://robsongajunior.github.io/images/o-primeiro-a-gente-nunca-esq
 heroAltImage: 'Coffee In, Code Out'
 ---
 
-# O primeiro a gente nunca esquece
-
 Sabe aquela primeira namorada, primeiro trabalho ou até mesmo aquele primeiro Hello World?...
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2014/11/o-primeiro-a-gente-nunca-esquece/].

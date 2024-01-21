@@ -13,8 +13,6 @@ heroImage: 'https://www.azion.com/static/images/uploads/group-4396.png'
 heroAltImage: 'Jamstack'
 ---
 
-# Como a Azion começou utilizar JAM Stack
-
 A motivação por trás disso era escalar a criação, edição e manutenção de conteúdo sem a necessidade de passar por um desenvolvedor. Com o crescimento exponencial da Azion, foi preciso encontrar uma maneira de facilitar esses processos de conteúdo web para viabilizar o acompanhamento dessa escalada...
 
 > (Ler artigo completo)[https://www.azion.com/pt-br/blog/como-a-azion-passou-a-usar-jamstack/].

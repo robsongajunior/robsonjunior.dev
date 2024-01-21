@@ -12,9 +12,6 @@ dateUpdate: ''
 heroImage: 'https://robsongajunior.github.io/images/1095-dias-de-terra/cover.jpg'
 heroAltImage: 'Terra Networks | Orange Corporation'
 ---
-
-# OBRIGADO Terra Networks
-
 > (Ver post original)[https://robsongajunior.github.io/2018/06/obrigado-terra/]
 
 Pensei vários jeitos de escrever alguns tipos de email persinalizado para cada pessoa que tenho que agradecer, fazer um artigo comentando minha tragetória ou até mesmo citar projetos.
