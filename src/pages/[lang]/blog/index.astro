@@ -31,11 +31,11 @@ export async function getStaticPaths() {
     }
 
     return i18nConfig.langs.map((lang) => {
-        let postsByLang = getPageByLangCollection(posts, lang);
+        let postsByLang = getPageByLangCollection(posts, lang)
 
         postsByLang.map(post => {
             post.slug = `${lang}/blog/${post.slug.split('/')[1]}`
-        });
+        })
 
         return {
             params: {
