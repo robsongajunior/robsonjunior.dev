@@ -20,9 +20,9 @@ const {
             <h1>
                 { title }
             </h1>
-            <p>
+            <p style="margin-top: -10px;">
                 <small>
-                    date/update:
+                    date / update
                     <br>
                     { date }
                     <br>
@@ -31,7 +31,7 @@ const {
             </p>
             <ul class="tag-list">
             {
-            categories.map((category) => (
+            categories.slice(0,3).map((category) => (
                 <li class="tag-item">
                     <span class="tag">
                         { category }
@@ -51,6 +51,7 @@ const {
     @import '../styles/breakpoints';
 
     .featured-post a {
+        text-decoration: none;
         @include media-breakpoint-up(sd) {
             display: flex;
             align-items: center;

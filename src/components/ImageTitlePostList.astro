@@ -46,11 +46,17 @@ const { posts } = Astro.props
 
     .post {
         a {
+            text-decoration: none;
+
             @include media-breakpoint-up(md) {
                 display: block;
                 display: flex;
                 align-items: center;
                 gap: 2rem;
+            }
+
+            &:hover {
+                text-decoration: underline;
             }
         }
 

@@ -30,6 +30,10 @@ posts.map((post, index) => (
         display: grid;
         grid-template-columns: 1fr;
 
+        a {
+            text-decoration: none;
+        }
+
         @include media-breakpoint-up(md) {
             grid-template-columns: 1fr 1fr;
         }

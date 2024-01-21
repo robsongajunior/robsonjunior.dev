@@ -15,7 +15,6 @@ export async function getStaticPaths() {
     // );
 
     const posts = await getCollection('blog')
-    console.log(posts)
 
     const groupPagesByLang = (pages) =>
         pages.reduce((pages, page) => {
@@ -44,15 +43,17 @@ export async function getStaticPaths() {
             },
             props: {
                 lang: lang,
-                posts: postsByLang
+                posts: postsByLang.sort(
+                    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+                )
             }
         }
     })
 }
 
-const { posts } = Astro.props
+let { posts } = Astro.props
 ---
-<Default>
+<Default title="blog">
     <div class="center-content">
         <FeaturedPost post={ posts[0] } />
     </div>
@@ -66,7 +67,7 @@ const { posts } = Astro.props
        <LineDivisor />
     </div>
     <div class="center-content">
-        <ImageTitlePostList posts={ posts.length ? posts.slice(6) : [] } />
+        <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
     </div>
 
     <!--
