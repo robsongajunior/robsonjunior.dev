@@ -1,3 +1,4 @@
+import './kbar.scss';
 import {
     KBarProvider,
     KBarPortal,
@@ -7,8 +8,6 @@ import {
     KBarResults,
     useMatches
 } from 'kbar';
-import './kbar.scss';
-
 
 const actions = [
     {
@@ -17,8 +16,7 @@ const actions = [
         shortcut: ['b'],
         keywords: ['blog', 'medium', 'posts'],
         icon: '/static/icons/svg/blog.svg',
-        perform: () => (window.open('https://medium.com/@robsongajunior', '_blank'))
-        // perform: () => (window.location.pathname = '/blog/')
+        perform: () => (window.location.pathname = '/pt-br/blog/')
     },
     {
         id: 'github',
