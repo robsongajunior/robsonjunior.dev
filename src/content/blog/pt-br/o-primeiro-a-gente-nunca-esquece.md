@@ -1,7 +1,5 @@
 ---
 title: 'O primeiro a gente nunca esquece'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Sabe aquela primeira namorada, primeiro trabalho ou até mesmo aquele primeiro Hello World?'
 categories: ['carreira']

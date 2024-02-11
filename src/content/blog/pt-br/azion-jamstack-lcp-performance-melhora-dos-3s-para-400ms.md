@@ -1,7 +1,5 @@
 ---
 title: 'Azion JAM Stack LCP Performance — melhora dos 3s para 400/600ms'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Aqui voce irá ler um pouco dos resultados das small actions para otimizar a quantidade de recursos utilizados pela página, consequentemente melhorando expressivamente o tempo de carregamento das mais de 900 páginas...'
 categories: ['jam-stack', 'frontend', 'performance', 'scss']

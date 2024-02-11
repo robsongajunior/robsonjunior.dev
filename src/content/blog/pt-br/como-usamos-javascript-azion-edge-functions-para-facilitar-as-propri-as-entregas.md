@@ -1,7 +1,5 @@
 ---
 title: 'Como usamos JavaScript Azion Edge Function  para facilitar as próprias entregas'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.'
 categories: ['edge-computing', 'jam-stack', 'javascript', 'azion-edge-functions', 'serveless', 'front-end', 'performance']

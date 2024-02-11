@@ -1,7 +1,5 @@
 ---
 title: 'Retrospectiva 2016'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Pela primeira vez na vida eu estava em um lugar onde não pensei que estaria, e estava me adaptando a isso então muito normal desfocar um pouco em sí próprio e focar mais na situação para tirar o melhor proveito possível....'
 categories: ['carreira', 'retrospectiva']

@@ -1,7 +1,5 @@
 ---
 title: 'Retrospectiva 2014'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: '2014 simplesmente foi um ano fantástico, me proporciou experiências que eu pensava que iria muitos anos para acontecer, conheci pessoas que nunca pensei que poderia e vi coisas.....'
 categories: ['carreira', 'retrospectiva']

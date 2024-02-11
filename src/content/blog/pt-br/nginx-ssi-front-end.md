@@ -1,7 +1,5 @@
 ---
 title: 'Nginx + SSI & Front-End'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Este artigo aborda uma alternativa sendo uma poderosa solução juntando tecnologias de back-end e front-end irá facilitar o trabalho de desenvolvimento, validação e deploy, impactando desde o desenvolvedor até o mais alto nível da empresa.'
 categories: ['Nginx','SSI', 'front-end']

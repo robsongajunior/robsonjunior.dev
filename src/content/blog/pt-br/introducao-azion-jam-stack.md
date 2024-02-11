@@ -1,7 +1,5 @@
 ---
 title: 'Introdução Azion JAM Stack'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.'
 categories: ['jam-stack', 'edge-computing', 'serveless', 'front-end', 'performance']

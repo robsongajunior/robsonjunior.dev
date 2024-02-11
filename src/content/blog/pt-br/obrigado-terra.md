@@ -1,7 +1,5 @@
 ---
 title: 'OBRIGADO Terra Networks'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Foi com certeza o melhor lugar onde trabalhei, onde pela primeira vez tive contato com profissionais de elite, que representam e que de alguma forma dita como o mercado vai tocar. Voces não fazem noção da honra que foi entrar um muleque e hoje saindo..'
 categories: ['carreira', 'terra-networks']
@@ -12,6 +10,7 @@ dateUpdate: ''
 heroImage: 'https://robsongajunior.github.io/images/1095-dias-de-terra/cover.jpg'
 heroAltImage: 'Terra Networks | Orange Corporation'
 ---
+
 > (Ver post original)[https://robsongajunior.github.io/2018/06/obrigado-terra/]
 
 Pensei vários jeitos de escrever alguns tipos de email persinalizado para cada pessoa que tenho que agradecer, fazer um artigo comentando minha tragetória ou até mesmo citar projetos.

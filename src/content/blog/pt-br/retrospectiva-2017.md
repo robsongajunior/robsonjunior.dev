@@ -1,7 +1,5 @@
 ---
 title: 'Retrospectiva 2017'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Eu gosto de fazer uma retrospectiva porque não me deixa esquecer quem eu era, no que me tornei e quem eu serei me dando mais clareza mental para esquematizar da melhor forma que executarei e colocarei minhas metas para DONE uma por uma...'
 categories: ['carreira', 'retrospectiva']

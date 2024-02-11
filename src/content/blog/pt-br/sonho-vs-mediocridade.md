@@ -1,7 +1,5 @@
 ---
 title: 'Sonho vs Mediocridade'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Resolvi escrever esse texto para poder descrever o que sinto em relação quando uma pessoa me pergunta algo sobre sucesso, carreira etc ......'
 categories: ['carreira', 'retrospectiva']

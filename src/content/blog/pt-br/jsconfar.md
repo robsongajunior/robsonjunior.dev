@@ -1,7 +1,5 @@
 ---
 title: 'JS Conference Argentina'
-
-meta_googlebot: 'index, follow'
 meta_robots: 'index, follow'
 meta_description: 'Toda essa ideia de ir para a JSConfAr surgiu em uma loucura quando saiu a grade das palestras, olhando vi que só palestrante que quebrariam a banca lá nos hermanos, logo...'
 categories: ['jsconfar', 'cominudade', 'jvascript']
