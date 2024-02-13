@@ -1,16 +1,16 @@
 ---
-import { getCollection } from 'astro:content'
-import Default from '../../../layouts/Default.astro'
-import i18nConfig from '../.././../i18n/config'
+import { getCollection } from 'astro:content';
+import Default from '../../../layouts/Default.astro';
+import i18nConfig from '../.././../i18n/config';
 // import FormattedDate from '../../../components/FormattedDate.astro'
-import FeaturedPost from '../../../components/FeaturedPost.astro'
-import TitleListPost from '../../../components/TitleListPost.astro'
-import ImageTitlePostList from '../../../components/ImageTitlePostList.astro'
-import LineDivisor from '../../../components/LineDivisor.astro'
+import FeaturedPost from '../../../components/FeaturedPost.astro';
+import TitleListPost from '../../../components/TitleListPost.astro';
+import ImageTitlePostList from '../../../components/ImageTitlePostList.astro';
+import LineDivisor from '../../../components/LineDivisor.astro';
 
 
 export async function getStaticPaths() {
-    const posts = await getCollection('blog')
+    const posts = await getCollection('blog');
 
     const groupPagesByLang = (pages) =>
         pages.reduce((pages, page) => {
@@ -27,15 +27,15 @@ export async function getStaticPaths() {
     );
 
     const getPageByLangCollection = (collection, lang) => {
-        return groupPagesByLang(collection)[lang]
+        return groupPagesByLang(collection)[lang] || [];
     }
 
     return i18nConfig.langs.map((lang) => {
-        let postsByLang = getPageByLangCollection(posts, lang)
+        let postsByLang = getPageByLangCollection(posts, lang) || [];
 
         postsByLang.map(post => {
             post.slug = `${lang}/blog/${post.slug.split('/')[1]}`
-        })
+        });
 
         return {
             params: {
@@ -47,11 +47,11 @@ export async function getStaticPaths() {
                     (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
                 )
             }
-        }
-    })
+        };
+    });
 }
 
-let { posts } = Astro.props
+let { posts } = Astro.props;
 ---
 
 <Default title="blog">
