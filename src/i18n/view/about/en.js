@@ -1,9 +1,9 @@
 export default {
     heading: {
         meta: {
-            title: "Sobre",
-            description: "Apaixonado por web, browser applications, chrome extensions e open source. Robson Júnior atua como Senior Software Engineer na empresa Azion Technologies no time UX Engineering. Passou também pelos times: Experience Engineering, Marketing Engineering.",
-            keywords: "sobre, robson junior, senior web engineer, software engineer, webvitals speacialist, web performance, vue, astro, edge computing",
+            title: "About",
+            description: "Passionate about the web, browser applications, chrome extensions, and open source. Robson Júnior works as a Senior Software Engineer at Azion Technologies in the UX Engineering team. He has also been part of the Experience Engineering and Marketing Engineering teams.",
+            keywords: "about, robson junior, senior web engineer, software engineer, webvitals speacialist, web performance, vue, astro, edge computing",
             robots: "index, follow"
         }
     },
@@ -11,22 +11,21 @@ export default {
         about: {
             img: {
                 src: "/static/images/pages/sobre/robsonjunior-profile.jpeg",
-                alt: "Robson Júnior em seu habitati natural, uma sala escura e seu Mac gerador de soluções incríveis!"
+                alt: "Robson Júnior in his natural habitat, a dark room with his Mac, the generator of incredible solutions!                "
             },
             title: "Build, Deliver <small>and</small> Repeat",
             description: [
-                "Olá, me chamo <strong>Robson Júnior</strong>. \
+                "Hello, my name is <strong>Robson Júnior</strong>. \
                 <br> \
-                Iniciei como web engineer em 2014, trabalhando com animações CSS3.",
+                I started as a web engineer in 2014, working with CSS3 animations.",
 
-                "Atualmente trabalho como Sênior Sofware Engineer na <a href=\"https://www.azion.com/pt-br/\" target=\"_blank\">Azion Technologies</a>. \
+                "Currently, I work as a Senior Software Engineer at <a href=\"https://www.azion.com/pt-br/\" target=\"_blank\">Azion Technologies</a>. \
                 <br> \
-                Antes disso, trabalhei como Software Developer e Front-End \
-                Engineer no portal <a href=\"httpds://www.terra.com.br\" target=\"_blank\">Terra Networks</a>.",
+                Before that, I worked as a Software Developer and Front-End Engineer at <a href=\"httpds://www.terra.com.br\" target=\"_blank\">Terra Networks</a>.",
 
-                "Sou Brasileiro, natural de Gramado residente da Capital gaúcha.",
+                "I am Brazilian, originally from Gramado and residing in the capital of Rio Grande do Sul.",
 
-                "Apaixonado por web, browser applications, chrome extensions e open source. Quando não estou trabalhando estou praticando algum exercício físico e me conectando com diferentes experiências."
+                "Passionate about the web, browser applications, chrome extensions, and open source. When I'm not working, I'm practicing some physical exercise and connecting with different experiences."
             ],
             socialnetwork: {
                 linkedin: {
@@ -45,21 +44,12 @@ export default {
         },
         bio: {
             title: "Bio",
-            description: "Robson Júnior atua como Senior Software Engineer na empresa \
-            Azion Technologies no time UX Engineering. Passou também \
-            pelos times: Experience Engineering, Marketing Engineering,  \
-            Core Services e anteriormente focado em aplicaçao RUM (Real User \
-            Monitoring/Measuring) pelo time de Routing Services. Possui \
-            também histórico na empresa Terra Networks no time de Tecnologia \
-            em Porto Alegre. Lá passou por experiências nos times de: SVA, \
-            Tecnologia Portal, Entertenimento e Tecnologia de E-mail. Como \
-            último passo, teve a oportunidade fazer parte da criação do \
-            primeiro time Full Dev-Ops."
+            description: "Robson Júnior works as a Senior Software Engineer at Azion Technologies in the UX Engineering team. He has also been part of the Experience Engineering, Marketing Engineering, Core Services teams, and previously focused on RUM (Real User Monitoring/Measuring) application through the Routing Services team. He also has a history at Terra Networks in the Technology team in Porto Alegre. There, he experienced roles in the teams of: SVA, Portal Technology, Entertainment, and Email Technology. As a final step, he had the opportunity to be part of the creation of the first Full Dev-Ops team."
         },
         deliveries: {
-            title: "Últimas entregas",
+            title: "Latest Deliveries",
             description:[
-                "Gosto muito de uma frase citada por \
+                "My favorite pharse was said by \
                 <a target=\"_blank\" href=\"https://www.google.com/search?gs_ssp=eJzj4tDP1TcwSc9LM2D04svJzCstVijJLypLzEkpBgBq1wjA&amp;q=linus+torvalds&amp;rlz=1C5CHFA_enBR1040BR1040&amp;oq=Linus+&amp;gs_lcrp=EgZjaHJvbWUqCggCEC4YsQMYgAQyBggAEEUYOTIKCAEQLhixAxiABDIKCAIQLhixAxiABDINCAMQABiDARixAxiABDIHCAQQABiABDIHCAUQABiABDIHCAYQLhiABDIHCAcQABiABDINCAgQLhjHARjRAxiABDIHCAkQABiPAtIBCTE0MTAzajBqN6gCALACAA&amp;sourceid=chrome&amp;ie=UTF-8\">Linus Torvalds</a>: \
                 <br> \
                 <strong>- Talk is cheap, show me the code.</strong>"
@@ -68,83 +58,83 @@ export default {
                 {
                     title: "Azion Pulse Live Test",
                     description: "Live Test do <a href=\"https://www.azion.com/pt-br/produtos/edge-pulse/\" target=\"_blank\">Azion Pulse</a>. Dados da última milha mostrado de forma visual, dados de client, resolver e  timings por Edge Location executando um teste de Avaiability e Response Time.",
-                    link: "ver projeto",
+                    link: "go to project",
                     linkHrefTitle: "Azion Pulse Live Test",
-                    linkHref: "https://www.azion.com/pt-br/produtos/edge-pulse/teste/"
+                    linkHref: "https://www.azion.com/en/products/edge-pulse/test/"
                 },
                 {
                     title: "Azion Docs",
-                    description: "Migração de Jekyll para Astro com objetivo de se tornar agnóstico a component library, suportanto mdx e dispobibilizando novos componntes para serem facilmente consumidos pelos writes.",
-                    link: "ver projeto",
+                    description: "Migration from Jekyll to Astro with the goal of becoming agnostic to the component library, supporting mdx, and making new components available to be easily consumed by writers.",
+                    link: "go to project",
                     linkHrefTitle: "Azion Docs",
                     linkHref: "https://docs.azion.com/"
                 },
                 {
                     title: "Ask Azion",
-                    description: "Ask Azion é uma Inteligencia Artifical ainda no modo Beta com finalidades experimentais e de aprendizado para melhorarmos pontos importantes de documentação, atendimento, getting started e vários outros interesses.",
-                    link: "ver projeto",
+                    description: "Ask Azion is an Artificial Intelligence still in Beta mode for experimental and learning purposes to improve important aspects of documentation, customer service, getting started, and various other interests.",
+                    link: "go to project",
                     linkHrefTitle: "Ask Azion",
                     linkHref: "https://www.azion.com/en/ask-azion"
                 },
                 {
                     title: "Resource Hub",
-                    description: "Com uma arquitetura JAM Stack primeiro projeto da Azion utilizando Astro, agnóstico component library consumindo Azion Edge Functions API. Um Portal de recursos de gerados pela Azion.",
-                    link: "ver projeto",
+                    description: "With a JAM Stack architecture, the first project from Azion utilizing Astro, component library agnostic, consuming the Azion Edge Functions API. A resource portal generated by Azion. ",
+                    link: "go to project",
                     linkHrefTitle: "Azion Resource Hub",
                     linkHref: "https://www.azion.com/pt-br/resource-hub/"
                 },
                 {
                     title: "Live map",
-                    description: "Projeto iniciado na Black Friday 2022 com objetivo de um formato fácil temos uma interpretação de imporantes dados ocorrendo sobre infra-estrutura da Azion.",
-                    link: "ver projeto",
+                    description: "The project started on Black Friday 2022 with the goal of providing an easy format for interpreting important data related to Azion's infrastructure.",
+                    link: "go to project",
                     linkHrefTitle: "Azion Live Map",
                     linkHref: "https://www.azion.com/pt-br/live-map/"
                 }
             ]
         },
         talks: {
-            title: "Últimas palestras",
+            title: "Latest Talks",
             description: [
-                "Tenho uma paixão enorme por compartilhar sobre o meu trabalho, \
+                "I have a huge passion for sharing about my work, \
                 <br> \
-                técnicas e conhecimentos que acredito que devem ser compartilhados.",
+                techniques, and knowledge that I believe should be shared.",
 
-                "Ao longo desses mais de 10 anos de carreira tive oportunidade de passar \
-                por diversos eventos como palestrante, alguns deles foram: \
+                "Throughout these more than 10 years of career, \
+                I had the opportunity to participate in various events as a speaker, some of them were: \
                 <br> \
-                OGUFERS, SucesuRS, Senac Talks, TDC, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa entre outros.",
+                OGUFERS, SucesuRS, Senac Talks, TDC, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa among others.",
 
-                "Também fui também como prestigiador: \
+                "I also attended as an attendee: \
                 <br> \
-                JS Conf Argentina, Front-In-Aracaju, Front-In-Sampa, Criciuma Dev, Python Brasil, TDC, RSJS e por aí vai indo, lista é grande!"
+                JS Conf Argentina, Front-In-Aracaju, Front-In-Sampa, Criciuma Dev, Python Brasil, TDC, RSJS, and so on, the list is long!"
             ],
             cards: [
                 {
                     title: "Move to the Edge - Construindo Aplicações Modernas e Escaláveis",
-                    description: "Marcando o retorno do <a target=\"https://frontinpoa.com.br/\" title=\"Front In Poa\">Front In Poa</a> 2023, essa apresentação vimos rodar aplicações no Edge e seus facilitadores junto com a importância do Front-End para o Edge Computing.",
-                    link: "ver apresentação",
+                    description: "(original pt-br) - Marking the return of Front In Poa 2023, in this presentation we saw running applications on the Edge and its facilitators, along with the importance of Front-End for Edge Computing.                    ",
+                    link: "to go slides",
                     linkHrefTitle: "Apresentação: Move to the Edge - Construindo Aplicações Modernas e Escaláveis",
                     linkHref: "https://speakerdeck.com/robsongajunior/move-to-the-edge-construindo-aplicacoes-modernas-e-escalaveis",
                 },
                 {
-                    title: "Construindo o futuro da web com JAM Stack",
-                    description: "Apresentação abordando como JAM Stack é usado e tem ajudado e melhorar o desacoplamento entre regras de negócio, interface, camada de dados fechando com live code utilizando a Azion Technologies.",
-                    link: "ver apresentação",
-                    linkHrefTitle: "Apresentação: Construindo o futuro da web com JAM Stack",
+                    title: "Building the future of the web with JAM Stack",
+                    description: "(original pt-br) - Presentation addressing how JAM Stack is used and has helped in improving the decoupling between business rules, interface, data layer, concluding with live code using Azion Technologies.                    ",
+                    link: "to go slides",
+                    linkHrefTitle: "Slides: Building the future of the web with JAM Stack",
                     linkHref: "https://speakerdeck.com/robsongajunior/construindo-o-futuro-da-web-com-jam-stack",
                 },
                 {
-                    title: "Como JAM Stack ajudou crescer o time de Marketing na Azion",
-                    description: "Essa apresentação tem o objetivo falar sobre arquitetura JAM Stack usada na Azion. Será explicado \"<strong>o que é JAM Stack</strong>\", mostrado um casos de uso, também falaremos sobre problemas/soluções e como montamos essa arquitetura estática para o time de Marketing ter um processo mais ágil na criação de páginas de presença web.",
-                    link: "ver apresentação",
-                    linkHrefTitle: "Apresentação: Como JAM Stack ajudou crescer o time de Marketing na Azion",
+                    title: "How JAM Stack helped grow the Marketing team at Azion",
+                    description: "(original pt-br) - This presentation aims to talk about the JAM Stack architecture used at Azion. It will explain \"<strong>what is JAM Stack</strong>\", show a use case, discuss problems/solutions, and how we set up this static architecture for the Marketing team to have a more agile process in creating web presence pages.",
+                    link: "to go slides",
+                    linkHrefTitle: "Slides: How JAM Stack helped grow the Marketing team at Azion",
                     linkHref: "https://speakerdeck.com/robsongajunior/como-jam-stack-ajudou-crescer-o-time-de-marketing-na-azion",
                 },
                 {
-                    title: "O pensamento por trás de um desenvolvimento escalável.",
-                    description: "Com uma arquitetura JAM Stack primeiro projeto da Azion utilizando Astro, agnóstico component library consumindo Azion Edge Functions API.",
-                    link: "ver apresentação",
-                    linkHrefTitle: "Apresentação: O pensamento por trás de um desenvolvimento escalável.",
+                    title: "The thought process behind scalable development.",
+                    description: "(original pt-br) - With a JAM Stack architecture, the first project from Azion utilizing Astro, component library agnostic, consuming the Azion Edge Functions API.",
+                    link: "to go slides",
+                    linkHrefTitle: "Slides: The thought process behind scalable development.",
                     linkHref: "https://speakerdeck.com/robsongajunior/o-pensamento-por-tras-de-um-desenvolvimento-escalavel",
                 }
             ]

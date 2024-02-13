@@ -74,7 +74,7 @@ export default {
                 },
                 {
                     title: "Azion Docs",
-                    description: "Migração de Jekyll para Astro com objetivo de se tornar agnóstico a component library, suportanto mdx e dispobibilizando novos componntes para serem facilmente consumidos pelos writes.",
+                    description: "Migração de Jekyll para Astro com objetivo de se tornar agnóstico a component library, suportanto mdx e dispobibilizando novos componntes para serem facilmente consumidos pelos writers.",
                     link: "ver projeto",
                     linkHrefTitle: "Azion Docs",
                     linkHref: "https://docs.azion.com/"
