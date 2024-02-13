@@ -5,18 +5,19 @@ import Hero from "../../components/blocking-builds/Hero.astro";
 
 export async function getStaticPaths() {
     let i18nData = await Astro.glob("../../i18n/view/home/index.js");
+
     return i18nConfig.langs.map((lang) => {
         return {
             params: {
-                lang: lang,
+                lang: lang
             },
             props: {
                 lang: lang,
-                data: i18nData[0].default[lang],
-            },
+                data: i18nData[0].default[lang]
+            }
         };
     });
-}
+};
 
 const { lang, data } = Astro.props;
 const metatag = data.heading.meta;
@@ -29,6 +30,7 @@ const page = data.page;
     description={metatag.description}
     keywords={metatag.keywords}
     robots={metatag.robots}>
+
     <main>
         <Hero title={page.hero.title} description={page.hero.description} />
     </main>
