@@ -1,26 +1,47 @@
 ---
-const { ...props } = Astro.props;
+const { post } = Astro.props
+const {
+    heroImage,
+    heroAltImage,
+    title,
+    date,
+    dateUpdate,
+    meta_description,
+    categories
+} = post.data
 ---
 
 <section class="featured-post">
-    <a href="">
+    <a href=`/${post.slug}/` title={ title }>
         <figure class="featured-img-content">
-            <img src="/blog-placeholder-1.jpg" alt="" class="featured-img">
+            <img src={heroImage} alt={heroAltImage} class="featured-img">
         </figure>
         <div class="post-content">
             <h1>
-                Azion Functions | Como usamos serverless JavaScript functions no dia a dia para facilitar e adiantar as próprias entregas
+                { title }
             </h1>
+            <p style="margin-top: -10px;">
+                <small>
+                    date / update
+                    <br>
+                    { date }
+                    <br>
+                    { dateUpdate }
+                </small>
+            </p>
             <ul class="tag-list">
+            {
+            categories.slice(0,3).map((category) => (
                 <li class="tag-item">
-                    <span class="tag">jamstack</span>
+                    <span class="tag">
+                        { category }
+                    </span>
                 </li>
-                <li class="tag-item">
-                    <span class="tag">performance</span>
-                </li>
+            ))
+            }
             </ul>
             <p>
-                Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.
+                { meta_description }
             </p>
         </div>
     </a>
@@ -30,6 +51,7 @@ const { ...props } = Astro.props;
     @import '../styles/breakpoints';
 
     .featured-post a {
+        text-decoration: none;
         @include media-breakpoint-up(sd) {
             display: flex;
             align-items: center;

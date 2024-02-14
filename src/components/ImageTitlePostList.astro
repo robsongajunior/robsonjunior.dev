@@ -1,0 +1,88 @@
+---
+const { posts } = Astro.props
+---
+
+<ul class="post-list">
+{
+    posts.map((post, index) => (
+    <li class="post-item">
+        <div class="post">
+            <a href=`/${post.slug}/` title={ post.data.title }>
+                <figure class="post-figure">
+                    <img src={ post.data.heroImage } alt={ post.data.heroAltImage } />
+                </figure>
+                <div class="post-content">
+                    <h3>
+                        { post.data.title }
+                    </h3>
+                    <p>
+                        { post.data.meta_description }
+                    </p>
+                </div>
+            </a>
+        </div>
+    </li>
+    ))
+}
+</ul>
+
+<style lang="scss" scoped>
+    @import '../styles/breakpoints';
+
+    .post-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+
+        @include media-breakpoint-up(sd) {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .post-item {
+        margin: 0;
+        padding: 0;
+    }
+
+    .post {
+        a {
+            text-decoration: none;
+
+            @include media-breakpoint-up(md) {
+                display: block;
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .post-figure {
+            @include media-breakpoint-up(md) {
+                width: 33%;
+            }
+            margin: 0;
+            padding: 0;
+        }
+
+        .post-content {
+            @include media-breakpoint-up(md) {
+                width: 66%;
+            }
+
+            h3 {
+                font-size: 1rem;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+</style>

@@ -1,17 +1,21 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '../styles/index.scss';
 
 interface Props {
 	title: string;
 	description: string;
+    keywords: string;
+    robots?: string;
 	image?: string;
-}
+};
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const {
+    title,
+    description,
+    robots = "index, follow",
+    image
+} = Astro.props;
 ---
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -19,6 +23,8 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content={robots}>
+
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
@@ -31,9 +37,10 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
+<title>{title} | robsonjunior.dev</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<!-- <meta name="keywords" content={keywords} /> -->
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

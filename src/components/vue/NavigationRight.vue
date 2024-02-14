@@ -23,7 +23,6 @@
                 <a
                     href="/sobre/"
                     title="sobre | robsonjunior.dev">
-
                     sobre
                 </a>
             </li>
@@ -111,7 +110,7 @@
                     display: block;
                     opacity: 0;
                     transition: var(--transition-all-ease-in-out);
-                    padding: .5rem 0.5rem;
+                    padding: .66rem 0.5rem;
                     color: var(--median);
                     border-bottom: 1px solid transparent;
                     text-decoration: none;

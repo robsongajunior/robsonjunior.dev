@@ -1,0 +1,50 @@
+---
+import CopyButton from "../../components/vue/CopyButton.vue";
+
+interface Props {
+    title: String,
+    description: String
+};
+
+const { title, description } = Astro.props;
+---
+
+<section class="bio">
+    <div class="center-content">
+        <h2>{title}</h2>
+        <div class="bio-content">
+            <blockquote>{description}</blockquote>
+            <CopyButton client:load content={description} />
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import '../../styles/breakpoints';
+
+    .bio {
+        .center-content {
+            max-width: 960px;
+        }
+
+        .bio-content {
+            text-align: right;
+
+            @include media-breakpoint-up(sd) {
+                display: flex;
+                align-items: end;
+                text-align: left;
+            }
+
+            blockquote {
+                border-left: 4px solid var(--dark);
+                text-align: left;
+                padding: 1rem 0 0 1rem;
+
+                @include media-breakpoint-up(sd) {
+                    padding: 1rem 2rem;
+                }
+            }
+        }
+    }
+</style>

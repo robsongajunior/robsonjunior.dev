@@ -1,3 +1,4 @@
+import './kbar.scss';
 import {
     KBarProvider,
     KBarPortal,
@@ -7,36 +8,62 @@ import {
     KBarResults,
     useMatches
 } from 'kbar';
-import './kbar.scss';
 
+const actions = {
+    ptbr: [
+        {
+            id: 'blog',
+            name: 'Blog',
+            shortcut: ['b'],
+            keywords: ['blog', 'medium', 'posts'],
+            icon: '/static/icons/svg/blog.svg',
+            perform: () => (window.location.pathname = '/pt-br/blog/')
+        },
+        {
+            id: 'github',
+            name: 'GitHub',
+            shortcut: ['g', 'h'],
+            keywords: ['github', 'code', 'desenvolvimento', 'dev'],
+            icon: '/static/icons/svg/github.svg',
+            perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
+        },
+        {
+            id: 'sobre',
+            name: 'Sobre',
+            shortcut: ['s'],
+            keywords: ['sobre', 'robson junior', 'about'],
+            icon: '/static/icons/svg/about.svg',
+            perform: () => (window.location.pathname = '/pt-br/sobre/')
+        }
+    ],
 
-const actions = [
-    {
-        id: 'blog',
-        name: 'Blog',
-        shortcut: ['b'],
-        keywords: ['blog', 'medium', 'posts'],
-        icon: '/static/icons/svg/blog.svg',
-        perform: () => (window.open('https://medium.com/@robsongajunior', '_blank'))
-        // perform: () => (window.location.pathname = '/blog/')
-    },
-    {
-        id: 'github',
-        name: 'GitHub',
-        shortcut: ['g', 'h'],
-        keywords: ['github', 'code', 'developing'],
-        icon: '/static/icons/svg/github.svg',
-        perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
-    },
-    {
-        id: 'sobre',
-        name: 'Sobre',
-        shortcut: ['s'],
-        keywords: ['sobre', 'robson junior', 'about'],
-        icon: '/static/icons/svg/about.svg',
-        perform: () => (window.location.pathname = '/sobre/')
-    }
-];
+    en: [
+        {
+            id: 'blog',
+            name: 'Blog',
+            shortcut: ['b'],
+            keywords: ['blog', 'medium', 'posts'],
+            icon: '/static/icons/svg/blog.svg',
+            perform: () => (window.location.pathname = '/en/blog/')
+        },
+        {
+            id: 'github',
+            name: 'GitHub',
+            shortcut: ['g', 'h'],
+            keywords: ['github', 'code', 'developing', 'dev'],
+            icon: '/static/icons/svg/github.svg',
+            perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
+        },
+        {
+            id: 'about',
+            name: 'About',
+            shortcut: ['a', 'me'],
+            keywords: ['about', 'robson junior', 'me'],
+            icon: '/static/icons/svg/about.svg',
+            perform: () => (window.location.pathname = '/en/about/')
+        }
+    ],
+};
 
 function KbarRenderResults() {
     const { results } = useMatches();
@@ -66,10 +93,10 @@ function KbarRenderResults() {
     );
 }
 
-export default function Kbar() {
+export default function Kbar(props) {
     return (
         <>
-            <KBarProvider actions={actions}>
+            <KBarProvider actions={actions[(props[':lang'] === 'en') ? 'en' : 'ptbr']}>
                 <KBarPortal>
                     <KBarPositioner>
                         <KBarAnimator>

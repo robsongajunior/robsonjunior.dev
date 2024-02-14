@@ -40,7 +40,7 @@ main {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
 
     @include media-breakpoint-up(lg) {
         padding: 2rem 0;
