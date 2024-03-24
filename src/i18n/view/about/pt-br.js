@@ -114,7 +114,7 @@ export default {
                 <br> \
                 OGUFERS, SucesuRS, Senac Talks, TDC, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa entre outros.",
 
-                "Também fui também como prestigiador: \
+                "Também fui como prestigiador: \
                 <br> \
                 JS Conf Argentina, Front-In-Aracaju, Front-In-Sampa, Criciuma Dev, Python Brasil, TDC, RSJS e por aí vai indo, lista é grande!"
             ],
