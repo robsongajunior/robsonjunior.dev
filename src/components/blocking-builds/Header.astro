@@ -1,25 +1,13 @@
 ---
-import HeaderLink from "../HeaderLink.astro";
-import LogoShort from "../LogoShort.astro";
-import ButtonBurguer from "../vue/ButtonBurguer.vue";
+import LogoShort from '@components/LogoShort.astro';
+import ButtonBurguer from '@components/vue/ButtonBurguer.vue';
 ---
 
 <header id="header">
     <LogoShort href="/" title="home | robsonjunior.dev" />
     <nav>
-        <!--
-        <HeaderLink href="https://robsongajunior.medium.com/">
-            blog
-        </HeaderLink>
-        <HeaderLink href="https://github.com/robsongajunior/">
-            github
-        </HeaderLink>
-        <HeaderLink href="/sobre/">
-            sobre
-        </HeaderLink>
-        -->
         <p>
-            <kbd id="keyCommandHead">⌘</kbd> + <kbd>k</kbd>
+            <kbd id="keyCommandHead">⌘</kbd>+<kbd>k</kbd>
         </p>
     </nav>
     <ButtonBurguer client:only="vue" />

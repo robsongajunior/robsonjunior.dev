@@ -1,10 +1,16 @@
 ---
-import Head from "../components/Head.astro";
-import Header from "../components/blocking-builds/Header.astro";
-import Footer from "../components/blocking-builds/Footer.astro";
-import Kbar from "../components/react/Kbar/Kbar.jsx";
-import NavigationRight from "../components/vue/NavigationRight.vue";
-const { title = "", description = "" } = Astro.props;
+import Head from "@components/Head.astro";
+import Header from "@components/blocking-builds/Header.astro";
+import Footer from "@components/blocking-builds/Footer.astro";
+import Kbar from "@components/react/Kbar/Kbar.jsx";
+import NavigationRight from "@components/vue/NavigationRight.vue";
+const {
+    description,
+    lang,
+    title
+} = Astro.props;
+
+import { getData } from '@utils/data.js';
 ---
 
 <html lang="pt-BR">
@@ -21,15 +27,14 @@ const { title = "", description = "" } = Astro.props;
                 src="https://www.googletagmanager.com/ns.html?id=GTM-PD9CKQS5"
                 height="0"
                 width="0"
-                style="display:none;visibility:hidden"
-            >
+                style="display:none;visibility:hidden">
             </iframe>
         </noscript>
         <!-- End Google Tag Manager (noscript) -->
 
         <Kbar client:load />
         <Header />
-        <NavigationRight client:load />
+        <NavigationRight items={getData.components.header[lang].menu.items} client:load />
 
         <main>
             <slot />

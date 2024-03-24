@@ -2,33 +2,14 @@
 import { getCollection } from 'astro:content';
 import Default from '../../../layouts/Default.astro';
 import i18nConfig from '../.././../i18n/config';
-// import FormattedDate from '../../../components/FormattedDate.astro'
 import FeaturedPost from '../../../components/FeaturedPost.astro';
 import TitleListPost from '../../../components/TitleListPost.astro';
 import ImageTitlePostList from '../../../components/ImageTitlePostList.astro';
 import LineDivisor from '../../../components/LineDivisor.astro';
-
+import { getPageByLangCollection } from "@utils/pages.js";
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
-
-    const groupPagesByLang = (pages) =>
-        pages.reduce((pages, page) => {
-            const lang = page.slug.split('/')[0];
-
-            if (!pages[lang]) {
-                pages[lang] = [];
-            }
-
-            pages[lang].push(page);
-
-            return pages;
-        }, {}
-    );
-
-    const getPageByLangCollection = (collection, lang) => {
-        return groupPagesByLang(collection)[lang] || [];
-    }
 
     return i18nConfig.langs.map((lang) => {
         let postsByLang = getPageByLangCollection(posts, lang) || [];
@@ -51,10 +32,10 @@ export async function getStaticPaths() {
     });
 }
 
-let { posts } = Astro.props;
+let { lang, posts } = Astro.props;
 ---
 
-<Default title="blog">
+<Default title="Blog" lang={ lang }>
     <div class="center-content">
         <FeaturedPost post={ posts[0] } />
     </div>

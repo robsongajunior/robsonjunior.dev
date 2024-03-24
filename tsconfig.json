@@ -3,6 +3,15 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+        "@/*": ["src/*"],
+        "@utils/*": ["src/utils/*"],
+        "@i18n/*": ["src/i18n/*"],
+        "@components/*": ["src/components/*"],
+        "@styles/*": ["src/styles/*"],
+        "@layouts/*": ["src/layouts/*"],
+    }
   }
 }

@@ -10,6 +10,8 @@ const {
     description,
     robots
 } = Astro.props;
+
+import { getData } from '@utils/data.js';
 ---
 
 <html lang={lang}>
@@ -34,7 +36,8 @@ const {
 
         <Kbar :lang={lang} client:load />
         <Header />
-        <NavigationRight client:load />
+        <NavigationRight items={getData.components.header[lang].menu.items} client:load />
+
         <main>
             <slot>
         </main>

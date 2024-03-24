@@ -1,32 +1,14 @@
 <template>
     <aside id="navigationRight" :class="{ active: isActive }">
-        <ul>
-            <li>
-                <a
-                    href="https://medium.com/@robsongajunior"
-                    title="medium profile"
-                    target="_blank">
-
-                    blog
-                </a>
-            </li>
-            <li>
-                <a
-                    href="https://github.com/robsongajunior/"
-                    title="github profile"
-                    target="_blank">
-
-                    github
-                </a>
-            </li>
-            <li>
-                <a
-                    href="/sobre/"
-                    title="sobre | robsonjunior.dev">
-                    sobre
-                </a>
-            </li>
-        </ul>
+        <nav>
+            <ul>
+                <li v-for="item in props.items">
+                    <a :href="item.href" :title="item.hrefTitle" :target="item.target">
+                        {{ item.label }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </aside>
 </template>
 
@@ -34,6 +16,15 @@
     import { onMounted } from 'vue';
     import { useStore } from '@nanostores/vue';
     import { isMenuActive } from '../../nanostores/BurguerButton.js';
+
+    const props = defineProps({
+        items: {
+            type: Array,
+            required: true
+        }
+    });
+
+    console.log('[NavigationRight.vue] props.items: ', props.items);
 
     let isActive = useStore(isMenuActive);
 
