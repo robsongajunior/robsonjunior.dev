@@ -10,6 +10,21 @@ const { title } = Astro.props;
     .borntobuildanddeliver {
         font-weight: 200;
         color: var(--light);
+        text-shadow: 1px 1px 1px #919191,
+            1px 2px 1px #919191,
+            1px 3px 1px #919191,
+            1px 4px 1px #919191,
+            1px 5px 1px #919191,
+            1px 6px 1px #919191,
+            1px 7px 1px #919191,
+            1px 8px 1px #919191,
+            1px 9px 1px #919191,
+            1px 10px 1px #919191,
+            1px 18px 6px rgba(16,16,16,0.4),
+            1px 22px 10px rgba(16,16,16,0.2),
+            1px 25px 35px rgba(16,16,16,0.2),
+            1px 30px 60px rgba(16,16,16,0.4);
+
 
         strong {
             font-weight: 900;
@@ -28,23 +43,6 @@ const { title } = Astro.props;
 
         @include media-breakpoint-up(lg) {
             font-size: 72px; /* Size of the text */
-        }
-
-        strong {
-            /* The 3D effect */
-            text-shadow:
-                1px 1px 0 #bbb, /* Layered shadows for 3D depth */
-                2px 2px 0 #999,
-                3px 3px 0 #777,
-                4px 4px 0 #555,
-                5px 5px 0 #333,
-                6px 6px 2px rgba(0,0,0,0.5), /* Soft shadow for 3D effect */
-                6px 6px 1px rgba(0,0,0,0.2), /* Adding some blur for realism */
-                0 0 5px rgba(0,0,0,0.1), /* Soft glow around the text */
-                0 0 10px rgba(0,0,0,0.05); /* Wider glow for further depth */
-
-            /* Optional: Add a perspective */
-            transform: perspective(500px) rotateX(10deg) rotateY(10deg);
         }
     }
 </style>
