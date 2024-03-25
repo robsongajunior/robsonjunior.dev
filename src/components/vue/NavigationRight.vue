@@ -24,8 +24,6 @@
         }
     });
 
-    console.log('[NavigationRight.vue] props.items: ', props.items);
-
     let isActive = useStore(isMenuActive);
 
     onMounted(() => {
