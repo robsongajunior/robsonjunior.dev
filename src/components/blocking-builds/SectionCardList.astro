@@ -17,8 +17,9 @@ const { title, description, cards } = Astro.props;
 <section>
     <div class="center-content">
         <h2>{title}</h2>
-        <p set:html={description} />
-
+        <div class="description-content">
+            <p set:html={description} />
+        </div>
         <ul class="card-list">
             {
                 cards.map(card => (
@@ -46,6 +47,10 @@ const { title, description, cards } = Astro.props;
 <style lang="scss">
     @import '../../styles/breakpoints';
 
+    .description-content {
+        max-width: 768px;
+    }
+
     .card-list {
         display: flex;
         flex-wrap: wrap;
@@ -53,11 +58,15 @@ const { title, description, cards } = Astro.props;
         margin: 2rem 0 0;
         padding: 0;
         align-content: stretch;
-        gap: 1rem;
+        gap: 1.275rem;
 
         .card {
             flex: 1;
-            min-width: 320px;
+            min-width: 360px;
+
+            @include media-breakpoint-down(md) {
+                min-width: 320px;
+            }
         }
 
         .card-content {
@@ -68,8 +77,8 @@ const { title, description, cards } = Astro.props;
             position: relative;
             border: 2px solid transparent;
 
+
             &::after {
-                // z-index: 1;
                 border-radius: 80px;
                 position: absolute;
                 top: -1px;

@@ -85,6 +85,7 @@ b {
 
 a {
     color: var(--mediam);
+
 }
 
 a:hover {
@@ -93,6 +94,9 @@ a:hover {
 
 p {
     margin-bottom: 1rem;
+    font-weight: 200;
+    font-size: clamp(1rem, 0.9375rem + 0.3125vw, 1.25rem);
+    line-height: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);
 }
 
 .prose p {
@@ -138,7 +142,7 @@ blockquote {
     border-left: 4px solid var(--warn);
     padding: 1rem 2rem;
     margin: 0px;
-    font-size: .825rem;
+    font-size: clamp(0.725rem, 0.7813rem + 0.2188vw, 1rem);
 }
 
 hr {

@@ -13,7 +13,7 @@ export default {
                 src: "/static/images/pages/sobre/robsonjunior-profile.jpeg",
                 alt: "Robson Júnior in his natural habitat, a dark room with his Mac, the generator of incredible solutions!                "
             },
-            title: "Build, Deliver <small>and</small> Repeat",
+            title: "<strong>BUILD, DELIVER</strong><br>AND <strong>REPEAT</strong>",
             description: [
                 "Hello, my name is <strong>Robson Júnior</strong>. \
                 <br> \
@@ -102,7 +102,7 @@ export default {
                 "Throughout these more than 10 years of career, \
                 I had the opportunity to participate in various events as a speaker, some of them were: \
                 <br> \
-                OGUFERS, SucesuRS, Senac Talks, TDC, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa among others.",
+                OGUFERS, Sucesu RS, Senac Talks, The Developers Conference, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa among others.",
 
                 "I also attended as an attendee: \
                 <br> \

@@ -13,11 +13,11 @@ export default {
                 src: "/static/images/pages/sobre/robsonjunior-profile.jpeg",
                 alt: "Robson Júnior em seu habitati natural, uma sala escura e seu Mac gerador de soluções incríveis!"
             },
-            title: "Build, Deliver <small>and</small> Repeat",
+            title: "<strong>BUILD, DELIVER</strong><br>AND <strong>REPEAT</strong>",
             description: [
                 "Olá, me chamo <strong>Robson Júnior</strong>. \
                 <br> \
-                Iniciei como web engineer em 2014, trabalhando com animações CSS3.",
+                Iniciei como Web Engineer em 2014, trabalhando com animações CSS3.",
 
                 "Atualmente trabalho como Sênior Sofware Engineer na <a href=\"https://www.azion.com/pt-br/\" target=\"_blank\">Azion Technologies</a>. \
                 <br> \
@@ -107,16 +107,16 @@ export default {
             description: [
                 "Tenho uma paixão enorme por compartilhar sobre o meu trabalho, \
                 <br> \
-                técnicas e conhecimentos que acredito que devem ser compartilhados.",
+                técnicas e conhecimentos que acredito que devem ser compartilhados.<br><br>",
 
                 "Ao longo desses mais de 10 anos de carreira tive oportunidade de passar \
                 por diversos eventos como palestrante, alguns deles foram: \
                 <br> \
-                OGUFERS, SucesuRS, Senac Talks, TDC, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa entre outros.",
+                OGUFERS, Sucesu RS, Senac Talks, The Developers Conference, EATI, BrazilJS On The Road (Belo Horizonte), Front-In-Poa entre outros.<br><br>",
 
-                "Também fui como prestigiador: \
+                "Também, fui como prestigiador: \
                 <br> \
-                JS Conf Argentina, Front-In-Aracaju, Front-In-Sampa, Criciuma Dev, Python Brasil, TDC, RSJS e por aí vai indo, lista é grande!"
+                JS Conf Argentina, Front-In-Aracajú, Front-In-Sampa, Criciúma Dev, Python Brasil, TDC, RSJS e por aí vai indo, lista é grande!"
             ],
             cards: [
                 {
