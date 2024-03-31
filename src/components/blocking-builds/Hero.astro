@@ -1,6 +1,5 @@
 ---
 import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
-// import KbarButton from '../react/Kbar/KbarButton.jsx';
 
 interface Props {
     title: String,
@@ -22,17 +21,14 @@ const { title, description } = Astro.props;
 
         (function keyCommandByPlatform() {
             const isMac = /(Mac)/i.test(navigator.userAgent);
-
             const keyCommand = document.querySelector('#keyCommand');
-            if(isMac || !keyCommand) return;
 
+            if(isMac || !keyCommand) return;
             keyCommand.innerHTML = '^';
         })();
 
         (function () {
-            const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
-
-            if(!isMobile) return;
+            if(!/iPhone|iPad|Android/i.test(navigator.userAgent)) return;
             document.querySelector('#shortcut')?.remove();
         })();
     })();
@@ -48,7 +44,7 @@ const { title, description } = Astro.props;
         height: calc(100vh - $headerHeight);
         display: flex;
         text-align: center;
-        align-items: c enter;
+        align-items: center;
 
         kbd {
             border-radius: 4px;
@@ -68,17 +64,23 @@ const { title, description } = Astro.props;
             small {
                 display: block;
                 text-align: center;
-                font-size: 1rem;
+                font-size: clamp(1rem, 0.8125rem + 0.9375vw, 1.75rem);
                 font-weight: 200;
-                margin: .5rem 0 0;
+                margin: 2rem 0 0;
+                opacity: .7;
 
                 @include media-breakpoint-down(sm) {
-                    font-size: .725rem;
+                    margin: 1rem 0 0;
                 }
             }
 
             @include media-breakpoint-down(sm) {
-                font-size: 2.052rem;
+                font-size: 2rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                font-size: 2rem;
+                line-height: 3rem;
             }
         }
     }

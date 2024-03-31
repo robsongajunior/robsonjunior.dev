@@ -2,47 +2,37 @@
 const { title } = Astro.props;
 ---
 
-<span class="borntobuildanddeliver" set:html={title} />
+<span class="text-3d borntobuildanddeliver" set:html={title} />
 
 <style lang="scss" is:global>
     @import '@styles/breakpoints';
 
     .borntobuildanddeliver {
-        font-weight: 200;
+        font-weight: 400;
         color: var(--light);
-        text-shadow: 1px 1px 1px #919191,
-            1px 2px 1px #919191,
-            1px 3px 1px #919191,
-            1px 4px 1px #919191,
-            1px 5px 1px #919191,
-            1px 6px 1px #919191,
-            1px 7px 1px #919191,
-            1px 8px 1px #919191,
-            1px 9px 1px #919191,
-            1px 10px 1px #919191,
-            1px 18px 6px rgba(16,16,16,0.4),
-            1px 22px 10px rgba(16,16,16,0.2),
-            1px 25px 35px rgba(16,16,16,0.2),
-            1px 30px 60px rgba(16,16,16,0.4);
+        font-size: clamp(2rem, 0.5rem + 7.5vw, 8rem);
+        line-height: clamp(2rem, 0.5rem + 7.5vw, 8rem);
 
+        @include media-breakpoint-up(lg) {
+            min-height: 260px;
+        }
+
+        .letter {
+            transition: all ease-in-out 400ms;
+            opacity: .75;
+        }
+
+        &:hover {
+            .letter {
+                &:hover {
+                    transition: all ease-in 100ms;
+                    opacity: 1.0;
+                }
+            }
+        }
 
         strong {
             font-weight: 900;
-        }
-
-        br {
-            @include media-breakpoint-down(sd) {
-                display: inline;
-            }
-
-            @include media-breakpoint-up(sd) {
-                display: none;
-            }
-        }
-
-
-        @include media-breakpoint-up(lg) {
-            font-size: 72px; /* Size of the text */
         }
     }
 </style>
