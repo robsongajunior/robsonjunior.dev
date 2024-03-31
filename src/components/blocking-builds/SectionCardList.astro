@@ -27,15 +27,18 @@ const { title, description, cards } = Astro.props;
                         <div class="card-content">
                             <h3>{card.title}</h3>
                             <p set:html={card.description} />
-                            { card.linkHref ?
-                                <a
-                                    href={card.linkHref}
-                                    title={card.linkHrefTitle}
-                                    target="_blank">
+                            <div class="actions">
+                                { card.linkHref ?
+                                    <a
+                                        class="button-3d"
+                                        href={card.linkHref}
+                                        title={card.linkHrefTitle}
+                                        target="_blank">
 
-                                    {card.link}
-                                </a> : ''
-                            }
+                                        {card.link}
+                                    </a> : ''
+                                }
+                            </div>
                         </div>
                     </li>
                 ))
@@ -46,6 +49,8 @@ const { title, description, cards } = Astro.props;
 
 <style lang="scss">
     @import '../../styles/breakpoints';
+
+
 
     .description-content {
         max-width: 768px;
@@ -70,8 +75,8 @@ const { title, description, cards } = Astro.props;
         }
 
         .card-content {
-            padding: 2rem;
-            background: linear-gradient(71deg, var(--dark-strong), #191919, var(--dark-strong));
+            padding: 2rem 2rem 3.25rem;
+            background: linear-gradient(71deg, var(--dark-strong), #121212, var(--dark-strong));
             border-radius: 80px;
             background-clip: padding-box;
             position: relative;
@@ -86,8 +91,13 @@ const { title, description, cards } = Astro.props;
                 right: -1px;
                 content: "";
                 z-index: -1;
-                background: linear-gradient(71deg, var(--dark-strong), #454545, var(--dark-strong));
+                background: linear-gradient(71deg, var(--dark-strong), #222, var(--dark-strong));
             }
+        }
+
+        .actions {
+            text-align: right;
+            margin-top: 2rem;
         }
     }
 </style>
