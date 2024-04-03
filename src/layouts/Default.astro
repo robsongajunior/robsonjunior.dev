@@ -4,8 +4,6 @@ import Header from "@components/blocking-builds/Header.astro";
 import Footer from "@components/blocking-builds/Footer.astro";
 import Kbar from "@components/react/Kbar/Kbar.jsx";
 import NavigationRight from "@components/vue/NavigationRight.vue";
-
-import GoogleTagManagerNoScript from "@components/trd3/googletagmanager/noscript.astro";
 import Trd3 from "@components/Trd3.astro";
 
 const {
@@ -21,18 +19,12 @@ import { getData } from '@utils/data.js';
     <head>
         <Head title={title} description={description} />
     </head>
-
     <body>
-        <GoogleTagManagerNoScript />
-
         <Kbar client:load />
         <Header />
         <NavigationRight client:load items={getData.components.header[lang].menu.items} />
-        <main>
-            <slot />
-        </main>
+        <main><slot /></main>
         <Footer />
-
         <Trd3 />
     </body>
 </html>

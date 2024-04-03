@@ -1,8 +1,9 @@
 ---
-import Head from "../components/Head.astro";
-import Header from "../components/blocking-builds/Header.astro";
-import Kbar from "../components/react/Kbar/Kbar.jsx";
-import NavigationRight from "../components/vue/NavigationRight.vue";
+import Head from "@components/Head.astro";
+import Header from "@components/blocking-builds/Header.astro";
+import Kbar from "@components/react/Kbar/Kbar.jsx";
+import NavigationRight from "@components/vue/NavigationRight.vue";
+import Trd3 from "@components/Trd3.astro";
 
 const {
     lang,
@@ -16,30 +17,13 @@ import { getData } from '@utils/data.js';
 
 <html lang={lang}>
     <head>
-        <Head
-            title={title}
-            description={description}
-            robots={robots} />
+        <Head title={title} description={description} robots={robots} />
     </head>
-
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-PD9CKQS5"
-                style="display:none;visibility:hidden"
-                width="0"
-                height="0">
-            </iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-        <Kbar :lang={lang} client:load />
+        <Kbar client:load :lang={lang} />
         <Header />
-        <NavigationRight items={getData.components.header[lang].menu.items} client:load />
-
-        <main>
-            <slot>
-        </main>
+        <NavigationRight client:load items={getData.components.header[lang].menu.items} />
+        <main><slot></main>
+        <Trd3 />
     </body>
 </html>
