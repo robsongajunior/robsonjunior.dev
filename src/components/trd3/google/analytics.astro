@@ -1,0 +1,32 @@
+<script is:inline defer>
+    (function() {
+        if (window.location.origin !== 'https://www.robsonjunior.dev' || window.location.search.match(/trd3=false/)) {
+        console.log('Google Analytics: disabled');
+        return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+        dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-ZQ4PG0QGL8');
+
+        function load() {
+        let script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZQ4PG0QGL8';
+        document.head.appendChild(script);
+        }
+
+        if(window.innerWidth >= 1024) {
+        load();
+        } else {
+        setTimeout(function() {
+            load();
+        }, 5000)
+        }
+    })();
+</script>
