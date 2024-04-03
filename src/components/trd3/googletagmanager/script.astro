@@ -1,0 +1,86 @@
+
+<link rel="preconnect" href="https://www.googletagmanager.com/" />
+<link rel="preconnect" href="https://www.google-analytics.com" />
+
+<script defer is:inline type="text/javascript">
+  (function() {
+    window.dataLayer = window.dataLayer || [];
+
+    gtag = function() {
+      dataLayer.push(arguments);
+    }
+
+    function loadScript() {
+      if (window.location.origin !== 'https://www.robsonjunior.dev' || window.location.search.match(/trd3=false/)) {
+        console.log('Google Tag Manager: disabled');
+        return;
+      }
+
+      gtag('js', new Date());
+      gtag("config", 'GTM-PD9CKQS5');
+
+      (function (w, l) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+      })(window, 'dataLayer');
+
+      let script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PD9CKQS5';
+      document.head.appendChild(script);
+    };
+
+    loaded = false;
+    window.addEventListener('load', () => {
+        window.addEventListener('scroll', () => {
+          if(window.scrollY < 100) return;
+          if(loaded) return;
+
+          loadScript();
+          loaded = true;
+      });
+
+      window.addEventListener('mouseover', () => {
+          if(loaded) return;
+
+          loadScript();
+          loaded = true;
+      });
+    });
+  })();
+</script>
+<script is:inline defer>
+  (function() {
+    if (window.location.origin !== 'https://www.robsonjunior.dev' || window.location.search.match(/trd3=false/)) {
+      console.log('Google Analytics: disabled');
+      return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-ZQ4PG0QGL8');
+
+    function load() {
+      let script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZQ4PG0QGL8';
+      document.head.appendChild(script);
+    }
+
+    if(window.innerWidth >= 1024) {
+      load();
+    } else {
+      setTimeout(function() {
+        load();
+      }, 5000)
+    }
+  })();
+</script>
