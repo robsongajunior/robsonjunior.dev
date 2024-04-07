@@ -9,9 +9,11 @@ jobs:
   deploy:
     name: Azion Technologies Production
     runs-on: ubuntu-latest
+    container: node:18-alpine3.18
+
     steps:
-      - name: Download Azion CLI
-        run: sudo apt-get install ./azion_1.17.1_linux_amd64.deb;
+      - name: Install SO dependencies
+        run: apk add ./azion_1.17.1_linux_amd64.deb git;
 
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
