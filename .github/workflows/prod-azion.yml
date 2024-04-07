@@ -12,8 +12,11 @@ jobs:
     container: node:18-alpine3.18
 
     steps:
-      - name: Install SO dependencies
+      - name: installing SO dependencies
         run: apk add git -t ./azion_1.17.1_linux_arm64.apk;
+
+      - name: setting token azion cli
+        run: azion -t ${secrets.AZION_PERSONAL_TOKEN};
 
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
@@ -32,11 +35,8 @@ jobs:
       - name: installing project dependencies
         run: npm install;
 
-    #   - name: syntax checking
-    #     run: npm run check
-
       - name: building
-        run: azion -t ${secrets.AZION_PERSONAL_TOKEN}; azion build;
+        run: azion build;
 
-      - name: edge-storage-deploy
+      - name: publishing to edge-storage-deploy
         run: azion deploy;
