@@ -2,10 +2,10 @@ name: robsonjunior.dev production
 on:
   push:
     branches:
-      - main
+      - gcp
 jobs:
   deploy:
-    name: production
+    name: GCP Production
     runs-on: ubuntu-latest
     steps:
       - name: getting robsonjunior.dev
@@ -20,7 +20,7 @@ jobs:
       - name: configuring nodejs
         uses: actions/setup-node@v3
         with:
-          node-version: 20.6.1
+          node-version: 20.8.1
       - name: installing dependencies
         run: npm install
     #   - name: syntax checking
