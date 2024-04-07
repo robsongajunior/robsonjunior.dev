@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Azion CLI
-        run: apt-get install ./azion_1.17.1_linux_amd64.deb;
+        run: sudo apt-get install ./azion_1.17.1_linux_amd64.deb;
 
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
