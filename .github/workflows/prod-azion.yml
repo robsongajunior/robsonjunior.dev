@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: installing SO dependencies
-        run: apt install git -t ./azion_1.17.1_linux_amd64.deb
+        run: sudo apt install git -t ./azion_1.17.1_linux_amd64.deb
 
       - name: setting token azion cli
         run: azion -t ${secrets.AZION_PERSONAL_TOKEN};
