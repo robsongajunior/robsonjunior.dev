@@ -1,3 +1,5 @@
+#compiled files to edge deploy
+.edge
 # build output
 dist/
 # generated types
