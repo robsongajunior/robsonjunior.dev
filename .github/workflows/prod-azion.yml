@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Install SO dependencies
-        run: apk add git; apk add ./azion_1.17.1_linux_arm64.apk;
+        run: apk add git -t ./azion_1.17.1_linux_arm64.apk;
 
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
