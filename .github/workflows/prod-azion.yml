@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: installing SO dependencies
-        run: chmod +x./azion_1.17.1_linux_amd64.apk; apk add git -t ./azion_1.17.1_linux_amd64.apk
+        run: chmod +x ./azion_1.17.1_linux_amd64.apk; apk add git -t ./azion_1.17.1_linux_amd64.apk
 
       - name: setting token azion cli
         run: ./azion_1.17.1_linux_amd64.apk -t ${secrets.AZION_PERSONAL_TOKEN};
