@@ -9,15 +9,10 @@ jobs:
   deploy:
     name: Azion Technologies Production
     runs-on: ubuntu-latest
-    container:
-        image: node:18-alpine3.18
 
     steps:
-      - name: installing SO dependencies
-        run: apk add git -t ./azion_1.17.1_linux_amd64.apk
-
       - name: setting token azion cli
-        run: ./azion_1.17.1_linux_amd64.apk -t ${{secrets.AZION_PERSONAL_TOKEN}};
+        run: ./azion_1.17.1_linux_amd64/azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
 
     #   - name: getting robsonjunior.dev
     #     uses: actions/checkout@v3
