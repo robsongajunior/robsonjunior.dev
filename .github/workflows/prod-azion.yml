@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    #   - name: installing SO dependencies
-    #     run: chmod +x ./azion_1.17.1_linux_amd64.apk; apk add git -t ./azion_1.17.1_linux_amd64.apk
+      - name: installing SO dependencies
+        run: apk add git -t ./azion_1.17.1_linux_amd64.apk
 
       - name: setting token azion cli
-        run: ./azion_1.17.1_linux_amd64/azion -t ${secrets.AZION_PERSONAL_TOKEN};
+        run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
 
       - name: getting robsonjunior.dev
         uses: actions/checkout@v3
@@ -35,7 +35,7 @@ jobs:
         run: npm install;
 
       - name: building
-        run: ./azion_1.17.1_linux_amd64/azion build;
+        run: azion build;
 
       - name: publishing to edge-storage-deploy
-        run: ./azion_1.17.1_linux_amd64/azion deploy;
+        run: azion deploy;
