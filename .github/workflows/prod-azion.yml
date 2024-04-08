@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: installing azion package
-        run: apk add ./azion_1.17.1_linux_amd64.apk
+        run: ls -la; apk add ./azion_1.17.1_linux_amd64.apk
 
       - name: setting token azion cli
         run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
