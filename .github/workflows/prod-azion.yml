@@ -17,27 +17,27 @@ jobs:
         run: apk add git -t ./azion_1.17.1_linux_amd64.apk
 
       - name: setting token azion cli
-        run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
+        run: ./azion_1.17.1_linux_amd64.apk -t ${{secrets.AZION_PERSONAL_TOKEN}};
 
-      - name: getting robsonjunior.dev
-        uses: actions/checkout@v3
-        with:
-          repository: robsongajunior/robsonjunior.dev
-          ref: azion
-          path: '.'
-          clean: true
-          fetch-depth: '0'
+    #   - name: getting robsonjunior.dev
+    #     uses: actions/checkout@v3
+    #     with:
+    #       repository: robsongajunior/robsonjunior.dev
+    #       ref: azion
+    #       path: '.'
+    #       clean: true
+    #       fetch-depth: '0'
 
-      - name: configuring nodejs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.8.1
+    #   - name: configuring nodejs
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: 20.8.1
 
-      - name: installing project dependencies
-        run: npm install;
+    #   - name: installing project dependencies
+    #     run: npm install;
 
-      - name: building
-        run: azion build;
+    #   - name: building
+    #     run: azion build;
 
-      - name: publishing to edge-storage-deploy
-        run: azion deploy;
+    #   - name: publishing to edge-storage-deploy
+    #     run: azion deploy;
