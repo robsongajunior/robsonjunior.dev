@@ -9,6 +9,8 @@ jobs:
   deploy:
     name: Azion Technologies Production
     runs-on: ubuntu-latest
+    container:
+        image: node:18-alpine3.18
 
     steps:
       - name: installing SO dependencies
