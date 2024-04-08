@@ -9,10 +9,12 @@ jobs:
   deploy:
     name: Azion Technologies Production
     runs-on: ubuntu-latest
+    container:
+        image: node:18-alpine3.18
 
     steps:
       - name: installing azion package
-        run: sudo apt install ./azion_1.17.1_linux_amd64.deb
+        run: apk add ./azion_1.17.1_linux_amd64.apk
 
       - name: setting token azion cli
         run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
