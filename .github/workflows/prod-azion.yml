@@ -11,8 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: installing azion package
+        run: sudo apt install ./azion_1.17.1_linux_amd64.deb
+
       - name: setting token azion cli
-        run: ./azion_1.17.1_linux_amd64/azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
+        run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
 
     #   - name: getting robsonjunior.dev
     #     uses: actions/checkout@v3
