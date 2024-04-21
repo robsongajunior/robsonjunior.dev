@@ -1,0 +1,37 @@
+{
+  "name": "env-prod-robsonjuniordev",
+  "bucket": "env-prod-robsonjuniordev",
+  "template": "astro",
+  "mode": "deliver",
+  "env": "production",
+  "prefix": "20240421193135",
+  "function": {
+    "id": 19586,
+    "name": "__DEFAULT__",
+    "file": ".edge/worker.js",
+    "args": "./azion/args.json",
+    "instance-id": 19375,
+    "instance-name": "__DEFAULT__"
+  },
+  "application": {
+    "id": 1696176021,
+    "name": "__DEFAULT__"
+  },
+  "domain": {
+    "id": 0,
+    "name": "__DEFAULT__"
+  },
+  "rt-purge": {
+    "purge_on_publish": true
+  },
+  "origin": {
+    "single-origin-id": 0,
+    "storage-origin-id": 0,
+    "storage-origin-key": "",
+    "name": "__DEFAULT__",
+    "address": null
+  },
+  "rules-engine": {
+    "created": false
+  }
+}
