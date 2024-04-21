@@ -12,7 +12,7 @@ export async function getStaticPaths() {
         return {
             params: {
                 lang: lang,
-                about: lang === 'pt-br' ? '/sobre' : '/about'
+                about: lang === 'pt-br' ? 'sobre' : 'about'
             },
             props: {
                 lang: lang,
