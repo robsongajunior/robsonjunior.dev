@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         return {
             params: {
                 lang: slugParts[0],
-                slug: slugParts[2]
+                slug: slugParts[1]
             },
             props: post
         }
