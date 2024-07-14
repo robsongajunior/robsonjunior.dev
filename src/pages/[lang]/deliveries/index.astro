@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+
+import i18nConfig from '@i18n/config';
+import Default from '@layouts/Default.astro';
+
+import FeaturedPost from '@components/FeaturedPost.astro';
+import TitleListPost from '@components/TitleListPost.astro';
+import ImageTitlePostList from '@components/ImageTitlePostList.astro';
+import LineDivisor from '@components/LineDivisor.astro';
+
+import { getPageByLangCollection } from "@utils/pages.js";
+
+export async function getStaticPaths() {
+    const posts = await getCollection('deliveries');
+
+    return i18nConfig.langs.map((lang) => {
+        const postsByLang = getPageByLangCollection(posts, lang) || [];
+
+        postsByLang.map(post => {
+            const slugParts = post.slug.split('/');
+            const company = `${slugParts[1]}`;
+            const delivery = `${slugParts[2]}`;
+
+            post.slug = `${lang}/deliveries/${company}/${delivery}`;
+        });
+
+         return {
+            params: {
+                lang: lang
+            },
+            props: {
+                lang: lang,
+                posts: postsByLang.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+            }
+        };
+    });
+}
+
+const { lang, posts } = Astro.props;
+---
+
+<Default title="Deliveries" lang={ lang }>
+    <div class="center-content">
+        <FeaturedPost post={ posts[0] } />
+    </div>
+    <div class="center-content">
+        <LineDivisor />
+    </div>
+    <div class="center-content">
+        <TitleListPost posts={ posts.length ? posts.slice(1, 5) : [] } />
+    </div>
+    <div class="center-content">
+       <LineDivisor />
+    </div>
+    <div class="center-content">
+        <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
+    </div>
+</Defaul

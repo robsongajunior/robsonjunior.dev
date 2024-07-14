@@ -24,9 +24,7 @@ export async function getStaticPaths() {
             },
             props: {
                 lang: lang,
-                posts: postsByLang.sort(
-                    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-                )
+                posts: postsByLang.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
             }
         };
     });

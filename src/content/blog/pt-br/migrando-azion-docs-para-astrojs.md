@@ -1,5 +1,5 @@
 ---
-title: 'Atualizando a Documentação JAM Stack da Azion - Migrando Jekyll para Astro'
+title: 'Atualizando a Documentação JAM Stack da Azion  -  Migrando Jekyll para Astro'
 meta_robots: 'index, follow'
 meta_description: ''
 categories: ['JamStack', 'Jekyll']
@@ -7,11 +7,9 @@ categories: ['JamStack', 'Jekyll']
 date: 'Sep 21 2023'
 dateUpdate: ''
 
-heroImage: ''
+heroImage: '/static/uploads/blog/pt-br/migrando-azion-docs-para-astrojs/cover.webp'
 heroAltImage: 'Jekyll --> AstroJS'
 ---
-
-## Atualizando a Documentação JAM Stack da Azion  --  Migrando Jekyll para Astro
 
 Há 3 anos trabalho com Jekyll diretamente todos os dias, uma ferramenta do tipo SSG(site static generator). A tecnologia por baixo dos panos é Ruby on Rails e Liquid como template engine para escrever e reutilizar componentes trazendo uma arquitetura mais saudável. Jekyll e seus plugins ajudaram muito para evolução da geração de site estáticos.
 

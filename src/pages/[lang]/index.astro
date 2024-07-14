@@ -8,11 +8,9 @@ export async function getStaticPaths() {
 
     return i18nConfig.langs.map((lang) => {
         return {
-            params: {
-                lang: lang
-            },
+            params: { lang },
             props: {
-                lang: lang,
+                lang,
                 data: i18nData[0].default[lang]
             }
         };

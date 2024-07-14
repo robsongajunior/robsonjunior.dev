@@ -1,21 +1,21 @@
 ---
-import i18nConf from '../../i18n/config';
-import Default from "../../layouts/Default.astro";
-import Biograph from '../../components/blocking-builds/Biograph.astro';
-import ProfileDescription from '../../components/blocking-builds/ProfileDescription.astro';
-import SectionCardList from '../../components/blocking-builds/SectionCardList.astro';
+import i18nConf from '@i18n/config';
+import Default from "@layouts/Default.astro";
+import Biograph from '@components/blocking-builds/Biograph.astro';
+import ProfileDescription from '@components/blocking-builds/ProfileDescription.astro';
+import SectionCardList from '@components/blocking-builds/SectionCardList.astro';
 
 export async function getStaticPaths() {
-    let i18nData = await Astro.glob('../../i18n/view/about/index.js');
+    let i18nData = await Astro.glob('@i18n/view/about/index.js');
 
     return i18nConf.langs.map(lang => {
         return {
             params: {
-                lang: lang,
+                lang,
                 about: lang === 'pt-br' ? 'sobre' : 'about'
             },
             props: {
-                lang: lang,
+                lang,
                 data: i18nData[0].default[lang]
             }
         }

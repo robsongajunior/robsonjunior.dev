@@ -15,23 +15,39 @@ const actions = {
             id: 'blog',
             name: 'Blog',
             shortcut: ['b'],
-            keywords: ['blog', 'medium', 'posts'],
+            keywords: ['blog', 'medium', 'posts', 'artigo', 'articles'],
             icon: '/static/icons/svg/blog.svg',
             perform: () => (window.location.pathname = '/pt-br/blog/')
+        },
+        {
+            id: 'deliveries',
+            name: 'Deliveries',
+            shortcut: ['d'],
+            keywords: ['delivery', 'entregas', 'company', 'clt'],
+            icon: '/static/icons/svg/code.svg',
+            perform: () => (window.location.pathname = '/pt-br/deliveries/')
         },
         {
             id: 'github',
             name: 'GitHub',
             shortcut: ['g', 'h'],
-            keywords: ['github', 'code', 'desenvolvimento', 'dev'],
+            keywords: ['github', 'code', 'desenvolvimento', 'dev', 'js', 'javascript'],
             icon: '/static/icons/svg/github.svg',
             perform: () => (window.open('https://github.com/robsongajunior/', '_blank'))
+        },
+        {
+            id: 'talks',
+            name: 'Talks',
+            shortcut: ['t'],
+            keywords: ['talks', 'palestras', 'apresentações', 'slides'],
+            icon: '/static/icons/svg/speaker.svg',
+            perform: () => (window.location.pathname = '/pt-br/talks/')
         },
         {
             id: 'sobre',
             name: 'Sobre',
             shortcut: ['s'],
-            keywords: ['sobre', 'robson junior', 'about'],
+            keywords: ['sobre', 'robson junior', 'about', 'biografia', 'about'],
             icon: '/static/icons/svg/about.svg',
             perform: () => (window.location.pathname = '/pt-br/sobre/')
         }
