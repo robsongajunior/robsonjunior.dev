@@ -2,7 +2,7 @@ name: robsonjunior.dev production
 on:
   push:
     branches:
-      - gcp
+      - main
 jobs:
   deploy:
     name: GCP Production
