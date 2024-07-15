@@ -1,0 +1,37 @@
+---
+import Head from "@components/Head.astro";
+import Header from "@components/blocking-builds/Header.astro";
+import Footer from "@components/blocking-builds/Footer.astro";
+import Kbar from "@components/react/Kbar/Kbar.jsx";
+import NavigationRight from "@components/vue/NavigationRight.vue";
+import Trd3 from "@components/Trd3.astro";
+
+const {
+    description,
+    lang,
+    title
+} = Astro.props;
+
+import { getData } from '@utils/data.js';
+---
+
+<html lang="pt-BR">
+    <head>
+        <Head title={title} description={description} />
+    </head>
+    <body>
+        <Kbar client:load />
+        <Header />
+        <NavigationRight
+            client:load
+            items={getData.components.header[lang].menu.items}
+        />
+
+        <main>
+            <slot />
+        </main>
+
+        <Footer />
+        <Trd3 />
+    </body>
+</html>

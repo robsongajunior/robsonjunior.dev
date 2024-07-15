@@ -1,0 +1,103 @@
+---
+import i18nConf from '@i18n/config';
+import Default from "@layouts/Default.astro";
+import Biograph from '@components/blocking-builds/Biograph.astro';
+import ProfileDescription from '@components/blocking-builds/ProfileDescription.astro';
+import SectionCardList from '@components/blocking-builds/SectionCardList.astro';
+
+export async function getStaticPaths() {
+    let i18nData = await Astro.glob('@i18n/view/about/index.js');
+
+    return i18nConf.langs.map(lang => {
+        return {
+            params: {
+                lang,
+                about: lang === 'pt-br' ? 'sobre' : 'about'
+            },
+            props: {
+                lang,
+                data: i18nData[0].default[lang]
+            }
+        }
+    });
+};
+
+const { lang, data } = Astro.props;
+const metatag = data.heading.meta;
+const page = data.page;
+---
+
+<Default
+    lang={lang}
+    title={metatag.title}
+    description={metatag.description}
+    keywords={metatag.keywords}
+    robots={metatag.robots}>
+
+    <ProfileDescription
+        imgSrc={page.about.img.src}
+        imgAlt={page.about.img.alt}
+        title={page.about.title}
+        description={page.about.description}
+        linkedinUrl={page.about.socialnetwork.linkedin.url}
+        linkedinUrlTitle={page.about.socialnetwork.linkedin.title}
+        speakerdeckUrl={page.about.socialnetwork.speakerdeck.url}
+        speakerdeckUrlTitle={page.about.socialnetwork.speakerdeck.title}
+        instagramUrl={page.about.socialnetwork.instagram.url}
+        instagramUrlTitle={page.about.socialnetwork.instagram.title} />
+
+    <Biograph
+        title={page.bio.title}
+        description={page.bio.description} />
+
+    <SectionCardList
+        title={page.deliveries.title}
+        description={page.deliveries.description}
+        cards={page.deliveries.cards} />
+
+    <SectionCardList
+        title={page.talks.title}
+        description={page.talks.description}
+        cards={page.talks.cards} />
+</Default>
+
+<style lang="scss" scoped>
+    @import '../../styles/breakpoints';
+
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 0;
+        align-content: stretch;
+        gap: 1rem;
+
+        .card {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .card-content {
+            padding: 2rem;
+            background: linear-gradient(71deg, var(--dark-strong), #191919, var(--dark-strong));
+            border-radius: 80px;
+            background-clip: padding-box;
+            position: relative;
+            border: 2px solid transparent;
+
+            &::after {
+                // z-index: 1;
+                border-radius: 80px;
+                position: absolute;
+                top: -1px;
+                bottom: -1px;
+                left: -1px;
+                right: -1px;
+                content: "";
+                z-index: -1;
+                background: linear-gradient(71deg, var(--dark-strong), #454545, var(--dark-strong));
+            }
+        }
+    }
+</style>

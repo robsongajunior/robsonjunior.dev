@@ -1,0 +1,57 @@
+---
+const { posts } = Astro.props
+---
+
+<ul class="title-list-post">
+{
+posts.map((post, index) => (
+    <li class="title-item-post">
+        <a href=`/${post.slug}/` title={ post.data.title }>
+            <h2>
+                { post.data.title }
+            </h2>
+            <p>
+                { post.data.meta_description }
+            </p>
+        </a>
+    </li>
+))
+}
+</ul>
+
+<style lang="scss" scoped>
+    @import '../styles/breakpoints';
+
+    .title-list-post {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        a {
+            text-decoration: none;
+        }
+
+        @include media-breakpoint-up(md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: 1fr 1fr  1fr 1fr;
+        }
+
+        .title-item-post {
+            width: 100%;
+
+            h2 {
+                font-size: 1rem;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+</style>

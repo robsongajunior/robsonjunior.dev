@@ -1,0 +1,38 @@
+---
+const { title } = Astro.props;
+---
+
+<span class="text-3d borntobuildanddeliver" set:html={title} />
+
+<style lang="scss" is:global>
+    @import '@styles/breakpoints';
+
+    .borntobuildanddeliver {
+        font-weight: 400;
+        color: var(--light);
+        font-size: clamp(2rem, 0.5rem + 7.5vw, 8rem);
+        line-height: clamp(2rem, 0.5rem + 7.5vw, 8rem);
+
+        @include media-breakpoint-up(lg) {
+            min-height: 260px;
+        }
+
+        .letter {
+            transition: all ease-in-out 400ms;
+            opacity: .75;
+        }
+
+        &:hover {
+            .letter {
+                &:hover {
+                    transition: all ease-in 100ms;
+                    opacity: 1.0;
+                }
+            }
+        }
+
+        strong {
+            font-weight: 900;
+        }
+    }
+</style>

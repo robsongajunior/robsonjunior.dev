@@ -1,0 +1,127 @@
+.text-3d {
+    text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 5px 1px #919191,
+        1px 6px 1px #919191,
+        1px 7px 1px #919191,
+        1px 8px 1px #919191,
+        1px 9px 1px #919191,
+        1px 10px 1px #919191,
+        1px 18px 6px rgba(16,16,16,0.4),
+        1px 22px 10px rgba(16,16,16,0.2),
+        1px 25px 35px rgba(16,16,16,0.2),
+        1px 30px 60px rgba(16,16,16,0.4);
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+.pulsing-effect {
+    display: inline-block;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+kbd {
+    background-image: linear-gradient(to top, #f9f9f9, #fff);
+    border-right: 3px solid #ccc;
+    border-bottom: 3px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.85em;
+    min-width: 32px;
+    min-width: 32px;
+    padding: 6px 12px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    margin: 0 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* button 3D */
+$bg: #fff;
+$text: #333;
+$light-pink: #ccc;
+$pink: #c3c3c3;
+$dark-pink: #333;
+$pink-border: #666;
+$pink-shadow: #dadada;
+
+.button-3d {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: inherit;
+
+    & {
+        font-weight: 600;
+        color: $text;
+        text-transform: uppercase;
+        padding: 1.25em 1.25em;
+        background: $light-pink;
+        border: 2px solid $pink-border;
+        border-radius: 0.75em;
+        transform-style: preserve-3d;
+        transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $dark-pink;
+            border-radius: inherit;
+            box-shadow: 0 0 0 2px $pink-border, 0 0.625em 0 0 $pink-shadow;
+            transform: translate3d(0, 0.75em, -1em);
+            transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+        }
+        &:hover {
+            color: $text;
+            background: $pink;
+            transform: translate(0, 0.25em);
+
+            &::before {
+                box-shadow: 0 0 0 2px $pink-border, 0 0.5em 0 0 $pink-shadow;
+                transform: translate3d(0, 0.5em, -1em);
+            }
+        }
+
+        &:active {
+            background: $pink;
+            transform: translate(0em, 0.75em);
+
+            &::before {
+                box-shadow: 0 0 0 2px $pink-border, 0 0 $pink-shadow;
+                transform: translate3d(0, 0, -1em);
+            }
+        }
+    }
+}

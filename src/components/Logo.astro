@@ -1,0 +1,35 @@
+---
+const { href, title } = Astro.props;
+---
+
+<a
+    href={href}
+    title={title}
+    id="logo"
+    class="logo">
+
+    <p>
+        <strong>ROBSON</strong>JUNIOR
+    </p>
+</a>
+
+<style lang="scss" scoped>
+    .logo {
+        display: inline-block;
+        color: var(--lighter);
+        text-decoration: none;
+    }
+
+    .logo:hover {
+        cursor: pointer;
+        color: var(--median-strong);
+    }
+
+    p {
+        font-weight: 200;
+    }
+
+    strong {
+        font-weight: 900;
+    }
+</style>

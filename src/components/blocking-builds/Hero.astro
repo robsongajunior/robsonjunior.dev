@@ -1,0 +1,85 @@
+---
+import BornToBuildAndDeliver from '../BornToBuildAndDeliver.astro';
+
+interface Props {
+    title: String,
+    description: String
+};
+
+const { title, description } = Astro.props;
+---
+<section class="hero">
+    <h1>
+        <BornToBuildAndDeliver title={title} />
+        <small id="shortcut" set:html={description} />
+    </h1>
+</section>
+
+<script is:inline>
+    (function() {
+        'use strict';
+
+        (function keyCommandByPlatform() {
+            const isMac = /(Mac)/i.test(navigator.userAgent);
+            const keyCommand = document.querySelector('#keyCommand');
+
+            if(isMac || !keyCommand) return;
+            keyCommand.innerHTML = 'ctrl';
+        })();
+
+        (function () {
+            if(!/iPhone|iPad|Android/i.test(navigator.userAgent)) return;
+            document.querySelector('#shortcut')?.remove();
+        })();
+    })();
+</script>
+
+<style lang="scss" is:global>
+    @import '../../styles/breakpoints';
+
+    $headerHeight: 80px;
+
+    .hero {
+        width: 100%;
+        height: calc(100vh - $headerHeight);
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero {
+        padding: 1rem;
+
+        h1 {
+            margin: auto;
+
+            small {
+                display: block;
+                text-align: center;
+                font-size: clamp(0.725rem, 0.5938rem + 0.6563vw, 1.25rem);
+                font-weight: 400;
+                margin: 2rem 0 0;
+                opacity: .7;
+
+                @include media-breakpoint-down(sm) {
+                    margin: 1rem 0 0;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                font-size: 2rem;
+            }
+
+            @include media-breakpoint-down(md) {
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+        }
+    }
+
+    #keyShortuCut1 {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+</style>

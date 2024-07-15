@@ -1,0 +1,26 @@
+public/static/uploads/deliveries/azion/livemap/video.mp4
+
+#compiled files to edge deploy
+.edge
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+package-lock.json
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store

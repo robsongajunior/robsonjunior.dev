@@ -1,0 +1,104 @@
+---
+// import type { CollectionEntry } from "astro:content";
+import Head from "@components/Head.astro";
+import Header from "@components/blocking-builds/Header.astro";
+import Footer from "@components/blocking-builds/Footer.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+
+const {
+    lang,
+    title,
+    meta_description,
+    date,
+    // dateUpdate,
+    heroImage
+} = Astro.props;
+---
+
+<html {lang}>
+    <head>
+        <Head
+            title={title}
+            description={meta_description} />
+
+        <style>
+            main {
+                width: calc(100% - 2em);
+                max-width: 100%;
+                margin: 0;
+            }
+            .hero-image {
+                width: 100%;
+            }
+            .hero-image img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 12px;
+                box-shadow: var(--box-shadow);
+            }
+            .prose {
+                width: 720px;
+                max-width: calc(100% - 2em);
+                margin: auto;
+                padding: 1em;
+                color: rgb(var(--gray-dark));
+            }
+            .title {
+                margin: 1rem 0;
+                text-align: center;
+                line-height: 1;
+            }
+            .title h1 {
+                margin: 0;
+            }
+            .date {
+                margin-bottom: 0.5em;
+                color: rgb(var(--gray));
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <body>
+        <Header />
+
+        <main>
+            <article>
+                <div class="hero-image">
+                    {
+                        heroImage && (
+                            <img
+                                width={1020}
+                                height={510}
+                                src={heroImage}
+                                alt={title}
+                            />
+                        )
+                    }
+                </div>
+
+                <div class="prose">
+                    <div class="title">
+                        <div class="date">
+                            <FormattedDate date={date} />
+                             <!-- {
+                                dateUpdate && typeof dateUpdate !== 'string' ? (
+                                    <div class="last-updated-on">
+                                        Last updated on{" "} <FormattedDate date={dateUpdate} />
+                                    </div>
+                                ) : ''
+                            } -->
+                        </div>
+                        <h1>{title}</h1>
+                    </div>
+
+                    <slot />
+                </div>
+            </article>
+        </main>
+
+        <Footer />
+    </body>
+</html>

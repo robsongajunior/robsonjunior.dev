@@ -1,0 +1,21 @@
+:root {
+    --dark-strong: #07070A;
+    --dark: #24272B;
+    --mediam-strong: #4A525A;
+    --mediam: #8F9BA8;
+    --light: #E6E6E9;
+    --light-super: #F4F4F6;
+    --lighter: #FFFFFF;
+    --error-strong: #A63D40;
+    --error: #DC8177;
+    --warn-strong: #FBB13C;
+    --blockquote: #E9B872;
+    --success-strong: #71A570;
+    --success: #88C786;
+
+    --bg: var(--dark-strong);
+    --text: var(--light-super);
+    --text-link: var(--);
+
+    --transition-all-ease-in-out: all ease-in-out 500ms
+}

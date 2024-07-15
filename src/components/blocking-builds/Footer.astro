@@ -1,0 +1,29 @@
+---
+const today = new Date();
+const year = today.getFullYear();
+---
+
+<footer>
+    <p>
+        Powered with <a href="https://astro.build/" target="_blank"">Astro</a> and delivered by <a href="https://www.azion.com/" target="_blank"">Azion Technologies</a> - &copy; {year} Robson Júnior. <a href="https://github.com/robsongajunior/robsonjunior.dev/blob/main/LICENSE" target="_blank" title="MIT License">MIT</a> License.
+    </p>
+</footer>
+<style lang="scss">
+    footer {
+        padding: .5rem 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        color: var(--light);
+        text-align: center;
+
+        p {
+            font-size: .75rem;
+        }
+    }
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 1em;
+    }
+</style>

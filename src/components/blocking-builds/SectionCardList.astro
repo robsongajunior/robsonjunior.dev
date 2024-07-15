@@ -1,0 +1,103 @@
+---
+interface Props {
+    title: string,
+    description: string,
+    cards: {
+        title: string,
+        description: string,
+        link: string,
+        linkHrefTitle: string,
+        linkHref: string
+    }[]
+};
+
+const { title, description, cards } = Astro.props;
+---
+
+<section>
+    <div class="center-content">
+        <h2>{title}</h2>
+        <div class="description-content">
+            <p set:html={description} />
+        </div>
+        <ul class="card-list">
+            {
+                cards.map(card => (
+                    <li class="card">
+                        <div class="card-content">
+                            <h3>{card.title}</h3>
+                            <p set:html={card.description} />
+                            <div class="actions">
+                                { card.linkHref ?
+                                    <a
+                                        class="button-3d"
+                                        href={card.linkHref}
+                                        title={card.linkHrefTitle}
+                                        target="_blank">
+
+                                        {card.link}
+                                    </a> : ''
+                                }
+                            </div>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</section>
+
+<style lang="scss">
+    @import '../../styles/breakpoints';
+
+
+
+    .description-content {
+        max-width: 768px;
+    }
+
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 2rem 0 0;
+        padding: 0;
+        align-content: stretch;
+        gap: 1.275rem;
+
+        .card {
+            flex: 1;
+            min-width: 360px;
+
+            @include media-breakpoint-down(md) {
+                min-width: 320px;
+            }
+        }
+
+        .card-content {
+            padding: 2rem 2rem 3.25rem;
+            background: linear-gradient(71deg, var(--dark-strong), #121212, var(--dark-strong));
+            border-radius: 80px;
+            background-clip: padding-box;
+            position: relative;
+            border: 2px solid transparent;
+
+            &::after {
+                border-radius: 80px;
+                position: absolute;
+                top: -1px;
+                bottom: -1px;
+                left: -1px;
+                right: -1px;
+                content: "";
+                z-index: -1;
+                background: linear-gradient(71deg, var(--dark-strong), #222, var(--dark-strong));
+            }
+        }
+
+        .actions {
+            text-align: right;
+            margin-top: 2rem;
+        }
+    }
+</style>

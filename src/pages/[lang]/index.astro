@@ -1,0 +1,56 @@
+---
+import i18nConfig from "@i18n/config";
+import Blank from "@layouts/Blank.astro";
+import Hero from "@components/blocking-builds/Hero.astro";
+
+export async function getStaticPaths() {
+    let i18nData = await Astro.glob("../../i18n/view/home/index.js");
+
+    return i18nConfig.langs.map((lang) => {
+        return {
+            params: { lang },
+            props: {
+                lang,
+                data: i18nData[0].default[lang]
+            }
+        };
+    });
+};
+
+const { lang, data } = Astro.props;
+const metatag = data.heading.meta;
+const page = data.page;
+---
+
+<Blank
+    lang={lang}
+    title={metatag.title}
+    description={metatag.description}
+    keywords={metatag.keywords}
+    robots={metatag.robots}>
+
+    <main>
+        <Hero title={page.hero.title} description={page.hero.description} />
+    </main>
+</Blank>
+
+<style lang="scss" scoped>
+    main {
+        padding: 0;
+        background: linear-gradient(33deg, var(--dark), #000, var(--dark));
+        background-size: 200% 200%;
+        animation: animate 10s ease-in-out infinite;
+    }
+
+    @keyframes animate {
+        0% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>

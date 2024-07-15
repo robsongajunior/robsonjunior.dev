@@ -1,0 +1,43 @@
+name: robsonjunior.dev production
+
+on:
+  push:
+    branches:
+      - azion
+
+jobs:
+  deploy:
+    name: Azion Technologies Production
+    runs-on: ubuntu-latest
+    container:
+        image: node:18-alpine3.18
+
+    steps:
+      - name: getting robsonjunior.dev
+        uses: actions/checkout@v3
+        with:
+          repository: robsongajunior/robsonjunior.dev
+          ref: azion
+          path: '.'
+          clean: true
+          fetch-depth: '0'
+
+      - name: configuring nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.8.1
+
+      - name: installing azion package
+        run: ls -la; apk add ./azion_1.17.1_linux_amd64.apk
+
+      - name: setting token azion cli
+        run: azion -t ${{secrets.AZION_PERSONAL_TOKEN}};
+
+    #   - name: installing project dependencies
+    #     run: npm install;
+
+    #   - name: building
+    #     run: azion build;
+
+    #   - name: publishing to edge-storage-deploy
+    #     run: azion deploy;

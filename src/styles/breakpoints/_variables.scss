@@ -1,0 +1,36 @@
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+    sm: 0,
+    md: 420px,
+    sd: 960px,
+    lg: 1440px,
+    max: 1920px
+) !default;
+
+
+/////////////////////////////////////////////////////////////
+// VARIABLES  USED WHEN WE USE GRID SYSTEM BASED ON COLUNS //
+// on this site, this scss using by colunms is not used   //
+////////////////////////////////////////////////////////////
+// Used inside the mixim to generate the grid with 4 columns for mobile devices
+// $mobile-breakpoints: (
+//     sm: 0,
+// );
+
+// Used inside the mixim to generate the grid with 10 columns for small devices
+// $small-breakpoints: (
+//     md: 640px,
+//     sd: 960px,
+// );
+
+// Used inside the mixim to generate the grid with 20 columns for large devices
+// $large-breakpoints: (
+//     lg: 1280px,
+//     xlg: 1440px,
+//     slg: 1600px,
+//     max: 1920px,
+// );
