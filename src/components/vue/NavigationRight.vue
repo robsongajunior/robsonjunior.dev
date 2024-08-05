@@ -70,7 +70,7 @@
         backdrop-filter: blur(10px);
         width: 0;
         max-width: calc(100% - 1rem);
-        height: calc(100vh - 80px);
+        height: calc(100vh - 56px);
         z-index: 10;
         transition: var(--transition-all-ease-in-out);
 
