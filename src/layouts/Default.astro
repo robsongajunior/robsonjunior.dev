@@ -13,6 +13,10 @@ const {
 } = Astro.props;
 
 import { getData } from '@utils/data.js';
+
+const menuItems = getData.components.header[lang].menu.items;
+
+console.log('menuItems: ', menuItems);
 ---
 
 <html lang="pt-BR">
@@ -21,10 +25,10 @@ import { getData } from '@utils/data.js';
     </head>
     <body>
         <Kbar client:load />
-        <Header />
+        <Header items={menuItems} lang={lang}/>
         <NavigationRight
             client:load
-            items={getData.components.header[lang].menu.items}
+            items={menuItems}
         />
 
         <main>

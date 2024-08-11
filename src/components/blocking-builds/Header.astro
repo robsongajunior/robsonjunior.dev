@@ -1,10 +1,34 @@
 ---
+interface Props {
+    items: Array<[]>,
+    lang: String
+};
+
 import LogoShort from '@components/LogoShort.astro';
 import ButtonBurguer from '@components/vue/ButtonBurguer.vue';
+import HeaderLink from '@components/HeaderLink.astro';
+
+const { items, lang } = Astro.props;
 ---
 
 <header id="header">
-    <LogoShort href="/" title="home | robsonjunior.dev" />
+    <LogoShort href={`/${lang}/`} title="Home | robsonjunior.dev" />
+    <nav>
+        {
+            items.map(item => {
+                return (
+                    <HeaderLink
+                        href={item.href}
+                        title={item.hrefTitle}
+                        target={item.target}
+                    >
+                        {item.label}
+                    </HeaderLink>
+                )
+
+            })
+        }
+    </nav>
     <ButtonBurguer client:only="vue" />
 </header>
 
@@ -32,7 +56,7 @@ import ButtonBurguer from '@components/vue/ButtonBurguer.vue';
 
         f.down = function () {
             if (showHeader === false) return;
-            header.style.top = '-80px';
+            header.style.top = '-56px';
             showHeader = false;
         };
 

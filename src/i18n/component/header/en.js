@@ -2,6 +2,12 @@ export default {
     menu: {
         items: [
             {
+                label: "Home",
+                href: "/en/",
+                hrefTitle: "Home | robsonjunior.dev",
+                target: "self"
+            },
+            {
                 label: "About",
                 href: "/en/about/",
                 hrefTitle: "Everything you need know about | robsonjunior.dev",

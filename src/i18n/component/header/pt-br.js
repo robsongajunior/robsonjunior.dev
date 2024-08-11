@@ -1,7 +1,12 @@
 export default {
     menu: {
         items: [
-
+            {
+                label: "Home",
+                href: "/pt-br/",
+                hrefTitle: "Página inicial | robsonjunior.dev",
+                target: "self"
+            },
             {
                 label: "Blog",
                 href: "/pt-br/blog/",
@@ -9,7 +14,7 @@ export default {
                 target: "self"
             },
             {
-                label: "Deliveries",
+                label: "Entregas",
                 href: "/pt-br/deliveries/",
                 hrefTitle: "Entregas, Deliveries | robsonjunior.dev",
                 target: "self"
@@ -17,8 +22,8 @@ export default {
             {
                 label: "Github",
                 href: "https://github.com/robsongajunior/",
-                hrefTitle: "Github perfil desenvolvedor",
-                target: "self"
+                hrefTitle: "Perfil Github",
+                target: "_blank"
             },
             {
                 label: "Sobre",
@@ -27,7 +32,7 @@ export default {
                 target: "self"
             },
             {
-                label: "Talks",
+                label: "Palestras",
                 href: "/pt-br/talks/",
                 hrefTitle: "Palestras | robsonjunior.dev",
                 target: "self"

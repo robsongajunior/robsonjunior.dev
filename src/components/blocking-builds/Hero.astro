@@ -37,11 +37,12 @@ const { title, description } = Astro.props;
 <style lang="scss" is:global>
     @import '../../styles/breakpoints';
 
-    $headerHeight: 80px;
+    $headerHeight: 56px;
+    $footerHeight: 44px;
 
     .hero {
         width: 100%;
-        height: calc(100vh - $headerHeight);
+        min-height: calc(100vh - $footerHeight - $headerHeight);
         display: flex;
         text-align: center;
         align-items: center;
