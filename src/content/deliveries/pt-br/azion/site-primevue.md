@@ -20,6 +20,7 @@ Nesse trabalho o objetivo era ter um sistema de criação de Interface Web de fo
   <p>Your browser does not support the video tag.</p>
 </video>
 
+
 ## Motivação
 
 O que nos levou ter motivo para ação foi a necessidade de unificarmos
@@ -28,17 +29,42 @@ entregando uma jornada com um excelente user experience.
 
 Entre diversos estudos e buscas para uma ferramenta que fosse robusta e ao mesmo tempo simples ficamos com:
 
-### Technologia
+
+## Tecnologia
+
 Stack utilizada para entrega de toda presença web.
 
-#### Development Tools
+
+### Development Tools
+
 - [Astro](https://astro.build/)
 - [Primevue](https://primevue.org/)
 - [Primeflex](https://primeflex.org/) 
 - [Tailwind](https://tailwindcss.com/) 
 - [Vite](https://vitejs.dev/) 
 
-#### Otimização
+
+### Front-End
+
+Tanto o tema css quanto os blocos utilizados para montar toda interface web tem seus projetos abertos e podem ser conferidos em:
+
+- azion-webkit
+    - [GitHub | azion-webkit](https://github.com/aziontech/azion-webkit)
+    - [NPM | azion-webkit](https://www.npmjs.com/package/azion-webkit)
+- azion-theme
+    - [GitHub | azion-theme](https://github.com/aziontech/azion-theme)
+    - [NPM | azion-theme](https://www.npmjs.com/package/azion-theme)
+
+
+### Delivery
+
+- [Github](https://github.com/)
+- [Azion CLI](https://www.azion.com/pt-br/blog/azion-cli-implemente-jamstack-edge/)
+- [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
+
+
+### Otimização
+
 - [Azion Edge Application](https://www.azion.com/pt-br/blog/como-o-edge-application-pode-melhorar-a-sua-experiencia-de-usuario/)
     - Gzip
     - Cache
@@ -47,30 +73,23 @@ Stack utilizada para entrega de toda presença web.
 - [Azion Edge DNS](https://www.azion.com/pt-br/blog/beneficios-de-um-dns-no-edge/)
 - [Azion Image Processor](https://www.azion.com/pt-br/blog/como-a-otimizacao-de-imagens-ajuda-empresas-de-midia/)
 
-#### Delivery
-- [Github](https://github.com/)
-- [Azion CLI](https://www.azion.com/pt-br/blog/azion-cli-implemente-jamstack-edge/)
-- [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
 
-#### Content Management System
+### Content Management System
+
+Usamos sempre a melhor ferramenta para cada específica solução, entre elas utilizamos:
+
 - [Azion Edge SQL](https://www.azion.com/pt-br/blog/azion-edge-sql/)
 - [Azion Edge Functions](https://www.azion.com/pt-br/blog/azion-apresenta-edge-functions/)
 - [Algolia](https://www.algolia.com/)
 - [CloudCannon](https://cloudcannon.com/)
+    - CMS para gerenciar, editar e criar novos conteúdos para Landing Pages, Blog, Success Cases e principalmente gerenciar o Resource Hub.
 
 
-## Repositórios
-
-- [Aberto | @aziontech/webkit](https://github.com/aziontech/webkit)
-- [Aberto |  @aziontech/azion-theme](https://github.com/aziontech/azion-theme)
-- [Privado | @aziontech/site](https://github.com/aziontech/site)
-
-
-### Time
+## Time
 
 - [Caio Ogata](https://www.linkedin.com/in/caioogata/)
-- [Morgana Johann](https://www.linkedin.com/in/morgana-johann/)
 - [Eduardo de Cesaro](https://www.linkedin.com/in/cesaroeduardo/)
+- [Morgana Johann](https://www.linkedin.com/in/morgana-johann/)
 - [Luis Igreja](https://www.linkedin.com/in/luisigreja/)
 - [Robson Júnior](https://www.linkedin.com/in/robsongajunior/)
 
