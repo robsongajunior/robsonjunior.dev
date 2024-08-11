@@ -4,6 +4,8 @@ import Head from "@components/Head.astro";
 import Header from "@components/blocking-builds/Header.astro";
 import Footer from "@components/blocking-builds/Footer.astro";
 import FormattedDate from "@components/FormattedDate.astro";
+import Kbar from "@components/react/Kbar/Kbar.jsx";
+import NavigationRight from "@components/vue/NavigationRight.vue";
 
 const {
     lang,
@@ -13,6 +15,9 @@ const {
     // dateUpdate,
     heroImage
 } = Astro.props;
+
+import { getData } from '@utils/data.js';
+const menuItems = getData.components.header[lang].menu.items;
 ---
 
 <html {lang}>
@@ -62,6 +67,13 @@ const {
     </head>
 
     <body>
+        <Kbar client:load />
+        <Header items={menuItems} lang={lang} />
+        <NavigationRight
+            client:load
+            items={menuItems}
+        />
+
         <main>
             <article>
                 <div class="hero-image">

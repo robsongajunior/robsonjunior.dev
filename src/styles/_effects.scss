@@ -45,6 +45,7 @@ kbd {
     color: #333;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 0.85em;
+    text-align: center;
     min-width: 32px;
     min-width: 32px;
     padding: 6px 12px;
@@ -55,6 +56,12 @@ kbd {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    i {
+        display: inline-block;
+        min-width: 14px;
+        font-style: normal;
+    }
 }
 
 /* button 3D */
