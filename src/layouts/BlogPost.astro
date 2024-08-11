@@ -13,18 +13,16 @@ const {
     meta_description,
     date,
     // dateUpdate,
-    heroImage
+    heroImage,
 } = Astro.props;
 
-import { getData } from '@utils/data.js';
+import { getData } from "@utils/data.js";
 const menuItems = getData.components.header[lang].menu.items;
 ---
 
 <html {lang}>
     <head>
-        <Head
-            title={title}
-            description={meta_description} />
+        <Head title={title} description={meta_description} />
 
         <style>
             main {
@@ -69,10 +67,7 @@ const menuItems = getData.components.header[lang].menu.items;
     <body>
         <Kbar client:load />
         <Header items={menuItems} lang={lang} />
-        <NavigationRight
-            client:load
-            items={menuItems}
-        />
+        <NavigationRight client:load items={menuItems} />
 
         <main>
             <article>
@@ -87,13 +82,13 @@ const menuItems = getData.components.header[lang].menu.items;
                             />
                         )
                     }
-                </div>
+                </div>o
 
                 <div class="prose">
                     <div class="title">
                         <div class="date">
                             <FormattedDate date={date} />
-                             <!-- {
+                            <!-- {
                                 dateUpdate && typeof dateUpdate !== 'string' ? (
                                     <div class="last-updated-on">
                                         Last updated on{" "} <FormattedDate date={dateUpdate} />

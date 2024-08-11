@@ -16,14 +16,17 @@ export async function getStaticPaths() {
                 lang,
                 slug: slug
             },
-            props: post
+            props: {
+                lang: lang,
+                post: post
+            }
         }
     })
 }
 
-const post = Astro.props;
+const { lang, post } = Astro.props;
 const { Content } = await post.render();
 ---
-<BlogPost {...post.data}>
+<BlogPost lang={lang} {...post.data}>
     <Content />
 </BlogPost>

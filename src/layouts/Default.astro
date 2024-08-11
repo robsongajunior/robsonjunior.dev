@@ -6,17 +6,10 @@ import Kbar from "@components/react/Kbar/Kbar.jsx";
 import NavigationRight from "@components/vue/NavigationRight.vue";
 import Trd3 from "@components/Trd3.astro";
 
-const {
-    description,
-    lang,
-    title
-} = Astro.props;
+const { description, lang, title } = Astro.props;
 
-import { getData } from '@utils/data.js';
-
+import { getData } from "@utils/data.js";
 const menuItems = getData.components.header[lang].menu.items;
-
-console.log('menuItems: ', menuItems);
 ---
 
 <html lang="pt-BR">
@@ -25,11 +18,8 @@ console.log('menuItems: ', menuItems);
     </head>
     <body>
         <Kbar client:load />
-        <Header items={menuItems} lang={lang}/>
-        <NavigationRight
-            client:load
-            items={menuItems}
-        />
+        <Header items={menuItems} lang={lang} />
+        <NavigationRight client:load items={menuItems} />
 
         <main>
             <slot />
