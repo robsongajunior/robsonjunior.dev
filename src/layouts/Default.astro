@@ -4,6 +4,7 @@ import Header from "@components/blocking-builds/Header.astro";
 import Footer from "@components/blocking-builds/Footer.astro";
 import Kbar from "@components/react/Kbar/Kbar.jsx";
 import NavigationRight from "@components/vue/NavigationRight.vue";
+import ShadowMouseMove from "@components/ShadowMouseMove.astro";
 import Trd3 from "@components/Trd3.astro";
 
 const { description, lang, title } = Astro.props;
@@ -17,15 +18,19 @@ const menuItems = getData.components.header[lang].menu.items;
         <Head title={title} description={description} />
     </head>
     <body>
-        <Kbar client:load />
-        <Header items={menuItems} lang={lang} />
-        <NavigationRight client:load items={menuItems} />
+        <div style="position: relative; z-index: 1;">
+            <Kbar client:load />
+            <Header items={menuItems} lang={lang} />
+            <NavigationRight client:load items={menuItems} />
 
-        <main>
-            <slot />
-        </main>
+            <main>
+                <slot />
+            </main>
 
-        <Footer />
+            <Footer />
+        </div>
+
         <Trd3 />
+        <ShadowMouseMove />
     </body>
 </html>
