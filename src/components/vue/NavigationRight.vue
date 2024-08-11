@@ -35,8 +35,8 @@
 
             f.up = function () {
                 if (showHeader === true) return;
-                navigationRight.style.top = '80px';
-                navigationRight.style.height = 'calc(100vh - 80px)';
+                navigationRight.style.top = '56px';
+                navigationRight.style.height = 'calc(100vh - 56px)';
                 showHeader = true;
             };
 
