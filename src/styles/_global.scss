@@ -55,13 +55,15 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 1rem 0;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
     color: var(--lighter);
     line-height: 1.2;
 }
 
 h1 {
     font-size: 3.052rem;
+    margin-top: 0;
 }
 
 h2 {
@@ -101,17 +103,25 @@ p {
     margin-bottom: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
 }
 
-.prose p {
-    margin-bottom: 2rem;
+.prose {
+    p {
+        margin-bottom: 2rem;
+    }
+
+    ul, ol {
+        li {
+            margin: 1rem 0;
+        }
+    }
 }
 
 textarea {
     width: 100%;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 input {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 table {
@@ -135,7 +145,7 @@ pre {
     border-radius: 8px;
 }
 
-pre>code {
+pre > code {
     all: unset;
 }
 
