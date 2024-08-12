@@ -20,10 +20,10 @@ const actions = {
             perform: () => (window.location.pathname = '/pt-br/blog/')
         },
         {
-            id: 'deliveries',
-            name: 'Deliveries',
+            id: 'entregas',
+            name: 'Entregas',
             shortcut: ['d'],
-            keywords: ['delivery', 'entregas', 'company', 'clt'],
+            keywords: ['delivery', 'entregas', 'company', 'clt', 'trabalhos'],
             icon: '/static/icons/svg/code.svg',
             perform: () => (window.location.pathname = '/pt-br/deliveries/')
         },
@@ -44,8 +44,8 @@ const actions = {
             perform: () => (window.location.pathname = '/pt-br/sobre/')
         },
         {
-            id: 'talks',
-            name: 'Talks',
+            id: 'palestras',
+            name: 'Palestras',
             shortcut: ['t'],
             keywords: ['talks', 'palestras', 'apresentações', 'slides'],
             icon: '/static/icons/svg/speaker.svg',
@@ -61,6 +61,14 @@ const actions = {
         //     keywords: ['blog', 'medium', 'posts'],
         //     icon: '/static/icons/svg/blog.svg',
         //     perform: () => (window.location.pathname = '/en/blog/')
+        // },
+        // {
+        //     id: 'deliveries',
+        //     name: 'Deliveries',
+        //     shortcut: ['d'],
+        //     keywords: ['delivery', 'deliveries', 'company', 'jobs', 'work'],
+        //     icon: '/static/icons/svg/code.svg',
+        //     perform: () => (window.location.pathname = '/en/deliveries/')
         // },
         {
             id: 'about',
