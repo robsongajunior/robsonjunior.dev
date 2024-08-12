@@ -75,11 +75,11 @@ const menuItems = getData.components.header[lang].menu.items;
     </head>
 
     <body>
-        <div style="position: relative; z-index: 1;">
-            <Kbar client:load />
-            <Header items={menuItems} lang={lang} />
-            <NavigationRight client:load items={menuItems} />
+        <Kbar client:load />
+        <Header items={menuItems} lang={lang} />
+        <NavigationRight client:load items={menuItems} />
 
+        <div style="position: relative; z-index: 1;">
             <main>
                 <article>
                     <div class="hero-image">
@@ -114,10 +114,9 @@ const menuItems = getData.components.header[lang].menu.items;
                     </div>
                 </article>
             </main>
-
-            <Footer />
         </div>
 
+        <Footer />
         <Trd3 />
         <ShadowMouseMove />
     </body>

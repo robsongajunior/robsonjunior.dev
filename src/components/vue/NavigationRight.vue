@@ -66,7 +66,7 @@
         position: fixed;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.45);
         backdrop-filter: blur(10px);
         width: 0;
         max-width: calc(100% - 1rem);

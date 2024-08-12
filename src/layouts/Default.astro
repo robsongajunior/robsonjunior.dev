@@ -18,18 +18,19 @@ const menuItems = getData.components.header[lang].menu.items;
         <Head title={title} description={description} />
     </head>
     <body>
-        <div style="position: relative; z-index: 1;">
+        <div style="position: relative; z-index: 999;">
             <Kbar client:load />
-            <Header items={menuItems} lang={lang} />
-            <NavigationRight client:load items={menuItems} />
+        </div>
+        <Header items={menuItems} lang={lang} />
+        <NavigationRight client:load items={menuItems} />
 
+        <div style="position: relative; z-index: 1;">
             <main>
                 <slot />
             </main>
-
-            <Footer />
         </div>
 
+        <Footer />
         <Trd3 />
         <ShadowMouseMove />
     </body>
