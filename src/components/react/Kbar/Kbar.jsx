@@ -95,7 +95,7 @@ function KbarRenderResults() {
                 ) : (
                     <div
                         className="kbar-item"
-                        style={{background: active ? "#07070A" : "transparent"}}>
+                        style={{background: active ? "var(--dark)" : "transparent"}}>
 
                         <span>
                             <img src={ item.icon } alt={ item.name } width="24" height="24"/>
@@ -114,7 +114,7 @@ export default function Kbar(props) {
         <>
             <KBarProvider actions={actions[(props[':lang'] === 'en') ? 'en' : 'ptbr']}>
                 <KBarPortal>
-                    <KBarPositioner>
+                    <KBarPositioner className='kbarPositioner'>
                         <KBarAnimator>
                             <div className="kbar-search-content">
                                 <KBarSearch />

@@ -1,5 +1,5 @@
 .kbar-search-content {
-    width: 50vh;
+    width: 30vw;
 
     input {
         width: 100%;
@@ -14,27 +14,39 @@
         outline: none;
 
         &:focus {
-            border-top: solid 1px var(--mediam-strong);
-            border-left: solid 1px var(--mediam-strong);
-            border-right: solid 1px var(--mediam-strong);
+            border-top: solid 1px rgba(255, 255, 255, 0.075);
+            border-left: solid 1px rgba(255, 255, 255, 0.075);
+            border-right: solid 1px rgba(255, 255, 255, 0.075);
         }
     }
 }
 
+.kbarPositioner {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+}
+
 .kbar-results-content {
-    background-color: var(--dark);
+    background-color: var(--dark-strong);
     border: solid 1px var(--dark);
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 
     .kbar-item {
         padding: 0 1rem;
-        border-bottom: solid 1px var(--dark-strong);
-        line-height: 60px;
-        font-size: 14px;
+        border-bottom: solid 1px rgba(255, 255, 255, 0.075);
+        line-height: 40px;
+        font-size: 12px;
         display: flex;
         justify-content: space-between;
         cursor: pointer;
+
+        img {
+            display: block;
+            width: 18px;
+            height: 18px;
+        }
 
         span {
             display: flex;
