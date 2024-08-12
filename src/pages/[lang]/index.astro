@@ -1,6 +1,6 @@
 ---
 import i18nConfig from "@i18n/config";
-import Blank from "@layouts/Blank.astro";
+import LayoutDefault from "@layouts/Default.astro";
 import Hero from "@components/blocking-builds/Hero.astro";
 
 export async function getStaticPaths() {
@@ -22,7 +22,7 @@ const metatag = data.heading.meta;
 const page = data.page;
 ---
 
-<Blank
+<LayoutDefault
     lang={lang}
     title={metatag.title}
     description={metatag.description}
@@ -32,4 +32,4 @@ const page = data.page;
     <main>
         <Hero title={page.hero.title} description={page.hero.description} />
     </main>
-</Blank>
+</LayoutDefault>
