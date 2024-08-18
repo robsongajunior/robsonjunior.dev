@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import i18nConfig from '@i18n/config';
+// import i18nConfig from '@i18n/config';
 import LayoutDefault from '@layouts/Default.astro';
 import FeaturedPost from '@components/FeaturedPost.astro';
 import TitleListPost from '@components/TitleListPost.astro';
@@ -18,13 +18,15 @@ export async function getStaticPaths() {
         postsByLang.map(post => {
             const slugParts = post.slug.split('/');
             const event = `${slugParts[1]}`;
+            const postslug = lang === 'en' ? 'talks' : 'palestras';
 
-            post.slug = `${lang}/talks/${event}`;
+            post.slug = `${lang}/${postslug}/${event}`;
         });
 
         return {
             params: {
-                lang: lang
+                lang: lang,
+                talks: lang === 'en' ? 'talks' : 'palestras'
             },
             props: {
                 lang: lang,

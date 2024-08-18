@@ -15,7 +15,7 @@ export default {
             },
             {
                 label: "Entregas",
-                href: "/pt-br/deliveries/",
+                href: "/pt-br/entregas/",
                 hrefTitle: "Entregas, Deliveries | robsonjunior.dev",
                 target: "self"
             },
@@ -33,7 +33,7 @@ export default {
             },
             {
                 label: "Palestras",
-                href: "/pt-br/talks/",
+                href: "/pt-br/palestras/",
                 hrefTitle: "Palestras | robsonjunior.dev",
                 target: "self"
             },

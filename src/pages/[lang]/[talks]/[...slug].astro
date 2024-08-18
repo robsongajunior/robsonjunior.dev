@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import LayoutPost from "@/layouts/Post.astro";
+import LayoutPost from "@layouts/Post.astro";
 
 export async function getStaticPaths() {
     const collectionName = "talks";
@@ -14,7 +14,8 @@ export async function getStaticPaths() {
         return {
             params: {
                 lang,
-                slug: slug
+                slug: slug,
+                talks: lang === 'en' ? 'talks' : 'palestras'
             },
             props: post
         }
