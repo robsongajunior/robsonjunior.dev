@@ -10,7 +10,7 @@ export default {
     page: {
         about: {
             img: {
-                src: "/static/images/pages/sobre/robsonjunior-profile.jpeg",
+                src: "/static/images/pages/about/robsonjunior-profile.jpeg",
                 alt: "Robson Júnior em seu habitati natural, uma sala escura e seu Mac gerador de soluções incríveis!"
             },
             title: "<strong>BUILD, DELIVER</strong><br>AND <strong>REPEAT</strong>",

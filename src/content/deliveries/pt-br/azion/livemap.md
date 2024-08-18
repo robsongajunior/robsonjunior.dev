@@ -1,5 +1,5 @@
 ---
-title: 'Live Map'
+title: 'Azion Live Map'
 meta_robots: 'index, follow'
 meta_description: 'Um mapa que mostra o tráfego, check outs e ataques bloqueados dos maiores e-commerces do Brasil.'
 meta_keywords: 'livemap, black-friday, azion'
@@ -18,9 +18,11 @@ heroAltImage: 'Azion Live Map'
 > https://exame.com/negocios/veja-em-tempo-real-o-mapa-de-trafego-e-vendas-da-black-friday-2022/
 
 
-A EXAME, em parceria com plataforma de edge computing Azion, lança um mapa que mostra o tráfego, check outs e ataques bloqueados dos maiores e-commerces do Brasil.
+A EXAME junto com a Azion, lançaram um mapa do globo que mostra o tráfego,
+checkouts e ataques bloqueados ocorridos nos maiores e-commerces da America Latina.
 
-### Exame && Azion Livemap
+
+### Exame && Azion Live Map
 
 - https://www.azion.com/pt-br/live-map/
 - https://exame.com/black-friday-tempo-real

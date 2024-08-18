@@ -13,7 +13,9 @@ heroAltImage: ''
 ---
 
 ## Visão geral
-O [Ask Azion](https://www.azion.com/en/ask-azion/) é a primeira versão do IA Assistant, inspirado nas capacidades do [ChatGPT](https://chat.openai.com/), mas especificamente projetado para ser implementado em ambientes de [Edge Computing](https://www.google.com/search?q=Azion+Technologies+Edge+Computing&sca_esv=04329dbb662eda98&sca_upv=1&rlz=1C5CHFA_enBR1040BR1040&sxsrf=ADLYWII9zCKtorS82x4gNSrAMkrXGFMoHA%3A1721003069890&ei=PWyUZtqMNrar5OUPibqBkAw&ved=0ahUKEwian42F5KeHAxW2FbkGHQldAMIQ4dUDCA8&uact=5&oq=Azion+Technologies+Edge+Computing&gs_lp=Egxnd3Mtd2l6LXNlcnAiIUF6aW9uIFRlY2hub2xvZ2llcyBFZGdlIENvbXB1dGluZzIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESKo3UNAmWLczcAF4AZABAJgB3AGgAeUOqgEGMC4xMi4xuAEDyAEA-AEBmAIGoAKyBcICChAAGLADGNYEGEfCAggQIRigARjDBMICChAhGKABGMMEGAqYAwCIBgGQBgiSBwMxLjWgB9Qn&sclient=gws-wiz-serp).
+> deprecated
+
+O Ask Azion é a primeira versão do IA Assistant, inspirado nas capacidades do [ChatGPT](https://chat.openai.com/), mas especificamente projetado para ser implementado em ambientes de [Edge Computing](https://www.google.com/search?q=Azion+Technologies+Edge+Computing&sca_esv=04329dbb662eda98&sca_upv=1&rlz=1C5CHFA_enBR1040BR1040&sxsrf=ADLYWII9zCKtorS82x4gNSrAMkrXGFMoHA%3A1721003069890&ei=PWyUZtqMNrar5OUPibqBkAw&ved=0ahUKEwian42F5KeHAxW2FbkGHQldAMIQ4dUDCA8&uact=5&oq=Azion+Technologies+Edge+Computing&gs_lp=Egxnd3Mtd2l6LXNlcnAiIUF6aW9uIFRlY2hub2xvZ2llcyBFZGdlIENvbXB1dGluZzIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESKo3UNAmWLczcAF4AZABAJgB3AGgAeUOqgEGMC4xMi4xuAEDyAEA-AEBmAIGoAKyBcICChAAGLADGNYEGEfCAggQIRigARjDBMICChAhGKABGMMEGAqYAwCIBgGQBgiSBwMxLjWgB9Qn&sclient=gws-wiz-serp).
 Este projeto visa fornecer uma solução de IA de conversação altamente eficiente para o que fosse necessário para ajudar aprender sobre a [Azion](https://www.azion.com/pt-br/).
 
 <video controls style="width: 100%; margin: 1rem auto; display: block; border-radius: 4px;">

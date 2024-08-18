@@ -1,16 +1,21 @@
 ---
-import "@styles/index.scss";
-
 interface Props {
-    title: string;
     description: string;
     keywords: string;
+    ogimage?: string;
     robots?: string;
-    image?: string;
+    title: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, robots = "index, follow", image } = Astro.props;
+const {
+    description="",
+    keywords="",
+    ogimage="/static/images/pages/ogimage-default.png",
+    robots="index, follow",
+    title="",
+} = Astro.props;
+
+import "@styles/index.scss";
 ---
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -22,6 +27,29 @@ const { title, description, robots = "index, follow", image } = Astro.props;
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+
+<!-- Primary Meta Tags -->
+<title>{title} | robsonjunior.dev</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(ogimage, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(ogimage, Astro.url)} />
 
 <!-- Font preloads -->
 <link
@@ -45,26 +73,3 @@ const { title, description, robots = "index, follow", image } = Astro.props;
     type="font/ttf"
     href="/static/fonts/Rubik/Rubik-Black.ttf"
 />
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Primary Meta Tags -->
-<title>{title} | robsonjunior.dev</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
-<!-- <meta name="keywords" content={keywords} /> -->
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />

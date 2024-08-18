@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BlogPost from "@layouts/BlogPost.astro";
+import Post from "@/layouts/Post.astro";
 
 export async function getStaticPaths() {
     const collectionName = "talks";
@@ -26,6 +26,6 @@ const { lang } = Astro.params;
 const { Content } = await post.render();
 ---
 
-<BlogPost {lang} {...post.data}>
+<Post {lang} {...post.data}>
     <Content />
-</BlogPost>
+</Post>

@@ -10,7 +10,7 @@ export default {
     page: {
         about: {
             img: {
-                src: "/static/images/pages/sobre/robsonjunior-profile.jpeg",
+                src: "/static/images/pages/about/robsonjunior-profile.jpeg",
                 alt: "Robson Júnior in his natural habitat, a dark room with his Mac, the generator of incredible solutions!                "
             },
             title: "<strong>BUILD, DELIVER</strong><br>AND <strong>REPEAT</strong>",

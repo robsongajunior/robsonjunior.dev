@@ -2,9 +2,10 @@ export default {
     heading: {
         meta: {
             title: "Born to Build and Deliver",
-            description: "Robson Júnior, Senior Software Engineer treinado e nascido para Criar e Entregar.",
-            keywords: "",
-            robots: "index, follow"
+            description: "Robson Júnior, Senior Software Engineer. Born to Build and Deliver.",
+            keywords: "site pessoal, portifolio, JavaScript Developer, Developer, Desenvolvedor, Front-End, Full Stack, Jam Stack, Performance, Web Vitals",
+            robots: "index, follow",
+            ogimage: "/static/images/pages/ogimage-default.png"
         }
     },
     page: {

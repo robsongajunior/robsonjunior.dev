@@ -1,5 +1,5 @@
 ---
-title: 'Webkit'
+title: 'azion-webkit'
 meta_robots: 'index, follow'
 meta_description: 'Biblioteca de componentes do Design System da Azion, blocos e fragmentos para compor com agilidade interfaces indo para produção com um tempo baixíssimo.'
 meta_keywords: 'front-end, componentes, primevue, design system'
@@ -39,8 +39,8 @@ Stack utilizada para entrega de toda presença web.
 
 Composto por componentes e estilos, escolhemos dividir dois repositórios, assim podendo ambos serem agnósticos a tecnologia de componentes ou estilização.
 
-- [Aberto | @aziontech/webkit](https://github.com/aziontech/webkit)
-- [Aberto |  @aziontech/azion-theme](https://github.com/aziontech/azion-theme)
+- [Aberto | azion-webkit](https://github.com/aziontech/azion-webkit)
+- [Aberto | azion-theme](https://github.com/aziontech/azion-theme)
 
 
 ### Execução

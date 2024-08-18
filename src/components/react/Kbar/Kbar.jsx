@@ -106,7 +106,12 @@ function KbarRenderResults() {
                         style={{background: active ? "var(--dark)" : "transparent"}}>
 
                         <span>
-                            <img src={ item.icon } alt={ item.name } width="24" height="24"/>
+                            <img
+                                src={ item.icon }
+                                alt={ item.name }
+                                width="24"
+                                height="24"
+                            />
                             { item.name }
                         </span>
                         <i style={{ display: active ? "block" : "none" }}>→</i>
@@ -119,8 +124,13 @@ function KbarRenderResults() {
 
 export default function Kbar(props) {
     return (
-        <>
-            <KBarProvider actions={actions[(props[':lang'] === 'en') ? 'en' : 'ptbr']}>
+        <div
+            style={{
+                position: 'relative',
+                zIndex: '999'
+            }}
+        >
+            <KBarProvider actions={actions[(props['lang'] === 'en') ? 'en' : 'ptbr']}>
                 <KBarPortal>
                     <KBarPositioner className='kbarPositioner'>
                         <KBarAnimator>
@@ -134,6 +144,6 @@ export default function Kbar(props) {
                     </KBarPositioner>
                 </KBarPortal>
             </KBarProvider>
-        </>
+        </div>
     )
 }
