@@ -11,6 +11,9 @@ dateUpdate: 'Aug 17 2024'
 heroImage: '/static/uploads/deliveries/azion/site/cover.webp'
 heroAltImage: 'Cover - Site com Astro, Tailwind e Primevue'
 ---
+![docs production](https://github.com/aziontech/docs/actions/workflows/prod.yml/badge.svg)
+![docs stage](https://github.com/aziontech/docs/actions/workflows/stage.yml/badge.svg)
+![docs development](https://github.com/aziontech/docs/actions/workflows/dev.yml/badge.svg)
 
 Desde o final de 2021, sou responsável por toda a parte técnica do site da [Azion Technologies](https://www.azion.com/pt-br/).
 Atualmente, o site possui mais de 3.000 páginas acumuladas ao longo dos últimos três anos. Os tipos de páginas existentes são categorizadas como:
@@ -96,7 +99,7 @@ Usamos sempre a melhor ferramenta para cada específica solução, entre elas ut
     - CMS para gerenciar, editar e criar novos conteúdos para Landing Pages, Blog, Success Cases e principalmente gerenciar o Resource Hub.
 
 
-## Time Técnico
+## Execução
 
 - [Caio Ogata](https://www.linkedin.com/in/caioogata/)
 - [Eduardo de Cesaro](https://www.linkedin.com/in/cesaroeduardo/)

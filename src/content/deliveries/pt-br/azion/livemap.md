@@ -54,7 +54,7 @@ checkouts e ataques bloqueados ocorridos nos maiores e-commerces da America Lati
 - [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
 
 
-## Time
+## Execução
 
 - [Alessandro Cauduro](https://www.linkedin.com/in/alessandrocauduro/)
 - [Caio Ogata](https://www.linkedin.com/in/caioogata/)
