@@ -25,7 +25,7 @@ const actions = {
             shortcut: ['d'],
             keywords: ['delivery', 'entregas', 'company', 'clt', 'trabalhos'],
             icon: '/static/icons/svg/code.svg',
-            perform: () => (window.location.pathname = '/pt-br/deliveries/')
+            perform: () => (window.location.pathname = '/pt-br/entregas/')
         },
         {
             id: 'github',
@@ -49,7 +49,7 @@ const actions = {
             shortcut: ['t'],
             keywords: ['talks', 'palestras', 'apresentações', 'slides'],
             icon: '/static/icons/svg/speaker.svg',
-            perform: () => (window.location.pathname = '/pt-br/talks/')
+            perform: () => (window.location.pathname = '/pt-br/palestras/')
         }
     ],
 
