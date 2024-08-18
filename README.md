@@ -1,11 +1,16 @@
 <h1 align="center">robsonjunior.dev</h1>
+![production](https://github.com/robsongajunior/robsonjunior.dev/actions/workflows/prod-gcp.yml/badge.svg)
 
 <p align="center">
-    <img src="doc/img/cover.png" width="600px" />
+    <img
+        src="./public/static/images/pages/ogimage-default.png"
+        width="1200px"
+        height="630px"
+    />
 </p>
 
-- https://www.rjr.dev/
-- https://www.robsonjunior.dev/
+- https://www.robsonjunior.dev/ - Primary
+- https://www.rjr.dev/ - 
 - https://www.robsongajunior.dev/
 
 
