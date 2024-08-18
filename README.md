@@ -9,8 +9,8 @@
     />
 </p>
 
-- https://www.robsonjunior.dev/ - Primary
-- https://www.rjr.dev/ - 
+- https://www.robsonjunior.dev/ - OFFICIAL
+- https://www.rjr.dev/
 - https://www.robsongajunior.dev/
 
 
