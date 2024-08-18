@@ -5,7 +5,7 @@
 <p align="center">
     <img
         src="./public/static/images/pages/ogimage-default.png"
-        width="600px"
+        width="1200px"
     />
 </p>
 
