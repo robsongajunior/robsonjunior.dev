@@ -9,7 +9,7 @@ export async function getStaticPaths() {
     return posts.map((post) => {
         const slugParts = post.slug.split('/');
         const lang = slugParts[0];
-        const slug = post.slug.replace(`${lang}/`, '').replace(`${collectionName}/`, '');
+        const slug = post.slug.replace(`${lang}/`, '').replace(`${collectionName}/`, '').replace(`${lang === 'en' ? 'deliveries' : 'entregas'}/`, '');
 
         return {
             params: {
