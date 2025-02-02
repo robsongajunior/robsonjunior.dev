@@ -1,12 +1,12 @@
 ---
-title: 'Azion Site/Blog/Docs'
+title: 'Azion Site - Transformando a Experiência Web'
 meta_robots: 'index, follow'
-meta_description: 'Jam Stack 202x Azion Experiência de usuário com tecnologias consolidadas no mundo do Front-End. Padronizando, escalando e viabiliando triplicar agilidade de concepção.'
+meta_description: 'Mais de 2.500 páginas em uma arquitetura Jam Stack. Experiência de usuário com tecnologias consolidadas no mundo do Front-End. Padronizando, escalando e viabilizando multiplicar agilidade de concepção e desenvolvimento.'
 meta_keywords: 'Astro, Vue, Tailwind, Primevue, Jekyll, Liquid, Azion Docs, Documentação Azion'
 categories: ['site', 'docs']
 
 date: 'Feb 10 2024'
-dateUpdate: 'Aug 17 2024'
+dateUpdate: 'Feb 2 2025'
 
 heroImage: '/static/uploads/deliveries/azion/site/cover.webp'
 heroAltImage: 'Cover - Site com Astro, Tailwind e Primevue'
@@ -15,27 +15,49 @@ heroAltImage: 'Cover - Site com Astro, Tailwind e Primevue'
 ![docs stage](https://github.com/aziontech/docs/actions/workflows/stage.yml/badge.svg)
 ![docs development](https://github.com/aziontech/docs/actions/workflows/dev.yml/badge.svg)
 
-Desde o final de 2021, sou responsável por toda a parte técnica do site da [Azion Technologies](https://www.azion.com/pt-br/).
-Atualmente, o site possui mais de 3.000 páginas acumuladas ao longo dos últimos três anos. Os tipos de páginas existentes são categorizadas como:
+Desde o final de 2021, lidero a evolução técnica do site da Azion Technologies,
+transformando uma plataforma digital em um ecossistema de comunicação e tecnologia.
 
-- Institucionais
-- Produtos
-- Blog
-- Documentação
-- Portais
-    - Resource-Hub
-    - Carreiras
+## Visão Geral do Projeto
 
-Neste projeto, tive a oportunidade de liderar três versões do site, utilizando tecnologias como
+Nosso site cresceu de forma impressionante, passando de algumas dezenas para aproximadamente **3.000 páginas** ao longo de três anos. Este crescimento não foi apenas quantitativo, mas também qualitativo.
+
+
+### Tipos de Conteúdo
+
+- 🏢 Institucionais
+- 📦 Produtos
+- ✍️ Blog
+- 📚 Documentação
+- 🌐 Portais diversos
+- 🎓 Learning
+- 📣 Landing Pages
+- 💡 Solutions
+- 🏆 Success Cases
+
+Neste projeto, tive a oportunidade de liderar as últimas três versões do site, utilizando tecnologias como
 Jekyll + Liquid Templates, CSS e JavaScript, além de lidar com implementações anteriores em jQuery.
 
-Atualmente, o build é realizado com Astro, Primevue e Tailwind.
-Com o início do desenvolvimento do [Azion Console](https://console.azion.com/), tivemos a oportunidade de unificar nosso padrão de desenvolvimento de interfaces, introduzindo Primevue e Tailwind no processo.
+Em 2024 modernizamos nossa arquitetura de desenvolvimento.
+Atualmente, o build é realizado com Astro utilizando Primevue e Tailwind.
+Com o início do desenvolvimento do [Azion Console](https://console.azion.com/),
+tivemos a oportunidade de unificar nosso padrão de desenvolvimento de interfaces,
+introduzindo Primevue e Tailwind em todo processo da empresa de desenvolvimento de interface.
 
 
 ## Motivação
 
-Entregar uma experiência única entre nossas páginas abertas com nossa a [Plataforma](https://console.azion.com/) de Edge Computing.
+O site tem o objetivo de ser um produto unificado, sendo assim, podemos ter um conceito de design unificado para todas as páginas,
+além de ser um produto para empresa, porém não para cliente externos e sim para cliente interno da empresa.
+
+Exemplo:
+- Landing Pages é do time de Revenue, Marketing;
+- Documentação é do time de Education;
+- Solutions e Learning é do time de Education;
+- Portal de carreiras é do time de Recrutamento e Seleção;
+
+
+Entregar a melhor experiência entre nossas páginas abertas com nossa a [Plataforma](https://console.azion.com/) de Edge Computing.
 
 <video controls style="width: 100%; margin: 1rem auto; display: block; border-radius: 4px;">
   <source src="/static/uploads/deliveries/azion/site/video.mp4" type="video/mp4" />
@@ -45,12 +67,12 @@ Entregar uma experiência única entre nossas páginas abertas com nossa a [Plat
 
 ## Tecnologia
 
-Stack utilizada para a entrega de toda a presença web.
+A nossa stack é baseada em cima de código aberto e livre de licenças.
 
 
 ### Front-End
 
-Tanto o tema CSS quanto os blocos utilizados para montar toda a interface web têm seus projetos abertos e podem ser conferidos em:
+Nosso stylesheet e blocos são utilizados para montar toda a interface web, nossa biblioteca de componentes é aberta e pública para que outros desenvolvedores e estudantes possam utilizar em seus projetos pessoais como uma forma de Quick Starter, estudos e aprendizado.
 
 
 - azion-webkit
@@ -60,15 +82,17 @@ Tanto o tema CSS quanto os blocos utilizados para montar toda a interface web t�
     - [GitHub | azion-theme](https://github.com/aziontech/azion-theme)
     - [NPM | azion-theme](https://www.npmjs.com/package/azion-theme)
 
+
 #### Development Tools
 
 - [Astro](https://astro.build/)
-    - [Vite](https://vitejs.dev/)
+- [Vite](https://vitejs.dev/)
 - [Primevue](https://primevue.org/)
 - [Primeflex](https://primeflex.org/) 
 - [Tailwind](https://tailwindcss.com/) 
 
 ![Arquitetura Azion Site e Documentação](/static/uploads/deliveries/azion/site/architecture.png)
+
 
 ### Delivery
 
