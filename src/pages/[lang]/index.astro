@@ -4,14 +4,15 @@ import LayoutDefault from "@layouts/Default.astro";
 import Hero from "@components/blocking-builds/Hero.astro";
 
 export async function getStaticPaths() {
-    let i18nData = await Astro.glob("../../i18n/view/home/index.js");
+    let i18nData = await import.meta.glob("@i18n/view/home/index.js");
+    const { default: data } = await i18nData[Object.keys(i18nData)[0]]();
 
     return i18nConfig.langs.map((lang) => {
         return {
             params: { lang },
             props: {
                 lang,
-                data: i18nData[0].default[lang]
+                data: data[lang]
             }
         };
     });

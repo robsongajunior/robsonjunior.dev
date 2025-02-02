@@ -6,7 +6,8 @@ import ProfileDescription from '@components/blocking-builds/ProfileDescription.a
 import SectionCardList from '@components/blocking-builds/SectionCardList.astro';
 
 export async function getStaticPaths() {
-    let i18nData = await Astro.glob('@i18n/view/about/index.js');
+    let i18nData = await import.meta.glob('@i18n/view/about/index.js');
+    const { default: data } = await i18nData[Object.keys(i18nData)[0]]();
 
     return i18nConf.langs.map(lang => {
         return {
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
             },
             props: {
                 lang,
-                data: i18nData[0].default[lang]
+                data: data[lang]
             }
         }
     });
