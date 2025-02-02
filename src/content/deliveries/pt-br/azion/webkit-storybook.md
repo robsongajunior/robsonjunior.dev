@@ -4,10 +4,8 @@ meta_robots: 'index, follow'
 meta_description: 'Storybook: O hub visual para nossos componentes de Design System. Explore, teste e reutilize componentes front-end da Azion de forma ágil e padronizada.'
 meta_keywords: 'storybook, front-end, componentes, primevue, design system'
 categories: ['design-system', 'front-end', 'storybook', 'componentes']
-
 date: 'feb 02 2025'
 dateUpdate: 'feb 02 2025'
-
 heroImage: '/static/uploads/deliveries/azion/webkit-storybook/cover.webp'
 heroAltImage: 'Storybook cover'
 ---
@@ -48,6 +46,8 @@ Nosso Storybook não é apenas uma ferramenta, é um ecossistema de design que:
 - 🤝 Promove consistência entre equipes
 - 💻 Reduz a complexidade de criação de interfaces
 
+
+### Tecnologias
 
 ##### Ferramentas para desenvolvimento
 

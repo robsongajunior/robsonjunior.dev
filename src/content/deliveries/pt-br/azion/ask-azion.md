@@ -1,54 +1,80 @@
 ---
-title: 'Ask Azion'
+title: 'Ask Azion: IA Conversacional'
 meta_robots: 'index, follow'
-meta_description: 'Ask Azion v0.0.1, solução utilizando IA de conversação eficiente para o que auxiliar e ensinar sobre a Plataforma Edge Computing da Azion.' 
-meta_keywords: 'ia, azion edge ia, edge computing'
-categories: ['ia']
-
+meta_description: 'Ask Azion: Solução de IA conversacional especializada em Edge Computing, projetada para auxiliar e educar sobre a plataforma Azion de forma inteligente e eficiente.'
+meta_keywords: 'ia, edge computing, chatbot, assistente de ia, azion'
+categories: ['ia', 'edge computing', 'assistente', 'tecnologia']
 date: 'May 10 2023'
-dateUpdate: ''
-
+dateUpdate: 'Feb 02 2025'
 heroImage: '/static/uploads/deliveries/azion/ask-azion/cover.webp'
-heroAltImage: ''
+heroAltImage: 'Ask Azion - Assistente de IA para Edge Computing'
 ---
 
-## Visão geral
-> deprecated
+## [DEPRECATED] Ask Azion: Revolucionando o Suporte em Edge Computing 🤖
 
-O Ask Azion é a primeira versão do IA Assistant, inspirado nas capacidades do [ChatGPT](https://chat.openai.com/), mas especificamente projetado para ser implementado em ambientes de [Edge Computing](https://www.google.com/search?q=Azion+Technologies+Edge+Computing&sca_esv=04329dbb662eda98&sca_upv=1&rlz=1C5CHFA_enBR1040BR1040&sxsrf=ADLYWII9zCKtorS82x4gNSrAMkrXGFMoHA%3A1721003069890&ei=PWyUZtqMNrar5OUPibqBkAw&ved=0ahUKEwian42F5KeHAxW2FbkGHQldAMIQ4dUDCA8&uact=5&oq=Azion+Technologies+Edge+Computing&gs_lp=Egxnd3Mtd2l6LXNlcnAiIUF6aW9uIFRlY2hub2xvZ2llcyBFZGdlIENvbXB1dGluZzIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIESKo3UNAmWLczcAF4AZABAJgB3AGgAeUOqgEGMC4xMi4xuAEDyAEA-AEBmAIGoAKyBcICChAAGLADGNYEGEfCAggQIRigARjDBMICChAhGKABGMMEGAqYAwCIBgGQBgiSBwMxLjWgB9Qn&sclient=gws-wiz-serp).
-Este projeto visa fornecer uma solução de IA de conversação altamente eficiente para o que fosse necessário para ajudar aprender sobre a [Azion](https://www.azion.com/pt-br/).
+### Visão Geral
+
+> 🚨 **Nota**: Versão inicial do projeto (v0.0.1)
+
+O Ask Azion é um assistente de IA inovador, inspirado nas capacidades do [ChatGPT](https://chat.openai.com/), mas com um foco exclusivo em [Edge Computing](https://www.google.com/search?q=Azion+Technologies+Edge+Computing):
+
+- 🧠 Inteligência artificial especializada
+- 🌐 Projetado para a plataforma Azion
+- 📚 Auxiliar no aprendizado e suporte técnico
+
+### Objetivo Principal
+
+Fornecer uma solução de IA conversacional altamente eficiente para:
+- 🤝 Ajudar usuários a entenderem a plataforma Azion
+- 📖 Facilitar o aprendizado sobre Edge Computing
+- 🚀 Oferecer suporte técnico instantâneo
 
 <video controls style="width: 100%; margin: 1rem auto; display: block; border-radius: 4px;">
   <source src="/static/uploads/deliveries/azion/ask-azion/video.mp4" type="video/mp4" />
-  <p>Your browser does not support the video tag.</p>
+  <p>Seu navegador não suporta a tag de vídeo.</p>
 </video>
 
+## Tecnologia
 
-#### Development Tools
+### Ferramentas de Desenvolvimento
 
-- [Jekyll](https://jekyllrb.com/)
-- [Liquid](https://shopify.github.io/liquid/)
-- [Gulp](https://gulpjs.com/) 
+- 🏗️ [Jekyll](https://jekyllrb.com/): Gerador de sites estáticos
+- 🔧 [Liquid](https://shopify.github.io/liquid/): Linguagem de template
+- 🚀 [Gulp](https://gulpjs.com/): Automatizador de tarefas
 
-#### API
-- [Azion Edge Application](https://www.azion.com/pt-br/blog/como-o-edge-application-pode-melhorar-a-sua-experiencia-de-usuario/)
-    - Gzip
-    - Cache
-    - Load Balancer
-    - Route Management
-- [Azion Edge DNS](https://www.azion.com/pt-br/blog/beneficios-de-um-dns-no-edge/)
-- [Azion Edge Functions](https://www.azion.com/pt-br/blog/azion-apresenta-edge-functions/)
+### Infraestrutura Azion
 
-#### Delivery
-- [Github](https://github.com/)
-- [Azion CLI](https://www.azion.com/pt-br/blog/azion-cli-implemente-jamstack-edge/)
-- [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
+#### Serviços de Edge
 
-#### Trd3
-- [Open API](https://www.openapis.org/what-is-openapi)
+- 🌐 [Azion Edge Application](https://www.azion.com/pt-br/blog/como-o-edge-application-pode-melhorar-a-sua-experiencia-de-usuario/)
+  - 🗜️ Gzip
+  - 💾 Cache
+  - ⚖️ Load Balancer
+  - 🛣️ Route Management
 
+- 🌍 [Azion Edge DNS](https://www.azion.com/pt-br/blog/beneficios-de-um-dns-no-edge/)
+- 🔧 [Azion Edge Functions](https://www.azion.com/pt-br/blog/azion-apresenta-edge-functions/)
 
-## Execução
+### Infraestrutura de Entrega
 
-- [Vitor Eltz](https://www.linkedin.com/in/vitoreltz/)
-- [Robson Júnior](https://www.linkedin.com/in/robsongajunior/)
+- 🐱 [Github](https://github.com/)
+- 🚀 [Azion CLI](https://www.azion.com/pt-br/blog/azion-cli-implemente-jamstack-edge/)
+- 💾 [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
+
+### Integrações de Terceiros
+
+- 📡 [Open API](https://www.openapis.org/what-is-openapi): Padronização de interfaces
+
+## Equipe de Desenvolvimento
+
+Conheça os profissionais por trás desta inovação:
+
+- 👨‍💻 [Vitor Eltz](https://www.linkedin.com/in/vitoreltz/)
+- 👨‍💻 [Robson Júnior](https://www.linkedin.com/in/robsongajunior/)
+
+## Benefícios e Impacto
+
+- 🤖 Suporte de IA personalizado
+- 🌐 Aprendizado sobre Edge Computing
+- 📈 Melhoria contínua da experiência do usuário
+- 🚀 Inovação em assistência técnica
