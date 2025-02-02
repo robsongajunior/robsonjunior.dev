@@ -12,7 +12,6 @@ heroImage: '/static/uploads/deliveries/azion/webkit/cover.webp'
 heroAltImage: ''
 ---
 ![production](https://github.com/aziontech/azion-webkit/actions/workflows/release.yml/badge.svg)
-![storybook production](https://github.com/aziontech/azion-webkit/actions/workflows/storybook.yml/badge.svg)
 
 O [azion-webkit](https://github.com/aziontech/azion-webkit) é uma biblioteca de templates e blocos com finalidade de
 padronização, reaproveitamento, agilidade no desenvolvimento até o momento de entrega de interfaces para [Azion](https://www.azion.com/pt-br/).

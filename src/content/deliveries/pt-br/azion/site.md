@@ -20,14 +20,15 @@ transformando uma plataforma digital em um ecossistema de comunicação e tecnol
 
 ## Visão Geral do Projeto
 
-Nosso site cresceu de forma impressionante, passando de algumas dezenas para aproximadamente **3.000 páginas** ao longo de três anos. Este crescimento não foi apenas quantitativo, mas também qualitativo.
+Nosso site cresceu de forma impressionante, passando de algumas dezenas para aproximadamente **3.000 páginas** ao
+longo de três anos. Este crescimento não foi apenas quantitativo, mas também qualitativo.
 
 
 ### Tipos de Conteúdo
 
 - 🏢 Institucionais
 - 📦 Produtos
-- ✍️ Blog
+- ✍️ Blog   
 - 📚 Documentação
 - 🌐 Portais diversos
 - 🎓 Learning
