@@ -14,7 +14,7 @@ heroAltImage: 'Azion Webkit Design System Components'
 
 ![production](https://github.com/aziontech/azion-webkit/actions/workflows/release.yml/badge.svg)
 
-## Azion Webkit: Revolucionando o Desenvolvimento Front-End 🚀
+## Azion Webkit: Escalando o Desenvolvimento Front-End 🚀
 
 ### O que é o Azion Webkit?
 
