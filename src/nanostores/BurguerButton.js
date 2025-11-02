@@ -1,3 +1,3 @@
 import { atom } from 'nanostores'
 
-export let isMenuActive = atom(false);
+export let isMenuActive = atom(false)

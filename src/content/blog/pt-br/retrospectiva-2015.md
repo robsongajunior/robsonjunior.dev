@@ -14,4 +14,3 @@ heroAltImage: 'Retrospectiva 2015'
 Quando 2015 começou, já tinha uma leve sensação que seria um ano diferente. Os planos para o trabalho, eventos gostaria de participar e uma lista grande de coisas para estudar....
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2015/12/retrospectiva-2015/]
-

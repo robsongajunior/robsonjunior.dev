@@ -25,6 +25,7 @@ O Ask Azion é um assistente de IA inovador, inspirado nas capacidades do [ChatG
 ### Objetivo Principal
 
 Fornecer uma solução de IA conversacional altamente eficiente para:
+
 - 🤝 Ajudar usuários a entenderem a plataforma Azion
 - 📖 Facilitar o aprendizado sobre Edge Computing
 - 🚀 Oferecer suporte técnico instantâneo

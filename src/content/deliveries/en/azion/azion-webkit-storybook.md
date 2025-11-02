@@ -39,6 +39,7 @@ heroAltImage: 'Storybook cover'
 ### Project Impact
 
 Our Storybook is more than just a tool; it's a design ecosystem that:
+
 - 🚀 Accelerates front-end development
 - 🤝 Promotes team consistency
 - 💻 Reduces interface creation complexity
@@ -46,10 +47,10 @@ Our Storybook is more than just a tool; it's a design ecosystem that:
 ##### Development Tools
 
 - [Primevue](https://primevue.org/)
-- [Primeflex](https://primeflex.org/) 
-- [Storybook](https://storybook.js.org/) 
-- [Tailwind](https://tailwindcss.com/) 
-- [Vite](https://vitejs.dev/) 
+- [Primeflex](https://primeflex.org/)
+- [Storybook](https://storybook.js.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
 ##### Publication
 

@@ -4,13 +4,12 @@
 // adapting to different screen sizes, for use in media queries.
 
 $grid-breakpoints: (
-    sm: 0,
-    md: 420px,
-    sd: 960px,
-    lg: 1440px,
-    max: 1920px
+  sm: 0,
+  md: 420px,
+  sd: 960px,
+  lg: 1440px,
+  max: 1920px
 ) !default;
-
 
 /////////////////////////////////////////////////////////////
 // VARIABLES  USED WHEN WE USE GRID SYSTEM BASED ON COLUNS //

@@ -14,4 +14,3 @@ heroAltImage: 'Sonho vs Mediocridade'
 Resolvi escrever esse texto para poder descrever o que sinto em relação quando uma pessoa me pergunta algo sobre sucesso, carreira etc...
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2015/09/sonho-vs-mediocridade/]
-

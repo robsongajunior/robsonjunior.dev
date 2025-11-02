@@ -14,4 +14,3 @@ heroAltImage: 'Retrospectiva 2014'
 2014 simplesmente foi um ano fantástico, me proporciou experiências que eu pensava que iria muitos anos para acontecer, conheci pessoas que nunca pensei que poderia e vi coisas....
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2015/12/retrospectiva-2015/]
-

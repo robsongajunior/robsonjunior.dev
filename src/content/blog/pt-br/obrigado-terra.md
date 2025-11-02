@@ -28,4 +28,3 @@ Do fundo do meu coração, MUITO OBRIGADO!
 Seguiremos copando.
 
 **18/02/2014 - 15/06/2018**
-

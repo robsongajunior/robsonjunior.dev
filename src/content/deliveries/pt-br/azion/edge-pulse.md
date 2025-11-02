@@ -30,6 +30,7 @@ Edge Pulse é um produto inovador da Edge Analytics que transforma a maneira com
 ## Como Funciona?
 
 O Edge Pulse estabelece uma comunicação inteligente entre seu conteúdo e seus clientes, garantindo:
+
 - 💡 Insights precisos sobre performance
 - 🛡️ Otimização contínua da experiência do usuário
 - ⚡ Entrega de conteúdo mais eficiente

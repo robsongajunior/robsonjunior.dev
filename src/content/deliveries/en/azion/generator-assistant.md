@@ -11,11 +11,12 @@ dateUpdate: 'Nov 10 2019'
 heroImage: ''
 heroAltImage: ''
 ---
+
 [deprecated]
 
 Generator Assistant is the Front-End scaffold responsible to generate the default project's struct to easy and fast way to start develop new web applications.
 
-With few commands you will be able to create your components to build you Interface Application. 
+With few commands you will be able to create your components to build you Interface Application.
 
 Features:
 

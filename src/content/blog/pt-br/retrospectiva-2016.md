@@ -14,4 +14,3 @@ heroAltImage: 'Retrospectiva 2016'
 Pela primeira vez na vida eu estava em um lugar onde não pensei que estaria, e estava me adaptando a isso então muito normal desfocar um pouco em sí próprio e focar mais na situação para tirar o melhor proveito possível...
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2016/12/retrospectiva-2016/]
-

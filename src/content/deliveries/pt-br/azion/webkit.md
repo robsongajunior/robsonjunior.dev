@@ -19,6 +19,7 @@ heroAltImage: 'Azion Webkit Design System Components'
 ### O que é o Azion Webkit?
 
 O [azion-webkit](https://github.com/aziontech/azion-webkit) é uma biblioteca de templates e blocos projetada para:
+
 - 🔄 Padronizar interfaces
 - 🚀 Acelerar o desenvolvimento
 - 🤝 Unificar a experiência do usuário

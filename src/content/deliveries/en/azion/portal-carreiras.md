@@ -11,5 +11,3 @@ dateUpdate: ''
 heroImage: ''
 heroAltImage: ''
 ---
-
-

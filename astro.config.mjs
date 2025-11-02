@@ -1,36 +1,17 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import vue from '@astrojs/vue';
-import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config'
 
-const productionBuild = import.meta.env.PROD;
+import vite from './astro.vite.config'
+import integrations from './astro.config.integrations'
 
-// https://astro.build/config
+const productionBuild = import.meta.env.PROD
+
 export default defineConfig({
   site: 'https://www.robsonjunior.dev/',
-  trailingSlash: 'always', // for server
+  trailingSlash: 'always',
   compressHTML: productionBuild ? true : false,
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'always'
   },
-  integrations: [
-        react(),
-        vue(),
-        mdx(),
-        sitemap()
-    ],
-    vite: {
-        ssrBuild: true,
-        server: {
-          fs: {
-            allow: ['..']
-          }
-        },
-        plugins: [],
-        ssr: {
-          noExternal: [],
-          external: []
-        }
-    }
-});
+  integrations: integrations,
+  vite: vite
+})

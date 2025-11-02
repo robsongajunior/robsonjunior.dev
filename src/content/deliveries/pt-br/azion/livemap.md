@@ -17,6 +17,7 @@ heroAltImage: 'Azion Live Map - Monitoramento em Tempo Real'
 > 📰 **EXAME destaca projeto inovador**: [Veja em tempo real o mapa de tráfego e vendas da Black Friday 2022](https://exame.com/negocios/veja-em-tempo-real-o-mapa-de-trafego-e-vendas-da-black-friday-2022/)
 
 A EXAME, em parceria com a Azion, lançou um mapa global revolucionário que mostra, em tempo real:
+
 - 🌍 Tráfego de e-commerces
 - 💳 Status de checkouts
 - 🛡️ Ataques de segurança bloqueados
@@ -41,12 +42,14 @@ A EXAME, em parceria com a Azion, lançou um mapa global revolucionário que mos
 ## Otimização
 
 ### Azion Edge Application
+
 - 🗜️ Gzip
 - 💾 Cache
 - ⚖️ Load Balancer
 - 🛣️ Route Management
 
 ### Serviços Complementares
+
 - [Azion Edge DNS](https://www.azion.com/pt-br/blog/beneficios-de-um-dns-no-edge/)
 - [Azion Image Processor](https://www.azion.com/pt-br/blog/como-a-otimizacao-de-imagens-ajuda-empresas-de-midia/)
 

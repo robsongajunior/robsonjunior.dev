@@ -16,4 +16,3 @@ Como de costume, nos meus últimos 4 anos quando chegamos nessa data final de an
 Eu gosto de fazer uma retrospectiva porque não me deixa esquecer quem eu era, no que me tornei e quem eu serei me dando mais clareza mental para esquematizar da melhor forma que executarei e colocarei minhas metas para DONE uma por uma...
 
 > (Ler artigo completo)[https://robsongajunior.github.io/2017/12/retrospectiva-2017/]
-
