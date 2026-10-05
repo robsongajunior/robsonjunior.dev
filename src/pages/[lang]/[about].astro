@@ -1,104 +1,63 @@
 ---
-import i18nConf from '@i18n/config';
-import LayoutDefault from "@layouts/Default.astro";
-import Biograph from '@components/blocking-builds/Biograph.astro';
-import ProfileDescription from '@components/blocking-builds/ProfileDescription.astro';
-import SectionCardList from '@components/blocking-builds/SectionCardList.astro';
+import i18nConfig from '@i18n/config'
+import Layout from '@layouts/Rebrand.astro'
+import SiteNav from '@components/rebrand/SiteNav.vue'
+import HeroScene from '@components/rebrand/HeroScene.vue'
+import ContentBlock from '@components/rebrand/ContentBlock.vue'
+import RichText from '@components/rebrand/RichText.vue'
+import LinkList from '@components/rebrand/LinkList.vue'
+import SloganBand from '@components/rebrand/SloganBand.vue'
+import EventGroups from '@components/rebrand/EventGroups.vue'
+import ItemList from '@components/rebrand/ItemList.vue'
+import SiteFooter from '@components/rebrand/SiteFooter.vue'
+import about from '@i18n/view/rebrand/about.js'
+import shared from '@i18n/view/rebrand/shared.js'
 
-export async function getStaticPaths() {
-    let i18nData = await import.meta.glob('@i18n/view/about/index.js');
-    const { default: data } = await i18nData[Object.keys(i18nData)[0]]();
+export function getStaticPaths() {
+  return i18nConfig.langs.map((lang) => ({
+    params: { lang, about: lang === 'pt-br' ? 'sobre' : 'about' },
+    props: { lang }
+  }))
+}
 
-    return i18nConf.langs.map(lang => {
-        return {
-            params: {
-                lang,
-                about: lang === 'pt-br' ? 'sobre' : 'about'
-            },
-            props: {
-                lang,
-                data: data[lang]
-            }
-        }
-    });
-};
-
-const { lang, data } = Astro.props;
-const metatag = data.heading.meta;
-const page = data.page;
+const { lang } = Astro.props
+const page = about[lang]
+const common = shared[lang]
+const introLinks = page.intro.links.map((key) => common.social[key])
+const talks = page.talks.items.map((talk) => ({ ...talk, cta: page.talks.cta }))
 ---
 
-<LayoutDefault
-    lang={lang}
-    title={metatag.title}
-    description={metatag.description}
-    keywords={metatag.keywords}
-    robots={metatag.robots}>
+<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="blue">
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={page.nav} />
 
-    <ProfileDescription
-        imgSrc={page.about.img.src}
-        imgAlt={page.about.img.alt}
-        title={page.about.title}
-        description={page.about.description}
-        linkedinUrl={page.about.socialnetwork.linkedin.url}
-        linkedinUrlTitle={page.about.socialnetwork.linkedin.title}
-        speakerdeckUrl={page.about.socialnetwork.speakerdeck.url}
-        speakerdeckUrlTitle={page.about.socialnetwork.speakerdeck.title}
-        instagramUrl={page.about.socialnetwork.instagram.url}
-        instagramUrlTitle={page.about.socialnetwork.instagram.title} />
+  <HeroScene client:load variant="desk" {...page.hero} />
 
-    <Biograph
-        title={page.bio.title}
-        description={page.bio.description} />
+  <main>
+    <ContentBlock id={page.intro.id} title={page.intro.title}>
+      <RichText paragraphs={page.intro.paragraphs} />
+      <div class="spaced"><LinkList links={introLinks} /></div>
+    </ContentBlock>
 
-    <SectionCardList
-        title={page.deliveries.title}
-        description={page.deliveries.description}
-        cards={page.deliveries.cards} />
+    <ContentBlock id={page.bio.id} title={page.bio.title}>
+      <RichText paragraphs={page.bio.paragraphs} size="md" />
+    </ContentBlock>
+  </main>
 
-    <SectionCardList
-        title={page.talks.title}
-        description={page.talks.description}
-        cards={page.talks.cards} />
-</LayoutDefault>
+  <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
 
-<style lang="scss" scoped>
-    @import '../../styles/breakpoints';
+  <main>
+    <ContentBlock id={page.talks.id} title={page.talks.title}>
+      <RichText paragraphs={page.talks.intro} size="md" />
+      <EventGroups groups={page.talks.groups} />
+      <ItemList items={talks} />
+    </ContentBlock>
+  </main>
 
-    .card-list {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: 2rem 0 0;
-        padding: 0;
-        align-content: stretch;
-        gap: 1rem;
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>
 
-        .card {
-            flex: 1;
-            min-width: 320px;
-        }
-
-        .card-content {
-            padding: 2rem;
-            background: linear-gradient(71deg, var(--dark-strong), #191919, var(--dark-strong));
-            border-radius: 80px;
-            background-clip: padding-box;
-            position: relative;
-            border: 2px solid transparent;
-
-            &::after {
-                // z-index: 1;
-                border-radius: 80px;
-                position: absolute;
-                top: -1px;
-                bottom: -1px;
-                left: -1px;
-                right: -1px;
-                content: "";
-                z-index: -1;
-                background: linear-gradient(71deg, var(--dark-strong), #454545, var(--dark-strong));
-            }
-        }
-    }
+<style>
+  .spaced {
+    margin-top: 28px;
+  }
 </style>
