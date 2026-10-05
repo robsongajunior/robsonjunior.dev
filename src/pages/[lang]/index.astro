@@ -28,7 +28,7 @@ const posts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang
   .map((post) => ({
     href: '/' + post.slug.replace(lang + '/', lang + '/blog/') + '/',
     title: post.data.title.split(' ').filter(Boolean).join(' '),
-    tag: [].concat(post.data.categories ?? []).join(' · ').toLowerCase()
+    tag: [].concat(post.data.categories ?? []).slice(0, 2).join(' · ').toLowerCase()
   }))
 
 const contactLinks = page.contact.links.map((key) => common.social[key])
