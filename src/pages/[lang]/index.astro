@@ -1,39 +1,61 @@
 ---
-import i18nConfig from "@i18n/config";
-import LayoutDefault from "@layouts/Default.astro";
-import Hero from "@components/blocking-builds/Hero.astro";
+import { getCollection } from 'astro:content'
+import i18nConfig from '@i18n/config'
+import Layout from '@layouts/Rebrand.astro'
+import SiteNav from '@components/rebrand/SiteNav.vue'
+import HeroScene from '@components/rebrand/HeroScene.vue'
+import ContentBlock from '@components/rebrand/ContentBlock.vue'
+import RichText from '@components/rebrand/RichText.vue'
+import SloganBand from '@components/rebrand/SloganBand.vue'
+import ArticleLog from '@components/rebrand/ArticleLog.vue'
+import LinkList from '@components/rebrand/LinkList.vue'
+import SiteFooter from '@components/rebrand/SiteFooter.vue'
+import home from '@i18n/view/rebrand/home.js'
+import shared from '@i18n/view/rebrand/shared.js'
 
-export async function getStaticPaths() {
-    let i18nData = await import.meta.glob("@i18n/view/home/index.js");
-    const { default: data } = await i18nData[Object.keys(i18nData)[0]]();
+export function getStaticPaths() {
+  return i18nConfig.langs.map((lang) => ({ params: { lang }, props: { lang } }))
+}
 
-    return i18nConfig.langs.map((lang) => {
-        return {
-            params: { lang },
-            props: {
-                lang,
-                data: data[lang]
-            }
-        };
-    });
-};
+const { lang } = Astro.props
+const page = home[lang]
+const common = shared[lang]
 
-const { lang, data } = Astro.props;
-const metatag = data.heading.meta;
-const page = data.page;
+// latest posts of this language, newest first
+const posts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`)))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, page.articles.limit)
+  .map((post) => ({
+    href: '/' + post.slug.replace(lang + '/', lang + '/blog/') + '/',
+    title: post.data.title.split(' ').filter(Boolean).join(' '),
+    tag: [].concat(post.data.categories ?? []).join(' · ').toLowerCase()
+  }))
+
+const contactLinks = page.contact.links.map((key) => common.social[key])
 ---
 
-<LayoutDefault
-    lang={lang}
-    title={metatag.title}
-    description={metatag.description}
-    keywords={metatag.keywords}
-    robots={metatag.robots}
->
-    <main>
-        <Hero
-            title={page.hero.title}
-            description={page.hero.description}
-        />
-    </main>
-</LayoutDefault>
+<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lime">
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={page.nav} />
+
+  <HeroScene client:load variant="poster" {...page.hero} />
+
+  <main>
+    <ContentBlock id={page.about.id} title={page.about.title}>
+      <RichText paragraphs={page.about.paragraphs} />
+    </ContentBlock>
+  </main>
+
+  <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
+
+  <main>
+    <ContentBlock id={page.articles.id} title={page.articles.title}>
+      <ArticleLog items={posts} moreHref={common.blogPath} moreLabel={page.articles.more} />
+    </ContentBlock>
+
+    <ContentBlock id={page.contact.id} title={page.contact.title}>
+      <LinkList links={contactLinks} />
+    </ContentBlock>
+  </main>
+
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>
