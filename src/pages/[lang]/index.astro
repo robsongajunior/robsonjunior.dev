@@ -10,8 +10,8 @@ import SloganBand from '@components/rebrand/SloganBand.vue'
 import ArticleLog from '@components/rebrand/ArticleLog.vue'
 import LinkList from '@components/rebrand/LinkList.vue'
 import SiteFooter from '@components/rebrand/SiteFooter.vue'
-import home from '@i18n/view/rebrand/home.js'
-import shared from '@i18n/view/rebrand/shared.js'
+import home from '@i18n/view/rebrand/home'
+import shared from '@i18n/component/site'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({ params: { lang }, props: { lang } }))
