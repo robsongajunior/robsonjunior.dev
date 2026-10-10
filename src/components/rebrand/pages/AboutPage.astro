@@ -1,5 +1,4 @@
 ---
-import i18nConfig from '@i18n/config'
 import Layout from '@layouts/Rebrand.astro'
 import SiteNav from '@components/rebrand/SiteNav.vue'
 import HeroScene from '@components/rebrand/HeroScene.vue'
@@ -13,11 +12,8 @@ import SiteFooter from '@components/rebrand/SiteFooter.vue'
 import about from '@i18n/view/rebrand/about.js'
 import shared from '@i18n/view/rebrand/shared.js'
 
-export function getStaticPaths() {
-  return i18nConfig.langs.map((lang) => ({
-    params: { lang, about: lang === 'pt-br' ? 'sobre' : 'about' },
-    props: { lang }
-  }))
+interface Props {
+  lang: 'pt-br' | 'en'
 }
 
 const { lang } = Astro.props
