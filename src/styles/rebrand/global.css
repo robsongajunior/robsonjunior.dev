@@ -39,10 +39,13 @@
 *::after {
   box-sizing: border-box;
 }
-html {
+/* scoped to [data-theme] so global resets injected by UI libraries (PrimeVue) don't win */
+html[data-theme] {
+  color-scheme: dark;
+  background: var(--ink);
   scroll-behavior: smooth;
 }
-body {
+html[data-theme] body {
   margin: 0;
   background: var(--ink);
   color: var(--paper);
@@ -66,7 +69,7 @@ main {
   padding-inline: var(--gutter);
 }
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html[data-theme] {
     scroll-behavior: auto;
   }
 }
