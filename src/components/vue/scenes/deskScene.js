@@ -7,7 +7,7 @@ const Q = 3 // the screen mask is 1/Q of the scene
 const FX = 810
 const FY = 1140
 const INK = '#0a1622'
-const BASE = '/static/rebrand/about'
+const BASE = '/static/scenes/about'
 const MONITORS = [[0, 630, 375, 990], [1356, 768, 1719, 1170], [456, 960, 1296, 1482], [75, 1512, 525, 1866], [1254, 1512, 1671, 1866]]
 
 const WALL = '#5d676b'

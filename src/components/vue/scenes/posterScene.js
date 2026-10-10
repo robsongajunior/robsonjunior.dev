@@ -6,7 +6,7 @@ const LIME = '#c8f031'
 const WALL = '#121310'
 const TOP = 350
 const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-const BASE = '/static/rebrand/home'
+const BASE = '/static/scenes/home'
 
 // Window rows of the poster, used to continue the panes past its edges
 const ROWS = [

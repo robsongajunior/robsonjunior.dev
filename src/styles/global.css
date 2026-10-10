@@ -1,4 +1,4 @@
-/* Rebrand tokens. A page picks its palette with <html data-theme="lime|blue">. */
+/* Site tokens. A page picks its palette with <html data-theme="lime|blue">. */
 :root {
   color-scheme: dark;
   --display: 'Big Shoulders Display', Impact, 'Arial Narrow', sans-serif;
