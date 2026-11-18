@@ -4,20 +4,6 @@ export default {
     description:
       'Robson Júnior, Senior Product Engineer na Azion Technologies. Pensando como produto, construindo como engenheiro. Front-end, edge e open source.'
   },
-  nav: [
-    {
-      href: '#sobre',
-      label: 'Sobre'
-    },
-    {
-      href: '#escritos',
-      label: 'Blog'
-    },
-    {
-      href: '#contato',
-      label: 'Contato'
-    }
-  ],
   hero: {
     eyebrow: 'porto alegre, rs · desde 2014',
     title: 'Robson',
@@ -33,6 +19,46 @@ export default {
       'Estou na web desde 2014. Comecei fazendo animações em CSS3, passei pelo Terra Networks como Software Developer e Front-End Engineer e cheguei à <a href="https://www.azion.com/pt-br/">Azion Technologies</a>, onde venho trabalhando cada vez mais perto do produto e das decisões de arquitetura.',
       'Nasci em Gramado e moro em Porto Alegre. Gosto de web, browser applications, extensões de Chrome e open source.'
     ]
+  },
+  bento: {
+    index: ['Sobre', 'Destaque', 'Recentes', 'Blog'],
+    talkLabel: 'palestra',
+    about: {
+      index: '01 / Sobre',
+      headline: [
+        {
+          text: 'Pensando como produto, construindo como '
+        },
+        {
+          text: 'engenheiro',
+          em: true
+        },
+        {
+          text: '.'
+        }
+      ],
+      summary:
+        'Imerso em arquitetura front-end, developer tooling e na experiência de quem constrói aplicações na edge. Na web desde 2014, passei pelo Terra Networks e hoje sou Senior Product Engineer na Azion Technologies.',
+      meta: ['gramado → porto alegre', '30°02′S 51°13′W'],
+      more: 'conhecer mais'
+    },
+    featured: '02 / Destaque',
+    carousel: {
+      region: 'Destaques: palestras e artigos',
+      prev: 'Destaque anterior',
+      next: 'Próximo destaque',
+      pause: 'Pausar destaques',
+      play: 'Retomar destaques',
+      of: 'de'
+    },
+    recent: '03',
+    explore: {
+      index: '04 / Blog',
+      title: 'Ler todos os posts',
+      count: 'artigos',
+      since: 'desde'
+    },
+    cta: 'ler'
   },
   slogan: {
     label: 'Born to build and deliver',
@@ -65,7 +91,7 @@ export default {
   },
   articles: {
     id: 'escritos',
-    title: 'Escritos',
+    title: 'Blog',
     more: 'todos os artigos',
     limit: 5
   },

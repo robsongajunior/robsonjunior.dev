@@ -7,6 +7,14 @@ import TitleListPost from '@components/TitleListPost.astro';
 import ImageTitlePostList from '@components/ImageTitlePostList.astro';
 import LineDivisor from '@components/LineDivisor.astro';
 import { getPageByLangCollection } from "@utils/pages.js";
+import Layout from '@layouts/Base.astro';
+import SiteNav from '@components/vue/SiteNav.vue';
+import HeroScene from '@components/vue/HeroScene.vue';
+import TalksBento from '@components/vue/TalksBento.vue';
+import SiteFooter from '@components/vue/SiteFooter.vue';
+import talksView from '@i18n/view/talks';
+import about from '@i18n/view/about';
+import shared from '@i18n/component/site';
 
 export async function getStaticPaths() {
     const posts = await getCollection('talks') || [];
@@ -36,24 +44,64 @@ export async function getStaticPaths() {
     });
 }
 const { lang, posts } = Astro.props;
+
+// experimental editorial page (lavender theme); false brings back the old layout
+const editorial = true
+
+const page = talksView[lang]
+const common = shared[lang]
+// talks data lives in the about i18n (one source for both pages)
+const source = about[lang].talks
+const ed = about[lang].editorial.talks
+const talks = source.items.map((talk) => ({ ...talk, cta: source.cta }))
+
+const talksProps = {
+    id: source.id,
+    intro: { index: ed.index, statement: ed.statement, summary: ed.summary },
+    stats: {
+        index: ed.statsIndex,
+        items: [
+            { value: ed.stats.events, label: ed.stats.eventsLabel, wide: true },
+            { value: talks.length, label: ed.stats.decks },
+            { value: new Date().getFullYear() - 2014, label: ed.stats.years }
+        ]
+    },
+    groups: source.groups,
+    themes: ed.themes,
+    list: { index: ed.listIndex, items: talks, external: ed.external }
+}
+
+// slides on the stage screen: the talk titles
+const slides = talks.map((talk) => talk.title)
 ---
 
-
-
-<LayoutDefault title="Deliveries" lang={ lang }>
-    <div class="center-content">
-        <FeaturedPost post={ posts.length ? posts[0] : [] } />
-    </div>
-    <div class="center-content">
-        <LineDivisor />
-    </div>
-    <div class="center-content">
-        <TitleListPost posts={ posts.length ? posts.slice(1, 5) : [] } />
-    </div>
-    <div class="center-content">
-       <LineDivisor />
-    </div>
-    <div class="center-content">
-        <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
-    </div>
-</LayoutDefault>
+{
+    editorial ? (
+        <Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lavender">
+            <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+            <HeroScene client:load variant="stage" lines={slides} {...page.hero} />
+            <main>
+                <TalksBento {...talksProps} />
+            </main>
+            <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+        </Layout>
+    ) : (
+        <LayoutDefault title="Deliveries" lang={ lang }>
+            <div class="center-content">
+                <FeaturedPost post={ posts.length ? posts[0] : [] } />
+            </div>
+            <div class="center-content">
+                <LineDivisor />
+            </div>
+            <div class="center-content">
+                <TitleListPost posts={ posts.length ? posts.slice(1, 5) : [] } />
+            </div>
+            <div class="center-content">
+               <LineDivisor />
+            </div>
+            <div class="center-content">
+                <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
+            </div>
+        </LayoutDefault>
+    )
+}

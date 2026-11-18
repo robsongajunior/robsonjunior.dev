@@ -3,9 +3,12 @@ import { ref } from 'vue'
 import { useCanvasScene } from '../../composables/useCanvasScene'
 import { createPosterScene, loadPosterScene } from './scenes/posterScene'
 import { createDeskScene, loadDeskScene } from './scenes/deskScene'
+import { createMarqueeScene, loadMarqueeScene } from './scenes/marqueeScene'
+import { createStageScene, loadStageScene } from './scenes/stageScene'
 
 const props = defineProps({
-  variant: { type: String, default: 'poster' }, // 'poster' | 'desk'
+  variant: { type: String, default: 'poster' }, // 'poster' | 'desk' | 'marquee' | 'stage'
+  lines: { type: Array, default: () => [] }, // marquee: texts in the bands; stage: slides on the screen
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   titleAccent: { type: String, default: '' },
@@ -15,8 +18,13 @@ const props = defineProps({
 
 const scenes = {
   poster: { load: loadPosterScene, create: createPosterScene },
-  desk: { load: loadDeskScene, create: createDeskScene }
+  desk: { load: loadDeskScene, create: createDeskScene },
+  marquee: { load: () => loadMarqueeScene(props.lines), create: createMarqueeScene },
+  stage: { load: () => loadStageScene(props.lines), create: createStageScene }
 }
+
+// titles with a long word (e.g. "Palestras") get a smaller size so the word never breaks
+const longTitle = `${props.title} ${props.titleAccent}`.split(/\s+/).some((word) => word.length > 8)
 
 const canvas = ref(null)
 const copy = ref(null)
@@ -37,7 +45,7 @@ useCanvasScene(canvas, {
     <div class="scrim"></div>
     <div ref="copy" class="copy">
       <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
-      <h1>
+      <h1 :class="{ long: longTitle }">
         {{ title }} <span v-if="titleAccent">{{ titleAccent }}</span>
       </h1>
       <p v-if="lede" class="lede">{{ lede }}</p>
@@ -102,6 +110,9 @@ h1 {
 }
 h1 span {
   color: var(--accent);
+}
+h1.long {
+  font-size: clamp(56px, 8vw, 112px);
 }
 .lede {
   margin: 22px 0 0;

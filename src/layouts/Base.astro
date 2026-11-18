@@ -5,7 +5,7 @@ interface Props {
   lang: string
   title: string
   description: string
-  theme?: 'lime' | 'blue'
+  theme?: 'lime' | 'blue' | 'pink' | 'lavender' | 'amber'
   robots?: string
   ogimage?: string
 }
@@ -30,7 +30,7 @@ const ogImageUrl = new URL(ogimage, Astro.site)
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content={theme === 'blue' ? '#0a1622' : '#0a0b09'} />
+    <meta name="theme-color" content={{ lime: '#0a0b09', blue: '#0a1622', pink: '#160a11', lavender: '#0f0b1c', amber: '#140d08' }[theme]} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
