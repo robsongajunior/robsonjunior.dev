@@ -4,20 +4,6 @@ export default {
     description:
       'Robson Júnior, Senior Product Engineer at Azion Technologies. Thinking like product, building like an engineer. Front-end, edge and open source.'
   },
-  nav: [
-    {
-      href: '#about',
-      label: 'About'
-    },
-    {
-      href: '#writing',
-      label: 'Blog'
-    },
-    {
-      href: '#contact',
-      label: 'Contact'
-    }
-  ],
   hero: {
     eyebrow: 'porto alegre, brazil · since 2014',
     title: 'Robson',
@@ -33,6 +19,46 @@ export default {
       'I have been on the web since 2014. I started out writing CSS3 animations, worked at Terra Networks as a Software Developer and Front-End Engineer and landed at <a href="https://www.azion.com/en/">Azion Technologies</a>, where I keep getting closer to product and architecture decisions.',
       'Born in Gramado, living in Porto Alegre. I like the web, browser applications, Chrome extensions and open source.'
     ]
+  },
+  bento: {
+    index: ['About', 'Featured', 'Recent', 'Blog'],
+    talkLabel: 'talk',
+    about: {
+      index: '01 / About',
+      headline: [
+        {
+          text: 'Thinking like product, building like an '
+        },
+        {
+          text: 'engineer',
+          em: true
+        },
+        {
+          text: '.'
+        }
+      ],
+      summary:
+        'Deep into front-end architecture, developer tooling and the experience of people building applications on the edge. On the web since 2014, I went through Terra Networks and I am now a Senior Product Engineer at Azion Technologies.',
+      meta: ['gramado → porto alegre', '30°02′S 51°13′W'],
+      more: 'know more'
+    },
+    featured: '02 / Featured',
+    carousel: {
+      region: 'Featured: talks and articles',
+      prev: 'Previous featured item',
+      next: 'Next featured item',
+      pause: 'Pause featured items',
+      play: 'Resume featured items',
+      of: 'of'
+    },
+    recent: '03',
+    explore: {
+      index: '04 / Blog',
+      title: 'Read all posts',
+      count: 'articles',
+      since: 'since'
+    },
+    cta: 'read'
   },
   slogan: {
     label: 'Born to build and deliver',
@@ -65,7 +91,7 @@ export default {
   },
   articles: {
     id: 'writing',
-    title: 'Writing',
+    title: 'Blog',
     more: 'all articles',
     limit: 5
   },

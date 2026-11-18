@@ -10,6 +10,8 @@ import SloganBand from '@components/vue/SloganBand.vue'
 import EventGroups from '@components/vue/EventGroups.vue'
 import ItemList from '@components/vue/ItemList.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
+import AboutBento from '@components/vue/AboutBento.vue'
+import TalksBento from '@components/vue/TalksBento.vue'
 import about from '@i18n/view/about'
 import shared from '@i18n/component/site'
 
@@ -25,32 +27,74 @@ const page = about[lang]
 const common = shared[lang]
 const introLinks = page.intro.links.map((key) => common.social[key])
 const talks = page.talks.items.map((talk) => ({ ...talk, cta: page.talks.cta }))
+
+// experimental editorial grids; false brings back the stacked text blocks
+const editorial = true
+
+const ed = page.editorial
+const aboutProps = {
+  id: page.intro.id,
+  statement: ed.statement,
+  links: introLinks,
+  now: ed.now,
+  journey: ed.journey,
+  topics: ed.topics
+}
+const talksProps = {
+  id: page.talks.id,
+  intro: { index: ed.talks.index, statement: ed.talks.statement, summary: ed.talks.summary },
+  stats: {
+    index: ed.talks.statsIndex,
+    items: [
+      { value: ed.talks.stats.events, label: ed.talks.stats.eventsLabel, wide: true },
+      { value: talks.length, label: ed.talks.stats.decks },
+      { value: new Date().getFullYear() - 2014, label: ed.talks.stats.years }
+    ]
+  },
+  groups: page.talks.groups,
+  themes: ed.talks.themes,
+  list: { index: ed.talks.listIndex, items: talks, external: ed.talks.external }
+}
 ---
 
 <Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="blue">
-  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={page.nav} />
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
 
   <HeroScene client:load variant="desk" {...page.hero} />
 
   <main>
-    <ContentBlock id={page.intro.id} title={page.intro.title}>
-      <RichText paragraphs={page.intro.paragraphs} />
-      <div class="spaced"><LinkList links={introLinks} /></div>
-    </ContentBlock>
+    {
+      editorial ? (
+        <AboutBento {...aboutProps} />
+      ) : (
+        <>
+          <ContentBlock id={page.intro.id} title={page.intro.title}>
+            <RichText paragraphs={page.intro.paragraphs} />
+            <div class="spaced">
+              <LinkList links={introLinks} />
+            </div>
+          </ContentBlock>
 
-    <ContentBlock id={page.bio.id} title={page.bio.title}>
-      <RichText paragraphs={page.bio.paragraphs} size="md" />
-    </ContentBlock>
-  </main>
+          <ContentBlock id={page.bio.id} title={page.bio.title}>
+            <RichText paragraphs={page.bio.paragraphs} size="md" />
+          </ContentBlock>
+        </>
+      )
+    }
 
-  <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
+    <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
 
-  <main>
-    <ContentBlock id={page.talks.id} title={page.talks.title}>
-      <RichText paragraphs={page.talks.intro} size="md" />
-      <EventGroups groups={page.talks.groups} />
-      <ItemList items={talks} />
-    </ContentBlock>
+    {
+      editorial ? (
+        <TalksBento {...talksProps} />
+      ) : (
+        <ContentBlock id={page.talks.id} title={page.talks.title}>
+          <RichText paragraphs={page.talks.intro} size="md" />
+          <EventGroups groups={page.talks.groups} />
+          <ItemList items={talks} />
+        </ContentBlock>
+      )
+    }
   </main>
 
   <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />

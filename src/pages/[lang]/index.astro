@@ -10,6 +10,8 @@ import SloganBand from '@components/vue/SloganBand.vue'
 import ArticleLog from '@components/vue/ArticleLog.vue'
 import LinkList from '@components/vue/LinkList.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
+import HomeBento from '@components/vue/HomeBento.vue'
+import FeaturedCarousel from '@components/vue/FeaturedCarousel.vue'
 import home from '@i18n/view/home'
 import shared from '@i18n/component/site'
 
@@ -21,36 +23,107 @@ const { lang } = Astro.props
 const page = home[lang]
 const common = shared[lang]
 
-// latest posts of this language, newest first
-const posts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`)))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+// experimental editorial grid; false brings back the about text + article list
+const editorial = true
+
+// all posts of this language, newest first
+const allPosts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`))).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+)
+const toCard = (entry, href, tags) => ({
+  href,
+  title: entry.data.title.split(' ').filter(Boolean).join(' '),
+  tag: tags.join(' · ').toLowerCase(),
+  date: entry.data.date.toISOString().slice(0, 10),
+  time: entry.data.date.valueOf(),
+  excerpt: entry.data.meta_description
+})
+const posts = allPosts
   .slice(0, page.articles.limit)
-  .map((post) => ({
-    href: '/' + post.slug.replace(lang + '/', lang + '/blog/') + '/',
-    title: post.data.title.split(' ').filter(Boolean).join(' '),
-    tag: [].concat(post.data.categories ?? []).slice(0, 2).join(' · ').toLowerCase()
-  }))
+  .map((post) =>
+    toCard(post, '/' + post.slug.replace(lang + '/', lang + '/blog/') + '/', [].concat(post.data.categories ?? []).slice(0, 2))
+  )
+
+const bento = page.bento
+
+// featured cell: a carousel of the latest talks and posts by date; false keeps one item
+const carousel = true
+const talksPath = lang === 'en' ? 'talks' : 'palestras'
+const talks = (await getCollection('talks', ({ slug }) => slug.startsWith(lang + '/')))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((talk) =>
+    toCard(
+      talk,
+      '/' + talk.slug.replace(lang + '/', lang + '/' + talksPath + '/') + '/',
+      [bento.talkLabel].concat(talk.data.categories ?? []).slice(0, 2)
+    )
+  )
+const featuredItems = talks
+  .slice(0, carousel ? 2 : 1)
+  .concat(posts.slice(0, carousel ? 2 : 1))
+  .sort((a, b) => b.time - a.time)
+  .slice(0, carousel ? 4 : 1)
+const featured = featuredItems[0]
+// recent = the posts that are not in the featured cell
+const recentPosts = posts.filter((post) => !featuredItems.includes(post)).slice(0, 3)
+const firstYear = allPosts.length ? allPosts[allPosts.length - 1].data.date.getUTCFullYear() : ''
+const bentoProps = {
+  id: page.about.id,
+  articlesId: page.articles.id,
+  index: bento.index,
+  about: { ...bento.about, link: { href: common.aboutPath, label: bento.about.more } },
+  featured: featured ? { index: bento.featured, post: featured } : null,
+  recent: { index: bento.recent, posts: recentPosts },
+  explore: {
+    index: bento.explore.index,
+    title: bento.explore.title,
+    href: common.blogPath,
+    count: allPosts.length + ' ' + bento.explore.count + ' · ' + bento.explore.since + ' ' + firstYear
+  },
+  cta: bento.cta
+}
 
 const contactLinks = page.contact.links.map((key) => common.social[key])
 ---
 
 <Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lime">
-  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={page.nav} />
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
 
   <HeroScene client:load variant="poster" {...page.hero} />
 
   <main>
-    <ContentBlock id={page.about.id} title={page.about.title}>
-      <RichText paragraphs={page.about.paragraphs} />
-    </ContentBlock>
-  </main>
+    {
+      editorial ? (
+        featuredItems.length > 1 ? (
+          <HomeBento {...bentoProps}>
+            <FeaturedCarousel
+              slot="featured"
+              client:visible
+              index={bento.featured}
+              items={featuredItems}
+              labels={bento.carousel}
+              cta={bento.cta}
+            />
+          </HomeBento>
+        ) : (
+          <HomeBento {...bentoProps} />
+        )
+      ) : (
+        <ContentBlock id={page.about.id} title={page.about.title}>
+          <RichText paragraphs={page.about.paragraphs} />
+        </ContentBlock>
+      )
+    }
 
-  <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
+    <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
 
-  <main>
-    <ContentBlock id={page.articles.id} title={page.articles.title}>
-      <ArticleLog items={posts} moreHref={common.blogPath} moreLabel={page.articles.more} />
-    </ContentBlock>
+    {
+      !editorial && (
+        <ContentBlock id={page.articles.id} title={page.articles.title}>
+          <ArticleLog items={posts} moreHref={common.blogPath} moreLabel={page.articles.more} />
+        </ContentBlock>
+      )
+    }
 
     <ContentBlock id={page.contact.id} title={page.contact.title}>
       <LinkList links={contactLinks} />

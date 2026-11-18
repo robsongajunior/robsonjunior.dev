@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Base.astro'
+import SiteNav from '@components/vue/SiteNav.vue'
+import SiteFooter from '@components/vue/SiteFooter.vue'
+import BlogCategory from '@components/vue/BlogCategory.vue'
+import blog from '@i18n/view/blog'
+import shared from '@i18n/component/site'
+import { blogBase, categoryHref, categoryKey, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
+
+// one page per blog category: /pt-br/blog/categoria/<slug>/, /en/blog/category/<slug>/
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  const langs = [...new Set(posts.map((post) => post.slug.split('/')[0]))]
+  return langs.flatMap((lang) => {
+    const langPosts = posts
+      .filter((post) => post.slug.startsWith(`${lang}/`))
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    const categories = collectCategories(langPosts)
+    return categories.map((category) => ({
+      params: { lang, cat: lang === 'pt-br' ? 'categoria' : 'category', category: category.slug },
+      props: {
+        lang,
+        category,
+        categories,
+        posts: langPosts.filter((post) => postCategories(post).map(categoryKey).includes(category.key))
+      }
+    }))
+  })
+}
+
+const { lang, category, categories, posts } = Astro.props
+const page = blog[lang]
+const common = shared[lang]
+const labels = page.category
+const count = `${posts.length} ${posts.length === 1 ? labels.post : labels.posts}`
+
+const props = {
+  crumbs: [{ href: blogBase(lang), label: 'Blog' }, { label: labels.all }, { label: category.label }],
+  eyebrow: labels.index,
+  title: category.label,
+  count,
+  categories: {
+    title: labels.all,
+    items: categories.map((c) => ({ href: categoryHref(lang, c.slug), label: c.label, count: c.count })),
+    page: categoryHref(lang, category.slug)
+  },
+  years: groupByYear(posts.map(toPostCard)),
+  cta: page.cta
+}
+---
+
+<Layout
+  lang={lang}
+  title={`${category.label} · Blog | Robson Júnior`}
+  description={`${labels.title} ${category.label}: ${count}.`}
+  theme="pink"
+>
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+  <main>
+    <BlogCategory {...props} />
+  </main>
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

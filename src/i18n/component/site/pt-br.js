@@ -2,6 +2,25 @@ export default {
   homeLabel: 'Robson Júnior, início',
   aboutPath: '/pt-br/sobre/',
   blogPath: '/pt-br/blog/',
+  // site menu, the same on every page; real pages only, no anchors
+  nav: [
+    {
+      href: '/pt-br/sobre/',
+      label: 'Sobre'
+    },
+    {
+      href: '/pt-br/palestras/',
+      label: 'Palestras'
+    },
+    {
+      href: '/pt-br/blog/',
+      label: 'Blog'
+    },
+    {
+      href: '/pt-br/contato/',
+      label: 'Contato'
+    }
+  ],
   social: {
     github: {
       href: 'https://github.com/robsongajunior/',
