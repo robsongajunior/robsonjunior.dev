@@ -1,4 +1,6 @@
 ---
+import 'primeicons/primeicons.css'
+import '../static/font.css'
 interface Props {
     description: string;
     keywords: string;
@@ -14,13 +16,9 @@ const {
     robots="index, follow",
     title="",
 } = Astro.props;
-
-import "@styles/index.scss";
 ---
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content={robots} />
@@ -28,14 +26,12 @@ import "@styles/index.scss";
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-
-<!-- Primary Meta Tags -->
 <title>{title} | robsonjunior.dev</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
+
+<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -51,25 +47,10 @@ import "@styles/index.scss";
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(ogimage, Astro.url)} />
 
-<!-- Font preloads -->
 <link
-    crossorigin
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/static/fonts/Rubik/Rubik-Regular.ttf"
-/>
-<link
-    crossorigin
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/static/fonts/Rubik/Rubik-Regular.ttf"
-/>
-<link
-    crossorigin
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/static/fonts/Rubik/Rubik-Black.ttf"
+  crossorigin
+  rel="preload"
+  as="font"
+  type="font/ttf"
+  href="/static/fonts/SpaceGrotesk/SpaceGrotesk-Regular.ttf"
 />

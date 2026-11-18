@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "check": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -19,6 +20,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/vue": "^5.0.6",
     "@nanostores/vue": "^0.10.0",
+    "@primeuix/themes": "^1.2.5",
     "@tailwindcss/vite": "^4.1.16",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
@@ -26,15 +28,17 @@
     "kbar": "^0.1.0-beta.43",
     "nanostores": "^0.9.5",
     "prettier": "^3.6.2",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^4.1.16",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5.2.2"
   },
   "engines": {
-    "node": "20.5.1"
+    "node": ">=23.7.0"
   },
   "devDependencies": {
-    "sass": "1.77.6"
+    "sass-embedded": "^1.108.2"
   }
 }

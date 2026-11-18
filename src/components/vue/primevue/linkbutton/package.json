@@ -1,0 +1,7 @@
+{
+  "main": "./linkbutton.js",
+  "types": "./LinkButton.d.ts",
+  "browser": {
+    "./sfc": "./LinkButton.vue"
+  }
+}
