@@ -2,7 +2,7 @@
 title: 'Atualizando a Documentação JAM Stack da Azion  -  Migrando Jekyll para Astro'
 meta_robots: 'index, follow'
 meta_description: ''
-categories: ['JamStack', 'Jekyll']
+categories: ['jamstack', 'frontend']
 
 date: 'Sep 21 2023'
 dateUpdate: ''
