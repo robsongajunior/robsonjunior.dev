@@ -51,7 +51,7 @@ const talksProps = {
       { value: new Date().getFullYear() - 2014, label: ed.talks.stats.years }
     ]
   },
-  groups: page.talks.groups,
+  events: { index: ed.talks.eventsIndex, groups: page.talks.groups },
   themes: ed.talks.themes,
   list: { index: ed.talks.listIndex, items: talks, external: ed.talks.external }
 }

@@ -10,7 +10,7 @@ defineProps({
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   count: { type: String, default: '' },
-  categories: { type: Object, required: true }, // { title, items, page }
+  categories: { type: Object, default: null }, // { title, items, page }; without it the archive takes the full width
   years: { type: Array, required: true },
   cta: { type: String, default: '' }
 })
@@ -32,8 +32,8 @@ defineProps({
       <p class="count">{{ count }}</p>
     </header>
 
-    <div class="layout">
-      <aside class="side">
+    <div class="layout" :class="{ full: !categories }">
+      <aside v-if="categories" class="side">
         <div class="stick">
           <CategoryList :title="categories.title" :items="categories.items" :page="categories.page" />
         </div>
@@ -110,6 +110,9 @@ p {
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 56px;
   padding-top: clamp(32px, 5vw, 56px);
+}
+.layout.full {
+  grid-template-columns: minmax(0, 1fr);
 }
 .stick {
   position: sticky;

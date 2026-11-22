@@ -16,7 +16,7 @@ defineProps({
   date: { type: Object, required: true }, // { iso, label }
   reading: { type: String, default: '' },
   tags: { type: Object, default: null }, // { title, items: [{ href, label }] }
-  categories: { type: Object, required: true }, // { title, items, current }
+  categories: { type: Object, default: null }, // { title, items, current }; talks / deliveries have none
   original: { type: Object, default: null }, // { href, label, note, host }
   related: { type: Object, default: null }, // { title, posts }
   cta: { type: String, default: '' }
@@ -79,7 +79,7 @@ defineProps({
       <aside class="left">
         <div class="stick">
           <slot name="share" />
-          <CategoryList :title="categories.title" :items="categories.items" :current="categories.current" />
+          <CategoryList v-if="categories" :title="categories.title" :items="categories.items" :current="categories.current" />
         </div>
       </aside>
     </div>
@@ -455,6 +455,16 @@ p {
 .post-prose ul,
 .post-prose ol {
   padding-left: 1.3em;
+}
+/* the global reset (font.css) strips list markers; bring them back in prose */
+.post-prose ul {
+  list-style: disc;
+}
+.post-prose ol {
+  list-style: decimal;
+}
+.post-prose li > ul {
+  list-style: circle;
 }
 .post-prose li + li {
   margin-top: 0.35em;

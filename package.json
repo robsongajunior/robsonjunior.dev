@@ -13,32 +13,20 @@
     "format:config": "prettier --write package.json astro.config.mjs astro.vite.config.js astro.config.integrations.js tsconfig.json tailwind.config.js"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.8",
-    "@astrojs/react": "^4.2.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/vue": "^5.0.6",
-    "@nanostores/vue": "^0.10.0",
-    "@primeuix/themes": "^1.2.5",
     "@tailwindcss/vite": "^4.1.16",
-    "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.7",
     "astro": "^5.2.3",
-    "kbar": "^0.1.0-beta.43",
-    "nanostores": "^0.9.5",
-    "prettier": "^3.6.2",
-    "primeicons": "^7.0.0",
-    "primevue": "^4.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.2.2"
+    "tailwindcss": "^4.1.18"
   },
   "engines": {
     "node": ">=23.7.0"
   },
   "devDependencies": {
-    "sass-embedded": "^1.108.2"
+    "@astrojs/check": "^0.9.12",
+    "prettier": "^3.10.1",
+    "typescript": "^5.9.3"
   }
 }

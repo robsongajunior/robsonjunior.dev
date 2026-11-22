@@ -2,13 +2,14 @@
 import BentoCell from './BentoCell.vue'
 import TalkList from './TalkList.vue'
 
-// Talks section: intro statement (I), numbers (S), the two event groups and the
+// Talks section: intro statement (I), numbers (S), one events cell listing every
+// event (stage and audience together) and the
 // recurring themes in small cells, then the editorial list of decks.
 defineProps({
   id: { type: String, required: true },
   intro: { type: Object, required: true }, // { index, statement, summary }
   stats: { type: Object, required: true }, // { index, items: [{ value, label, wide? }] } — wide spans both columns
-  groups: { type: Array, required: true }, // [{ title, items: [] }]
+  events: { type: Object, required: true }, // { index, groups: [{ title, items: [] }] }
   themes: { type: Object, required: true }, // { index, items: [] }
   list: { type: Object, required: true } // { index, items, external }
 })
@@ -31,14 +32,9 @@ defineProps({
         </dl>
       </BentoCell>
 
-      <BentoCell
-        v-for="(group, i) in groups"
-        :key="group.title"
-        :class="'g' + (i + 1)"
-        :index="group.title"
-      >
+      <BentoCell class="g" :index="events.index">
         <ul class="names">
-          <li v-for="item in group.items" :key="item">{{ item }}</li>
+          <li v-for="item in events.groups.flatMap((group) => group.items)" :key="item">{{ item }}</li>
         </ul>
       </BentoCell>
 
@@ -69,7 +65,7 @@ defineProps({
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-areas:
     'i i i i i i i s s s s s'
-    'g1 g1 g1 g1 g2 g2 g2 g2 th th th th';
+    'g g g g g g g g th th th th';
   grid-template-rows: minmax(400px, auto) auto;
   gap: 1px;
   background: var(--line);
@@ -81,11 +77,8 @@ defineProps({
 .s {
   grid-area: s;
 }
-.g1 {
-  grid-area: g1;
-}
-.g2 {
-  grid-area: g2;
+.g {
+  grid-area: g;
 }
 .th {
   grid-area: th;
@@ -149,14 +142,18 @@ defineProps({
   font-variant-numeric: tabular-nums;
 }
 
-/* G — event names, plain list; T — themes as outlined tags */
+/* G — every event in one plain list, flowing in columns; T — themes as outlined tags */
 .names {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  gap: 6px;
+  columns: 2 180px;
+  column-gap: 24px;
   font-size: 15px;
+}
+.names li {
+  break-inside: avoid;
+  padding-block: 3px;
 }
 .themes {
   margin: 0;
@@ -192,7 +189,7 @@ defineProps({
     grid-template-areas:
       'i i i i i i'
       's s s s s s'
-      'g1 g1 g1 g2 g2 g2'
+      'g g g g g g'
       'th th th th th th';
     grid-template-rows: auto;
   }
@@ -203,7 +200,7 @@ defineProps({
 @media (max-width: 639px) {
   .grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'i' 's' 'g1' 'g2' 'th';
+    grid-template-areas: 'i' 's' 'g' 'th';
   }
   .i {
     min-height: 0;

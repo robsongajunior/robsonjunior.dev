@@ -85,6 +85,7 @@ export default {
       statement: 'Sharing my work, the techniques and what I learn along the way.',
       summary: 'In more than 10 years, I have spoken at several events and attended many more.',
       statsIndex: 'In numbers',
+      eventsIndex: 'Events',
       stats: {
         events: '+20',
         eventsLabel: 'events, on stage and in the audience',
@@ -135,8 +136,10 @@ export default {
       {
         title: 'As a speaker',
         items: [
-          'OGUFERS',
+          'GUFERS',
+          'Gu Mobile',
           'Sucesu RS',
+          'Tche Linux',
           'Senac Talks',
           'The Developers Conference',
           'EATI',

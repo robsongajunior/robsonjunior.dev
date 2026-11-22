@@ -85,6 +85,7 @@ export default {
       statement: 'Compartilhar o trabalho, as técnicas e o que aprendo no caminho.',
       summary: 'Em mais de 10 anos de carreira, passei por vários eventos como palestrante e muitos outros na plateia.',
       statsIndex: 'Em números',
+      eventsIndex: 'Eventos',
       stats: {
         events: '+20',
         eventsLabel: 'eventos, entre palco e plateia',
@@ -135,8 +136,10 @@ export default {
       {
         title: 'Como palestrante',
         items: [
-          'OGUFERS',
+          'GUFERS',
+          'Gu Mobile',
           'Sucesu RS',
+          'Tche Linux',
           'Senac Talks',
           'The Developers Conference',
           'EATI',

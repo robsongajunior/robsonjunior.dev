@@ -1,0 +1,49 @@
+---
+// A single content entry (talk, delivery) in the editorial post layout used by the blog.
+import Layout from '@layouts/Base.astro'
+import SiteNav from '@components/vue/SiteNav.vue'
+import SiteFooter from '@components/vue/SiteFooter.vue'
+import PostLayout from '@components/vue/PostLayout.vue'
+import PostToc from '@components/vue/PostToc.vue'
+import ShareLinks from '@components/vue/ShareLinks.vue'
+import blog from '@i18n/view/blog'
+import shared from '@i18n/component/site'
+import { formatDate, readingMinutes } from '@utils/blog.js'
+
+const { lang, entry, theme, crumbs = [] } = Astro.props
+const { Content, headings } = await entry.render()
+
+const common = shared[lang]
+const labels = blog[lang].post
+const title = entry.data.title.split(' ').filter(Boolean).join(' ')
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3)
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+
+const postProps = {
+  cover: entry.data.heroImage ? { src: entry.data.heroImage, alt: entry.data.heroAltImage ?? '' } : null,
+  crumbs: [...crumbs, { label: title }],
+  title,
+  lede: entry.data.meta_description ?? '',
+  author: { name: labels.author, avatar: labels.avatar },
+  date: { iso: entry.data.date.toISOString().slice(0, 10), label: formatDate(entry.data.date, lang) },
+  reading: `${readingMinutes(entry.body)} ${labels.reading}`
+}
+---
+
+<Layout
+  lang={lang}
+  title={`${title} | Robson Júnior`}
+  description={entry.data.meta_description || title}
+  robots={entry.data.meta_robots}
+  theme={theme}
+>
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+  <main>
+    <PostLayout {...postProps}>
+      {toc.length > 0 && <PostToc slot="toc" client:idle title={labels.toc} items={toc} />}
+      <ShareLinks slot="share" client:visible title={labels.share} url={canonical} text={title} labels={labels} />
+      <Content />
+    </PostLayout>
+  </main>
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

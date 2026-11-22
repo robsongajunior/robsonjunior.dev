@@ -1,0 +1,56 @@
+---
+// A soft light that follows the mouse (the old ShadowMouseMove, back on the new
+// site). It sits above the content because the bento cells paint opaque
+// backgrounds; pointer-events: none keeps every click going through.
+// Tinted with the page accent; off on touch screens and with reduced motion.
+---
+
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<style is:global>
+  .cursor-glow {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: radial-gradient(
+      600px at var(--glow-x, 50%) var(--glow-y, 50%),
+      color-mix(in srgb, var(--accent) 9%, transparent),
+      transparent 80%
+    );
+  }
+  .cursor-glow.on {
+    opacity: 1;
+  }
+  @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    .cursor-glow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const glow = document.querySelector<HTMLElement>('.cursor-glow')
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (glow && fine && !calm) {
+    let frame = 0
+    let x = 0
+    let y = 0
+    document.addEventListener('pointermove', (e) => {
+      x = e.clientX
+      y = e.clientY
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        glow.style.setProperty('--glow-x', `${x}px`)
+        glow.style.setProperty('--glow-y', `${y}px`)
+        glow.classList.add('on')
+        frame = 0
+      })
+    })
+    document.documentElement.addEventListener('pointerleave', () => glow.classList.remove('on'))
+  }
+</script>
