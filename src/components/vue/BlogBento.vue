@@ -41,7 +41,7 @@ defineProps({
       </BentoCell>
     </div>
 
-    <div class="archive" :id="archive.id">
+    <div v-if="archive.years.length" class="archive" :id="archive.id">
       <span class="archive-index">{{ archive.index }}</span>
       <PostArchive :years="archive.years" :cta="cta" />
     </div>

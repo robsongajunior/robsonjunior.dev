@@ -1,4 +1,5 @@
 ---
+translationKey: 'azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms'
 title: "How JAMStack improved Azion's LCP performance"
 meta_robots: 'index, follow'
 meta_description: 'Adopting SSG (static site generators) on Front End also helps to diminish page load time SSGs enable a large part of the content to be assembled during build time, avoiding excess processing time for each and every request...'

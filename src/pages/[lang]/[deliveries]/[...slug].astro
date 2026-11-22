@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Article from '@layouts/Article.astro'
+import { entryAlternates } from '@utils/alternates.js'
 import deliveriesView from '@i18n/view/deliveries'
 
 export async function getStaticPaths() {
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 const { lang, post } = Astro.props
 const { deliveries } = Astro.params
 const crumbs = [{ href: `/${lang}/${deliveries}/`, label: deliveriesView[lang].label }]
+const alternates = await entryAlternates('deliveries', post)
 ---
 
-<Article lang={lang} entry={post} theme="lime" crumbs={crumbs} />
+<Article lang={lang} entry={post} alternates={alternates} theme="lime" crumbs={crumbs} />

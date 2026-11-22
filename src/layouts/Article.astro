@@ -9,7 +9,7 @@ import blog from '@i18n/view/blog'
 import shared from '@i18n/component/site'
 import { formatDate, readingMinutes } from '@utils/blog.js'
 
-const { lang, entry, theme, crumbs = [] } = Astro.props
+const { lang, entry, theme, crumbs = [], alternates = {} } = Astro.props
 const { Content, headings } = await entry.render()
 
 const common = shared[lang]
@@ -31,6 +31,7 @@ const postProps = {
 
 <Layout
   lang={lang}
+  alternates={alternates}
   title={`${title} | Robson Júnior`}
   description={entry.data.meta_description || title}
   robots={entry.data.meta_robots}

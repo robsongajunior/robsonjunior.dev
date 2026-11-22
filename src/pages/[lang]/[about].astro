@@ -14,6 +14,7 @@ import AboutBento from '@components/vue/AboutBento.vue'
 import TalksBento from '@components/vue/TalksBento.vue'
 import about from '@i18n/view/about'
 import shared from '@i18n/component/site'
+import { pageAlternates } from '@utils/alternates.js'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({
@@ -56,7 +57,7 @@ const talksProps = {
 }
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="blue">
+<Layout lang={lang} alternates={pageAlternates('about')} title={page.meta.title} description={page.meta.description} theme="blue">
   <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
 
   <HeroScene client:load variant="desk" {...page.hero} />

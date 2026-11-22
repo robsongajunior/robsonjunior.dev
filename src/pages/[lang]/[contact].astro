@@ -7,6 +7,7 @@ import ContactForm from '@components/vue/ContactForm.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
 import contact from '@i18n/view/contact'
 import shared from '@i18n/component/site'
+import { pageAlternates } from '@utils/alternates.js'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({
@@ -24,7 +25,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? ''
 if (!accessKey) console.warn('[contact] PUBLIC_WEB3FORMS_KEY is not set: the form will not deliver messages')
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="amber">
+<Layout lang={lang} alternates={pageAlternates('contact')} title={page.meta.title} description={page.meta.description} theme="amber">
   <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
 
   <main>

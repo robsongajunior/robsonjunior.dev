@@ -2,6 +2,9 @@
 import '../styles/fonts.css'
 import '../styles/global.css'
 import CursorGlow from '@components/CursorGlow.astro'
+import Trd3 from '@components/Trd3.astro'
+import blogView from '@i18n/view/blog'
+import { defaultLang, hreflangCode } from '@utils/alternates.js'
 
 interface Props {
   lang: string
@@ -10,12 +13,20 @@ interface Props {
   theme?: 'lime' | 'blue' | 'pink' | 'lavender' | 'amber'
   robots?: string
   ogimage?: string
+  alternates?: Record<string, string>
 }
 
-const { lang, title, description, theme = 'lime', robots = 'index, follow', ogimage = '/static/images/pages/ogimage-default.png' } = Astro.props
+const { lang, title, description, theme = 'lime', robots = 'index, follow', ogimage = '/static/images/pages/ogimage-default.png', alternates = {} } = Astro.props
 const cursorGlow = true
 const canonical = new URL(Astro.url.pathname, Astro.site)
 const ogImageUrl = new URL(ogimage, Astro.site)
+const alternateLinks = Object.keys(alternates).length > 1
+  ? [
+      ...Object.entries(alternates).map(([code, path]) => ({ hreflang: hreflangCode[code], href: new URL(path, Astro.site).href })),
+      ...(alternates[defaultLang] ? [{ hreflang: 'x-default', href: new URL(alternates[defaultLang], Astro.site).href }] : [])
+    ]
+  : []
+const feed = { href: `/${lang}/rss.xml`, title: blogView[lang]?.meta.title ?? 'Blog' }
 ---
 
 <!doctype html>
@@ -27,6 +38,8 @@ const ogImageUrl = new URL(ogimage, Astro.site)
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
+    {alternateLinks.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+    <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -43,5 +56,6 @@ const ogImageUrl = new URL(ogimage, Astro.site)
   <body>
     <slot />
     {cursorGlow && <CursorGlow />}
+    <Trd3 />
   </body>
 </html>

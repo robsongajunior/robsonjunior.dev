@@ -1,17 +1,19 @@
 ---
 import { getCollection } from 'astro:content'
+import i18nConfig from '@i18n/config'
 import Layout from '@layouts/Base.astro'
 import SiteNav from '@components/vue/SiteNav.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
 import BlogCategory from '@components/vue/BlogCategory.vue'
 import deliveriesView from '@i18n/view/deliveries'
 import shared from '@i18n/component/site'
+import { pageAlternates } from '@utils/alternates.js'
 import { groupByYear, postCategories } from '@utils/blog.js'
 
 export async function getStaticPaths() {
   const posts = await getCollection('deliveries')
 
-  return ['pt-br'].map((lang) => ({
+  return i18nConfig.langs.map((lang) => ({
     params: { lang, deliveries: lang === 'en' ? 'deliveries' : 'entregas' },
     props: {
       lang,
@@ -46,7 +48,7 @@ const props = {
 }
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lime">
+<Layout lang={lang} alternates={pageAlternates('deliveries')} title={page.meta.title} description={page.meta.description} theme="lime">
   <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
   <main>
     <BlogCategory {...props} />

@@ -15,7 +15,8 @@ const basePost = defineCollection({
       .or(z.date())
       .transform((val) => new Date(val)),
     heroImage: z.string().optional(),
-    heroAltImage: z.string().optional()
+    heroAltImage: z.string().optional(),
+    translationKey: z.string().optional()
   })
 })
 

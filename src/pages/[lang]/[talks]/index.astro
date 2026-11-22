@@ -9,6 +9,7 @@ import SiteFooter from '@components/vue/SiteFooter.vue';
 import talksView from '@i18n/view/talks';
 import about from '@i18n/view/about';
 import shared from '@i18n/component/site';
+import { pageAlternates } from '@utils/alternates.js'
 
 export async function getStaticPaths() {
     const posts = await getCollection('talks') || [];
@@ -63,7 +64,7 @@ const talksProps = {
 const slides = talks.map((talk) => talk.title)
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lavender">
+<Layout lang={lang} alternates={pageAlternates('talks')} title={page.meta.title} description={page.meta.description} theme="lavender">
     <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
     <HeroScene client:load variant="stage" lines={slides} {...page.hero} />
     <main>

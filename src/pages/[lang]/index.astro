@@ -14,6 +14,7 @@ import HomeBento from '@components/vue/HomeBento.vue'
 import FeaturedCarousel from '@components/vue/FeaturedCarousel.vue'
 import home from '@i18n/view/home'
 import shared from '@i18n/component/site'
+import { pageAlternates } from '@utils/alternates.js'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({ params: { lang }, props: { lang } }))
@@ -82,7 +83,7 @@ const bentoProps = {
 const contactLinks = page.contact.links.map((key) => common.social[key])
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="lime">
+<Layout lang={lang} alternates={pageAlternates('home')} title={page.meta.title} description={page.meta.description} theme="lime">
   <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
 
   <HeroScene client:load variant="poster" {...page.hero} />

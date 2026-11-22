@@ -1,4 +1,5 @@
 ---
+translationKey: 'azion/site'
 title: 'Site com Astro, Tailwind && Primevue'
 meta_robots: 'index, follow'
 meta_description: ''

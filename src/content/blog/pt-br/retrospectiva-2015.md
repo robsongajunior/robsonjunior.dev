@@ -17,7 +17,7 @@ uma lista grande de coisas para estudar.
 
 Além disso tudo, eu tinha muita vontade de começar a palestrar, assim podendo contar para a comunidade o que eu gosto, e o que ando estudando.
 
-Em 2014, já tinha sido um ano muito épico, onde conto [**aqui**](/2014/12/retrospectiva-2014/) o que rolou.
+Em 2014, já tinha sido um ano muito épico, onde conto [**aqui**](/pt-br/blog/retrospectiva-2014/) o que rolou.
 
 Além do mais, sempre estive confiante e otimista para o que iria acontecer em *2015* que se fosse *50%* do ano anterior, eu já estaria muito feliz.
 
@@ -33,7 +33,7 @@ Era uma lista de galera enorme inscrita, aproximadamente *1.000* interessados em
 Como falei anteriormente, esse foi um evento realizado pela **globo.com** de boas-vindas a Porto Alegre,
 pois estavam inaugurando um novo escritório aqui na cidade.
 
-[**Aqui**](/2015/04/hackinpoa/) em outro post eu conto tudo o que rolou no evento e que por sinal, estava iradásso.
+[**Aqui**](/pt-br/blog/hackinpoa/) em outro post eu conto tudo o que rolou no evento e que por sinal, estava iradásso.
 
 ## Iniciando como palestrante
 
@@ -92,7 +92,7 @@ Não bastando o ano estar sendo fodástico, pouco tempo depois de minha promoç�
 
 ![Viajando pelo brasil](/static/uploads/blog/pt-br/retrospectiva-2015/viajando-pelo-brasil.jpg)
 
-Em 2014 fui no meu primeiro evento fora de Porto Alegre, estado e principalmente internacional, a **JSConfAR** ([aqui um post sobre o que rolou no evento](/2014/12/jsconfar-epica/)). Como a experiência tinha sido sensacional, eu já tinha prometido que assim que ganhasse meu primeiro aumento salarial, iria dedicar isso a estudo e eventos cada vez mais longe.
+Em 2014 fui no meu primeiro evento fora de Porto Alegre, estado e principalmente internacional, a **JSConfAR** ([aqui um post sobre o que rolou no evento](/pt-br/blog/jsconfar/)). Como a experiência tinha sido sensacional, eu já tinha prometido que assim que ganhasse meu primeiro aumento salarial, iria dedicar isso a estudo e eventos cada vez mais longe.
 
 Adivinha o que eu fiz?
 

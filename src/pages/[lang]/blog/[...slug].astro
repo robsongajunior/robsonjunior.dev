@@ -19,6 +19,7 @@ import {
     readingMinutes,
     toPostCard
 } from '@utils/blog.js';
+import { entryAlternates } from '@utils/alternates.js';
 
 export async function getStaticPaths() {
     const collectionName = "blog";
@@ -70,6 +71,7 @@ const original = originalUrl(post.body)
 const flat = (text = '') => text.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase().slice(0, 60)
 const lede = post.data.meta_description && !flat(post.body).startsWith(flat(post.data.meta_description)) ? post.data.meta_description : ''
 const canonical = new URL(Astro.url.pathname, Astro.site).href
+const alternates = await entryAlternates('blog', post)
 
 const postProps = {
     cover: post.data.heroImage ? { src: post.data.heroImage, alt: post.data.heroAltImage ?? '' } : null,
@@ -93,6 +95,7 @@ const postProps = {
 
 <Layout
     lang={lang}
+    alternates={alternates}
     title={`${title} | Robson Júnior`}
     description={post.data.meta_description || title}
     robots={post.data.meta_robots}

@@ -1,4 +1,5 @@
 ---
+translationKey: 'azion/webkit-storybook'
 title: 'Azion Webkit Storybook: Visualizing Our Design System'
 meta_robots: 'index, follow'
 meta_description: 'Storybook: The visual hub for our Design System components. Explore, test, and reuse Azion front-end components agilely and systematically.'

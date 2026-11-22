@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import i18nConfig from '@i18n/config';
 import { getPageByLangCollection } from "@utils/pages.js";
 import Layout from '@layouts/Base.astro';
 import SiteNav from '@components/vue/SiteNav.vue';
@@ -8,12 +9,13 @@ import SiteFooter from '@components/vue/SiteFooter.vue';
 import BlogBento from '@components/vue/BlogBento.vue';
 import blog from '@i18n/view/blog';
 import shared from '@i18n/component/site';
+import { pageAlternates } from '@utils/alternates.js'
 import { categoryHref, collectCategories } from '@utils/blog.js';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
 
-    return ['pt-br'].map((lang) => {
+    return i18nConfig.langs.map((lang) => {
         let postsByLang = getPageByLangCollection(posts, lang) || [];
 
         postsByLang.map(post => {
@@ -47,8 +49,9 @@ const cards = posts.map((post) => ({
 }))
 const [latest, ...rest] = cards
 
-const themes = collectCategories(posts)
-    .filter((category) => category.count > 1)
+const allThemes = collectCategories(posts)
+const sharedThemes = allThemes.filter((category) => category.count > 1)
+const themes = (sharedThemes.length ? sharedThemes : allThemes)
     .map((category) => ({ name: category.label, count: category.count, href: categoryHref(lang, category.slug) }))
 
 const years = []
@@ -76,7 +79,7 @@ const blogProps = {
 }
 ---
 
-<Layout lang={lang} title={page.meta.title} description={page.meta.description} theme="pink">
+<Layout lang={lang} alternates={pageAlternates('blog')} title={page.meta.title} description={page.meta.description} theme="pink">
     <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
     <HeroScene client:load variant="marquee" lines={cards.map((card) => card.title)} {...page.hero} />
     <main>
