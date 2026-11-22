@@ -20,7 +20,6 @@ const page = contact[lang]
 const common = shared[lang]
 const links = page.intro.links.map((key) => common.social[key])
 
-// Web3Forms access key (public by design), set in .env as PUBLIC_WEB3FORMS_KEY
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? ''
 if (!accessKey) console.warn('[contact] PUBLIC_WEB3FORMS_KEY is not set: the form will not deliver messages')
 ---

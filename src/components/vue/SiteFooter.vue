@@ -1,8 +1,7 @@
 <script setup>
 defineProps({
-  // signature parts: { text, em }
   sign: { type: Array, required: true },
-  credits: { type: String, required: true } // trusted inline HTML
+  credits: { type: String, required: true }
 })
 </script>
 

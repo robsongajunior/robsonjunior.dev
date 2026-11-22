@@ -23,10 +23,8 @@ const { lang } = Astro.props
 const page = home[lang]
 const common = shared[lang]
 
-// experimental editorial grid; false brings back the about text + article list
 const editorial = true
 
-// all posts of this language, newest first
 const allPosts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`))).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )
@@ -46,7 +44,6 @@ const posts = allPosts
 
 const bento = page.bento
 
-// featured cell: a carousel of the latest talks and posts by date; false keeps one item
 const carousel = true
 const talksPath = lang === 'en' ? 'talks' : 'palestras'
 const talks = (await getCollection('talks', ({ slug }) => slug.startsWith(lang + '/')))
@@ -64,7 +61,6 @@ const featuredItems = talks
   .sort((a, b) => b.time - a.time)
   .slice(0, carousel ? 4 : 1)
 const featured = featuredItems[0]
-// recent = the posts that are not in the featured cell
 const recentPosts = posts.filter((post) => !featuredItems.includes(post)).slice(0, 3)
 const firstYear = allPosts.length ? allPosts[allPosts.length - 1].data.date.getUTCFullYear() : ''
 const bentoProps = {

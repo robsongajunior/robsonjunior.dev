@@ -2,23 +2,18 @@
 import PostCard from './PostCard.vue'
 import CategoryList from './CategoryList.vue'
 
-// Blog post page. Three columns on desktop (in the spirit of the Azion blog):
-// categories + share on the left, the article in the middle, "on this page"
-// on the right; both sides stick while reading. Below 1180px the left column
-// moves under the article; below 900px the contents sit between header and body.
-// Static: the share buttons and the scroll-spy contents come in through slots.
 defineProps({
-  cover: { type: Object, default: null }, // { src, alt }
-  crumbs: { type: Array, default: () => [] }, // [{ href?, label }]
+  cover: { type: Object, default: null },
+  crumbs: { type: Array, default: () => [] },
   title: { type: String, required: true },
   lede: { type: String, default: '' },
-  author: { type: Object, required: true }, // { name, avatar }
-  date: { type: Object, required: true }, // { iso, label }
+  author: { type: Object, required: true },
+  date: { type: Object, required: true },
   reading: { type: String, default: '' },
-  tags: { type: Object, default: null }, // { title, items: [{ href, label }] }
-  categories: { type: Object, default: null }, // { title, items, current }; talks / deliveries have none
-  original: { type: Object, default: null }, // { href, label, note, host }
-  related: { type: Object, default: null }, // { title, posts }
+  tags: { type: Object, default: null },
+  categories: { type: Object, default: null },
+  original: { type: Object, default: null },
+  related: { type: Object, default: null },
   cta: { type: String, default: '' }
 })
 </script>
@@ -98,7 +93,6 @@ defineProps({
   padding-bottom: clamp(64px, 10vw, 120px);
 }
 
-/* cover: the post image in the page accent (duotone) under a halftone */
 .cover {
   position: relative;
   height: clamp(220px, 30vw, 380px);
@@ -161,7 +155,6 @@ defineProps({
   display: grid;
   gap: 40px;
 }
-/* the category list is long: the left column scrolls on its own while sticky */
 .left .stick {
   max-height: calc(100vh - 120px);
   overflow-y: auto;
@@ -172,7 +165,6 @@ p {
   margin: 0;
 }
 
-/* header */
 .crumbs ol {
   margin: 0 0 24px;
   padding: 0;
@@ -244,7 +236,6 @@ p {
   color: var(--mute);
 }
 
-/* end of the article */
 .original {
   display: grid;
   gap: 6px;
@@ -315,7 +306,6 @@ p {
   border-color: var(--accent);
 }
 
-/* related: three post cards in a hairline grid */
 .related {
   max-width: 1240px;
   margin: clamp(64px, 9vw, 112px) auto 0;
@@ -388,7 +378,6 @@ p {
 }
 </style>
 
-<!-- the article markdown comes from Astro, so its styles can't be scoped -->
 <style>
 .post-prose {
   padding-top: 32px;
@@ -456,7 +445,6 @@ p {
 .post-prose ol {
   padding-left: 1.3em;
 }
-/* the global reset (font.css) strips list markers; bring them back in prose */
 .post-prose ul {
   list-style: disc;
 }

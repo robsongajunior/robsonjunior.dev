@@ -2,15 +2,13 @@
 import CategoryList from './CategoryList.vue'
 import PostArchive from './PostArchive.vue'
 
-// Category page: the category name and count, the category list on the side
-// (current one marked) and the posts of the category grouped by year.
 defineProps({
-  crumbs: { type: Array, default: () => [] }, // [{ href?, label }]
+  crumbs: { type: Array, default: () => [] },
   index: { type: String, default: '' },
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   count: { type: String, default: '' },
-  categories: { type: Object, default: null }, // { title, items, page }; without it the archive takes the full width
+  categories: { type: Object, default: null },
   years: { type: Array, required: true },
   cta: { type: String, default: '' }
 })

@@ -1,8 +1,6 @@
 <script setup>
-// Blog archive grouped by year: an outlined year on the left, one row per post
-// with date, title, tags and the excerpt.
 defineProps({
-  years: { type: Array, required: true }, // [{ year, posts: [{ href, title, tag, date, excerpt }] }]
+  years: { type: Array, required: true },
   cta: { type: String, default: '' }
 })
 </script>

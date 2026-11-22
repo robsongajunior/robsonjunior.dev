@@ -1,7 +1,5 @@
 import { onBeforeUnmount, onMounted } from 'vue'
 
-// Keeps a canvas backing store in sync with its CSS size and device pixel ratio.
-// Calls onResize(width, height, dpr) on mount and on every window resize.
 export function useCanvasViewport(canvasRef, onResize, { maxDpr = 2 } = {}) {
   const size = { width: 0, height: 0, dpr: 1 }
 

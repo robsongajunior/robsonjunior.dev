@@ -1,9 +1,7 @@
-// About hero: the desk scene (vector art) with blinking monitors,
-// the room continued to both sides (desk, front-end posters) and parallax.
 
 const SW = 1719
 const SH = 2445
-const Q = 3 // the screen mask is 1/Q of the scene
+const Q = 3
 const FX = 810
 const FY = 1140
 const INK = '#0a1622'
@@ -22,7 +20,6 @@ const LIP = 2000
 const UNDER = 2072
 const FLOOR = 2222
 
-// [x, y, w, h, rotation, kind]
 const POSTERS = [
   [-760, 180, 520, 640, -0.06, 'js'], [-1500, 420, 460, 560, 0.05, 'tag'], [-2250, 160, 500, 620, -0.03, 'arrow'],
   [-980, 1020, 420, 380, 0.04, 'log'],
@@ -282,7 +279,6 @@ export function createDeskScene(ctx, { scene, screens }) {
     books(SW + 1900)
   }
 
-  // fade the scene's cut edges into the wall and the desk
   function seams() {
     const fw = 80
     const n = 10
@@ -349,7 +345,6 @@ export function createDeskScene(ctx, { scene, screens }) {
       ctx.drawImage(raster, 0, 0, SW, SH)
       seams()
 
-      // monitors flash and open little windows, clipped to the screens
       if (!reduce && t - lastBlink > 110) {
         lastBlink = t
         const mo = monitors[(Math.random() * monitors.length) | 0]

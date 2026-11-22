@@ -46,7 +46,6 @@ const page = blog[lang]
 const common = shared[lang]
 const labels = page.post
 
-// every post of this language: categories for the sidebar and related posts
 const langPosts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`))).sort(
     (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )
@@ -58,7 +57,6 @@ const tagItems = mine
     .filter(Boolean)
     .map((c) => ({ href: categoryHref(lang, c.slug), label: c.label }))
 
-// related: most shared categories first, then the newest
 const related = langPosts
     .filter((other) => other.id !== post.id)
     .map((other) => ({ other, score: postCategories(other).map(categoryKey).filter((k) => mine.includes(k)).length }))
@@ -69,7 +67,6 @@ const related = langPosts
 const title = post.data.title.split(' ').filter(Boolean).join(' ')
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3)
 const original = originalUrl(post.body)
-// excerpt posts repeat meta_description as their first paragraph: show it once
 const flat = (text = '') => text.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase().slice(0, 60)
 const lede = post.data.meta_description && !flat(post.body).startsWith(flat(post.data.meta_description)) ? post.data.meta_description : ''
 const canonical = new URL(Astro.url.pathname, Astro.site).href

@@ -7,8 +7,8 @@ import { createMarqueeScene, loadMarqueeScene } from './scenes/marqueeScene'
 import { createStageScene, loadStageScene } from './scenes/stageScene'
 
 const props = defineProps({
-  variant: { type: String, default: 'poster' }, // 'poster' | 'desk' | 'marquee' | 'stage'
-  lines: { type: Array, default: () => [] }, // marquee: texts in the bands; stage: slides on the screen
+  variant: { type: String, default: 'poster' },
+  lines: { type: Array, default: () => [] },
   eyebrow: { type: String, default: '' },
   title: { type: String, required: true },
   titleAccent: { type: String, default: '' },
@@ -23,7 +23,6 @@ const scenes = {
   stage: { load: () => loadStageScene(props.lines), create: createStageScene }
 }
 
-// titles with a long word (e.g. "Palestras") get a smaller size so the word never breaks
 const longTitle = `${props.title} ${props.titleAccent}`.split(/\s+/).some((word) => word.length > 8)
 
 const canvas = ref(null)
@@ -31,7 +30,6 @@ const copy = ref(null)
 
 useCanvasScene(canvas, {
   ...scenes[props.variant],
-  // the title drifts up faster than the scene while scrolling
   onFrame: ({ scroll, reduce }) => {
     if (!reduce && copy.value) copy.value.style.transform = `translate3d(0,${-scroll * 0.25}px,0)`
   }

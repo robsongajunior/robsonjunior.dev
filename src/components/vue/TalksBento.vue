@@ -2,16 +2,13 @@
 import BentoCell from './BentoCell.vue'
 import TalkList from './TalkList.vue'
 
-// Talks section: intro statement (I), numbers (S), one events cell listing every
-// event (stage and audience together) and the
-// recurring themes in small cells, then the editorial list of decks.
 defineProps({
   id: { type: String, required: true },
-  intro: { type: Object, required: true }, // { index, statement, summary }
-  stats: { type: Object, required: true }, // { index, items: [{ value, label, wide? }] } — wide spans both columns
-  events: { type: Object, required: true }, // { index, groups: [{ title, items: [] }] }
-  themes: { type: Object, required: true }, // { index, items: [] }
-  list: { type: Object, required: true } // { index, items, external }
+  intro: { type: Object, required: true },
+  stats: { type: Object, required: true },
+  events: { type: Object, required: true },
+  themes: { type: Object, required: true },
+  list: { type: Object, required: true }
 })
 </script>
 
@@ -84,7 +81,6 @@ defineProps({
   grid-area: th;
 }
 
-/* I — intro */
 .statement {
   margin: 0;
   max-width: 14ch;
@@ -103,7 +99,6 @@ defineProps({
   line-height: 1.6;
 }
 
-/* S — numbers in a 2×2 grid of hairline cells */
 .stats {
   margin: auto 0 0;
   display: grid;
@@ -142,7 +137,6 @@ defineProps({
   font-variant-numeric: tabular-nums;
 }
 
-/* G — every event in one plain list, flowing in columns; T — themes as outlined tags */
 .names {
   margin: 0;
   padding: 0;

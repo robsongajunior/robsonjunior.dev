@@ -2,7 +2,6 @@ export default {
   homeLabel: 'Robson Júnior, home',
   aboutPath: '/en/about/',
   blogPath: '/en/blog/',
-  // site menu, the same on every page; real pages only, no anchors
   nav: [
     {
       href: '/en/about/',

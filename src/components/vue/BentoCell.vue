@@ -1,10 +1,8 @@
 <script setup>
-// One cell of an editorial grid. With href it becomes the link itself and the
-// accent frame "closes" around it on hover / keyboard focus.
 defineProps({
   href: { type: String, default: '' },
-  index: { type: String, default: '' }, // technical identifier, e.g. "01 / Sobre"
-  tone: { type: String, default: 'ink' } // 'ink' | 'accent'
+  index: { type: String, default: '' },
+  tone: { type: String, default: 'ink' }
 })
 </script>
 
@@ -42,7 +40,6 @@ defineProps({
 .accent .index {
   color: var(--ink);
 }
-/* the frame draws from the top-left corner until the square is closed */
 .link::after {
   content: '';
   position: absolute;

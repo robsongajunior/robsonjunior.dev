@@ -8,7 +8,6 @@ import blog from '@i18n/view/blog'
 import shared from '@i18n/component/site'
 import { blogBase, categoryHref, categoryKey, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
 
-// one page per blog category: /pt-br/blog/categoria/<slug>/, /en/blog/category/<slug>/
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
   const langs = [...new Set(posts.map((post) => post.slug.split('/')[0]))]

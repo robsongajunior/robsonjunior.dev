@@ -2,15 +2,13 @@
 import BentoCell from './BentoCell.vue'
 import LinkList from './LinkList.vue'
 
-// Editorial grid for the About bio: statement (A), current role (N),
-// interests (T) and the career journey (J). Hairlines come from the 1px gap.
 defineProps({
   id: { type: String, required: true },
-  statement: { type: Object, required: true }, // { index, lines: [{ text, em }], summary (trusted html), meta: [] }
-  links: { type: Array, default: () => [] }, // LinkList links
-  now: { type: Object, required: true }, // { index, role, company, team, focus }
-  journey: { type: Object, required: true }, // { index, steps: [{ when, where, what, detail? }] }
-  topics: { type: Object, required: true } // { index, items: [] }
+  statement: { type: Object, required: true },
+  links: { type: Array, default: () => [] },
+  now: { type: Object, required: true },
+  journey: { type: Object, required: true },
+  topics: { type: Object, required: true }
 })
 </script>
 
@@ -94,7 +92,6 @@ p {
   margin: 0;
 }
 
-/* A — statement */
 .statement {
   margin: 0;
   max-width: 12ch;
@@ -137,7 +134,6 @@ p {
   color: var(--mute);
 }
 
-/* N — now */
 .role {
   font-family: var(--display);
   font-weight: 900;
@@ -165,7 +161,6 @@ p {
   color: var(--paper);
 }
 
-/* T — interests as plain mono tags */
 .topics {
   margin: 0;
   padding: 0;
@@ -181,7 +176,6 @@ p {
   border: 1px solid var(--line);
 }
 
-/* J — journey: when / where / what, one row per step */
 .journey {
   margin: 0;
   padding: 0;

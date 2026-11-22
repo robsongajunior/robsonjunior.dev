@@ -2,7 +2,7 @@
 defineProps({
   homeHref: { type: String, required: true },
   homeLabel: { type: String, default: 'Robson Júnior' },
-  links: { type: Array, default: () => [] }, // [{ href, label }]
+  links: { type: Array, default: () => [] },
   ariaLabel: { type: String, default: 'Principal' }
 })
 </script>

@@ -1,11 +1,9 @@
 <script setup>
-// Blog categories as a sidebar list, each one linking to its category page.
-// The categories of the current post / page are marked.
 defineProps({
   title: { type: String, default: '' },
-  items: { type: Array, required: true }, // [{ href, label, count }]
-  current: { type: Array, default: () => [] }, // hrefs to mark
-  page: { type: String, default: '' } // href of the category page being viewed (aria-current)
+  items: { type: Array, required: true },
+  current: { type: Array, default: () => [] },
+  page: { type: String, default: '' }
 })
 </script>
 

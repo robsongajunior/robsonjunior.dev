@@ -1,7 +1,3 @@
-// Talks hero: a stage drawn in code, in the flat, inked, halftone look of the
-// home and about scenes. A projection screen cycles through the real talk titles,
-// the speaker gestures under a spotlight and the audience (backs to us) holds up
-// phones that light up. Three parallax layers: wall/screen, stage, audience.
 
 const SW = 1800
 const SH = 1100
@@ -26,7 +22,6 @@ export async function loadStageScene(titles = []) {
   return { titles: titles.length ? titles : ['Palestras'], colors: themeColors() }
 }
 
-// small tiled dot pattern, like the halftone of the other scenes
 function pattern(ctx, size, bg, dot, r) {
   const c = document.createElement('canvas')
   c.width = c.height = size
@@ -67,7 +62,7 @@ function wrap(ctx, text, maxWidth) {
 
 export function createStageScene(ctx, { titles, colors }) {
   const INK = colors.ink
-  const OUT = '#07050e' // ink outlines
+  const OUT = '#07050e'
   const WALL = '#191430'
   const GREY = '#77718f'
   const GREY_D = '#4f4a66'
@@ -84,7 +79,6 @@ export function createStageScene(ctx, { titles, colors }) {
   let ox = 0
   let oy = 0
 
-  // audience: two rows of heads and shoulders, some holding phones
   const rand = seeded(7)
   const audience = []
   ;[
@@ -114,7 +108,6 @@ export function createStageScene(ctx, { titles, colors }) {
 
   function drawScreen(t, reduce) {
     const { x, y, w, h } = SCREEN
-    // rigging
     ctx.strokeStyle = OUT
     ctx.lineWidth = 6
     ctx.beginPath()
@@ -123,7 +116,6 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.moveTo(x + w - 120, -400)
     ctx.lineTo(x + w - 120, y)
     ctx.stroke()
-    // shadow + frame
     ctx.fillStyle = 'rgba(7,5,14,.55)'
     ctx.fillRect(x + 22, y + 22, w, h)
     ctx.fillStyle = screenPat
@@ -131,12 +123,11 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.lineWidth = 12
     ctx.strokeRect(x, y, w, h)
 
-    // slide content: label, title, footer with the slide number
     if (!reduce && t - slideAt > SLIDE_MS) {
       slide = (slide + 1) % titles.length
       slideAt = t
     }
-    const p = reduce ? 1 : Math.min(1, (t - slideAt) / 450) // wipe in
+    const p = reduce ? 1 : Math.min(1, (t - slideAt) / 450)
     ctx.save()
     ctx.beginPath()
     ctx.rect(x, y, w * p, h)
@@ -162,7 +153,6 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.fillRect(-1200, FLOOR, SW + 2400, SH)
     ctx.fillStyle = colors.line
     ctx.fillRect(-1200, FLOOR, SW + 2400, 8)
-    // lectern with a glowing laptop
     ctx.fillStyle = GREY_D
     ctx.strokeStyle = OUT
     ctx.lineWidth = 7
@@ -207,7 +197,6 @@ export function createStageScene(ctx, { titles, colors }) {
     const sway = Math.sin(t / 900) * 6 * k
     const hx = x + sway * 0.6
 
-    // spotlight cone + pool
     const cone = ctx.createLinearGradient(0, -300, 0, FLOOR)
     cone.addColorStop(0, 'rgba(196,176,255,0)')
     cone.addColorStop(1, 'rgba(196,176,255,.16)')
@@ -224,17 +213,14 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.ellipse(x, FLOOR + 22, 240, 34, 0, 0, 6.283)
     ctx.fill()
 
-    // legs
     limb([[x - 34, 640], [x - 44, feet - 6]], 40, '#2b2640')
     limb([[x + 30, 640], [x + 42, feet - 6]], 40, '#2b2640')
-    // shoes
     ctx.fillStyle = OUT
     ctx.beginPath()
     ctx.ellipse(x - 58, feet - 4, 34, 13, 0, 0, 6.283)
     ctx.ellipse(x + 56, feet - 4, 34, 13, 0, 0, 6.283)
     ctx.fill()
 
-    // torso
     ctx.fillStyle = GREY
     ctx.strokeStyle = OUT
     ctx.lineWidth = 7
@@ -246,13 +232,11 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.closePath()
     ctx.fill()
     ctx.stroke()
-    // halftone shading on the torso side away from the light
     ctx.save()
     ctx.clip()
     ctx.fillStyle = shadePat
     ctx.fillRect(x - 80, 480, 70, 200)
     ctx.restore()
-    // other arm: hand-held mic up by the chin
     limb([[x + 52, 515], [x + 88, 600], [hx + 34, 556]], 30, GREY_D)
     ctx.fillStyle = OUT
     ctx.save()
@@ -264,7 +248,6 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.fill()
     ctx.restore()
 
-    // head + hair, rim light toward the screen
     ctx.strokeStyle = OUT
     ctx.lineWidth = 7
     ctx.fillStyle = GREY_L
@@ -284,12 +267,10 @@ export function createStageScene(ctx, { titles, colors }) {
     ctx.arc(hx, 440, 46, Math.PI * 0.75, Math.PI * 1.25)
     ctx.stroke()
 
-    // front arm: points at the screen, the hand moves between gestures
     const g = (Math.sin(t / 1400) + 1) / 2
     const ex = x - 120 - 30 * g * k
     const ey = 560 - 60 * g * k
     limb([[x - 50, 515], [ex, ey], [ex - 90 - 20 * g * k, ey - 70 - 40 * g * k]], 30, GREY)
-    // rim line on the torso edge facing the screen
     ctx.strokeStyle = colors.accent
     ctx.lineWidth = 4
     ctx.beginPath()
@@ -304,7 +285,6 @@ export function createStageScene(ctx, { titles, colors }) {
       phones[(Math.random() * phones.length) | 0].phone.lit = 1
     }
     audience.forEach((a) => {
-      // phone held up beside the head
       if (a.phone) {
         const px = a.x + a.phone.side * a.r * 0.9
         const py = a.y - a.r * 2.6
@@ -316,7 +296,6 @@ export function createStageScene(ctx, { titles, colors }) {
         ctx.fillRect(px - a.r * 0.25, py - a.r * 0.23, a.r * 0.5, a.r * 0.9)
         if (!reduce) a.phone.lit *= 0.96
       }
-      // shoulders + head, seen from behind
       ctx.fillStyle = a.tone
       ctx.strokeStyle = colors.line
       ctx.lineWidth = 4
@@ -338,7 +317,6 @@ export function createStageScene(ctx, { titles, colors }) {
       dpr = pixelRatio
       const wide = W / H > 1
       s = wide ? H / (SH * 0.92) : Math.max((H * 0.62) / SH, W / (SW * 0.62))
-      // desktop: the stage sits right of the title; mobile: speaker centred, below the copy
       const fx = wide ? 1150 : 1320
       ox = (wide ? W * 0.64 : W / 2) - fx * s
       oy = H - SH * s * (wide ? 1 : 0.98)

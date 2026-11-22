@@ -1,7 +1,5 @@
 import { onBeforeUnmount, onMounted } from 'vue'
 
-// requestAnimationFrame loop that only runs while `targetRef` is on screen.
-// With reduced motion it renders a single still frame instead of looping.
 export function useAnimationLoop(targetRef, frame, { reducedMotion }) {
   let running = false
   let visible = true

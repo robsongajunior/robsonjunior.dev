@@ -1,6 +1,3 @@
-// Home hero: the Roadsec poster, traced into three layers (window, figure, hands)
-// and drawn on a canvas with mouse/scroll parallax, typing fingers and watermarks.
-// Framework agnostic: the Vue component only feeds it size, time and input.
 
 const LIME = '#c8f031'
 const WALL = '#121310'
@@ -8,7 +5,6 @@ const TOP = 350
 const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 const BASE = '/static/scenes/home'
 
-// Window rows of the poster, used to continue the panes past its edges
 const ROWS = [
   { side: -1, T: [[11, 86], [638, 189]], B: [[0, 823], [641, 747]] },
   { side: -1, T: [[0, 1076], [641, 984]], B: [[0, 1816], [650, 1535]] },
@@ -160,7 +156,6 @@ export async function loadPosterScene() {
     load(`${BASE}/front.svg`),
     ...data.fingers.map((f) => load(f[3]))
   ])
-  // canvas text (watermarks, face letters) needs the web fonts
   if (document.fonts?.ready) await document.fonts.ready
   return { data, imgs: { back, mid, front }, masks }
 }
@@ -179,7 +174,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
   let ox = 0
   let oy = 0
 
-  // panes continued past the poster, following its perspective lines
   const extPanes = []
   ROWS.forEach((r) => {
     const e = r.side < 0 ? 0 : W0 - 1
@@ -190,7 +184,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
   })
   const sidePanes = [POSTER_PANES[0], POSTER_PANES[1], POSTER_PANES[4], POSTER_PANES[5]]
 
-  // watermarks live on their own layer so knockouts only cut the mark
   const markLayer = document.createElement('canvas')
   markLayer.width = W0 + 5600
   markLayer.height = H0
@@ -214,7 +207,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
     })
   })()
 
-  // letters inside the face void
   const vc = { x: 372 * F, y: 668 * F, rx: 150 * F, ry: 112 * F }
   const voidChars = []
   for (let y = vc.y - vc.ry; y < vc.y + vc.ry; y += 62)
@@ -222,7 +214,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
       if (((x - vc.x) / vc.rx) ** 2 + ((y - vc.y) / vc.ry) ** 2 < 1)
         voidChars.push({ x, y, c: GLYPHS[(rnd() * GLYPHS.length) | 0], a: 0.04 + rnd() * 0.09, p: rnd() * 6.283, sp: 0.0012 + rnd() * 0.0016 })
 
-  // cracks and specks on the wall past the poster
   const cracks = []
   const crack = (x, y, a, len, depth) => {
     const pts = [[x, y]]
@@ -246,7 +237,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
     lime: rnd() < 0.6
   }))
 
-  // keys and the fingers that press them
   const keys = data.keys.map(([x, y, w, h]) => ({ x, y, w, h, hot: 0 }))
   const fingers = data.fingers.map(([x, y, w], i) => {
     let best = null
@@ -307,7 +297,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
       const k = c.width / f.w
       const x0 = f.x - f.w / 2
       const top = f.y - 200
-      // stretch the finger down: the knuckle stays, the tip travels d
       for (let i = 0; i < 214; i += SL) {
         const a = (i / 214) ** 1.6
         const b = ((i + SL) / 214) ** 1.6
@@ -364,7 +353,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
       ctx.fillStyle = WALL
       ctx.fillRect(0, 0, W * dpr, H * dpr)
 
-      // back: wall, panes, watermarks, cracks
       const dolly = 1 + ((m * sy) / H) * 0.14
       layer(m * (-px * 14), m * (sy * 0.12 - py * 8), dolly)
       ctx.drawImage(rasters.back, 0, 0, W0, H0)
@@ -394,7 +382,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
         ctx.fill()
       })
 
-      // mid: hood and body, with the blinking letters in the face
       layer(m * (-px * 18), m * (sy * 0.12 - py * 10), dolly)
       ctx.drawImage(rasters.mid, 0, 0, W0, H0)
       ctx.font = '500 40px "IBM Plex Mono", monospace'
@@ -407,7 +394,6 @@ export function createPosterScene(ctx, { data, imgs, masks }) {
         ctx.fillText(v.c, v.x, v.y)
       })
 
-      // front: hands and keyboard, moving with the body
       layer(m * (-px * 18), m * (sy * 0.12 - py * 10), dolly)
       ctx.drawImage(rasters.front, 0, 0, W0, H0)
       drawFingers(t)

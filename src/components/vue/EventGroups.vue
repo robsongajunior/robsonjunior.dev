@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  groups: { type: Array, required: true } // [{ title, items: string[] }]
+  groups: { type: Array, required: true }
 })
 </script>
 

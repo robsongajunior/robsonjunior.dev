@@ -28,7 +28,6 @@ const common = shared[lang]
 const introLinks = page.intro.links.map((key) => common.social[key])
 const talks = page.talks.items.map((talk) => ({ ...talk, cta: page.talks.cta }))
 
-// experimental editorial grids; false brings back the stacked text blocks
 const editorial = true
 
 const ed = page.editorial

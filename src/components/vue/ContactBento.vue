@@ -2,11 +2,9 @@
 import BentoCell from './BentoCell.vue'
 import LinkList from './LinkList.vue'
 
-// Contact page: statement + social links (I) and the message form (F), which
-// comes in through the "form" slot as its own island.
 defineProps({
   id: { type: String, required: true },
-  intro: { type: Object, required: true }, // { index, statement, summary, meta: [] }
+  intro: { type: Object, required: true },
   links: { type: Array, default: () => [] },
   formIndex: { type: String, default: '' }
 })

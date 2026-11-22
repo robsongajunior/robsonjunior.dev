@@ -1,12 +1,10 @@
 <script setup>
 import BentoCell from './BentoCell.vue'
 
-// A blog post inside a BentoCell. 'feature' leads with a monumental title;
-// 'compact' keeps the title at reading size. Both show the excerpt when the post has one.
 defineProps({
-  post: { type: Object, required: true }, // { href, title, tag, date, excerpt }
+  post: { type: Object, required: true },
   index: { type: String, default: '' },
-  variant: { type: String, default: 'compact' }, // 'feature' | 'compact'
+  variant: { type: String, default: 'compact' },
   cta: { type: String, default: '' }
 })
 </script>
@@ -67,7 +65,6 @@ defineProps({
   transform: translateX(4px);
 }
 
-/* feature: monumental title, small technical meta around it */
 .feature .title {
   font-family: var(--display);
   font-weight: 900;

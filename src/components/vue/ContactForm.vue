@@ -1,16 +1,13 @@
 <script setup>
 import { ref } from 'vue'
 
-// Contact form posted to Web3Forms (https://web3forms.com), which forwards it by email.
-// With JS it sends via fetch and shows the status inline; without JS the plain
-// form post still works. The access key is public by design (it only allows sending).
 const props = defineProps({
   accessKey: { type: String, required: true },
-  labels: { type: Object, required: true } // { subject, name, email, message, submit, sending, sent, error, required }
+  labels: { type: Object, required: true }
 })
 
 const ENDPOINT = 'https://api.web3forms.com/submit'
-const status = ref('idle') // idle | sending | sent | error
+const status = ref('idle')
 const form = ref(null)
 
 async function submit() {
@@ -38,7 +35,6 @@ async function submit() {
     <input type="hidden" name="access_key" :value="props.accessKey" />
     <input type="hidden" name="subject" :value="labels.subject" />
     <input type="hidden" name="from_name" value="robsonjunior.dev" />
-    <!-- honeypot: real people never see or tick it -->
     <input type="checkbox" name="botcheck" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
     <label class="field">

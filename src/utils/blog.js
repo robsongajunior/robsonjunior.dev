@@ -1,4 +1,3 @@
-// Helpers shared by the blog pages (index, post, category).
 
 const plain = (text) =>
   String(text)
@@ -6,11 +5,8 @@ const plain = (text) =>
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
 
-// "Front-End", "front-end" and "frontend" are the same category: the key
-// drops case, accents and anything that is not a letter or digit.
 export const categoryKey = (name) => plain(name).replace(/[^a-z0-9]/g, '')
 
-// readable URL segment from the label: "terra-networks", "edge-computing"
 const urlSlug = (label) =>
   plain(label)
     .replace(/[^a-z0-9]+/g, '-')
@@ -18,8 +14,6 @@ const urlSlug = (label) =>
 
 export const postCategories = (post) => [].concat(post.data.categories ?? []).filter(Boolean).map(String)
 
-// [{ key, slug, label, count }] sorted by count, then label. The label is the most
-// used spelling (lowercased) of that category; posts are matched by key.
 export function collectCategories(posts) {
   const map = new Map()
   posts.forEach((post) => {
@@ -47,9 +41,6 @@ export const blogBase = (lang) => `/${lang}/blog/`
 export const categoryBase = (lang) => `/${lang}/blog/${lang === 'pt-br' ? 'categoria' : 'category'}/`
 export const categoryHref = (lang, slug) => `${categoryBase(lang)}${slug}/`
 
-// post entry -> the card shape used by PostCard / PostArchive
-// (the old blog index rewrites entry.slug to "<lang>/blog/<slug>" in place,
-// so a leading "blog/" is tolerated here)
 export const postHref = (post) => {
   const [lang, ...rest] = post.slug.split('/')
   if (rest[0] === 'blog' && rest.length > 1) rest.shift()
@@ -64,7 +55,6 @@ export const toPostCard = (post) => ({
   excerpt: post.data.meta_description
 })
 
-// posts grouped by year, newest first: [{ year, posts: [card] }]
 export function groupByYear(cards) {
   const years = []
   cards.forEach((card) => {
@@ -77,7 +67,6 @@ export function groupByYear(cards) {
 
 export const readingMinutes = (body = '') => Math.max(1, Math.round(body.split(/\s+/).filter(Boolean).length / 200))
 
-// "19 FEV, 2017"
 export const formatDate = (date, lang) => {
   const parts = new Intl.DateTimeFormat(lang === 'pt-br' ? 'pt-BR' : 'en-US', {
     day: '2-digit',
@@ -89,6 +78,4 @@ export const formatDate = (date, lang) => {
   return `${get('day')} ${get('month').replace('.', '').toUpperCase()}, ${get('year')}`
 }
 
-// Older posts are excerpts that point to the original article with a
-// "(Ler artigo completo)[url]" line; returns that url, if any.
 export const originalUrl = (body = '') => body.match(/\)\[(https?:\/\/[^\]\s]+)\]/)?.[1] ?? ''

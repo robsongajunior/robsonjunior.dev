@@ -1,7 +1,5 @@
 import { onBeforeUnmount, onMounted } from 'vue'
 
-// Moves each line of a block horizontally, alternating sides, based on how far
-// the block is from the middle of the viewport. Lines rest in place when centered.
 export function useScrollDrift(rootRef, { selector = 'span', amount = 8, reducedMotion }) {
   let ticking = false
   let lines = []

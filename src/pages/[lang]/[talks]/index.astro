@@ -13,7 +13,6 @@ import shared from '@i18n/component/site';
 export async function getStaticPaths() {
     const posts = await getCollection('talks') || [];
 
-    // return i18nConfig.langs
     return ['pt-br'].map((lang) => {
         const postsByLang = getPageByLangCollection(posts, lang) || [];
 
@@ -41,7 +40,6 @@ const { lang, posts } = Astro.props;
 
 const page = talksView[lang]
 const common = shared[lang]
-// talks data lives in the about i18n (one source for both pages)
 const source = about[lang].talks
 const ed = about[lang].editorial.talks
 const talks = source.items.map((talk) => ({ ...talk, cta: source.cta }))
@@ -62,7 +60,6 @@ const talksProps = {
     list: { index: ed.listIndex, items: talks, external: ed.external }
 }
 
-// slides on the stage screen: the talk titles
 const slides = talks.map((talk) => talk.title)
 ---
 

@@ -1,13 +1,9 @@
-// Blog hero: tilted bands of the real post titles in outlined display type,
-// each band sliding at its own speed (alternating direction, faster with scroll).
-// Now and then one title lights up in the accent colour and fades out.
 
-const ANGLE = -0.14 // ~8° tilt
+const ANGLE = -0.14
 const SEP = '  /  '
 
 const font = (size) => `900 ${size}px "Big Shoulders Display", Impact, sans-serif`
 
-// colours come from the page theme tokens
 function themeColors() {
   const css = getComputedStyle(document.documentElement)
   const v = (name, fallback) => css.getPropertyValue(name).trim() || fallback
@@ -28,7 +24,6 @@ export function createMarqueeScene(ctx, { titles, colors }) {
   let lastFlash = 0
   let last = 0
 
-  // each band gets the titles in a different order so the rows don't line up
   function build() {
     size = Math.round(Math.max(56, Math.min(150, H / 6.2)))
     ctx.font = font(size)
@@ -50,11 +45,10 @@ export function createMarqueeScene(ctx, { titles, colors }) {
         segs,
         length: x,
         dir: r % 2 ? 1 : -1,
-        speed: 14 + ((r * 7) % 5) * 6, // px per second
+        speed: 14 + ((r * 7) % 5) * 6,
         offset: (r * 997) % x
       }
     })
-    // start with one title lit (it stays lit in the still, reduced-motion frame)
     const lit = rows[Math.floor(rows.length / 2) - 1]
     if (lit) lit.segs.forEach((seg) => (seg.glow = 1))
   }
@@ -76,7 +70,6 @@ export function createMarqueeScene(ctx, { titles, colors }) {
       ctx.fillStyle = colors.ink
       ctx.fillRect(0, 0, W * dpr, H * dpr)
 
-      // band rotated around the centre, slightly shifted by the pointer
       const m = reduce ? 0 : 1
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       ctx.translate(W / 2 + m * -px * 18, H / 2 + m * (-py * 10 - sy * 0.2))
@@ -90,7 +83,6 @@ export function createMarqueeScene(ctx, { titles, colors }) {
       ctx.lineWidth = 1.25
       ctx.lineJoin = 'round'
 
-      // light up a random visible title every ~1.6s
       if (!reduce && t - lastFlash > 1600) {
         lastFlash = t
         const row = rows[(Math.random() * rows.length) | 0]

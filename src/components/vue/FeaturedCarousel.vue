@@ -4,13 +4,11 @@ import PostCard from './PostCard.vue'
 import { useCarousel } from '../../composables/useCarousel'
 import { useReducedMotion } from '../../composables/useReducedMotion'
 
-// Featured cell that rotates between posts and talks. Without JS it is still a
-// swipeable scroll-snap row; with JS it gets controls, counter and autoplay.
 const props = defineProps({
-  items: { type: Array, required: true }, // PostCard posts
+  items: { type: Array, required: true },
   index: { type: String, default: '' },
   cta: { type: String, default: '' },
-  labels: { type: Object, required: true } // { region, prev, next, pause, play, of }
+  labels: { type: Object, required: true }
 })
 
 const track = ref(null)
@@ -150,7 +148,6 @@ button:focus-visible {
   flex: 1;
 }
 
-/* progress dots: the active one fills over the autoplay interval */
 .dots {
   display: flex;
   gap: 6px;

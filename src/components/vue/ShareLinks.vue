@@ -1,12 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 
-// Share the current post: copy the link, or open X / LinkedIn share pages.
 const props = defineProps({
   title: { type: String, default: '' },
-  url: { type: String, required: true }, // canonical post URL
-  text: { type: String, default: '' }, // post title, for X
-  labels: { type: Object, required: true } // { copy, copied }
+  url: { type: String, required: true },
+  text: { type: String, default: '' },
+  labels: { type: Object, required: true }
 })
 
 const copied = ref(false)

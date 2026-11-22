@@ -13,7 +13,6 @@ import { categoryHref, collectCategories } from '@utils/blog.js';
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
 
-    // return i18nConfig.langs
     return ['pt-br'].map((lang) => {
         let postsByLang = getPageByLangCollection(posts, lang) || [];
 
@@ -38,7 +37,6 @@ let { lang, posts } = Astro.props;
 const page = blog[lang]
 const common = shared[lang]
 
-// same card shape as the home: clean title, two tags, ISO date, excerpt
 const cards = posts.map((post) => ({
     href: `/${post.slug}/`,
     title: post.data.title.split(' ').filter(Boolean).join(' '),
@@ -49,7 +47,6 @@ const cards = posts.map((post) => ({
 }))
 const [latest, ...rest] = cards
 
-// themes = categories used by two or more posts, most used first; each links to its page
 const themes = collectCategories(posts)
     .filter((category) => category.count > 1)
     .map((category) => ({ name: category.label, count: category.count, href: categoryHref(lang, category.slug) }))

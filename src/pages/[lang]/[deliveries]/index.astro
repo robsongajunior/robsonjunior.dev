@@ -11,7 +11,6 @@ import { groupByYear, postCategories } from '@utils/blog.js'
 export async function getStaticPaths() {
   const posts = await getCollection('deliveries')
 
-  // the index only exists in pt-br, as before (the en entries are drafts)
   return ['pt-br'].map((lang) => ({
     params: { lang, deliveries: lang === 'en' ? 'deliveries' : 'entregas' },
     props: {
@@ -28,7 +27,6 @@ const { deliveries } = Astro.params
 const page = deliveriesView[lang]
 const common = shared[lang]
 
-// <lang>/<company>/<delivery> -> /<lang>/entregas/<company>/<delivery>/
 const cards = posts.map((post) => ({
   href: `/${lang}/${deliveries}/${post.slug.split('/').slice(1).join('/')}/`,
   title: post.data.title.split(' ').filter(Boolean).join(' '),

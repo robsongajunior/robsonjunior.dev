@@ -4,9 +4,6 @@ import { useCanvasViewport } from './useCanvasViewport'
 import { usePointerParallax } from './usePointerParallax'
 import { useReducedMotion } from './useReducedMotion'
 
-// Wires a framework-agnostic canvas scene ({ resize, frame }) to the page:
-// loads its assets, keeps it sized, feeds it mouse/scroll input and runs the loop.
-// `onFrame` receives the scroll offset so the caller can move DOM overlays in sync.
 export function useCanvasScene(canvasRef, { load, create, onFrame }) {
   const ready = ref(false)
   const reducedMotion = useReducedMotion()

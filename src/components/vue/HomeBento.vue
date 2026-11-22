@@ -2,18 +2,14 @@
 import BentoCell from './BentoCell.vue'
 import PostCard from './PostCard.vue'
 
-// Editorial grid for the home: about (A), featured post (B), recent posts (C)
-// and the way into the blog (D). Hairlines come from the 1px grid gap.
-// The grid is static HTML; an interactive featured cell (carousel) comes in
-// through the "featured" slot as its own island.
 defineProps({
-  id: { type: String, required: true }, // section anchor (about)
-  articlesId: { type: String, required: true }, // anchor on the featured post (writing)
-  index: { type: Array, default: () => [] }, // legend strip above the grid
-  about: { type: Object, required: true }, // { index, headline: [{ text, em }], summary, meta: [], link: { href, label } }
-  featured: { type: Object, default: null }, // { index, post } — used when no "featured" slot is given
-  recent: { type: Object, required: true }, // { index, posts }
-  explore: { type: Object, required: true }, // { index, title, href, count }
+  id: { type: String, required: true },
+  articlesId: { type: String, required: true },
+  index: { type: Array, default: () => [] },
+  about: { type: Object, required: true },
+  featured: { type: Object, default: null },
+  recent: { type: Object, required: true },
+  explore: { type: Object, required: true },
   cta: { type: String, default: '' }
 })
 </script>
@@ -149,7 +145,6 @@ defineProps({
   grid-area: d;
 }
 
-/* A — about */
 .headline {
   margin: 0;
   max-width: 13ch;
@@ -202,7 +197,6 @@ defineProps({
   border-color: var(--accent);
 }
 
-/* D — explore, the only accent-filled cell */
 .explore-title {
   font-family: var(--display);
   font-weight: 900;

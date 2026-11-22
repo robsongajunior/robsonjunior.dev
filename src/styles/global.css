@@ -80,7 +80,6 @@
 *::after {
   box-sizing: border-box;
 }
-/* scoped to [data-theme] so global resets injected by UI libraries (PrimeVue) don't win */
 html[data-theme] {
   color-scheme: dark;
   background: var(--ink);

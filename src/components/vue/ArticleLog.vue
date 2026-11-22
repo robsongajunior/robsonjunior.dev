@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  items: { type: Array, required: true }, // [{ href, tag, title }]
+  items: { type: Array, required: true },
   moreHref: { type: String, default: '' },
   moreLabel: { type: String, default: '' }
 })

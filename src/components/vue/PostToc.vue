@@ -1,11 +1,9 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-// "On this page": the post headings, with the section being read marked
-// as you scroll (scroll-spy). Hydrated on its own; works as plain links without JS.
 const props = defineProps({
   title: { type: String, default: '' },
-  items: { type: Array, required: true } // [{ slug, text, depth }]
+  items: { type: Array, required: true }
 })
 
 const active = ref(props.items[0]?.slug ?? '')
@@ -18,7 +16,6 @@ onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => visible.set(entry.target.id, entry.isIntersecting))
-      // the first heading in the reading band wins; otherwise keep the last one passed
       const hit = targets.find((el) => visible.get(el.id))
       if (hit) active.value = hit.id
       else {

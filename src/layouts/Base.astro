@@ -12,7 +12,6 @@ interface Props {
 }
 
 const { lang, title, description, theme = 'lime', robots = 'index, follow', ogimage = '/static/images/pages/ogimage-default.png' } = Astro.props
-// soft light following the mouse; false turns it off on every page
 const cursorGlow = true
 const canonical = new URL(Astro.url.pathname, Astro.site)
 const ogImageUrl = new URL(ogimage, Astro.site)

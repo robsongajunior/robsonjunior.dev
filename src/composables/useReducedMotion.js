@@ -1,6 +1,5 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-// Tracks the user's "reduce motion" preference.
 export function useReducedMotion() {
   const reduced = ref(false)
   let query

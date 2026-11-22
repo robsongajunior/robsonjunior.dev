@@ -3,15 +3,13 @@ import BentoCell from './BentoCell.vue'
 import PostCard from './PostCard.vue'
 import PostArchive from './PostArchive.vue'
 
-// Blog index (below the marquee hero): statement (I), numbers (S), latest post (F) and the
-// recurring themes (T) in an editorial grid, then the archive by year.
 defineProps({
   id: { type: String, required: true },
-  intro: { type: Object, required: true }, // { index, statement }
-  stats: { type: Object, required: true }, // { index, items: [{ value, label, wide? }] }
-  latest: { type: Object, default: null }, // { index, post }
-  themes: { type: Object, required: true }, // { index, items: [{ name, count, href }] }
-  archive: { type: Object, required: true }, // { id, index, years: [{ year, posts }] }
+  intro: { type: Object, required: true },
+  stats: { type: Object, required: true },
+  latest: { type: Object, default: null },
+  themes: { type: Object, required: true },
+  archive: { type: Object, required: true },
   cta: { type: String, default: '' }
 })
 </script>
@@ -86,7 +84,6 @@ p {
   margin: 0;
 }
 
-/* I — statement */
 .statement {
   margin: 0;
   max-width: 13ch;
@@ -99,7 +96,6 @@ p {
   text-wrap: balance;
 }
 
-/* S — numbers, same hairline grid as the talks stats */
 .stats {
   margin: auto 0 0;
   display: grid;
@@ -138,7 +134,6 @@ p {
   font-variant-numeric: tabular-nums;
 }
 
-/* T — themes as outlined tags with their post count */
 .themes {
   margin: 0;
   padding: 0;

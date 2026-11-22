@@ -1,8 +1,7 @@
 <script setup>
-// Paragraphs that may contain inline links or emphasis (trusted, authored content).
 defineProps({
   paragraphs: { type: Array, required: true },
-  size: { type: String, default: 'lg' } // 'lg' | 'md'
+  size: { type: String, default: 'lg' }
 })
 </script>
 

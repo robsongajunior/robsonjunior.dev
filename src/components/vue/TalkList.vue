@@ -1,9 +1,7 @@
 <script setup>
-// Editorial list of talks: numbered rows with year/event, a large title,
-// the description and a CTA to the external deck.
 defineProps({
-  items: { type: Array, required: true }, // [{ href, title, description, meta?, cta }]
-  external: { type: String, default: '' } // screen reader hint for links opening in a new tab
+  items: { type: Array, required: true },
+  external: { type: String, default: '' }
 })
 </script>
 

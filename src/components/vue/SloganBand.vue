@@ -5,7 +5,6 @@ import { useReducedMotion } from '../../composables/useReducedMotion'
 
 defineProps({
   label: { type: String, required: true },
-  // each line is a list of parts: { text, em }
   lines: { type: Array, required: true }
 })
 

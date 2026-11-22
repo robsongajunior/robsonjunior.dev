@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  links: { type: Array, required: true } // [{ href, label }]
+  links: { type: Array, required: true }
 })
 </script>
 
