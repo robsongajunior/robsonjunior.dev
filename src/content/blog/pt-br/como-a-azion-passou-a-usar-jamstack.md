@@ -1,8 +1,8 @@
 ---
-title: 'Como a Azion começou utlizar JAM Stack'
+title: 'Como a Azion começou a utilizar JAM Stack'
 meta_robots: 'index, follow'
 meta_description: 'Por volta de 2017, iniciou-se uma revolução no desenvolvimento de páginas web. Depois da adoção do mercado dos Static Site Generators nos times de engenharia e da imensa economia no orçamento de infraestrutura, veio a questão de levar essa revolução para times menos técnicos, como Marketing, Copywriters, Demand Generation, Product Marketing...'
-categories: ['jamstack', 'frontend']
+categories: ['azion', 'jamstack', 'front-end']
 
 date: 'May 03 2021'
 dateUpdate: ''
@@ -19,7 +19,7 @@ Por volta de 2017, iniciou-se uma revolução no desenvolvimento de páginas web
 
 A motivação por trás disso era escalar a criação, edição e manutenção de conteúdo sem a necessidade de passar por um desenvolvedor. Com o crescimento exponencial da Azion, foi preciso encontrar uma maneira de facilitar esses processos de conteúdo web para viabilizar o acompanhamento dessa escalada.
 
-Para ter uma breve idéia do crescimento, passamos de um desenvolvedor de uma agência terceira que cuidava do blog para:
+Para ter uma breve ideia do crescimento, passamos de um desenvolvedor de uma agência terceira que cuidava do blog para:
 
 - um time de copywriters cuidando da área de Documentação de Produtos com mais de 15 editores;
 - um time de conteúdo para cuidar dos Casos de Sucesso, com mais de 10 editores;
@@ -49,4 +49,4 @@ Para tornar mais fácil a criação de um site JAMStack, surgiram também gerado
 
 ## Conclusão
 
-JAMStack é uma das melhores partes do ecossistema JavaScript. Se seu time possui acesso a pessoas técnicas com conhecimento Front-End ou se tem pouco orçamento disponível para desenvolver um grande projeto focado em web, acaba sendo um ótimo caminho. Além de facilitar todo gerenciamento, desde a infraestrutura, o deploy e até a performance.
+JAMStack é uma das melhores partes do ecossistema JavaScript. Se seu time possui acesso a pessoas técnicas com conhecimento Front-End ou se tem pouco orçamento disponível para desenvolver um grande projeto focado em web, acaba sendo um ótimo caminho. Além de facilitar todo o gerenciamento, desde a infraestrutura e o deploy até a performance.

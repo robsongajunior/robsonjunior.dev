@@ -1,17 +1,8 @@
 ---
-title: 'Como usamos JavaScript Azion Edge Function  para facilitar as próprias entregas'
+title: 'Como usamos JavaScript Azion Edge Function para facilitar as próprias entregas'
 meta_robots: 'index, follow'
-meta_description: 'Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.'
-categories: ['edge', 'javascript']
-  [
-    'edge-computing',
-    'jam-stack',
-    'javascript',
-    'azion-edge-functions',
-    'serveless',
-    'front-end',
-    'performance'
-  ]
+meta_description: 'Com a execução de Edge Functions podemos facilmente escrever pedaços de códigos cruciais para o negócio, mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles itens que todos nós já conhecemos.'
+categories: ['azion', 'edge', 'javascript']
 
 date: 'May 12 2021'
 dateUpdate: ''
@@ -26,9 +17,9 @@ Cover — JavaScript code
 
 ### Introdução
 
-Em uma empresa de crescimento exponencial, cada vez mais precisamos garantir entregas de relevância cada vez maior em um espaço de tempo cada vez menor
+Em uma empresa de crescimento exponencial, cada vez mais precisamos garantir entregas de relevância cada vez maior em um espaço de tempo cada vez menor.
 
-Com a execução de [Edge Functions](https://www.azion.com/en/products/edge-functions/#overview) podemos facilmente escrever pedaços de códigos cruciais para o negócio mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles items que todos nós já conhecemos.
+Com a execução de [Edge Functions](https://www.azion.com/en/products/edge-functions/#overview) podemos facilmente escrever pedaços de códigos cruciais para o negócio, mas que não exatamente teríamos como configurar um servidor, segurança e todos aqueles itens que todos nós já conhecemos.
 
 Hoje o time de Marketing da Azion é responsável por todas as páginas web da empresa onde temos engenheiros trabalhando em conjunto com o time executando essa orquestração das páginas.
 
@@ -37,7 +28,7 @@ Nesse post iremos ver dois problemas importantes resolvidos usando JavaScript [s
 ### Problemas resolvidos
 
 - Portal de [carreiras](https://www.azion.com/pt-br/carreiras/vagas/);
-- [Sitemap](https://www.azion.com/sitemap.xml) de diferentes projetos a baixo do mesmo domínio;
+- [Sitemap](https://www.azion.com/sitemap.xml) de diferentes projetos abaixo do mesmo domínio;
 
 #### Portal de carreiras
 
@@ -49,13 +40,13 @@ Para o [portal de carreiras](https://www.azion.com/pt-br/carreiras/), antes usá
 - Segurança;
 - Updates;
 
-Com Azion Cells (JavaScript Functions) já temos tudo isso configurado por dafault além de rodar nativamente [código JavaScript direto na Edge](https://www.azion.com/pt-br/blog/javascript-azion-edge-functions/). Pelo fato de centenas de servidores espalhados por todos estados Brasileiro temos a **garantia de escalabilidade** além de nossa function **rodar** o **mais perto possível** do **usuário.**
+Com Azion Cells (JavaScript Functions) já temos tudo isso configurado por default, além de rodar nativamente [código JavaScript direto na Edge](https://www.azion.com/pt-br/blog/javascript-azion-edge-functions/). Pelo fato de termos centenas de servidores espalhados por todos os estados brasileiros, temos a **garantia de escalabilidade** além de nossa function **rodar** o **mais perto possível** do **usuário.**
 
-Pelo fato da Azion ter uma [CDN(Content Delivery Network)](https://en.wikipedia.org/wiki/Content_delivery_network) no seu catálago de produtos, tem a obrigatoriedade de estar sempre disponível, com isso automaticamente também matamos os problemas de escalabilidade.
+Pelo fato da Azion ter uma [CDN(Content Delivery Network)](https://en.wikipedia.org/wiki/Content_delivery_network) no seu catálogo de produtos, tem a obrigatoriedade de estar sempre disponível, com isso automaticamente também matamos os problemas de escalabilidade.
 
-Pelo fato dessa arquitetura existir automaticamente **temos** um **ambiente seguro** *contra ataques de crackers(caso não saiba diferença entre hacker e cracker, voce irá poder aprender* [*aqui*](https://www.educamaisbrasil.com.br/educacao/dicas/diferenca-entre-hacker-e-cracker)*)* como [DDos](https://owasp.org/www-community/attacks/Denial_of_Service), [Path Transversal](https://owasp.org/www-community/attacks/Path_Traversal) entre outros conhecidos.
+Pelo fato dessa arquitetura existir, automaticamente **temos** um **ambiente seguro** *contra ataques de crackers (caso não saiba a diferença entre hacker e cracker, você irá poder aprender* [*aqui*](https://www.educamaisbrasil.com.br/educacao/dicas/diferenca-entre-hacker-e-cracker)*)* como [DDos](https://owasp.org/www-community/attacks/Denial_of_Service), [Path Transversal](https://owasp.org/www-community/attacks/Path_Traversal) entre outros conhecidos.
 
-Agora falando do JavaScript rodando na Edge, temos algo parecido com o código a baixo:
+Agora falando do JavaScript rodando na Edge, temos algo parecido com o código abaixo:
 
 ![](/static/uploads/blog/pt-br/como-usamos-javascript-azion-edge-functions-para-facilitar-as-propri-as-entregas/1-Cc8QQZFrtduOiI7xZazZuw.png)
 
@@ -69,11 +60,11 @@ Uma pequena parte do código que busca dados em um lugar qualquer usado para mon
 
 > **OBS:** A API Key é meramente ilustrativa.
 
-Incrível né? Mas ainda não terminou, vou contar logo a baixo como montamos nosso sitemap de diferentes repositórios em uma única entrega.
+Incrível, né? Mas ainda não terminou, vou contar logo abaixo como montamos nosso sitemap de diferentes repositórios em uma única entrega.
 
 #### Sitemap da azion.com
 
-Esta parte do post poderia ser separado em outro, mas quero lhe mostrar como é fácil e importante o uso e abuso do JavaScript no Edge.
+Esta parte do post poderia ser separada em outro, mas quero lhe mostrar como é fácil e importante o uso e abuso do JavaScript no Edge.
 
 Atualmente estamos usando [Jekyll](https://jekyllrb.com/) para trabalhar com [SSG](https://www.azion.com/en/blog/when-to-choose-ssr-vs-ssg-guide/) em alguns pontos da Azion, como:
 
@@ -81,9 +72,9 @@ Atualmente estamos usando [Jekyll](https://jekyllrb.com/) para trabalhar com [SS
 - [Blog](https://www.azion.com/pt-br/blog/)
 - [Casos de Sucesso](https://www.azion.com/pt-br/casos-de-sucesso/)
 
-O domínio é o mesmo porém os projetos são separados, são Jekyll separados, deploy independente e cada um usa um bucket, assim podemos fazer clean sem medo.
+O domínio é o mesmo, porém os projetos são separados, são Jekyll separados, deploy independente e cada um usa um bucket, assim podemos fazer clean sem medo.
 
-Para conseguirmos juntar isso tudo cada projeto gera um arquivo sitemap.json onde durante o build escreve nesse json as urls existentes.
+Para conseguirmos juntar isso tudo, cada projeto gera um arquivo sitemap.json onde durante o build escreve nesse json as urls existentes.
 
 O input é algo como:
 
@@ -192,7 +183,7 @@ Como output fica:
 
 > sitemap.json de Casos de Sucesso usado para exemplo
 
-Agora temos mais 2 arquivos json que é do blog e site (documentação é gerado através do site). Com esses arquivos publicados podemos começar utilizar JavaScript Edge Functions para gerar o conteúdo final,
+Agora temos mais 2 arquivos json, que são do blog e do site (a documentação é gerada através do site). Com esses arquivos publicados, podemos começar a utilizar JavaScript Edge Functions para gerar o conteúdo final:
 
 <https://www.azion.com/sitemap.xml>
 
@@ -323,18 +314,18 @@ addEventListener('fetch', event => {
 });
 ```
 
-Pronto, um pequeno código de 80 linhas monta um sitemap automático para diversos idiomas sem mais nos preocuparmos sobre regerar. Para cada novo projeto basta adicionar nas primeiras linhas onde tem a lista sendo executada por um Promisse.all([]) .
+Pronto, um pequeno código de 80 linhas monta um sitemap automático para diversos idiomas sem mais nos preocuparmos sobre regerar. Para cada novo projeto basta adicionar nas primeiras linhas onde tem a lista sendo executada por um Promise.all([]).
 
-Fica muito mais simples vendo na prática né?
+Fica muito mais simples vendo na prática, né?
 
 ### Considerações
 
-O fato de não termos todas aquelas preocupações apontadas no início do post nos deixa livre para podermos gastar o tempo de desenvolvimento realmente com o desenvolvimento e entrega de features com valor, reduzindo o custo de infra-estrutura ficando apenas sob demanda além de não precisarmos nos preocupar perante o ponto de vista de segurança, pois tudo isso já vem embutido no pacote ao utilizar Azion Edge Functions.
+O fato de não termos todas aquelas preocupações apontadas no início do post nos deixa livres para podermos gastar o tempo de desenvolvimento realmente com o desenvolvimento e entrega de features com valor, reduzindo o custo de infraestrutura, ficando apenas sob demanda, além de não precisarmos nos preocupar perante o ponto de vista de segurança, pois tudo isso já vem embutido no pacote ao utilizar Azion Edge Functions.
 
 #### Referências
 
 - [Execute JavaScript no Azion Edge Functions](https://www.azion.com/pt-br/blog/javascript-azion-edge-functions/);
-- [Como a Azion passou utlizar JAM Stack;](https://www.azion.com/pt-br/blog/como-a-azion-passou-a-usar-jamstack/)
+- [Como a Azion passou a utilizar JAM Stack;](https://www.azion.com/pt-br/blog/como-a-azion-passou-a-usar-jamstack/)
 - [Saiba como aumentar sua receita com um site tolerante a falhas;](https://www.azion.com/pt-br/blog/Saiba-como-aumentar-a-sua-receita-com-um-site-mais-tolerante-a-falhas/)
 - [Como deixar seu site mais rápido e atrair mais visitantes;](https://www.azion.com/pt-br/blog/Como-deixar-seu-site-mais-rapido-e-atrair-mais-visitantes/)
 - [When to choose SSG or SSR;](https://www.azion.com/en/blog/when-to-choose-ssr-vs-ssg-guide/)

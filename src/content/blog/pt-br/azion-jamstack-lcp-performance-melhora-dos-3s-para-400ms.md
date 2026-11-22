@@ -1,8 +1,8 @@
 ---
 title: 'Azion JAM Stack LCP Performance — melhora dos 3s para 400/600ms'
 meta_robots: 'index, follow'
-meta_description: 'Aqui voce irá ler um pouco dos resultados das small actions para otimizar a quantidade de recursos utilizados pela página, consequentemente melhorando expressivamente o tempo de carregamento das mais de 900 páginas...'
-categories: ['jamstack', 'performance', 'frontend']
+meta_description: 'Aqui você irá ler um pouco dos resultados das small actions para otimizar a quantidade de recursos utilizados pela página, consequentemente melhorando expressivamente o tempo de carregamento das mais de 900 páginas...'
+categories: ['azion', 'jamstack', 'performance']
 
 date: 'Apr 20 2021'
 dateUpdate: ''
@@ -15,36 +15,36 @@ heroAltImage: 'Azion JAMStack Performance: de 2.8s para 400ms — Performance Ba
 
 Azion JAMStack Performance: de 2.8s para 400ms — Performance Banner
 
-No artigo anterior fala sobre como foi a [Introdução Azion JAM Stack](/pt-br/blog/introducao-azion-jam-stack/) onde recomendo para introdutório deste.
+No artigo anterior falei sobre como foi a [Introdução Azion JAM Stack](/pt-br/blog/introducao-azion-jam-stack/), que recomendo como introdução a este.
 
-Aqui voce irá ler um pouco dos resultados das small actions para otimizar a quantidade de recursos utilizados pela página, consequentemente melhorando expressivamente o tempo de carregamento das mais de 900 páginas que temos a baixo de <https://www.azion.com/> .
+Aqui você irá ler um pouco dos resultados das small actions para otimizar a quantidade de recursos utilizados pela página, consequentemente melhorando expressivamente o tempo de carregamento das mais de 900 páginas que temos abaixo de <https://www.azion.com/>.
 
-Temos 4 sistemas separados respondendo para nosso domínio principal, cada um com suporte [i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization) configurado para 3 idiomas: português, inglês, espanhol;
+Temos 4 sistemas separados respondendo para nosso domínio principal, cada um com suporte [i18n](https://en.wikipedia.org/wiki/Internationalization_and_localization) configurado para 3 idiomas: português, inglês e espanhol:
 
 - [Blog](https://www.azion.com/pt-br/blog/)
 - [Casos de Sucesso](https://www.azion.com/pt-br/casos-de-sucesso/)
 - [Documentação](https://www.azion.com/pt-br/documentacao/)
 - Landing Pages (marketing)
 
-Apensar de serem projetos separados, todos utilizam os mesmos recursos que estão abaixo de <https://assets.azion.com/static/>
+Apesar de serem projetos separados, todos utilizam os mesmos recursos que estão abaixo de <https://assets.azion.com/static/>.
 
 ### Relação SSG com LCP
 
-Com a adoção do [SSG](https://jamstack.org/generators/) no cenário Front-End vem também alguns ms a menos na hora de carregar a página. O que quero dizer com isso?
+Com a adoção do [SSG](https://jamstack.org/generators/) no cenário Front-End vêm também alguns ms a menos na hora de carregar a página. O que quero dizer com isso?
 
 LCP — Largest Contentful Paint. É uma métrica voltada para o usuário para mensurar a [percepção de load speed](https://web.dev/user-centric-performance-metrics/#types-of-metrics).
 
-Com o SSG podemos montar grade parte do conteúdo da página em tempo de build, não temos mais aquele tempo do processamento da requisição.
+Com o SSG podemos montar grande parte do conteúdo da página em tempo de build, não temos mais aquele tempo do processamento da requisição.
 
-Métrica LCP calcula o tempo de renderização do maior conteúdo/imagem mostrado na tela para visualização em relação a quando a página começou ser carregada.
+A métrica LCP calcula o tempo de renderização do maior conteúdo/imagem mostrado na tela para visualização em relação a quando a página começou a ser carregada.
 
-Sobre o indicado para métricas, a baixo temos o recomendado
+Sobre o indicado para métricas, abaixo temos o recomendado:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-R4kUKlR_bsef8r0DZTesdw.png)
 
 <https://web.dev/vitals/lcp_8x2.svg>
 
-Temos que ter cuidado quando falamos em performance pois a percepção do usuário pode ser diferentes do que realmente é mensurado, fazendo um site que pode ter um tempo maior parecer mais rápido apenas por trabalhar na percepção de usuário.
+Temos que ter cuidado quando falamos em performance, pois a percepção do usuário pode ser diferente do que realmente é mensurado, fazendo um site que pode ter um tempo maior parecer mais rápido apenas por trabalhar na percepção de usuário.
 
 Nunca me esqueço da frase:
 
@@ -61,21 +61,21 @@ Ferramentas: Network + Coverage — Google Chrome Dev Tools
 - Na faixa azul da aba network, podemos ver que temos um CSS de 2.0mb;
 - Na faixa vermelha do coverage podemos ver **2 045 425 bytes** de css sendo que **2 021 783 não utilizados**, isso é **98.8% de processamento e tráfego desnecessário**.
 
-Por mais que temos a possiblidade de fazer cache no browser, jogar a responsabilidade toda para cima dele seria uma irresponsabilidade, pois acarretaria em outros problemas, como um simples e constante deploy com constante refresh de cache prejudicaria não só o LCP mas como TTFB, TBT, TTI entre outros.
+Por mais que tenhamos a possibilidade de fazer cache no browser, jogar a responsabilidade toda para cima dele seria uma irresponsabilidade, pois acarretaria em outros problemas, como um simples e constante deploy com constante refresh de cache prejudicaria não só o LCP, mas também TTFB, TBT, TTI entre outros.
 
 Bom, olhando para esse cenário com certeza precisávamos atualizar essa estrutura urgente, pois pelo fato de ser um site baseado em [JAM Stack](https://www.azion.com/pt-br/blog/beneficios-do-jamstack/) não poderíamos aceitar aquele péssimo desempenho de performance.
 
 ### Mãos ao trabalho
 
-O trabalho basicamente foi quebrar o CSS. Veja nas imagens abaixo o que tinhamos:
+O trabalho basicamente foi quebrar o CSS. Veja nas imagens abaixo o que tínhamos:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-wa5jYHZhXy8HV44wtpTd0w.png)
 
-parte 1— continua
+parte 1 — continua
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-NIHpQEpZjMFhVK3SssxEPw.png)
 
-parte 2— continua
+parte 2 — continua
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-Jf0fIKHQ4yY-VgQSscvOZg.png)
 
@@ -83,37 +83,37 @@ parte 3 — final
 
 Nossa primeira versão de site contava com esse compilado de CSS para todas as páginas.
 
-Iniciamos transformando o que estava em ./pages/\_file.scss para ./pages/\_page.scss assim automaticamente na hora do Jekyll compilar não precisaria alterar destino nem alterar código.
+Iniciamos transformando o que estava em ./pages/\_file.scss para ./pages/\_page.scss, assim, automaticamente, na hora do Jekyll compilar não precisaria alterar destino nem alterar código.
 
 Com isso cada arquivo que não possui \_ (usado por default no sass) para quando usar como import e não output, ao compilar geraria 1 para 1 em relação arquivo/output.
 
-O que passou de apenas um bundle.css imenso de 2.0mb para vários arquivos menores, no qual mais ou menos cada um tem 100k. (ainda sem contar gzip)
+O que passou de apenas um bundle.css imenso de 2.0mb para vários arquivos menores, dos quais cada um tem mais ou menos 100k (ainda sem contar gzip).
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-LB_MfzWc52fEteM_3D42ZA.png)
 
 Atual estrutura de páginas por css
 
-Mas e os arquivos compartilhamos? Foi testado arquivo por arquivo para ver o que era realmente necessário ou não, e com isso chegamos ao compilado para fazer shared em todas as páginas:
+Mas e os arquivos compartilhados? Foi testado arquivo por arquivo para ver o que era realmente necessário ou não, e com isso chegamos ao compilado para fazer shared em todas as páginas:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-NGBRavzklTGiYtqpw1E3EA.png)
 
-Recursos em comum para todas páginas
+Recursos em comum para todas as páginas
 
-Bem menor né? Esse é o arquivo final de recursos compartilhados onde cara página interna vai usar algo como:
+Bem menor, né? Esse é o arquivo final de recursos compartilhados, onde cada página interna vai usar algo como:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-DDZN_DKX1OhYjRXfaPIxcg.png)
 
 Estilo da página de produtos
 
-Em uma das páginas com maior número de componentes ficou com aproximadamente 90k após compilado.
+Uma das páginas com maior número de componentes ficou com aproximadamente 90k após compilado.
 
 ### Integrando com o HTML
 
-Para quem usa ferramentas de SSG está acostumado a configurar [Front-Matters](https://jekyllrb.com/docs/front-matter/), as ferramentas utilizam esse tipo de marcação ao topo do arquivo para dizer como o conteúdo deve ser compilado.
+Quem usa ferramentas de SSG está acostumado a configurar [Front-Matters](https://jekyllrb.com/docs/front-matter/); as ferramentas utilizam esse tipo de marcação no topo do arquivo para dizer como o conteúdo deve ser compilado.
 
 Com isso apenas fizemos pequenas mudanças nas nossas páginas.
 
-Passamos de um header nas páginas HTML que continham tudo que precisava
+Passamos de um header nas páginas HTML que continha tudo de que precisava
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-n1YD0ZszeXSk_dYXcEZI2w.png)
 
@@ -125,11 +125,11 @@ Agora, esse estilo irá vir da configuração do Front-Matter que será atualiza
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-73XyM5tj8M8v-WdWs5FKZg.png)
 
-Podemos ver que utilizamos o máximo dos recursos já utilizados com sutil alteração onde nos proporcionou enormes ganhos.
+Podemos ver que utilizamos o máximo dos recursos já utilizados com uma sutil alteração, que nos proporcionou enormes ganhos.
 
 ### Quais foram os resultados?
 
-No primeiro momento tinhamos esse tipo de resultado."
+No primeiro momento tínhamos esse tipo de resultado:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-SWGzqBIExUpiLMAZ17Yo1w.png)
 
@@ -137,7 +137,7 @@ No novo modelo chegamos a ter mais de 70% de melhoria:
 
 ![](/static/uploads/blog/pt-br/azion-jamstack-lcp-performance-melhora-dos-3s-para-400ms/1-Kpt60KTBwNtkVmAcEe_nag.png)
 
-Ambos os testes eram para a página, <https://www.azion.com/pt-br/>
+Ambos os testes eram para a página <https://www.azion.com/pt-br/>.
 
 ### Benchmark
 
@@ -150,21 +150,21 @@ Ambos os testes eram para a página, <https://www.azion.com/pt-br/>
 - Melhora de First Contentful Paint de: 1.8s para 0.63s;
 - Melhora de Speed Index de: 2s para 0.7s;
 
-Para mais resultados pode ser olhado diretamente nos testes.
+Para mais resultados, basta olhar diretamente nos testes.
 
 ### Novidades em breve
 
-Ao que tudo indica, a importancia da arquitetura JAMStack está cada vez mais consolidado.
+Ao que tudo indica, a importância da arquitetura JAMStack está cada vez mais consolidada.
 
 [More time, tools, and details on the page experience update](https://developers.google.com/search/blog/2021/04/more-details-page-experience)
 
-A partir de junho um rollout irá começa ocorrer onde LCP, FID e CLS montam o novo sinal do ranking do Google “Page Experience”.
+A partir de junho, um rollout irá começar a ocorrer, em que LCP, FID e CLS montam o novo sinal do ranking do Google “Page Experience”.
 
 ### Referências:
 
 - [Introdução Azion JAM Stack](/pt-br/blog/introducao-azion-jam-stack/);
 - [Render Blocking CSS](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css#:~:text=Render%20Blocking%20CSS%20bookmark_border&text=By%20default%2C%20CSS%20is%20treated,and%20queries%20to%20unblock%20rendering.);
-- [Largest Contentful Paint — LPC](https://web.dev/lcp/);
+- [Largest Contentful Paint — LCP](https://web.dev/lcp/);
 - [First Input Delay](https://web.dev/fid/) — FID;
 - [Time to Interactive — TTI](https://web.dev/tti/);
 - [Total blocking Time — TBT](https://web.dev/tbt/);

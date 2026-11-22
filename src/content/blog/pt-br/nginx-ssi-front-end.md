@@ -1,27 +1,27 @@
 ---
 title: 'Nginx + SSI & Front-End'
 meta_robots: 'index, follow'
-meta_description: 'Este artigo aborda uma alternativa sendo uma poderosa solução juntando tecnologias de back-end e front-end irá facilitar o trabalho de desenvolvimento, validação e deploy, impactando desde o desenvolvedor até o mais alto nível da empresa.'
-categories: ['frontend']
+meta_description: 'Este artigo aborda uma alternativa que, sendo uma poderosa solução juntando tecnologias de back-end e front-end, irá facilitar o trabalho de desenvolvimento, validação e deploy, impactando desde o desenvolvedor até o mais alto nível da empresa.'
+categories: ['front-end']
 
 date: 'Mar 13 2020'
 dateUpdate: ''
 
 heroImage: '/static/uploads/blog/pt-br/nginx-ssi-front-end/1-HxshvkxpXBONjC_7Uy_7gQ.jpeg'
-heroAltImage: 'Capa - Foguete Lançado levando um homem'
+heroAltImage: 'Capa - Foguete lançado levando um homem'
 ---
 
 ![](/static/uploads/blog/pt-br/nginx-ssi-front-end/1-HxshvkxpXBONjC_7Uy_7gQ.jpeg)
 
-Este artigo aborda uma alternativa sendo uma poderosa solução juntando tecnologias de back-end e front-end irá facilitar o trabalho de desenvolvimento, validação e deploy, impactando desde o desenvolvedor até o mais alto nível da empresa. Pois, com o trabalho simplificado, maior a qualidade e quantidade das entregas.
+Este artigo aborda uma alternativa que, sendo uma poderosa solução juntando tecnologias de back-end e front-end, irá facilitar o trabalho de desenvolvimento, validação e deploy, impactando desde o desenvolvedor até o mais alto nível da empresa. Pois, com o trabalho simplificado, maior a qualidade e quantidade das entregas.
 
-Para um entendimento melhor, brevemente descreverei as tecnologias usadas
+Para um entendimento melhor, brevemente descreverei as tecnologias usadas.
 
 ### Nginx
 
 **Nginx** (lê-se “engine x”) é um servidor [HTTP](https://pt.wikipedia.org/wiki/HTTP), [proxy reverso](https://pt.wikipedia.org/wiki/Proxy_reverso), proxy de e-mail IMAP/POP3.
 
-Lida com requisições Web do tipo “event-based web server”; É possível diminuir o consumo de memória do servidor, passando as requisições Web primeiro no Nginx, assim, o servidor não precisa servir arquivos estáticos
+Lida com requisições Web do tipo “event-based web server”; é possível diminuir o consumo de memória do servidor, passando as requisições Web primeiro pelo Nginx, assim, o servidor não precisa servir arquivos estáticos.
 
 > <https://pt.wikipedia.org/wiki/Nginx>
 
@@ -29,11 +29,11 @@ Lida com requisições Web do tipo “event-based web server”; É possível di
 
 > Server Side Include
 
-É um interpretador server-side, usado praticamente exclusivamente para a Aplicação Web. Comum ser usado para incluir conteúdo dinâmico e arquivos em uma página web, muito usado também para injetar código em tempo de execução server-side. Isso ocorre geralmente através de uma diretiva **#include.**
+É um interpretador server-side, usado praticamente exclusivamente para a Aplicação Web. É comum ser usado para incluir conteúdo dinâmico e arquivos em uma página web, muito usado também para injetar código em tempo de execução server-side. Isso ocorre geralmente através de uma diretiva **#include.**
 
 > <https://en.wikipedia.org/wiki/Server_Side_Includes>
 
-Outras ferramentas também possui suporte a marcações SSI.
+Outras ferramentas também possuem suporte a marcações SSI.
 
 - <https://httpd.apache.org/docs/2.4/mod/mod_include.html>
 - <https://docs.microsoft.com/en-us/iis/configuration/system.webserver/serversideinclude>
@@ -44,26 +44,26 @@ O Front-End é liberado, pois o serviço executará antes de entregar a página 
 
 ### Começando
 
-Com os temas alinhados a cima, temos o suficiente para entender o objetivo. Preste atenção na imagem a seguir:
+Com os temas alinhados acima, temos o suficiente para entender o objetivo. Preste atenção na imagem a seguir:
 
 ![](/static/uploads/blog/pt-br/nginx-ssi-front-end/1-3EhyyvAfAf_02gOfhkqSsg.png)
 
 Agora vamos detalhar passo a passo:
 
 1. User Agent dispara uma request solicitando uma página para algum endpoint;
-2. Endpoint tem um Nginx na frente, como o Nginx recebe a primeira request ele repassa para origem, podendo ser fora usando terceiros com um proxy\_pass ou até mesmo servindo via o próprio Nginx;
+2. Endpoint tem um Nginx na frente, como o Nginx recebe a primeira request, ele repassa para a origem, podendo ser fora usando terceiros com um proxy\_pass ou até mesmo servindo via o próprio Nginx;
 3. Quando essa request volta com o conteúdo da página;
-4. o Nginx com SSI ativo, verifica se tem alguma marcação SSI;
-5. Caso não encontrado marcação SSI, Nginx entrega a página para o User Agent;
-6. Caso encontrado marcação SSI, Nginx interpretara e irá fazer uma sub\_request caso o externo o serviço que te informa o conteúdo a ser injetado;
+4. O Nginx, com SSI ativo, verifica se tem alguma marcação SSI;
+5. Caso não seja encontrada marcação SSI, o Nginx entrega a página para o User Agent;
+6. Caso seja encontrada marcação SSI, o Nginx a interpretará e irá fazer uma sub\_request para o serviço externo que informa o conteúdo a ser injetado;
 7. Sub\_request feita pelo Nginx para o serviço externo recebe o conteúdo a ser injetado na página;
-8. Após injetado, Nginx devolve a página montada para o usário;
+8. Após injetado, Nginx devolve a página montada para o usuário;
 
 > **NOTA:** Como no nosso caso estamos utilizando um serviço externo para nos indicar o conteúdo a ser injetado, pode ser requisitado também via JavaScript.
 
 ### Implementação
 
-Irei iniciar com a premissa que tenha já o Nginx intalado. Agora, vamos iniciar as configurações:
+Irei iniciar com a premissa de que já tenha o Nginx instalado. Agora, vamos iniciar as configurações:
 
 **Configurando Nginx:**
 
@@ -114,7 +114,7 @@ No arquivo index.html, teremos o seguinte código:
 </body>
 ```
 
-Depois de processado, as marcações serão alteradas gerando o seguinte resultado:
+Depois de processadas, as marcações serão alteradas gerando o seguinte resultado:
 
 ```
 <!DOCTYPE html>
@@ -133,22 +133,22 @@ Depois de processado, as marcações serão alteradas gerando o seguinte resulta
 
 > No HTML gerado, estou usando recursos que utilizamos aqui na [Azion Technologies](https://www.azion.com/pt-br/).
 
-### Robson, isso que voce chama de ferramenta poderosa?
+### Robson, isso que você chama de ferramenta poderosa?
 
-Calma, ainda falta alguns pontos a ser mostrado:
+Calma, ainda faltam alguns pontos a serem mostrados:
 
 Note que temos duas marcações:
 
 - *<!--# include virtual="/service/?component=mod.boilerplate&format=html&render=pre" -->*
 - *<!--# include virtual="/service/?component=mod.aztech&format=html&render=pos" -->*
 
-Nessas marcações temos alguns parâmetros onde irei detalhar o que cada um são:
+Nessas marcações temos alguns parâmetros onde irei detalhar o que cada um é:
 
 - ***component:*** parâmetro que informa o id do conteúdo solicitado, este parâmetro pode ser repetido pedindo diferentes componentes;
-- ***format:*** utilizamos como valores, ***html*** e ***json —***Valor html usado quando requisitado via back-end, pois o conteúdo a ser injetado é html. Valor json utilizado quando requisitado via JavaScript, pois será retornado um json, assim sendo o Front-End responsável por injetar os recursos;
-- ***render:*** utilizamos como valores, ***pre*** e ***pos —***Usado apenas quando format=html, isso indica em qual parte está sendo requisitado. Quando format=json, vem todos recursos na mesma request;
+- ***format:*** utilizamos como valores, ***html*** e ***json*** — Valor html usado quando requisitado via back-end, pois o conteúdo a ser injetado é html. Valor json utilizado quando requisitado via JavaScript, pois será retornado um json, assim sendo o Front-End responsável por injetar os recursos;
+- ***render:*** utilizamos como valores, ***pre*** e ***pos*** — Usado apenas quando format=html, isso indica em qual parte está sendo requisitado. Quando format=json, vêm todos os recursos na mesma request;
 
-Para ficar melhor entendimento, irei mostrar um json de configuração utilizado pelo serviço que entrega os recursos:
+Para um melhor entendimento, irei mostrar um json de configuração utilizado pelo serviço que entrega os recursos:
 
 ```
 ////////////////////////////////////////////////
@@ -191,11 +191,11 @@ Para ficar melhor entendimento, irei mostrar um json de configuração utilizado
 
 Cada recurso tem seu json de configuração, quando passado por dependências, o serviço faz um read dessas configurações recursivamente.
 
-Essa são as configurações de produção, mas elas são alteradas dependendo os parâmetros repassados, exemplo:
+Essas são as configurações de produção, mas elas são alteradas dependendo dos parâmetros repassados, exemplo:
 
 - *<! — # include virtual=”/service/?component=mod.boilerplate&format=html&render=pre”*
 
-Caso adicionado mais alguns parâmetros como: mod.boilerplate.env=stage, automaticamente essa configuração é alterada e encontrado a versão de stage, ficando.
+Caso sejam adicionados mais alguns parâmetros, como mod.boilerplate.env=stage, automaticamente essa configuração é alterada e é encontrada a versão de stage, ficando:
 
 - *<! — # include virtual=”/service/?component=mod.boilerplate&mod.boilerplate.env=stage&format=html&render=pre”*
 
@@ -207,11 +207,11 @@ Aqui, o recurso entregue é da versão ainda em desenvolvimento de um usuário e
 
 Porém é muito trabalhoso ficar trocando na marcação, então utilizamos query\_string, onde é repassado:
 
-Então, com as marcações de produção mas passando os mesmos parâmetros por query\_string, o browser repassa para o Nginx que repassa para o serviço criando a possibilidade de ter uma entrega de uma página via back-end sendo modificada pelo browser.
+Então, com as marcações de produção, mas passando os mesmos parâmetros por query\_string, o browser repassa para o Nginx que repassa para o serviço criando a possibilidade de ter uma entrega de uma página via back-end sendo modificada pelo browser.
 
 ### Vantagens
 
-- Aplicação não precisa ser ocorrer um rebuild;
+- Aplicação não precisa de rebuild;
 - Cruzar ambiente de produção com stage e development;
 - Testar apenas a parte alterada;
 - Agilidade na entrega;
@@ -220,13 +220,13 @@ Então, com as marcações de produção mas passando os mesmos parâmetros por 
 
 ### Desvantagens
 
-- Necessário um serviço que saiba encontrar as URLS dos recursos;
-- Front-End inteligente suficiente que não trabalhe apenas com bundle;
+- Necessário um serviço que saiba encontrar as URLs dos recursos;
+- Front-End inteligente o suficiente que não trabalhe apenas com bundle;
 - Ter um ambiente para poder colocar os recursos em um lugar que não seja localhost;
 
 ### NOTA
 
-Em breve teremos um artigo mostrando todo pipeline do desenvolvimento Front-End da [Azion Technologies](https://www.azion.com/pt-br/) utilizando todo workflow.
+Em breve teremos um artigo mostrando todo o pipeline do desenvolvimento Front-End da [Azion Technologies](https://www.azion.com/pt-br/) utilizando todo workflow.
 
 ### Referência
 
@@ -235,7 +235,7 @@ Em breve teremos um artigo mostrando todo pipeline do desenvolvimento Front-End 
 
 ### Agradecimentos
 
-Este artigo eu tenho algumas pessoas para agradecer e que levarei pra sempre como referências:
+Neste artigo, eu tenho algumas pessoas para agradecer e que levarei pra sempre como referências:
 
 - Obrigado Alberto Boa Vista;
 - Obrigado Guilherme Moser Sousa;
@@ -243,4 +243,4 @@ Este artigo eu tenho algumas pessoas para agradecer e que levarei pra sempre com
 - Obrigado Rói Avidan;
 - Obrigado André Marquardt;
 
-Essas pessoas sempre me inspiraram e me ajudaram a crescer, evoluir e me tornar um profissional de excelência, criativo e ousado. Nomes que foi uma honra trabalhar quando defendia a empresa [Terra Networks](https://www.terra.com.br/) e o mais importante, nomes que lembrarei quando tiver 70 anos. Pois desde lá venho aplicando tudo e mais um pouco do que aprendi.
+Essas pessoas sempre me inspiraram e me ajudaram a crescer, evoluir e me tornar um profissional de excelência, criativo e ousado. Nomes com quem foi uma honra trabalhar quando defendia a empresa [Terra Networks](https://www.terra.com.br/) e o mais importante, nomes que lembrarei quando tiver 70 anos. Pois desde lá venho aplicando tudo e mais um pouco do que aprendi.

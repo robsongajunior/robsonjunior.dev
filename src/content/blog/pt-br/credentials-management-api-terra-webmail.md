@@ -1,9 +1,8 @@
 ---
 title: 'Credentials Management API — Terra Webmail'
 meta_robots: 'index, follow'
-meta_description: 'Hoje em dia, por mais que pareça superficialmente simples realizar a implementação de um login, logo mais a frente pode se tornar um Frankenstein ou até mesmo acabar em um grau de complexidade alto.'
-categories: ['javascript', 'frontend']
-  ['chrome', 'browser-api', 'javascript', 'front-end', 'user-experience', 'terra-networks']
+meta_description: 'Hoje em dia, por mais que pareça superficialmente simples realizar a implementação de um login, logo mais à frente pode se tornar um Frankenstein ou até mesmo acabar em um grau de complexidade alto.'
+categories: ['javascript', 'front-end']
 
 date: 'Mar 12 2018'
 dateUpdate: ''
@@ -29,9 +28,9 @@ A API tem como base três pilares:
 
 ### LET’S GO BABY
 
-Sabemos que hoje em dia, por mais que pareça superficialmente simples realizar a implementação de um login, logo mais a frente pode se tornar um *Frankenstein* ou até mesmo acabar em um grau de complexidade alto. Muitas vezes, além de gerenciar o login da nossa aplicação, temos os logins de terceiros [Facebook, Twitter, GitHub, Google].
+Sabemos que hoje em dia, por mais que pareça superficialmente simples realizar a implementação de um login, logo mais à frente pode se tornar um *Frankenstein* ou até mesmo acabar em um grau de complexidade alto. Muitas vezes, além de gerenciar o login da nossa aplicação, temos os logins de terceiros [Facebook, Twitter, GitHub, Google].
 
-Como temos por costume **não compartilhar** senhas entre aplicações por **motivos de segurança**, acabamos tendo um problema para a memorizar todas elas — é **nessa hora que entra o trabalho** da *Credential Management API*. Olhando por cima, temos uma lista de:
+Como temos por costume **não compartilhar** senhas entre aplicações por **motivos de segurança**, acabamos tendo um problema para memorizar todas elas — é **nessa hora que entra o trabalho** da *Credential Management API*. Olhando por cima, temos uma lista de:
 
 - [GitHub](https://github.com/)
 - [Gmail](https://mail.google.com/mail/u/0/#inbox)
@@ -48,7 +47,7 @@ Esses são os mais comuns, uma pessoa pode ter muito mais que isso para memoriza
 - **facilita** a escolha em caso de **múltiplos usuários**;
 - permite uso de **interface nativa** para **múltiplos devices**;
 - **identifica** o login que o usuário fez **anteriormente** na página, mesmo que o usuário não tenha auto-login no browser, **permitindo** a ele se logar com apenas **um tap/click**.
-- possibilita **iteração com o browser** já que ele auto-preenche campos de login/senha atualmente;
+- possibilita **interação com o browser** já que ele auto-preenche campos de login/senha atualmente;
 - oferece **auto sign in** entre **diferentes dispositivos**;
 
 ### AUTO SIGN IN
@@ -57,7 +56,7 @@ Esse comportamento nos fez dizer *“wow!”*
 
 ![](/static/uploads/blog/pt-br/credentials-management-api-terra-webmail/1-ynRRDlSx-7V3i_vjVatinw.png)
 
-Caso você esteja logado em sua no Google Chrome e faça login em outro dispositivo na mesma página com a mesma conta, o browser identificará que foi efetuado o login e, com isso, ocorrerá o *auto sign in*.
+Caso você esteja logado em sua conta no Google Chrome e faça login em outro dispositivo na mesma página com a mesma conta, o browser identificará que foi efetuado o login e, com isso, ocorrerá o *auto sign in*.
 
 ![](/static/uploads/blog/pt-br/credentials-management-api-terra-webmail/1-Q92vtU6BkPOjL-wsOhH2wA.png)
 
@@ -66,7 +65,7 @@ Caso você esteja logado em sua no Google Chrome e faça login em outro disposit
 Aqui, vamos ver como foi implementada essa feature no novo [Terra Webmail](https://mail.terra.com.br/signin).
 
 ![E.g, Tela Login/Cadastre-se Mail Terra](/static/uploads/blog/pt-br/credentials-management-api-terra-webmail/1-zGxh63P0HCZ8SnW61MeyBg.png)
-> Tela de login com um formulário que contém dois campos: **usuário** e**senha**;
+> Tela de login com um formulário que contém dois campos: **usuário** e **senha**;
 
 ```
 var loginForm = document.querySelector('#signin');
@@ -114,9 +113,9 @@ function doLogin(user, pwd) {
 
 A partir daqui, iremos ver o que a função **doLogin** faz.
 
-Ela recebe dois parâmetros, que são os responsáveis por realizar a autenticação: *user — username , pwd — password.*
+Ela recebe dois parâmetros, que são os responsáveis por realizar a autenticação: *user — username, pwd — password.*
 
-Após nos certificarmos termos a feature disponível, usamos os parâmetros **user** e **pwd** para criar um objeto JavaScript com os atributos **id** e **password**. Logo na próxima linha, passamos esse objeto para uma *nova instância* de **PasswordCredential**.
+Após nos certificarmos de que temos a feature disponível, usamos os parâmetros **user** e **pwd** para criar um objeto JavaScript com os atributos **id** e **password**. Logo na próxima linha, passamos esse objeto para uma *nova instância* de **PasswordCredential**.
 
 A variável **pwdCred** armazenará um objeto de credencial, o qual será possível armazenar no browser.
 
@@ -146,7 +145,7 @@ function autoSignin() {
 };
 ```
 
-> O atributo **password** caso **não seja true**, *não conseguirá pegar a credencial* caso existente.
+> O atributo **password**, caso **não seja true**, *não conseguirá pegar a credencial*, caso existente.
 
 A função *autoSignin* é disparada logo após o carregamento da página por completo. Agora, iremos ver como e quando buscaremos a credencial caso ela seja existente.
 
@@ -170,7 +169,7 @@ Não havendo a credencial porque o usuário disparou o *preventSilentAccess()*, 
 
 ![](/static/uploads/blog/pt-br/credentials-management-api-terra-webmail/1-6K9tlq6wjze1PQkMAkX7cQ.png)
 
-Optamos por permitir que o usuário tenha o poder de cancelar o *auto sign in*. Para isso, é necessário disparar a função **preventSilentAccess()**, que é a responsável por comunicar a API que, na próxima visita, não deve disparar o *auto sign in*.
+Optamos por permitir que o usuário tenha o poder de cancelar o *auto sign in*. Para isso, é necessário disparar a função **preventSilentAccess()**, que é a responsável por comunicar à API que, na próxima visita, não deve disparar o *auto sign in*.
 
 ### DEBUGGER — chrome://password-manager-internals/
 
@@ -182,7 +181,7 @@ Optamos por permitir que o usuário tenha o poder de cancelar o *auto sign in*. 
 
 Por enquanto, apenas o Chrome tem suporte para essa feature, tanto *desktop* quanto *mobile*.
 
-Porém, a API [w3c credential management](https://www.w3.org/TR/credential-management-1/) já está em draft na **W3C**.Em um futuro breve teremos uma implementação cross browser.
+Porém, a API [w3c credential management](https://www.w3.org/TR/credential-management-1/) já está em draft na **W3C**. Em um futuro breve teremos uma implementação cross browser.
 
 ### REFERÊNCIAS
 
