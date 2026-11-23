@@ -30,7 +30,7 @@ export default {
   },
   post: {
     author: 'Robson Júnior',
-    avatar: '/static/images/pages/about/robsonjunior-profile.jpeg',
+    avatar: '/static/images/pages/about/robsonjunior-avatar.webp',
     reading: 'min de leitura',
     categories: 'Categorias',
     share: 'Compartilhe',
