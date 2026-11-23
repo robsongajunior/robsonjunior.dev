@@ -1,7 +1,7 @@
 ---
 title: 'Edge Pulse'
 meta_robots: 'index, follow'
-meta_description: ''
+meta_description: 'Edge Pulse is an Edge Analytics product based on RUM that collects navigation, availability, latency and bandwidth data to improve the user experience.'
 meta_keywords: ''
 categories: ['Edge']
 
@@ -12,6 +12,6 @@ heroImage: ''
 heroAltImage: ''
 ---
 
-Edge Pulse is a product from Edge Analytics, based on the RUM market solution, which allows communication between your content and your client, collecting navigation information, availability, latency and band. As well as collecting information, Edge Pulse uses them to enhance the user experience, guaranteeing content delivery in an efficient manner.
+Edge Pulse is an Edge Analytics product based on RUM (Real User Monitoring). It connects your content and your users, collecting navigation, availability, latency and bandwidth information. Edge Pulse also uses this information to improve the user experience and deliver content efficiently.
 
-https://azion.com/en/documentation/products/edge-pulse/
+[Edge Pulse documentation](https://azion.com/en/documentation/products/edge-pulse/)

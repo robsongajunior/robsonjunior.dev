@@ -1,7 +1,7 @@
 ---
 title: 'Aztech[JS]'
 meta_robots: 'index, follow'
-meta_description: ''
+meta_description: 'Aztech[JS] is the Azion Technologies front-end framework, now deprecated.'
 meta_keywords: ''
 categories: ['Edge']
 
@@ -14,14 +14,14 @@ heroAltImage: ''
 
 [deprecated]
 
-Aztech[JS] it's the Azion Technologies Front-End Framework.
+Aztech[JS] is the Azion Technologies front-end framework.
 
-The principal goals it is:
+Its main goals are:
 
-- error controll context
-- load modules in time execution
-- resolution id to path
+- error control context
+- load modules at execution time
+- resolve ids to paths
 - direct dependencies
-- resolve async and defer property
+- resolve async and defer properties
 - factory pattern to create components
-- schema to normalize initialize instance
+- schema to normalize instance initialization

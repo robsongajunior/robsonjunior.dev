@@ -1,7 +1,7 @@
 ---
 title: 'Generator Assistant'
 meta_robots: 'index, follow'
-meta_description: ''
+meta_description: 'Generator Assistant is the front-end scaffold that generates the default structure for new web applications, now deprecated.'
 meta_keywords: ''
 categories: ['Edge']
 
@@ -14,15 +14,15 @@ heroAltImage: ''
 
 [deprecated]
 
-Generator Assistant is the Front-End scaffold responsible to generate the default project's struct to easy and fast way to start develop new web applications.
+Generator Assistant is the front-end scaffold that generates a project's default structure, so you can start developing new web applications quickly and easily.
 
-With few commands you will be able to create your components to build you Interface Application.
+With a few commands you can create the components that build your application's interface.
 
 Features:
 
-- Default code struct/semantic
-- Dinamyc linters
-- Basic test struct
+- Default code structure and semantics
+- Dynamic linters
+- Basic test structure
 - CI/CD
 - Styleguide injection
-- Initial JavaScript code component
+- Initial JavaScript component code
