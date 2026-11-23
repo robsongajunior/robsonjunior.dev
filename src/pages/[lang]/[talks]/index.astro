@@ -10,6 +10,7 @@ import talksView from '@i18n/view/talks';
 import about from '@i18n/view/about';
 import shared from '@i18n/component/site';
 import { pageAlternates } from '@utils/alternates.js'
+import { talkStats } from '@utils/talks.js';
 
 export async function getStaticPaths() {
     const posts = await getCollection('talks') || [];
@@ -50,11 +51,7 @@ const talksProps = {
     intro: { index: ed.index, statement: ed.statement, summary: ed.summary },
     stats: {
         index: ed.statsIndex,
-        items: [
-            { value: ed.stats.events, label: ed.stats.eventsLabel, wide: true },
-            { value: talks.length, label: ed.stats.decks },
-            { value: new Date().getFullYear() - 2014, label: ed.stats.years }
-        ]
+        items: talkStats(ed, talks.length)
     },
     events: { index: ed.eventsIndex, groups: source.groups },
     themes: ed.themes,

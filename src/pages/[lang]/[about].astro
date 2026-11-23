@@ -15,6 +15,7 @@ import TalksBento from '@components/vue/TalksBento.vue'
 import about from '@i18n/view/about'
 import shared from '@i18n/component/site'
 import { pageAlternates } from '@utils/alternates.js'
+import { talkStats } from '@utils/talks.js'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({
@@ -45,11 +46,7 @@ const talksProps = {
   intro: { index: ed.talks.index, statement: ed.talks.statement, summary: ed.talks.summary },
   stats: {
     index: ed.talks.statsIndex,
-    items: [
-      { value: ed.talks.stats.events, label: ed.talks.stats.eventsLabel, wide: true },
-      { value: talks.length, label: ed.talks.stats.decks },
-      { value: new Date().getFullYear() - 2014, label: ed.talks.stats.years }
-    ]
+    items: talkStats(ed.talks, talks.length)
   },
   events: { index: ed.talks.eventsIndex, groups: page.talks.groups },
   themes: ed.talks.themes,

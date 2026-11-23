@@ -37,6 +37,15 @@ export function collectCategories(posts) {
     .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
 }
 
+export const categoryMeta = (labels, label, total) => {
+  const count = `${total} ${total === 1 ? labels.post : labels.posts}`
+  return {
+    count,
+    title: `${label} · Blog | Robson Júnior`,
+    description: `${labels.title} ${label}: ${count}.`
+  }
+}
+
 export const blogBase = (lang) => `/${lang}/blog/`
 export const categoryBase = (lang) => `/${lang}/blog/${lang === 'pt-br' ? 'categoria' : 'category'}/`
 export const categoryHref = (lang, slug) => `${categoryBase(lang)}${slug}/`
@@ -77,5 +86,15 @@ export const formatDate = (date, lang) => {
   const get = (type) => parts.find((p) => p.type === type)?.value ?? ''
   return `${get('day')} ${get('month').replace('.', '').toUpperCase()}, ${get('year')}`
 }
+
+const flat = (text = '') =>
+  text
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .toLowerCase()
+    .slice(0, 60)
+
+export const postLede = (post) =>
+  post.data.meta_description && !flat(post.body).startsWith(flat(post.data.meta_description)) ? post.data.meta_description : ''
 
 export const originalUrl = (body = '') => body.match(/\)\[(https?:\/\/[^\]\s]+)\]/)?.[1] ?? ''

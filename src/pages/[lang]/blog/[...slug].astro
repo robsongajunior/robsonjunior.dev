@@ -16,6 +16,7 @@ import {
     formatDate,
     originalUrl,
     postCategories,
+    postLede,
     readingMinutes,
     toPostCard
 } from '@utils/blog.js';
@@ -68,8 +69,7 @@ const related = langPosts
 const title = post.data.title.split(' ').filter(Boolean).join(' ')
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3)
 const original = originalUrl(post.body)
-const flat = (text = '') => text.replace(/[^\p{L}\p{N}]+/gu, ' ').trim().toLowerCase().slice(0, 60)
-const lede = post.data.meta_description && !flat(post.body).startsWith(flat(post.data.meta_description)) ? post.data.meta_description : ''
+const lede = postLede(post)
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 const alternates = await entryAlternates('blog', post)
 

@@ -6,7 +6,7 @@ import SiteFooter from '@components/vue/SiteFooter.vue'
 import BlogCategory from '@components/vue/BlogCategory.vue'
 import blog from '@i18n/view/blog'
 import shared from '@i18n/component/site'
-import { blogBase, categoryHref, categoryKey, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
+import { blogBase, categoryHref, categoryKey, categoryMeta, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
@@ -39,7 +39,8 @@ const { lang, category, categories, posts, alternates } = Astro.props
 const page = blog[lang]
 const common = shared[lang]
 const labels = page.category
-const count = `${posts.length} ${posts.length === 1 ? labels.post : labels.posts}`
+const meta = categoryMeta(labels, category.label, posts.length)
+const count = meta.count
 
 const props = {
   crumbs: [{ href: blogBase(lang), label: 'Blog' }, { label: labels.all }, { label: category.label }],
@@ -59,8 +60,8 @@ const props = {
 <Layout
   lang={lang}
   alternates={alternates}
-  title={`${category.label} · Blog | Robson Júnior`}
-  description={`${labels.title} ${category.label}: ${count}.`}
+  title={meta.title}
+  description={meta.description}
   theme="pink"
 >
   <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
