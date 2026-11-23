@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Base.astro'
+import SiteNav from '@components/vue/SiteNav.vue'
+import SiteFooter from '@components/vue/SiteFooter.vue'
+import BlogCategory from '@components/vue/BlogCategory.vue'
+import blog from '@i18n/view/blog'
+import shared from '@i18n/component/site'
+import { entryLang, langOrder } from '@utils/alternates.js'
+import { blogBase, byDateDesc, categoryHref, categoryKey, categoryMeta, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  const langs = langOrder(posts.map(entryLang))
+  return langs.flatMap((lang) => {
+    const langPosts = posts
+      .filter((post) => entryLang(post) === lang)
+      .sort(byDateDesc)
+    const categories = collectCategories(langPosts)
+    const alternatesOf = (slug) =>
+      Object.fromEntries(
+        langs
+          .filter((other) => collectCategories(posts.filter((post) => entryLang(post) === other)).some((c) => c.slug === slug))
+          .map((other) => [other, categoryHref(other, slug)])
+      )
+    return categories.map((category) => ({
+      params: { lang, cat: lang === 'pt-br' ? 'categoria' : 'category', category: category.slug },
+      props: {
+        lang,
+        category,
+        categories,
+        alternates: alternatesOf(category.slug),
+        posts: langPosts.filter((post) => postCategories(post).map(categoryKey).includes(category.key))
+      }
+    }))
+  })
+}
+
+const { lang, category, categories, posts, alternates } = Astro.props
+const page = blog[lang]
+const common = shared[lang]
+const labels = page.category
+const meta = categoryMeta(labels, category.label, posts.length)
+const count = meta.count
+
+const props = {
+  crumbs: [{ href: blogBase(lang), label: 'Blog' }, { label: labels.all }, { label: category.label }],
+  eyebrow: labels.index,
+  title: category.label,
+  count,
+  categories: {
+    title: labels.all,
+    items: categories.map((c) => ({ href: categoryHref(lang, c.slug), label: c.label, count: c.count })),
+    page: categoryHref(lang, category.slug)
+  },
+  years: groupByYear(posts.map(toPostCard)),
+  cta: page.cta
+}
+---
+
+<Layout
+  lang={lang}
+  alternates={alternates}
+  title={meta.title}
+  description={meta.description}
+  theme="pink"
+>
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+  <main>
+    <BlogCategory {...props} />
+  </main>
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

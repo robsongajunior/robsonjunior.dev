@@ -1,22 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
-import LayoutDefault from '@layouts/Default.astro';
-import FeaturedPost from '@components/FeaturedPost.astro';
-import TitleListPost from '@components/TitleListPost.astro';
-import ImageTitlePostList from '@components/ImageTitlePostList.astro';
-import LineDivisor from '@components/LineDivisor.astro';
-import { getPageByLangCollection } from "@utils/pages.js";
+import Layout from '@layouts/Base.astro';
+import SiteNav from '@components/vue/SiteNav.vue';
+import HeroScene from '@components/vue/HeroScene.vue';
+import SiteFooter from '@components/vue/SiteFooter.vue';
+import BlogBento from '@components/vue/BlogBento.vue';
+import blog from '@i18n/view/blog';
+import shared from '@i18n/component/site';
+import { entryHref, entryLang, pageAlternates, pageLangs } from '@utils/alternates.js'
+import { byDateDesc, categoryHref, collectCategories } from '@utils/blog.js';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
 
-    // return i18nConfig.langs
-    return ['pt-br'].map((lang) => {
-        let postsByLang = getPageByLangCollection(posts, lang) || [];
-
-        postsByLang.map(post => {
-            post.slug = `${lang}/blog/${post.slug.split('/')[1]}`
-        });
+    return pageLangs('blog').map((lang) => {
+        const postsByLang = posts.filter((post) => entryLang(post) === lang);
 
         return {
             params: {
@@ -24,29 +22,62 @@ export async function getStaticPaths() {
             },
             props: {
                 lang: lang,
-                posts: postsByLang.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+                posts: postsByLang.sort(byDateDesc)
             }
         };
     });
 }
 
 let { lang, posts } = Astro.props;
+
+const page = blog[lang]
+const common = shared[lang]
+
+const cards = posts.map((post) => ({
+    href: entryHref('blog', post),
+    title: post.data.title.split(' ').filter(Boolean).join(' '),
+    tag: [].concat(post.data.categories ?? []).slice(0, 2).join(' · ').toLowerCase(),
+    date: post.data.date.toISOString().slice(0, 10),
+    year: post.data.date.getUTCFullYear(),
+    excerpt: post.data.meta_description
+}))
+const [latest, ...rest] = cards
+
+const allThemes = collectCategories(posts)
+const sharedThemes = allThemes.filter((category) => category.count > 1)
+const themes = (sharedThemes.length ? sharedThemes : allThemes)
+    .map((category) => ({ name: category.label, count: category.count, href: categoryHref(lang, category.slug) }))
+
+const years = []
+rest.forEach((card) => {
+    const group = years.at(-1)
+    if (group && group.year === card.year) group.posts.push(card)
+    else years.push({ year: card.year, posts: [card] })
+})
+
+const blogProps = {
+    id: page.id,
+    intro: page.intro,
+    stats: {
+        index: page.stats.index,
+        items: [
+            { value: cards.length, label: page.stats.posts, wide: true },
+            { value: cards.at(-1)?.year ?? '', label: page.stats.first },
+            { value: latest ? latest.year : '', label: page.stats.last }
+        ]
+    },
+    latest: latest ? { index: page.latest, post: latest } : null,
+    themes: { index: page.themes, items: themes },
+    archive: { ...page.archive, years },
+    cta: page.cta
+}
 ---
 
-<LayoutDefault lang={ lang } title="Blog">
-    <div class="center-content">
-        <FeaturedPost post={ posts[0] } />
-    </div>
-    <div class="center-content">
-        <LineDivisor />
-    </div>
-    <div class="center-content">
-        <TitleListPost posts={ posts.length ? posts.slice(1, 5) : [] } />
-    </div>
-    <div class="center-content">
-       <LineDivisor />
-    </div>
-    <div class="center-content">
-        <ImageTitlePostList posts={ posts.length ? posts.slice(5) : [] } />
-    </div>
-</LayoutDefault>
+<Layout lang={lang} alternates={pageAlternates('blog')} title={page.meta.title} description={page.meta.description} theme="pink">
+    <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+    <HeroScene client:load variant="marquee" lines={cards.map((card) => card.title)} {...page.hero} />
+    <main>
+        <BlogBento {...blogProps} />
+    </main>
+    <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

@@ -14,7 +14,6 @@ heroAltImage: 'Storybook cover'
 
 ## Azion Webkit Storybook: Nosso Design System em Ação 🚀
 
-
 ### O que é o Storybook?
 
 O [Storybook](https://slxzcpazc1.map.azionedge.net/) é nossa janela visual para o projeto [azion-webkit](https://github.com/aziontech/azion-webkit). Ele oferece uma visualização organizada e interativa de nossa biblioteca de componentes, permitindo:
@@ -24,7 +23,6 @@ O [Storybook](https://slxzcpazc1.map.azionedge.net/) é nossa janela visual para
 - 🔄 Reutilizar blocos e fragmentos de interface
 
 > 💡 **Dica Pro**: Acesse o [Storybook ao vivo](https://slxzcpazc1.map.azionedge.net/) para uma experiência interativa completa!
-
 
 ### Motivação
 
@@ -38,32 +36,29 @@ O [Storybook](https://slxzcpazc1.map.azionedge.net/) é nossa janela visual para
    - Auxiliar na construção de novas páginas
    - Testar conteúdo e propriedades diretamente no Storybook
 
-
 ### Impacto do Projeto
 
 Nosso Storybook não é apenas uma ferramenta, é um ecossistema de design que:
+
 - 🚀 Acelera o desenvolvimento front-end
 - 🤝 Promove consistência entre equipes
 - 💻 Reduz a complexidade de criação de interfaces
-
 
 ### Tecnologias
 
 ##### Ferramentas para desenvolvimento
 
 - [Primevue](https://primevue.org/)
-- [Primeflex](https://primeflex.org/) 
-- [Storybook](https://storybook.js.org/) 
-- [Tailwind](https://tailwindcss.com/) 
-- [Vite](https://vitejs.dev/) 
-
+- [Primeflex](https://primeflex.org/)
+- [Storybook](https://storybook.js.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
 
 ##### Publicação
 
 - 🐱 [Github](https://github.com/)
 - 🚀 [Azion CLI](https://www.azion.com/pt-br/blog/azion-cli-implemente-jamstack-edge/)
-- 💾  [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
-
+- 💾 [Azion Edge Storage](https://www.azion.com/pt-br/documentacao/produtos/store/edge-storage/)
 
 ### Repositórios
 
@@ -73,13 +68,11 @@ assim podendo ambos serem agnósticos a tecnologia de componentes ou estilizaç�
 - 🧩 [Aberto | azion-webkit](https://github.com/aziontech/azion-webkit)
 - 🎨 [Aberto | azion-theme](https://github.com/aziontech/azion-theme)
 
-
 ### Execução
 
 - 👨‍💻 [Eduardo de Cesaro](https://www.linkedin.com/in/cesaroeduardo/)
 - 👨‍💻 [Luis Igreja](https://www.linkedin.com/in/luisigreja/)
 - 👨‍💻 [Robson Júnior](https://www.linkedin.com/in/robsongajunior/)
-
 
 ### Convite à Comunidade
 
@@ -88,4 +81,3 @@ assim podendo ambos serem agnósticos a tecnologia de componentes ou estilizaç�
 Nossos repositórios estão abertos. Seja você um desenvolvedor experiente ou um estudante curioso, há espaço para sua contribuição.
 
 [Explore no GitHub](https://github.com/aziontech/azion-webkit)
-

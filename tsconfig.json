@@ -1,17 +1,18 @@
 {
   "extends": "astro/tsconfigs/base",
+  "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-        "@/*": ["src/*"],
-        "@utils/*": ["src/utils/*"],
-        "@i18n/*": ["src/i18n/*"],
-        "@components/*": ["src/components/*"],
-        "@styles/*": ["src/styles/*"],
-        "@layouts/*": ["src/layouts/*"],
+      "@/*": ["src/*"],
+      "@utils/*": ["src/utils/*"],
+      "@i18n/*": ["src/i18n/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@theme/*": ["src/theme/*"]
     }
   }
 }

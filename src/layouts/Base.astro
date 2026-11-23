@@ -1,0 +1,63 @@
+---
+import '../styles/fonts.css'
+import '../styles/global.css'
+import CursorGlow from '@components/CursorGlow.astro'
+import Trd3 from '@components/Trd3.astro'
+import blogView from '@i18n/view/blog'
+import { defaultLang, hreflangCode, pageAlternates } from '@utils/alternates.js'
+import { markdownPath } from '@utils/markdown.js'
+
+interface Props {
+  lang: string
+  title: string
+  description: string
+  theme?: 'lime' | 'blue' | 'pink' | 'lavender' | 'amber'
+  robots?: string
+  ogimage?: string
+  alternates?: Record<string, string>
+}
+
+const { lang, title, description, theme = 'lime', robots = 'index, follow', ogimage = '/static/images/pages/ogimage-default.png', alternates = {} } = Astro.props
+const cursorGlow = true
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const ogImageUrl = new URL(ogimage, Astro.site)
+const alternateLinks = Object.keys(alternates).length > 1
+  ? [
+      ...Object.entries(alternates).map(([code, path]) => ({ hreflang: hreflangCode[code], href: new URL(path, Astro.site).href })),
+      ...(alternates[defaultLang] ? [{ hreflang: 'x-default', href: new URL(alternates[defaultLang], Astro.site).href }] : [])
+    ]
+  : []
+const feed = pageAlternates('blog')[lang] ? { href: `/${lang}/rss.xml`, title: blogView[lang]?.meta.title ?? 'Blog' } : null
+---
+
+<!doctype html>
+<html lang={lang} data-theme={theme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    {alternateLinks.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+    {feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />}
+    <link rel="alternate" type="text/markdown" href={markdownPath(Astro.url.pathname)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href={`/favicon-${theme}.svg`} />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content={{ lime: '#0a0b09', blue: '#0a1622', pink: '#160a11', lavender: '#0f0b1c', amber: '#140d08' }[theme]} />
+    <link rel="preload" href="/static/fonts/big-shoulders-display-700-900-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/static/fonts/ibm-plex-sans-400-500-latin.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <slot />
+    {cursorGlow && <CursorGlow />}
+    <Trd3 />
+  </body>
+</html>

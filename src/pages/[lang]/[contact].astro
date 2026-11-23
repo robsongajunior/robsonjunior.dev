@@ -1,0 +1,38 @@
+---
+import i18nConfig from '@i18n/config'
+import Layout from '@layouts/Base.astro'
+import SiteNav from '@components/vue/SiteNav.vue'
+import ContactBento from '@components/vue/ContactBento.vue'
+import ContactForm from '@components/vue/ContactForm.vue'
+import SiteFooter from '@components/vue/SiteFooter.vue'
+import contact from '@i18n/view/contact'
+import shared from '@i18n/component/site'
+import { pageAlternates } from '@utils/alternates.js'
+
+export function getStaticPaths() {
+  return i18nConfig.langs.map((lang) => ({
+    params: { lang, contact: lang === 'pt-br' ? 'contato' : 'contact' },
+    props: { lang }
+  }))
+}
+
+const { lang } = Astro.props
+const page = contact[lang]
+const common = shared[lang]
+const links = page.intro.links.map((key) => common.social[key])
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? ''
+if (!accessKey) console.warn('[contact] PUBLIC_WEB3FORMS_KEY is not set: the form will not deliver messages')
+---
+
+<Layout lang={lang} alternates={pageAlternates('contact')} title={page.meta.title} description={page.meta.description} theme="amber">
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+
+  <main>
+    <ContactBento id={page.id} intro={page.intro} links={links} formIndex={page.form.index}>
+      <ContactForm slot="form" client:visible accessKey={accessKey} labels={page.form} />
+    </ContactBento>
+  </main>
+
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

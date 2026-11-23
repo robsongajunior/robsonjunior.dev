@@ -1,20 +1,37 @@
 ---
-import { getCollection } from "astro:content";
-import LayoutPost from "@layouts/Post.astro";
+import { getCollection, render } from "astro:content";
+import Layout from '@layouts/Base.astro';
+import SiteNav from '@components/vue/SiteNav.vue';
+import SiteFooter from '@components/vue/SiteFooter.vue';
+import PostLayout from '@components/vue/PostLayout.vue';
+import PostToc from '@components/vue/PostToc.vue';
+import ShareLinks from '@components/vue/ShareLinks.vue';
+import blog from '@i18n/view/blog';
+import shared from '@i18n/component/site';
+import {
+    blogBase,
+    byDateDesc,
+    categoryHref,
+    categoryKey,
+    collectCategories,
+    formatDate,
+    originalUrl,
+    postCategories,
+    postLede,
+    readingMinutes,
+    toPostCard
+} from '@utils/blog.js';
+import { entryAlternates, entryLang, entryPath } from '@utils/alternates.js';
 
 export async function getStaticPaths() {
     const collectionName = "blog";
     const posts = await getCollection(collectionName) || [];
 
     return posts.map((post) => {
-        const slugParts = post.slug.split('/');
-        const lang = slugParts[0];
-        const slug = post.slug.replace(`${lang}/`, '').replace(`${collectionName}/`, '');
-
         return {
             params: {
-                lang,
-                slug: slug
+                lang: entryLang(post),
+                slug: entryPath(post)
             },
             props: post
         }
@@ -22,9 +39,70 @@ export async function getStaticPaths() {
 }
 const post = Astro.props;
 const { lang } = Astro.params;
-const { Content } = await post.render();
+const { Content, headings } = await render(post);
+
+const page = blog[lang]
+const common = shared[lang]
+const labels = page.post
+
+const langPosts = (await getCollection('blog', (entry) => entryLang(entry) === lang)).sort(byDateDesc)
+const categories = collectCategories(langPosts)
+const categoryItems = categories.map((c) => ({ href: categoryHref(lang, c.slug), label: c.label, count: c.count }))
+const mine = [...new Set(postCategories(post).map(categoryKey).filter(Boolean))]
+const tagItems = mine
+    .map((key) => categories.find((c) => c.key === key))
+    .filter(Boolean)
+    .map((c) => ({ href: categoryHref(lang, c.slug), label: c.label }))
+
+const related = langPosts
+    .filter((other) => other.id !== post.id)
+    .map((other) => ({ other, score: postCategories(other).map(categoryKey).filter((k) => mine.includes(k)).length }))
+    .sort((a, b) => b.score - a.score || byDateDesc(a.other, b.other))
+    .slice(0, 3)
+    .map(({ other }) => toPostCard(other))
+
+const title = post.data.title.split(' ').filter(Boolean).join(' ')
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3)
+const original = originalUrl(post.body)
+const lede = postLede(post)
+const canonical = new URL(Astro.url.pathname, Astro.site).href
+const alternates = await entryAlternates('blog', post)
+
+const postProps = {
+    cover: post.data.heroImage ? { src: post.data.heroImage, alt: post.data.heroAltImage ?? '' } : null,
+    crumbs: [
+        { href: blogBase(lang), label: 'Blog' },
+        ...(tagItems[0] ? [{ href: tagItems[0].href, label: tagItems[0].label }] : []),
+        { label: title }
+    ],
+    title,
+    lede,
+    author: { name: labels.author, avatar: labels.avatar },
+    date: { iso: post.data.date.toISOString().slice(0, 10), label: formatDate(post.data.date, lang) },
+    reading: `${readingMinutes(post.body)} ${labels.reading}`,
+    tags: { title: labels.tags, items: tagItems },
+    categories: { title: labels.categories, items: categoryItems, current: tagItems.map((t) => t.href) },
+    original: original ? { href: original, label: labels.original, note: labels.originalNote, host: new URL(original).host } : null,
+    related: { title: labels.related, posts: related },
+    cta: page.cta
+}
 ---
 
-<LayoutPost {lang} {...post.data}>
-    <Content />
-</LayoutPost>
+<Layout
+    lang={lang}
+    alternates={alternates}
+    title={`${title} | Robson Júnior`}
+    description={post.data.meta_description || title}
+    robots={post.data.meta_robots}
+    theme="pink"
+>
+    <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+    <main>
+        <PostLayout {...postProps}>
+            {toc.length > 0 && <PostToc slot="toc" client:idle title={labels.toc} items={toc} />}
+            <ShareLinks slot="share" client:visible title={labels.share} url={canonical} text={title} labels={labels} />
+            <Content />
+        </PostLayout>
+    </main>
+    <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

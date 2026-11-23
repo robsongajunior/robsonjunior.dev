@@ -1,4 +1,3 @@
 export default {
-    langs: ['en', 'pt-br']
-};
-
+  langs: ['en', 'pt-br']
+}

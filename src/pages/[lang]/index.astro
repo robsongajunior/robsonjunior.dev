@@ -1,39 +1,134 @@
 ---
-import i18nConfig from "@i18n/config";
-import LayoutDefault from "@layouts/Default.astro";
-import Hero from "@components/blocking-builds/Hero.astro";
+import { getCollection } from 'astro:content'
+import i18nConfig from '@i18n/config'
+import Layout from '@layouts/Base.astro'
+import SiteNav from '@components/vue/SiteNav.vue'
+import HeroScene from '@components/vue/HeroScene.vue'
+import ContentBlock from '@components/vue/ContentBlock.vue'
+import RichText from '@components/vue/RichText.vue'
+import SloganBand from '@components/vue/SloganBand.vue'
+import ArticleLog from '@components/vue/ArticleLog.vue'
+import LinkList from '@components/vue/LinkList.vue'
+import SiteFooter from '@components/vue/SiteFooter.vue'
+import HomeBento from '@components/vue/HomeBento.vue'
+import FeaturedCarousel from '@components/vue/FeaturedCarousel.vue'
+import home from '@i18n/view/home'
+import shared from '@i18n/component/site'
+import { entryHref, entryLang, pageAlternates } from '@utils/alternates.js'
+import { byDateDesc } from '@utils/blog.js'
 
-export async function getStaticPaths() {
-    let i18nData = await import.meta.glob("@i18n/view/home/index.js");
-    const { default: data } = await i18nData[Object.keys(i18nData)[0]]();
+export function getStaticPaths() {
+  return i18nConfig.langs.map((lang) => ({ params: { lang }, props: { lang } }))
+}
 
-    return i18nConfig.langs.map((lang) => {
-        return {
-            params: { lang },
-            props: {
-                lang,
-                data: data[lang]
-            }
-        };
-    });
-};
+const { lang } = Astro.props
+const page = home[lang]
+const common = shared[lang]
 
-const { lang, data } = Astro.props;
-const metatag = data.heading.meta;
-const page = data.page;
+const editorial = true
+
+const allPosts = (await getCollection('blog', (entry) => entryLang(entry) === lang)).sort(byDateDesc)
+const toCard = (entry, href, tags) => ({
+  href,
+  title: entry.data.title.split(' ').filter(Boolean).join(' '),
+  tag: tags.join(' · ').toLowerCase(),
+  date: entry.data.date.toISOString().slice(0, 10),
+  time: entry.data.date.valueOf(),
+  excerpt: entry.data.meta_description
+})
+const posts = allPosts
+  .slice(0, page.articles.limit)
+  .map((post) =>
+    toCard(post, entryHref('blog', post), [].concat(post.data.categories ?? []).slice(0, 2))
+  )
+
+const bento = page.bento
+
+const carousel = true
+const talks = (await getCollection('talks', (entry) => entryLang(entry) === lang))
+  .sort(byDateDesc)
+  .map((talk) =>
+    toCard(
+      talk,
+      entryHref('talks', talk),
+      [bento.talkLabel].concat(talk.data.categories ?? []).slice(0, 2)
+    )
+  )
+const featuredItems = talks
+  .slice(0, carousel ? 2 : 1)
+  .concat(posts.slice(0, carousel ? 2 : 1))
+  .sort((a, b) => b.time - a.time)
+  .slice(0, carousel ? 4 : 1)
+const featured = featuredItems[0]
+const recentPosts = posts.filter((post) => !featuredItems.includes(post)).slice(0, 3)
+const firstYear = allPosts.length ? allPosts[allPosts.length - 1].data.date.getUTCFullYear() : ''
+const bentoProps = {
+  id: page.about.id,
+  articlesId: page.articles.id,
+  index: [
+    bento.index[0],
+    featuredItems.length ? bento.index[1] : '',
+    recentPosts.length ? bento.index[2] : '',
+    allPosts.length ? bento.index[3] : ''
+  ].filter(Boolean),
+  about: { ...bento.about, link: { href: common.aboutPath, label: bento.about.more } },
+  featured: featured ? { index: bento.featured, post: featured } : null,
+  recent: { index: bento.recent, posts: recentPosts },
+  explore: allPosts.length ? {
+    index: bento.explore.index,
+    title: bento.explore.title,
+    href: common.blogPath,
+    count: allPosts.length + ' ' + bento.explore.count + ' · ' + bento.explore.since + ' ' + firstYear
+  } : null,
+  cta: bento.cta
+}
+
+const contactLinks = page.contact.links.map((key) => common.social[key])
 ---
 
-<LayoutDefault
-    lang={lang}
-    title={metatag.title}
-    description={metatag.description}
-    keywords={metatag.keywords}
-    robots={metatag.robots}
->
-    <main>
-        <Hero
-            title={page.hero.title}
-            description={page.hero.description}
-        />
-    </main>
-</LayoutDefault>
+<Layout lang={lang} alternates={pageAlternates('home')} title={page.meta.title} description={page.meta.description} theme="lime">
+  <SiteNav homeHref={`/${lang}/`} homeLabel={common.homeLabel} links={common.nav} />
+
+  <HeroScene client:load variant="poster" {...page.hero} />
+
+  <main>
+    {
+      editorial ? (
+        featuredItems.length > 1 ? (
+          <HomeBento {...bentoProps}>
+            <FeaturedCarousel
+              slot="featured"
+              client:visible
+              index={bento.featured}
+              items={featuredItems}
+              labels={bento.carousel}
+              cta={bento.cta}
+            />
+          </HomeBento>
+        ) : (
+          <HomeBento {...bentoProps} />
+        )
+      ) : (
+        <ContentBlock id={page.about.id} title={page.about.title}>
+          <RichText paragraphs={page.about.paragraphs} />
+        </ContentBlock>
+      )
+    }
+
+    <SloganBand client:visible label={page.slogan.label} lines={page.slogan.lines} />
+
+    {
+      !editorial && (
+        <ContentBlock id={page.articles.id} title={page.articles.title}>
+          <ArticleLog items={posts} moreHref={common.blogPath} moreLabel={page.articles.more} />
+        </ContentBlock>
+      )
+    }
+
+    <ContentBlock id={page.contact.id} title={page.contact.title}>
+      <LinkList links={contactLinks} />
+    </ContentBlock>
+  </main>
+
+  <SiteFooter sign={common.footer.sign} credits={common.footer.credits} />
+</Layout>

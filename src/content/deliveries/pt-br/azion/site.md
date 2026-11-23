@@ -16,7 +16,6 @@ heroAltImage: 'Cover - Site moderno com Astro, Tailwind e Primevue'
 ![docs stage](https://github.com/aziontech/docs/actions/workflows/stage.yml/badge.svg)
 ![docs development](https://github.com/aziontech/docs/actions/workflows/dev.yml/badge.svg)
 
-
 ## Visão Geral do Projeto
 
 Desde o final de 2021, lidero a evolução técnica do site da [Azion Technologies](https://www.azion.com/pt-br/), transformando uma plataforma digital em um ecossistema de comunicação e tecnologia.
@@ -28,6 +27,7 @@ Nosso site cresceu de forma extraordinária, passando de algumas dezenas para ap
 ## Tipos de Conteúdo
 
 Nosso site abrange uma diversidade de páginas:
+
 - 🏢 Institucionais
 - 📦 Produtos
 - ✍️ Blog
@@ -43,6 +43,7 @@ Nosso site abrange uma diversidade de páginas:
 ## Evolução Tecnológica
 
 Neste projeto, tive a oportunidade de liderar as últimas três versões do site, utilizando tecnologias diversas:
+
 - 🔧 Jekyll + Liquid Templates
 - 🎨 CSS e JavaScript
 - 🌐 Implementações em jQuery
@@ -50,6 +51,7 @@ Neste projeto, tive a oportunidade de liderar as últimas três versões do site
 ### Modernização em 2024
 
 Em 2024, revolucionamos nossa arquitetura de desenvolvimento:
+
 - 🚀 Build realizado com Astro
 - 🖌️ Utilizando Primevue e Tailwind
 - 🤝 Unificação do padrão de desenvolvimento de interfaces
@@ -61,6 +63,7 @@ Em 2024, revolucionamos nossa arquitetura de desenvolvimento:
 ### Um Produto Unificado
 
 O site tem o objetivo de ser um produto integrado, com:
+
 - 🎨 Conceito de design unificado para todas as páginas
 - 🏢 Foco em clientes internos da empresa
 
@@ -87,6 +90,7 @@ O site tem o objetivo de ser um produto integrado, com:
 #### Front-End
 
 Nosso stylesheet e blocos são utilizados para montar toda a interface web. Nossa biblioteca de componentes é:
+
 - 🌐 Aberta
 - 📖 Pública
 - 🎓 Disponível para desenvolvedores e estudantes
@@ -105,8 +109,8 @@ Nosso stylesheet e blocos são utilizados para montar toda a interface web. Noss
 - [Astro](https://astro.build/)
 - [Vite](https://vitejs.dev/)
 - [Primevue](https://primevue.org/)
-- [Primeflex](https://primeflex.org/) 
-- [Tailwind](https://tailwindcss.com/) 
+- [Primeflex](https://primeflex.org/)
+- [Tailwind](https://tailwindcss.com/)
 
 ![Arquitetura Azion Site e Documentação](/static/uploads/deliveries/azion/site/architecture.png)
 
@@ -119,18 +123,21 @@ Nosso stylesheet e blocos são utilizados para montar toda a interface web. Noss
 ## Otimização
 
 ### Azion Edge Application
+
 - 🗜️ Gzip
 - 💾 Cache
 - ⚖️ Load Balancer
 - 🛣️ Route Management
 
 ### Outros Serviços
+
 - [Azion Edge DNS](https://www.azion.com/pt-br/blog/beneficios-de-um-dns-no-edge/)
 - [Azion Image Processor](https://www.azion.com/pt-br/blog/como-a-otimizacao-de-imagens-ajuda-empresas-de-midia/)
 
 ## CMS (Content Management System)
 
 Utilizamos as melhores ferramentas para cada solução:
+
 - [Azion Edge SQL](https://www.azion.com/pt-br/blog/azion-edge-sql/)
 - [Azion Edge Functions](https://www.azion.com/pt-br/blog/azion-apresenta-edge-functions/)
 - [Algolia](https://www.algolia.com/)
