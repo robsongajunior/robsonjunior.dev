@@ -1,5 +1,3 @@
-import tailwindcss from '@tailwindcss/vite'
-
 export default {
   ssrBuild: true,
   server: {
@@ -7,7 +5,6 @@ export default {
       allow: ['..']
     }
   },
-  plugins: [tailwindcss()],
   ssr: {
     noExternal: [],
     external: []
