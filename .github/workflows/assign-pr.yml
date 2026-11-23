@@ -1,0 +1,25 @@
+name: Assign author to PR
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  assignAuthor:
+    name: Auto assign author to PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Assign author to PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+        run: |
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then exit 0; fi
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/issues/${NUMBER}/assignees" -f "assignees[]=${AUTHOR}" --silent || echo "::warning::could not assign ${AUTHOR} to PR #${NUMBER}"
