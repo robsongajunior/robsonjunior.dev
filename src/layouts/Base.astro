@@ -4,7 +4,7 @@ import '../styles/global.css'
 import CursorGlow from '@components/CursorGlow.astro'
 import Trd3 from '@components/Trd3.astro'
 import blogView from '@i18n/view/blog'
-import { defaultLang, hreflangCode } from '@utils/alternates.js'
+import { defaultLang, hreflangCode, pageAlternates } from '@utils/alternates.js'
 import { markdownPath } from '@utils/markdown.js'
 
 interface Props {
@@ -27,7 +27,7 @@ const alternateLinks = Object.keys(alternates).length > 1
       ...(alternates[defaultLang] ? [{ hreflang: 'x-default', href: new URL(alternates[defaultLang], Astro.site).href }] : [])
     ]
   : []
-const feed = { href: `/${lang}/rss.xml`, title: blogView[lang]?.meta.title ?? 'Blog' }
+const feed = pageAlternates('blog')[lang] ? { href: `/${lang}/rss.xml`, title: blogView[lang]?.meta.title ?? 'Blog' } : null
 ---
 
 <!doctype html>
@@ -40,7 +40,7 @@ const feed = { href: `/${lang}/rss.xml`, title: blogView[lang]?.meta.title ?? 'B
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonical} />
     {alternateLinks.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
-    <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />
+    {feed && <link rel="alternate" type="application/rss+xml" title={feed.title} href={feed.href} />}
     <link rel="alternate" type="text/markdown" href={markdownPath(Astro.url.pathname)} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />

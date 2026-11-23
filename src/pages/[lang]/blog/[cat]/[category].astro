@@ -6,20 +6,21 @@ import SiteFooter from '@components/vue/SiteFooter.vue'
 import BlogCategory from '@components/vue/BlogCategory.vue'
 import blog from '@i18n/view/blog'
 import shared from '@i18n/component/site'
-import { blogBase, categoryHref, categoryKey, categoryMeta, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
+import { entryLang, langOrder } from '@utils/alternates.js'
+import { blogBase, byDateDesc, categoryHref, categoryKey, categoryMeta, collectCategories, groupByYear, postCategories, toPostCard } from '@utils/blog.js'
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog')
-  const langs = [...new Set(posts.map((post) => post.slug.split('/')[0]))]
+  const langs = langOrder(posts.map(entryLang))
   return langs.flatMap((lang) => {
     const langPosts = posts
-      .filter((post) => post.slug.startsWith(`${lang}/`))
-      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+      .filter((post) => entryLang(post) === lang)
+      .sort(byDateDesc)
     const categories = collectCategories(langPosts)
     const alternatesOf = (slug) =>
       Object.fromEntries(
         langs
-          .filter((other) => collectCategories(posts.filter((post) => post.slug.startsWith(`${other}/`))).some((c) => c.slug === slug))
+          .filter((other) => collectCategories(posts.filter((post) => entryLang(post) === other)).some((c) => c.slug === slug))
           .map((other) => [other, categoryHref(other, slug)])
       )
     return categories.map((category) => ({

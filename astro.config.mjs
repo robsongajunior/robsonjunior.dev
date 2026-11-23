@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import { unified } from '@astrojs/markdown-remark'
 
 import vite from './astro.vite.config'
 import integrations from './astro.config.integrations'
@@ -11,6 +12,9 @@ export default defineConfig({
   compressHTML: productionBuild ? true : false,
   build: {
     inlineStylesheets: 'always'
+  },
+  markdown: {
+    processor: unified()
   },
   integrations: integrations,
   vite: vite

@@ -1,6 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
-import { getPageByLangCollection } from "@utils/pages.js";
 import Layout from '@layouts/Base.astro';
 import SiteNav from '@components/vue/SiteNav.vue';
 import HeroScene from '@components/vue/HeroScene.vue';
@@ -9,36 +7,21 @@ import SiteFooter from '@components/vue/SiteFooter.vue';
 import talksView from '@i18n/view/talks';
 import about from '@i18n/view/about';
 import shared from '@i18n/component/site';
-import { pageAlternates } from '@utils/alternates.js'
+import { pageAlternates, sectionOf } from '@utils/alternates.js'
 import { talkStats } from '@utils/talks.js';
 
-export async function getStaticPaths() {
-    const posts = await getCollection('talks') || [];
-
-    return ['pt-br'].map((lang) => {
-        const postsByLang = getPageByLangCollection(posts, lang) || [];
-
-        postsByLang.map(post => {
-            const slugParts = post.slug.split('/');
-            const event = `${slugParts[1]}`;
-            const postslug = lang === 'en' ? 'talks' : 'palestras';
-
-            post.slug = `${lang}/${postslug}/${event}`;
-        });
-
-        return {
-            params: {
-                lang: lang,
-                talks: lang === 'en' ? 'talks' : 'palestras'
-            },
-            props: {
-                lang: lang,
-                posts: postsByLang.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-            }
-        };
-    });
+export function getStaticPaths() {
+    return ['pt-br'].map((lang) => ({
+        params: {
+            lang: lang,
+            talks: sectionOf('talks', lang)
+        },
+        props: {
+            lang: lang
+        }
+    }));
 }
-const { lang, posts } = Astro.props;
+const { lang } = Astro.props;
 
 const page = talksView[lang]
 const common = shared[lang]

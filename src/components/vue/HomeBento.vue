@@ -1,17 +1,21 @@
 <script setup>
 import BentoCell from './BentoCell.vue'
 import PostCard from './PostCard.vue'
+import { computed, useSlots } from 'vue'
 
-defineProps({
+const props = defineProps({
   id: { type: String, required: true },
   articlesId: { type: String, required: true },
   index: { type: Array, default: () => [] },
   about: { type: Object, required: true },
   featured: { type: Object, default: null },
   recent: { type: Object, required: true },
-  explore: { type: Object, required: true },
+  explore: { type: Object, default: null },
   cta: { type: String, default: '' }
 })
+
+const slots = useSlots()
+const solo = computed(() => !slots.featured && !props.featured && !props.recent.posts.length && !props.explore)
 </script>
 
 <template>
@@ -24,7 +28,7 @@ defineProps({
       </ol>
     </div>
 
-    <div class="grid">
+    <div class="grid" :class="{ solo }">
       <BentoCell class="a" :index="about.index">
         <h2 class="headline">
           <template v-for="part in about.headline" :key="part.text">
@@ -63,7 +67,7 @@ defineProps({
         :cta="cta"
       />
 
-      <BentoCell class="d" tone="accent" :href="explore.href" :index="explore.index">
+      <BentoCell v-if="explore" class="d" tone="accent" :href="explore.href" :index="explore.index">
         <span class="explore-title">{{ explore.title }}</span>
         <span class="explore-foot">
           <span class="count">{{ explore.count }}</span>
@@ -260,6 +264,12 @@ defineProps({
     min-height: 200px;
   }
 }
+.grid.solo {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'a';
+  grid-template-rows: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .arrow,
   .more {

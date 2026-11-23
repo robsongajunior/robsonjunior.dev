@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import Article from '@layouts/Article.astro'
-import { entryAlternates } from '@utils/alternates.js'
+import { entryAlternates, entryLang, entryPath, sectionOf } from '@utils/alternates.js'
 import talksView from '@i18n/view/talks'
 
 export async function getStaticPaths() {
@@ -9,10 +9,9 @@ export async function getStaticPaths() {
   const posts = (await getCollection(collectionName)) || []
 
   return posts.map((post) => {
-    const slugParts = post.slug.split('/')
-    const lang = slugParts[0]
-    const talks = lang === 'en' ? 'talks' : 'palestras'
-    const slug = post.slug.replace(`${lang}/`, '').replace(`${collectionName}/`, '').replace(`${talks}/`, '')
+    const lang = entryLang(post)
+    const talks = sectionOf('talks', lang)
+    const slug = entryPath(post)
 
     return {
       params: { lang, slug, talks },

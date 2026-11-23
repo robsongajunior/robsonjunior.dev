@@ -14,7 +14,8 @@ import HomeBento from '@components/vue/HomeBento.vue'
 import FeaturedCarousel from '@components/vue/FeaturedCarousel.vue'
 import home from '@i18n/view/home'
 import shared from '@i18n/component/site'
-import { pageAlternates } from '@utils/alternates.js'
+import { entryHref, entryLang, pageAlternates } from '@utils/alternates.js'
+import { byDateDesc } from '@utils/blog.js'
 
 export function getStaticPaths() {
   return i18nConfig.langs.map((lang) => ({ params: { lang }, props: { lang } }))
@@ -26,9 +27,7 @@ const common = shared[lang]
 
 const editorial = true
 
-const allPosts = (await getCollection('blog', ({ slug }) => slug.startsWith(`${lang}/`))).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-)
+const allPosts = (await getCollection('blog', (entry) => entryLang(entry) === lang)).sort(byDateDesc)
 const toCard = (entry, href, tags) => ({
   href,
   title: entry.data.title.split(' ').filter(Boolean).join(' '),
@@ -40,19 +39,18 @@ const toCard = (entry, href, tags) => ({
 const posts = allPosts
   .slice(0, page.articles.limit)
   .map((post) =>
-    toCard(post, '/' + post.slug.replace(lang + '/', lang + '/blog/') + '/', [].concat(post.data.categories ?? []).slice(0, 2))
+    toCard(post, entryHref('blog', post), [].concat(post.data.categories ?? []).slice(0, 2))
   )
 
 const bento = page.bento
 
 const carousel = true
-const talksPath = lang === 'en' ? 'talks' : 'palestras'
-const talks = (await getCollection('talks', ({ slug }) => slug.startsWith(lang + '/')))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const talks = (await getCollection('talks', (entry) => entryLang(entry) === lang))
+  .sort(byDateDesc)
   .map((talk) =>
     toCard(
       talk,
-      '/' + talk.slug.replace(lang + '/', lang + '/' + talksPath + '/') + '/',
+      entryHref('talks', talk),
       [bento.talkLabel].concat(talk.data.categories ?? []).slice(0, 2)
     )
   )
@@ -67,16 +65,21 @@ const firstYear = allPosts.length ? allPosts[allPosts.length - 1].data.date.getU
 const bentoProps = {
   id: page.about.id,
   articlesId: page.articles.id,
-  index: bento.index,
+  index: [
+    bento.index[0],
+    featuredItems.length ? bento.index[1] : '',
+    recentPosts.length ? bento.index[2] : '',
+    allPosts.length ? bento.index[3] : ''
+  ].filter(Boolean),
   about: { ...bento.about, link: { href: common.aboutPath, label: bento.about.more } },
   featured: featured ? { index: bento.featured, post: featured } : null,
   recent: { index: bento.recent, posts: recentPosts },
-  explore: {
+  explore: allPosts.length ? {
     index: bento.explore.index,
     title: bento.explore.title,
     href: common.blogPath,
     count: allPosts.length + ' ' + bento.explore.count + ' · ' + bento.explore.since + ' ' + firstYear
-  },
+  } : null,
   cta: bento.cta
 }
 

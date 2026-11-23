@@ -13,9 +13,11 @@ import {
   entryHref,
   entryLang,
   hreflangCode,
+  langOrder,
   pageAlternates
 } from '@utils/alternates.js'
 import {
+  byDateDesc,
   categoryHref,
   categoryKey,
   collectCategories,
@@ -41,8 +43,6 @@ const cleanTitle = (title) => title.split(' ').filter(Boolean).join(' ')
 const isoDate = (date) => date.toISOString().slice(0, 10)
 
 const validDate = (date) => date instanceof Date && !Number.isNaN(date.valueOf())
-
-const byDateDesc = (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 
 const escapeText = (text = '') =>
   String(text)
@@ -86,7 +86,7 @@ async function enumeratePages() {
     add(entryHref('talks', entry), 'entry', entryLang(entry), { collection: 'talks', entry })
   )
 
-  const langs = [...new Set(posts.map(entryLang))]
+  const langs = langOrder(posts.map(entryLang))
   const categoriesOf = (lang) => collectCategories(posts.filter((post) => entryLang(post) === lang))
   langs.forEach((lang) => {
     categoriesOf(lang).forEach((category) => {
@@ -236,7 +236,7 @@ const cover = (entry) =>
     ? `![${escapeText(entry.data.heroAltImage ?? '')}](${linkTarget(entry.data.heroImage, new Set())})`
     : ''
 
-const isMdx = (entry) => entry.id.endsWith('.mdx')
+const isMdx = (entry) => entry.filePath.endsWith('.mdx')
 
 const byline = (entry, lang) => {
   const labels = blog[lang].post
@@ -279,8 +279,12 @@ const builders = {
         `[${bento.about.more}](${linkTarget(common.aboutPath, paths)})`,
         ...(featured.length ? [`## ${bento.index[1]}`, featured.map(cardItem).join('\n')] : []),
         ...(recent.length ? [`## ${bento.index[2]}`, recent.map(cardItem).join('\n')] : []),
-        `## ${bento.index[3]}`,
-        `[${bento.explore.title}](${linkTarget(common.blogPath, paths)}) — ${allPosts.length} ${bento.explore.count} · ${bento.explore.since} ${firstYear}`,
+        ...(allPosts.length
+          ? [
+              `## ${bento.index[3]}`,
+              `[${bento.explore.title}](${linkTarget(common.blogPath, paths)}) — ${allPosts.length} ${bento.explore.count} · ${bento.explore.since} ${firstYear}`
+            ]
+          : []),
         `## ${page.contact.title}`,
         linkItems(page.contact.links.map((key) => common.social[key]))
       ]

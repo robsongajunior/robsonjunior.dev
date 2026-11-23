@@ -1,38 +1,36 @@
 ---
 import { getCollection } from 'astro:content'
-import i18nConfig from '@i18n/config'
 import Layout from '@layouts/Base.astro'
 import SiteNav from '@components/vue/SiteNav.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
 import BlogCategory from '@components/vue/BlogCategory.vue'
 import deliveriesView from '@i18n/view/deliveries'
 import shared from '@i18n/component/site'
-import { pageAlternates } from '@utils/alternates.js'
-import { groupByYear, postCategories } from '@utils/blog.js'
+import { entryHref, entryLang, entryPath, pageAlternates, pageLangs, sectionOf } from '@utils/alternates.js'
+import { byDateDesc, groupByYear, postCategories } from '@utils/blog.js'
 
 export async function getStaticPaths() {
   const posts = await getCollection('deliveries')
 
-  return i18nConfig.langs.map((lang) => ({
-    params: { lang, deliveries: lang === 'en' ? 'deliveries' : 'entregas' },
+  return pageLangs('deliveries').map((lang) => ({
+    params: { lang, deliveries: sectionOf('deliveries', lang) },
     props: {
       lang,
       posts: posts
-        .filter((post) => post.slug.startsWith(`${lang}/`))
-        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+        .filter((post) => entryLang(post) === lang)
+        .sort(byDateDesc)
     }
   }))
 }
 
 const { lang, posts } = Astro.props
-const { deliveries } = Astro.params
 const page = deliveriesView[lang]
 const common = shared[lang]
 
 const cards = posts.map((post) => ({
-  href: `/${lang}/${deliveries}/${post.slug.split('/').slice(1).join('/')}/`,
+  href: entryHref('deliveries', post),
   title: post.data.title.split(' ').filter(Boolean).join(' '),
-  tag: [post.slug.split('/')[1], ...postCategories(post).slice(0, 1)].join(' · ').toLowerCase(),
+  tag: [entryPath(post).split('/')[0], ...postCategories(post).slice(0, 1)].join(' · ').toLowerCase(),
   date: post.data.date.toISOString().slice(0, 10),
   year: post.data.date.getUTCFullYear(),
   excerpt: post.data.meta_description

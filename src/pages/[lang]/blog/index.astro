@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import i18nConfig from '@i18n/config';
-import { getPageByLangCollection } from "@utils/pages.js";
 import Layout from '@layouts/Base.astro';
 import SiteNav from '@components/vue/SiteNav.vue';
 import HeroScene from '@components/vue/HeroScene.vue';
@@ -9,18 +7,14 @@ import SiteFooter from '@components/vue/SiteFooter.vue';
 import BlogBento from '@components/vue/BlogBento.vue';
 import blog from '@i18n/view/blog';
 import shared from '@i18n/component/site';
-import { pageAlternates } from '@utils/alternates.js'
-import { categoryHref, collectCategories } from '@utils/blog.js';
+import { entryHref, entryLang, pageAlternates, pageLangs } from '@utils/alternates.js'
+import { byDateDesc, categoryHref, collectCategories } from '@utils/blog.js';
 
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
 
-    return i18nConfig.langs.map((lang) => {
-        let postsByLang = getPageByLangCollection(posts, lang) || [];
-
-        postsByLang.map(post => {
-            post.slug = `${lang}/blog/${post.slug.split('/')[1]}`
-        });
+    return pageLangs('blog').map((lang) => {
+        const postsByLang = posts.filter((post) => entryLang(post) === lang);
 
         return {
             params: {
@@ -28,7 +22,7 @@ export async function getStaticPaths() {
             },
             props: {
                 lang: lang,
-                posts: postsByLang.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+                posts: postsByLang.sort(byDateDesc)
             }
         };
     });
@@ -40,7 +34,7 @@ const page = blog[lang]
 const common = shared[lang]
 
 const cards = posts.map((post) => ({
-    href: `/${post.slug}/`,
+    href: entryHref('blog', post),
     title: post.data.title.split(' ').filter(Boolean).join(' '),
     tag: [].concat(post.data.categories ?? []).slice(0, 2).join(' · ').toLowerCase(),
     date: post.data.date.toISOString().slice(0, 10),
@@ -68,7 +62,7 @@ const blogProps = {
         index: page.stats.index,
         items: [
             { value: cards.length, label: page.stats.posts, wide: true },
-            { value: cards.length ? cards.at(-1).year : '', label: page.stats.first },
+            { value: cards.at(-1)?.year ?? '', label: page.stats.first },
             { value: latest ? latest.year : '', label: page.stats.last }
         ]
     },

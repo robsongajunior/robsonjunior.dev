@@ -1,3 +1,4 @@
+import { entryHref } from '@utils/alternates.js'
 
 const plain = (text) =>
   String(text)
@@ -11,6 +12,8 @@ const urlSlug = (label) =>
   plain(label)
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
+
+export const byDateDesc = (a, b) => b.data.date.valueOf() - a.data.date.valueOf() || a.id.localeCompare(b.id)
 
 export const postCategories = (post) => [].concat(post.data.categories ?? []).filter(Boolean).map(String)
 
@@ -50,13 +53,8 @@ export const blogBase = (lang) => `/${lang}/blog/`
 export const categoryBase = (lang) => `/${lang}/blog/${lang === 'pt-br' ? 'categoria' : 'category'}/`
 export const categoryHref = (lang, slug) => `${categoryBase(lang)}${slug}/`
 
-export const postHref = (post) => {
-  const [lang, ...rest] = post.slug.split('/')
-  if (rest[0] === 'blog' && rest.length > 1) rest.shift()
-  return `/${lang}/blog/${rest.join('/')}/`
-}
 export const toPostCard = (post) => ({
-  href: postHref(post),
+  href: entryHref('blog', post),
   title: post.data.title.split(' ').filter(Boolean).join(' '),
   tag: postCategories(post).slice(0, 2).join(' · ').toLowerCase(),
   date: post.data.date.toISOString().slice(0, 10),

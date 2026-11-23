@@ -1,4 +1,5 @@
 ---
+import { render } from 'astro:content'
 import Layout from '@layouts/Base.astro'
 import SiteNav from '@components/vue/SiteNav.vue'
 import SiteFooter from '@components/vue/SiteFooter.vue'
@@ -10,7 +11,7 @@ import shared from '@i18n/component/site'
 import { formatDate, readingMinutes } from '@utils/blog.js'
 
 const { lang, entry, theme, crumbs = [], alternates = {} } = Astro.props
-const { Content, headings } = await entry.render()
+const { Content, headings } = await render(entry)
 
 const common = shared[lang]
 const labels = blog[lang].post

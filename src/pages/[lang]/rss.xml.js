@@ -1,19 +1,16 @@
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
-import i18nConfig from '@i18n/config'
 import blog from '@i18n/view/blog'
-import { postCategories } from '@utils/blog.js'
-import { entryHref, entryLang, hreflangCode } from '@utils/alternates.js'
+import { byDateDesc, postCategories } from '@utils/blog.js'
+import { entryHref, entryLang, hreflangCode, pageLangs } from '@utils/alternates.js'
 
 export function getStaticPaths() {
-  return i18nConfig.langs.map((lang) => ({ params: { lang } }))
+  return pageLangs('blog').map((lang) => ({ params: { lang } }))
 }
 
 export async function GET({ params, site }) {
   const { lang } = params
-  const posts = (await getCollection('blog', (entry) => entryLang(entry) === lang)).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-  )
+  const posts = (await getCollection('blog', (entry) => entryLang(entry) === lang)).sort(byDateDesc)
 
   return rss({
     title: blog[lang].meta.title,
