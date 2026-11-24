@@ -24,6 +24,7 @@ const scenes = {
 }
 
 const longTitle = `${props.title} ${props.titleAccent}`.split(/\s+/).some((word) => word.length > 8)
+const accented = /[\u00C0-\u024F]/.test(`${props.title} ${props.titleAccent}`)
 
 const canvas = ref(null)
 const copy = ref(null)
@@ -43,7 +44,7 @@ useCanvasScene(canvas, {
     <div class="scrim"></div>
     <div ref="copy" class="copy">
       <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
-      <h1 :class="{ long: longTitle }">
+      <h1 :class="{ long: longTitle, accented }">
         {{ title }} <span v-if="titleAccent">{{ titleAccent }}</span>
       </h1>
       <p v-if="lede" class="lede">{{ lede }}</p>
@@ -108,6 +109,9 @@ h1 {
 }
 h1 span {
   color: var(--accent);
+}
+h1.accented {
+  line-height: 1.04;
 }
 h1.long {
   font-size: clamp(56px, 8vw, 112px);
