@@ -1,21 +1,21 @@
 export default {
   meta: {
-    title: 'Robson Júnior | Senior Product Engineer',
+    title: 'Robson Júnior | Product Engineer',
     description:
-      'Robson Júnior, Senior Product Engineer na Azion Technologies. Pensando como produto, construindo como engenheiro. Front-end, edge e open source.'
+      'Robson Júnior, Product Engineer na Azion Technologies. Produto na cabeça, engenharia nas mãos. Edge, IA e open source.'
   },
   hero: {
     eyebrow: 'porto alegre, rs · desde 2014',
     title: 'Robson',
     titleAccent: 'Júnior',
-    lede: 'Senior Product Engineer na Azion Technologies. Pensando como produto, construindo como engenheiro. Front-end, edge e open source.',
+    lede: 'Product Engineer na Azion Technologies. Produto na cabeça, engenharia nas mãos. Edge, IA e open source.',
     cue: 'role para baixo'
   },
   about: {
     id: 'sobre',
     title: 'Sobre',
     paragraphs: [
-      'Imerso em arquitetura front-end, developer tooling e a experiência de quem constrói aplicações na edge. Pensando como produto, construindo como engenheiro.',
+      'Imerso em produto, developer tooling e na experiência de quem constrói aplicações na edge. Pensando como produto, construindo como engenheiro.',
       'Estou na web desde 2014. Comecei fazendo animações em CSS3, passei pelo Terra Networks como Software Developer e Front-End Engineer e cheguei à <a href="https://www.azion.com/pt-br/">Azion Technologies</a>, onde venho trabalhando cada vez mais perto do produto e das decisões de arquitetura.',
       'Nasci em Gramado e moro em Porto Alegre. Gosto de web, browser applications, extensões de Chrome e open source.'
     ]
@@ -38,7 +38,7 @@ export default {
         }
       ],
       summary:
-        'Imerso em arquitetura front-end, developer tooling e na experiência de quem constrói aplicações na edge. Na web desde 2014, passei pelo Terra Networks e hoje sou Senior Product Engineer na Azion Technologies.',
+        'Imerso em produto, developer tooling e na experiência de quem constrói aplicações na edge. Na web desde 2014, passei pelo Terra Networks e hoje sou Product Engineer na Azion Technologies.',
       meta: ['gramado → porto alegre', '30°02′S 51°13′W'],
       more: 'conhecer mais'
     },

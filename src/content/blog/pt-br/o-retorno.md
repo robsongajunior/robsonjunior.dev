@@ -29,9 +29,9 @@ Era isso. E o blog estava parado.
 
 ## O que virou
 
-A home nova abre com a cena do quadro. O nome vem em tipografia condensada enorme, "ROBSON JÚNIOR", com "porto alegre, rs · desde 2014" logo acima e uma linha que resume onde estou: Senior Product Engineer na Azion Technologies. Pensando como produto, construindo como engenheiro. Front-end, edge e open source.
+A home nova abre com a cena do quadro. O nome vem em tipografia condensada enorme, "ROBSON JÚNIOR", com "porto alegre, rs · desde 2014" logo acima e uma linha que resume onde estou: Product Engineer na Azion Technologies. Produto na cabeça, engenharia nas mãos. Edge, IA e open source.
 
-![Home nova no desktop: a ilustração do quadro, com a figura de capuz digitando, ocupa o fundo; à esquerda, o nome ROBSON JÚNIOR e a descrição de Senior Product Engineer na Azion](/static/uploads/blog/pt-br/o-retorno/depois-home-desktop.webp)
+![Home nova no desktop: a ilustração do quadro, com a figura de capuz digitando, ocupa o fundo; à esquerda, o nome ROBSON JÚNIOR e a descrição de Product Engineer na Azion](/static/uploads/blog/pt-br/o-retorno/depois-home-desktop.webp)
 
 A ilustração não é uma imagem chapada. Ela foi separada em camadas (fundo, meio e frente) que se movem em canvas. É o quadro ganhando um pouco de profundidade na tela.
 

@@ -1,13 +1,13 @@
 export default {
   meta: {
     title: 'Contact | Robson Júnior',
-    description: 'Get in touch with Robson Júnior about front-end, the edge, talks or projects.'
+    description: 'Get in touch with Robson Júnior about product, the edge, AI, talks or projects.'
   },
   id: 'contact',
   intro: {
     index: 'Contact',
     statement: "Let's talk.",
-    summary: 'About front-end, the edge, a talk invitation or a project. Write through the form or find me on social media.',
+    summary: 'About product, the edge, AI, a talk invitation or a project. Write through the form or find me on social media.',
     meta: ['porto alegre, rs', 'brazil'],
     links: ['linkedin', 'github', 'speakerdeck', 'instagram', 'twitter']
   },

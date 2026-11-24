@@ -1,13 +1,13 @@
 export default {
   meta: {
     title: 'Contato | Robson Júnior',
-    description: 'Fale com Robson Júnior sobre front-end, edge, palestras ou projetos.'
+    description: 'Fale com Robson Júnior sobre produto, edge, IA, palestras ou projetos.'
   },
   id: 'contato',
   intro: {
     index: 'Contato',
     statement: 'Vamos conversar.',
-    summary: 'Sobre front-end, edge, um convite para palestra ou um projeto. Escreva pelo formulário ou me encontre nas redes.',
+    summary: 'Sobre produto, edge, IA, um convite para palestra ou um projeto. Escreva pelo formulário ou me encontre nas redes.',
     meta: ['porto alegre, rs', 'brasil'],
     links: ['linkedin', 'github', 'speakerdeck', 'instagram', 'twitter']
   },

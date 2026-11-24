@@ -2,13 +2,13 @@ export default {
   meta: {
     title: 'About | Robson Júnior',
     description:
-      'Robson Júnior is a Senior Product Engineer at Azion Technologies. Front-end, developer tooling and edge computing, formerly at Terra Networks.'
+      'Robson Júnior is a Product Engineer at Azion Technologies. Product, developer tooling and edge computing, formerly at Terra Networks.'
   },
   hero: {
     eyebrow: 'about · robson júnior',
     title: 'Product',
     titleAccent: 'Engineer',
-    lede: 'Deep into front-end architecture, developer tooling and the experience of people building applications on the edge.',
+    lede: 'Deep into product, developer tooling and the experience of people building applications on the edge.',
     cue: 'scroll down'
   },
   intro: {
@@ -25,7 +25,7 @@ export default {
     id: 'bio',
     title: 'Bio',
     paragraphs: [
-      "Robson Júnior is a Senior Product Engineer at Azion Technologies, on the UX Engineering team. At Azion he has also worked on the Experience Engineering, Marketing Engineering, Core Services and Routing Services teams, where he built a RUM (Real User Monitoring) application. Before that he was part of the Technology team at Terra Networks in Porto Alegre, working on SVA, Portal Technology, Entertainment and E-mail Technology, and helped create the company's first Full DevOps team."
+      "Robson Júnior is a Product Engineer at Azion Technologies, on the UX Engineering team. At Azion he has also worked on the Experience Engineering, Marketing Engineering, Core Services and Routing Services teams, where he built a RUM (Real User Monitoring) application. Before that he was part of the Technology team at Terra Networks in Porto Alegre, working on SVA, Portal Technology, Entertainment and E-mail Technology, and helped create the company's first Full DevOps team."
     ]
   },
   editorial: {
@@ -49,10 +49,10 @@ export default {
     },
     now: {
       index: 'Now',
-      role: 'Senior Product Engineer',
+      role: 'Product Engineer',
       company: 'Azion Technologies',
       team: 'UX Engineering team',
-      focus: 'Deep into front-end architecture, developer tooling and the experience of people building applications on the edge.'
+      focus: 'Deep into product, developer tooling and the experience of people building applications on the edge.'
     },
     journey: {
       index: 'Journey',
@@ -71,7 +71,7 @@ export default {
         {
           when: 'now',
           where: 'Azion Technologies',
-          what: 'Senior Product Engineer',
+          what: 'Product Engineer',
           detail: 'Experience Engineering, Marketing Engineering, Core Services, Routing Services (a RUM application) and, now, UX Engineering.'
         }
       ]
@@ -94,7 +94,7 @@ export default {
       },
       themes: {
         index: 'Recurring themes',
-        items: ['JAM Stack', 'Edge computing', 'Scalability', 'Front-end architecture']
+        items: ['JAM Stack', 'Edge computing', 'Scalability', 'Developer tooling']
       },
       listIndex: 'Decks',
       external: '(opens in a new tab)'

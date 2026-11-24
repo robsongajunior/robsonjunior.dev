@@ -1,21 +1,21 @@
 export default {
   meta: {
-    title: 'Robson Júnior | Senior Product Engineer',
+    title: 'Robson Júnior | Product Engineer',
     description:
-      'Robson Júnior, Senior Product Engineer at Azion Technologies. Thinking like product, building like an engineer. Front-end, edge and open source.'
+      'Robson Júnior, Product Engineer at Azion Technologies. Product in mind, engineering in hand. Edge, AI and open source.'
   },
   hero: {
     eyebrow: 'porto alegre, brazil · since 2014',
     title: 'Robson',
     titleAccent: 'Júnior',
-    lede: 'Senior Product Engineer at Azion Technologies. Thinking like product, building like an engineer. Front-end, edge and open source.',
+    lede: 'Product Engineer at Azion Technologies. Product in mind, engineering in hand. Edge, AI and open source.',
     cue: 'scroll down'
   },
   about: {
     id: 'about',
     title: 'About',
     paragraphs: [
-      'Deep into front-end architecture, developer tooling and the experience of people building applications on the edge. Thinking like product, building like an engineer.',
+      'Deep into product, developer tooling and the experience of people building applications on the edge. Thinking like product, building like an engineer.',
       'I have been on the web since 2014. I started out writing CSS3 animations, worked at Terra Networks as a Software Developer and Front-End Engineer and landed at <a href="https://www.azion.com/en/">Azion Technologies</a>, where I keep getting closer to product and architecture decisions.',
       'Born in Gramado, living in Porto Alegre. I like the web, browser applications, Chrome extensions and open source.'
     ]
@@ -38,7 +38,7 @@ export default {
         }
       ],
       summary:
-        'Deep into front-end architecture, developer tooling and the experience of people building applications on the edge. On the web since 2014, I went through Terra Networks and I am now a Senior Product Engineer at Azion Technologies.',
+        'Deep into product, developer tooling and the experience of people building applications on the edge. On the web since 2014, I went through Terra Networks and I am now a Product Engineer at Azion Technologies.',
       meta: ['gramado → porto alegre', '30°02′S 51°13′W'],
       more: 'know more'
     },
