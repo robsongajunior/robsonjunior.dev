@@ -42,7 +42,7 @@ jobs:
         run: mv dist/* ./ && rm -rf dist; ls -la;
 
       - name: publishing
-        uses: patrickwyler/gcs-bucket-sync-action@1.3
+        uses: patrickwyler/gcs-bucket-sync-action@1.4
         with:
           secrets: ${{ secrets.GCP_AUTH }}
           bucket: ${{ secrets.GCP_PROD_BUCKET_NAME }}
